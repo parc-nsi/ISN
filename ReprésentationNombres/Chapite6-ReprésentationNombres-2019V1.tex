@@ -1,0 +1,2332 @@
+\documentclass[a4paper, french, 12pt]{article}  % Dclare la classe du document.
+% Il existe 5 classes sous LaTeX : article, book, report, letter et slides 
+% Les options de classe sont entre crochets et permettent de faire des choix d'ordre gnral :
+% - dfinir la taille de base des caractres avec 10pt, 11pt, 12pt, les commandes d'agrandissement 
+% ou de rduction de la tailles des caractres ( \small \large ) se feront alors par rapport  cette base
+% - dfinir la taille du papier:  a4paper,  a5paper, b5paper, executivepaper, legalpaper ou letterpaper
+% Utiliser a4paper ds que la papier utilis est de ce format c'est  dire ... tout le temps ;-)
+% - utiliser des options de mise en page : 
+%       ->   landscape passe en mode paysage pour l'ensemble du doccument
+%       ->   onecolumn  option par dfaut, le texte sera sur une seule colonne 
+%       ->   twocolumn   pour un doccument sur deux colonnes, des rglages sont possibles (cf doc & net)
+%       ->   oneside toutes les pages seront traits identiquement, par dfaut avec la classe article
+%       ->   twoside  mise en page diffrentes pour les pages pairs et impairs par dfaut avec book
+%       ->   openright et openany  pour grer le commencement des chapitres dans la classe book
+%       ->   titlepage et notitlepage indique si une nouvelle page doit tre commence aprs le titre du document.
+
+% \usepackage permet de dclarer un module qui sera pris en compte dans la suite. 
+% Les modules permettent d'tendre les fonctionnalit de LaTeX
+
+%%%%Caracteres reserves%%%%%%%%%%%
+%Pour les obtenir on les fait précéder d'un \
+% { s'obtient avec \{
+% } s'obtient avec \}
+% % s'obtient avec \% 
+% $ s'obtient avec \$
+% & s'obtient avec \&
+% # s'obtient avec \#
+% _ s'obtient avec \_
+% ^ s'obtient avec \^{}
+% \ s'obtient avec \textbackslash{} car \\ est une commande
+%Les caractères [ et ] ne sont pas réservés et s'obtiennent directement
+%\[ et \] delimitent une environnement mathematique
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%Polices%%%
+%La police employee par defaut par Latex s'appelle Computer Modern
+
+%%%Changement de style de police%%
+
+%Police par defaut {\normalfont ...} c'est une bascule
+
+%Trois familles 
+%Romaine par defaut
+%sans serif \textsf{..} ou {\sffamily ....}
+%typewriter \texttt{..} ou {\ttfamily ....}
+
+%Quatre formes
+%droite par defaut
+%italique \textit{..} ou {\itshape ....}
+%penchee \textsl{..} ou {\slshape ....}
+%petites capitales  \textsc{..} ou {\scshape ....}
+
+%Deux series
+%normale par defaut
+%grasse \textbf{..} ou {\bfseries ....}
+
+
+%%Taille%%
+%Toutes les commandes suivantes sont des bascules a utiliser entre accolades
+%{\tiny petit mot}
+%Dans l'ordre croissant
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+%\normalsize
+%\large
+%\Large
+%\LARGE
+%\huge
+%\Huge
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%Justification%%%%%
+%Alignement a droite
+%\begin{flushright}
+%{\raggedleft texte \par} ne pas oublier \par
+%\leftline{texte}
+%\filleft pour formater un titre 
+
+%Alignement a gauche
+%\begin{flushleft}
+%{\raggedright texte \par} ne pas oublier \par
+%\rightline{texte}
+%\filright pour formater un titre 
+
+
+%Centrage
+%\begin{center}
+%{\centering texte \par} ne pas oublier \par
+%\centerline{texte}
+%\filcenter pour formater un titre 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%Espaces%%%%%%%%%%%%%%%%%%%%%
+
+
+%%Espaces verticaux%%%
+%\vskip 2cm  (argument eventuellement negatif), l'espace est ignore s'il coincide avec un saut de page
+%\vspace*{2cm} (argument eventuellement negatif), l'espace n'est pas ignore s'il coincide avec un saut de page
+%\vspace{2cm} est synonyme de \vskip 2cm 
+
+%%Espaces horizontaux%%%%
+
+%\hskip equivalent a \vskip
+%\hspace{?} et \hspace*{?}
+%Le cadratin est un espace horizontal egal a la taille de la police utilisee
+%\thinspace espace d'un sixieme de cadratin
+%\enskip pour un demi-cadratin
+%\quad pour un cdratin
+%\qquad pour deux cadratins
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Le moteur eTeX est aujourd'hui utilisé par toutes les distributions (MikTeX, TeXlive) à la place de l'ancien TeX (en fait, c'est plutôt PDFTeX, le successeur de eTeX, qui est utilisé ; contrairement à ce que son nom indique, il peut produire du dvi). Le fait d'utiliser le moteur eTeX au lieu de TeX donne accès à des choses en plus (par exemple à \middle pour aller avec \left et \right, mais aussi à des commandes bien pratiques comme \numexpr, \dimexpr, \detokenize, etc. ainsi qu'à des ressources supplémentaires, comme plus de compteurs disponibles).
+
+%Lorsqu'on utilise le moteur eTeX, certaines de ces fonctionnalités sont automatiquement accessibles (c'est le cas de \middle, \numexpr, etc.), mais pas d'autres (c'est le cas des compteurs supplémentaires). Pour activer ces fonctionnalités manquantes, on peut charger le package etex.sty. Ainsi, l'utilisation d'etex.sty est une solution courante au problème d'avoir trop de compteurs définis (c'est le cas si on charge ensemble trop de packages du type tikz, pstricks, xymatrix, ...)
+
+\usepackage{etex}
+
+%%%%%%%%%%%%Encodage du fichier source %%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+
+%%%%%%%%%%%%%%%Francisation%%%%%%%%%%%%%%
+\usepackage[french]{babel}
+\frenchbsetup{StandardLists=true}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%Mise en page, Reglages genrraux%%%%%%%
+
+%\title{il n'existe pas de plus grand nombre premier}
+%\author[Euclide \thanks{Merci Aristote}}
+%\date{12 juin $-260$}  Par défaut Latex insère la date du jour
+%puis écrire après \begin{document} la commande \maketitle
+
+
+\usepackage[a4paper,headheight=35 pt, headsep=15pt,top=20 pt,hmargin=1 cm,bottom=20 pt,includeheadfoot]{geometry}
+%\usepackage[a4paper,hmargin=1 cm,bottom=2cm,top=2cm,headheight=15pt]{geometry}      
+%top est la marge supérieure entre le haut de body et le bord supérieur de la feuille
+% \usepackage[left= 4cm,right = 3cm,top= 2cm, bottom=2cm]{geometry} pour le réglage des marges 
+% \usepackage[top= 17mm,textheight=23cm,heightrounded,left=25mm,textwidth=16cm] {geometry} pour fixer la hauteur,  la largeur  du texte. heightrounded, autorise le package à arrondir la hauteur textheight à un nombre entier de lignes pour éviter des problèmes de remplissage vertical underfull vbox 
+
+
+\usepackage{setspace}  % pour le réglage de l'interligne
+%Bascule \doublespacing  ou environnement {doublespace}
+%Bascule \onehalfspacing  ou environnement {onehalfspace}
+%Bascule \singlespacing  ou environnement {singlespace}
+% ou encore \renewcommand{\baselinestretch}{n} ou encore l'environnement spacing{n}
+
+%%Package fullpage
+%\usepackage[cm]{fullpage}
+%where possible options for fullpage are
+%in (default) sets the margins to one inch;
+%cm sets the margins to 1.5 cm (one centimeter is really too
+%little);
+%plain (default) selects the plain page style, i.e., with no head-
+%ers but only a footer;
+%empty for neither headers nor footers;
+%headings for both header and footers;
+%myheadings also for both headers and footers.
+%For the last 4 options, the corresponding \pagestyle declaration is exe-
+%cuted, so that it is not necessary to give it again.
+
+
+%%Pour la numerotation des bas de pages avec le compteur lastpage%%%
+\usepackage{lastpage}
+
+%%%%Pour afficher certaines pages au format paysage%%
+\usepackage{lscape}
+%\begin{landscape}
+
+%%%Plusieurs colonnes
+\usepackage{multicol}
+%\begin{multicols}[titre]{nb colonnes}
+\setlength{\columnseprule}{0.25pt}
+
+
+%%%%%Références, Notes de bas de pages ou de marges%%%%%%%%%
+
+%%Pour placer une note de bas de page : commande \footnote{}
+%Pour placer une note dans la marge : \marginpar{}
+%Pour plcaer une note dans un tableau : appel de note avec \footnotemark{} puis le texte après le tableau avec \footnotetext{texte}
+
+%Etiquette  avec \label{nom} puis référence à l'étiquette (numéro de section le plus proche ) avec \ref{nom} ou à lap age avec \pageref{nom}
+\usepackage{varioref}
+%Introduit  les commandes \vref{} et \vpageref{} qui améloirent l'affichage ainsi que la commande \vpagerefrange{label1}{label2} pour faire référence à tout un bloc de pages entre deux étiquettes
+\usepackage{nameref}
+
+
+%%%%Présentation des titres de section%%%
+
+%\usepackage[clearempty]{titlesec} problème avec PDFLatex ?
+
+%Pour changer la police des titres de sectionnement, un exemple :
+%\titleformat*{\section}{\sffamily}
+
+%Pour modifier la police mais aussi la présentation :
+%\titleformat{commande}[shape]{format}{label}{sep}{before}{after}
+% commande est la commande de sectionnement comme \section
+%shape peut etre hang (défaut),frame (encadre), display( paragraphe séparé), block (paragraphe), runin (dans le texte, wrap (comme wrapfigure), leftmargin ou rightmargin
+%format est le formatage du titre complet (numéros inclus)éventuellemnt précédé de commandes à inclure avant le titre
+% Ces commandes peuvent etre \titleline[r,c ou l]{texte} ou \titlerule[epaisseur] ou \titlerule*[epaisseur]{texte}
+%label est la présentation du numero
+%sep est l'espace entre le numero et le titre
+%before est le code à exécuter avant le titre de section (numero exclu)
+%after est le code à exécuter après (vide en général)
+
+%Pour gérer l'espacement
+%\titlespacing{commande}{left}{beforesep}{aftersep}[right]
+%left est la marge à gauche, beforesep l'espace vertical avant etc ..
+
+
+%Exemple de présentation de titre encadé :
+%\titleformat{\section}[frame]{\titleline[r]{\rule{2in }{2pt}} \normalfont}{\filright\small\ SECTION \thesection\hfill}{7pt}{\LARGE \bfseries\filcenter}{}
+%\section{un titre de section encadre}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%Réglages de la table des matières%%%%
+\usepackage{tocvsec2}
+%Définir la progondeur : \setcounter{tocdepth}{1}  :
+%1 correspond aux chapitres; 2 aux sections etc ...
+%Rédéfinir le nom par défaut  :
+%\renewcommand{\contentsname}{Liste des chapitres}
+%Modifier une entrée :
+%\Chapter[titre court]{titre long}
+%Ajouter une entrée :
+%\addcontentsline{toc}{section}{Nom de la section qu'on veut ajouter}
+%Pour exclure une entrée 
+%Utiliser une commande étoilée comme \section*
+%Pour ajouter  ce qu'on veut dans la table des matières comme des indications de mise n page :
+%\addtocontents{toc}{\protect \pagebreak}
+
+
+%%%%%%%%%%%% Packages pour le texte %%%%%%%%%%%%
+\usepackage{lmodern}       %Joli fonte
+
+\usepackage{pifont,fourier}
+\usepackage[normalem]{ulem}
+%\uline{} pour  un soulignement simple
+%Commmandes \uuline{} pour un soulignement double
+%\uwave{} pour un soulignement  avec des vagues
+% \sout{} pour barrer et \xout{} pour hachurer
+\usepackage{cancel} %Commande \cancel{} pour barrer en oblique
+%\usepackage{soul}    %souligner
+%\usepackage{lettrine} %Pour commencer un paragraphe avec une lettrine
+%Package incompatible avec tabvar.tex
+%\lettrine{S}{i vous souhaitez}
+%\renewcommand{\LettrineFontHook}{\itshape}
+%\renewcommand{\LettrineTextFont}{\sffamily}
+
+%%%Pour des jolis boites%%%
+\usepackage{fancybox}  
+%Commandes \box{} \ovalbox{} \shadowbox{}
+%\cornersize{}2 réglage de l'arrondi
+% Dimension à régler avec \setlength{}  : \fboxsep \fboxrule  
+
+%%% Pour faire tourner le texte %%%
+\usepackage{rotating}  %\begin{turn}{-60} tourné \end{turn} pour tourner un paragraphe
+						%pour tourner un texte, commande \rotatebox[origin=c]{angle}{texte}
+						
+%%Divers%%%%
+\usepackage{eurosym}  %pour le symbole de l'euro
+
+\usepackage{url} %pour la gestion des adresses web avec la commande \url{}
+
+%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%Ecriture d'algorithmes Insertion de code source %%%%%%%%%%%
+
+%%%%%Package verbatim%%%%
+
+\usepackage{verbatim} 
+%LE package verbatim améliore la présentation des verbatim
+% Il  fournit un environnement {comment} pour insérerer des commentaires
+%dans le fichier source sans faire précéder toutes les lignes de %
+
+\usepackage{alltt, moreverb} 
+%L'environnement verbatimboxed permet d'encadrer un texte en verbatim
+% De plus les caractères spéciaux \ et { ne sont pas désactivés (mais #, $ et % le sont)
+% et on peut saisir des formules mathématiques avec \( .. \) ou \[ ... \]
+
+%%Pour améliorer envore la présentation des verbatim%%%%
+\usepackage{fancyvrb}
+
+
+%%Couleur
+\usepackage[table]{xcolor}
+% options : rgb,cmyk,gray,hsb,html pour transformer automatiquement toutes les couleurs du docuement dans le mode choisi
+%\definecolor{mauve}{rgb}{0.7,0,0.43}
+%\color{couleur} bascule
+%\textcolor{couleur}{texte}
+%\pagecolor{couleur}
+%\colorbox{couleur}
+%\fcolorbox{couleur}
+
+
+
+
+%%%%%%%%%% Nouvelles couleurs
+\definecolor{rouge}{rgb}{1,0,0}
+\definecolor{bleu}{rgb}{0,0,1}
+\definecolor{orange}{rgb}{1.00,0.50,0.00}
+\definecolor{vert}{rgb}{0,0.50,0.00}
+\definecolor{marron}{rgb}{0.49,0.16,0.06}
+\definecolor{mauve}{rgb}{0.42,0.24,0.77}
+\definecolor{rpastel}{rgb}{1.00,0.77,0.77}
+\definecolor{bpastel}{rgb}{0.70,0.86,0.93}
+\definecolor{grisclair}{gray}{0.85}
+\definecolor{gristclair}{gray}{0.95}
+\definecolor{grisfonce}{gray}{0.4}
+
+%%%%%%%%%%%%%%%%%%¨Puce, Listess%%%%%%%%%%%%%%
+\usepackage{enumerate}
+\usepackage{enumitem}
+%Pour changer la puce de liste dans tout le document :
+%AtBeginDocument{\renewcommand{\labelitemi}{\textbullet}}
+%%%%%%%%Réglages spécifiques au document%%%%%%%%%
+
+%\setenumerate[1]{label=\textbf{Q\arabic*)}}
+
+
+%%%%%%%%%%%%Graphiques et Dessins%%%%%%%%%%%%%%
+
+\usepackage{graphicx}		
+%\rotatebox[origin=x0x1]{angle}{texte} avec xox1 parmi t (top) l (left) r (right) B (ligne de base) et b (bottomm)
+%\resizebox{largeur}{hauteur}{texte} pour faire rentrer u nelement encombrant dans une boite					
+
+
+\usepackage{epic,eepic}   %Capacités graphiques étendues
+%\begin{picture}(0,0) permet d'insérer n'importe quoi, n'importe où sans prendre de place (utilie pour annoter une figure en eps)
+%Une autre technique est \makebox[0cm][alignement]{texte}
+%Exemple:
+%\includegraphics[scale=1]{singe.eps}
+%\begin{picture}(0,0)
+%\put(-27,10){$\sqrt[3]{8}$}
+%\end{picture}
+
+
+
+%%%%%%%%%%PSTricks%%%%%%%%%%%%
+
+\usepackage{pstricks,pst-plot,pst-text,pst-tree,pst-eps,pst-fill,pst-node,pst-math,pstricks-add,pst-xkey,pst-eucl}
+
+
+%%%%%%%Tikz%%%%%%%%%%%%%%%
+\usepackage{pgf,tikz,tkz-tab}
+% Pour les tableaux de signes ou de variations avec tkz-tab voir https://zestedesavoir.com/tutoriels/439/des-tableaux-de-variations-et-de-signes-avec-latex/#1-13389_tikz-un-package-qui-en-a-dans-le-ventre
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{petri}
+\usetikzlibrary{decorations}
+\usetikzlibrary{arrows}
+\usetikzlibrary{math}
+ %Variables must be declared in a tikzmath environment but
+       % can be used outside
+%       \tikzmath{int \n; \n = 508; \x1 = 1; \y1 =1; 
+%                   %computations are also possible
+%                    \x2 = \x1 + 1; \y2 =\y1 +3; } 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Commandes Tikz Perso%%%%%%%%%%%%%%%
+
+% Définition des nouvelles options xmin, xmax, ymin, ymax
+% Valeurs par défaut : -3, 3, -3, 3
+\tikzset{
+xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+% Commande qui trace la grille entre (xmin,ymin) et (xmax,ymax)
+\newcommand {\grille}[2]
+{\draw[help lines,black, thick] (\xmin,\ymin) grid[xstep=#1, ystep=#2] (\xmax,\ymax);}
+% Commande \axes
+\newcommand {\axes} {
+\draw[->,very thick] (\xmin,0) -- (\xmax,0);
+\draw[->,very thick] (0,\ymin) -- (0,\ymax);
+\draw (0.95*\xmax, 0) node[above] {$x$};
+\draw (0, 0.95*\ymax) node[left] {$y$};
+}
+% Commande qui limite l?affichage à (xmin,ymin) et (xmax,ymax)
+\newcommand {\fenetre}
+{\clip (\xmin,\ymin) rectangle (\xmax,\ymax);}
+
+%Exemple d'utilisation
+
+%\begin{center}
+%\begin{tikzpicture} [xmin=-2,xmax=2,ymin=0,ymax=5]
+%\grille{1} \axes \fenetre
+%\draw plot[smooth] (\x,\x^2);
+%\end{tikzpicture}
+%\end{center}
+
+%style pour la perspective cavalière française
+%voir Tikz pour l'impatient page 68
+\tikzset{math3d/.style=
+{x= {(-0.353cm,-0.353cm)}, z={(0cm,1cm)},y={(1cm,0cm)}}}
+
+%%%%%%%Symbole pour code calculatrice%%%%%%
+
+%Flèche remplie pour défilement de menu
+
+\newcommand{\flechefillright}{
+\begin{tikzpicture}[scale=0.15] \fill (0,0)--(2,1)--(0,2)--cycle;
+\end{tikzpicture}}
+
+%%%%%%%%%%%%%Symboles pour calculatrice Casio%%%%
+\newcommand{\execasio}{\Pisymbol{psy}{191}} %Retour chariot
+\newcommand{\dispcasio}{\begin{pspicture}(.1,.1)\pspolygon*(.1,0)(.1,.1)\end{pspicture}} %Triangle Â« Disp Â»
+\newcommand{\dispcasiotikz}{\begin{tikzpicture}[scale=0.2]
+\fill (0,0) -- (1,0) -- (1,1) -- cycle;
+\end{tikzpicture}} %Triangle Â« Disp Â»
+%
+
+%Fleche entre deux lignes, d'apres 'un bon petit' : http://forum.mathematex.net/latex-f6/fleches-entre-deux-lignes-pour-resolution-d-equation-t10283.html#p99817
+\newcommand\addnode[1]{\Rnode{#1}{}}
+\newcommand\linknode[3]{\ncbar[angleA=0,angleB=0,nodesep=1ex,arm=10ex,offset=-2pt]{->}{#1}{#2}\Aput{\vphantom{x}#3}}
+
+
+%%Commande pour touche de calculatrice
+
+\newcommand\tc[1]{%
+{
+\begin{tikzpicture}
+\node[draw,rectangle,rounded corners=3pt] (P) at (0,0){#1};
+\end{tikzpicture}
+}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Fin Commandes Tikz%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%Specifiques%%%%%%%%%%%
+\usepackage{wrapfig}
+%pour insérer une figure à droite ou à gauche d'un texte
+%\begin{wrapfigure}[nb lignes]{placement l,r,c,i(inside),o(outside)}[overhang]{width}
+%ce package fonctionne mal à proximité des listes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%Environnements et symboles spéciaux pour faire joli%%%%%%
+
+%%%Bclogo, pour des environnements + jolis avec insertion de logo%%%%
+%Dépendances de  bclogo
+\usepackage{xkeyval}  
+\usepackage{etoolbox}
+\usepackage{ifpdf}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage[tikz]{bclogo}
+
+%\newcommand\bcpython{\includegraphics[width=17pt]{/home/fjunier/Maths/python-logo.eps}}
+\newcommand\bcpython{\includegraphics[width=17pt]{/home/fjunier/Maths/python-logo.png}}
+%\newcommand\bcpython{\includegraphics[width=17pt]{/home/frederic/Maths/python-logo.png}}
+
+%% Framed
+\usepackage{framed}  %Le package « framed» Crée 3 nouveaux environnements, qui se comportent comme des minipage de largeur \linewidth, mais permettant en plus de se casser entre plusieurs pages.     * framed : avec un cadre autour;     * shaded : avec un fonc coloré (il faut définir la couleur shadecolor);     * leftbar : avec une barre le long du côté gauche.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%Environnements et symboles mathématiques%%%%
+
+%%%Tableaux de variations %%%%%%%%%%
+
+\usepackage{variations}
+
+%%%%%%%%%%%AmsMaths%%%%%%
+\usepackage{mathtools}        %Commandes essentielles, extension d'amsmath
+\usepackage{amsfonts,amssymb}  %Principaux symboles
+\usepackage{mathrsfs} %Polices calligraphiques
+\usepackage{stmaryrd} %Pour les intervalles d'entiers avec \llbracket et \rrbracket
+\usepackage[autolanguage, np]{numprint}
+%%%%%%%%%%%%Là encore il y a de grosses différences entre le monde anglo-saxon et les francophones.Le séparateur des décimales est un point en anglais et une virgule en français. Leséparateur des milliers est une virgule en anglais et une espace insécable en français. Ilest préférable dutiliser le package numprint (\usepackage{numprint}) qui associé àfrenchb produira la bonne typographie.
+%123456789 = 123456789 \numprint{123456789} = 123 456 789  \numprint{3,1415926535897932384626} = 3,141 592 653 589 793 238 462 6  \numprint{12.34} = 12,34  En plus tu peux préciser les unités de cette façon : \numprint[kg]{12.34} = 12,34 kg ou encore \numprint[\degres C]{22} = 22°C Si tu veux utiliser le raccourci \np{} au lieu de \numprint{}, il te faut charger le package de cette façon : \usepackage[np]{numprint}
+\usepackage[thmmarks,amsmath]{ntheorem}
+%Pour définir un nouveau théorème :
+%\newtheorem{conj}{Conjecture}[chapter] environnement con d'en tete Conjecture avec numérotation au sein d'un chapitre
+%Pour rédéfinir le style d'un théorème, placer les commandes avant \newtheorem et entourer le tout d'accolades
+%\theoremstyle{style} : :
+% plain est le style par défaut
+% break insère un saut de ligne après le titre du théorème
+%margin et marginbreak sont les équivalents avec numéro dans la marge
+%\theorembodyfont{\normalfont \sffamily} police du corps du théorème
+%\theoremheaderfont{\scshape} police de l'en-tete (définie 1 fois pour tous les théorèmes)
+%\theoremsymbol{ } symbole ajouté à la fin du théorème
+%\theoremseparator{--} élément situé entre le numéro et le corps du theoreme
+%\theoremprework{\rule{\linewidth}{0.4pt}} élément précédant chaque théoreme
+%\theorempostwork{\dingline{71}} élément suivant chaque théoreme
+%\theoremnumbering{Roman} style de numérotation
+\usepackage{bbm, dsfont}   %Fonction indicatrice
+\usepackage{esint,esvect}  %Flèches supplémentaires.
+\usepackage{lcg}  %%%%%%%générer des nombres pseudo aléatoires%%%%
+
+
+%%%%%%%%%%%Tableaux%%%%%%%%%%%
+\usepackage{array}
+%\usepackage{multirow} %problème redéfinit la commande \multirow{nligne}*{texte}
+\usepackage{tabularx}        % Largeur totale donnée          
+\usepackage{longtable}       %Sur plusieurs pages
+%\usepackage{diagbox}  %Successeur de slashbox, voir Latex pour l'impatient p. 73, charge pict2e qui redefinit \arc
+\usepackage{alterqcm} 
+%%%Une commande de David Robert%%%%%%%
+%\newcommand{\delair}[1]{\ensuremath\displaystyle\psframebox[framesep=0.15em,linestyle=none]{ \displaystyle#1}}
+\newcommand{\delair}[1]{\setlength{\fboxrule}{0mm} \fbox{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%Programmation en Latex, Création de nouvelles Commandes%%%%%%%%%%%%%
+\usepackage{xspace} %pour la gestion fine des espaces avec la commande \xspace
+\usepackage{calc} %   pour faire des calculs avec les longueurs par exemple%%
+%Commande \real{0.72} pour le reel 0,72
+%\ratio{3}{4} pour le reel 0,75
+
+\usepackage{ifthen}
+%Syntaxe d'un test conditionnel : \ifthenelse{condition}{action si realisee}{action sinon}
+%Commandes de test :
+%\isodd{entier}
+%\equal{chaine 1}{chaine 2}
+%\lengthtest{comparaison entre deux longueurs} retourne un booleen
+%\or, \and, \not \( et \) permettent de combiner des tests avec parenthesages
+%
+\usepackage{multido}  % package pour utiliser de boucles iteratives
+
+%%%%Boucle Pour%%%
+
+% Sa syntaxe est la suivante : 
+% \multido{variables}{nbiteration}{code}
+% Le code sera ainsi repete nbiteration fois. Les declarations de variables sont separees par des virgules. Un declaration prend la forme :
+%    variable = valeurinitiale + increment  Exemple :
+% \multido{\i=0+1}{21}{instruction a repeter } 
+%Les variables d'initialisation commencent par i s'il s'agit d'entier, par r s'il s'agit de reels et par d sis ce sont des longueurs
+%Exemple de calcul des multiples de pi et d'affichage un par ligne :
+%\newcommand{\multipledepi}[1]{\multido{\ia=2+1,\rpi=6.28318530+3.14159265}{#1}{$\ia\pi\approx\rpi$\endgraf}
+%Noter que la commande \endgraf synonyme de \par est bien prtique dans les commandes ou \par est interdite
+
+%%%%%Boucle Tant Que%%
+%Syntaxe : \whiledo{test}{instruction}
+%Exemple d'affichage de lignes pointillees pour laisser la place dans un enonce de controle avec \reponses{7} par exmeple (on peut aussi utilsier \multido dans ce cas)
+%\newcounter{nombreentier}
+%\newcommand{\reponses}[1]{\setcounter{nombreentier}{0}\whiledo{\value{nombreentier}<#1}{\noindent \dotfill \par \stepcounter{nombreentier}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%Longueurs%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Attention a la syntaxe :
+% Si on a une longueur appelle \longueur :
+%\rule{0.72\longueur}{1mm} pas de *
+%mais \rule{\real{0.72}*\widthof{exemple}}{1mm}
+
+%unites de longueur : pt, mm, cm ect
+%unites qui dependent de la police utilisee : 1 em correspond à l longueur d'un m et 1 ex à la hauteur d'un x
+%\setlength{\nom}{valeur}
+%\addtolength{\nom}{valeur}
+%\settowidth{\nom} \settoheigth{\nom}
+
+%%%%%%Boites avec longueurs caracterisitiques%%%
+%\fbox \makebox \framebox utlisent stockent dans \height, \width, \depth, \totalheight les dimensions de l'argument de la commande
+%Exemple : \framebox[\width+17mm][positionnement]{un texte encadre}
+%DE fçon plus generale on peut acceder aux dimensions d'un objet avec :
+%\widthof{texte} \depthof{texte} \heightof{texte}
+%Exempel : \rule{\widthof{un exemple}}{1mm}
+
+
+%%%%%%%%%%%%%%Compteurs%%%%%%
+%Un compteur comme celui qui numerote les sections  represente 3 elements distincts  :
+%D'abord son nom section
+%Ensuiet sa valeur en tant qu'entier : \value{section} (qui vaut 6 dans l'exemple mais qui ne s'affiche pas directment, elle sert d'argument pour d'autres commandes)
+%Enfin son apparence \thesection qui affiche par exemple 11.6  pour section 6 du chapitre 11
+
+%Definition d'un nouveau compteur : \newcounter{moncompteur}
+%\newcounter{nom}[old] indique que le compteur nom est remis à 0 lorsque le compteur old est a 0
+%initialisation : \setcounter{moncompteur}{0}
+%ajout d'une valeur : \addtocounter{moncompteur}{valeur} pour ancienne valeur + valeur
+%incrementation de 1 : \refstepcounter{moncompteur}
+%Pour mieux gerer la remise à 0 d'un compteur en foinction d'un autre compteur :
+%\numberwithin{moncompteur}{autrecompteur}
+
+%%%%Redefinition d'un compteur deja existant :
+%D'abord on choisit le type de numerotation (\roman \Roman \Arabic \arabic \alpha \Alpha)
+\renewcommand{\theenumi}{\textbf{\arabic{enumi}}}
+%Puis on choisit l'apparence de l'etiquette
+\renewcommand{\labelenumi}{\textbf{\theenumi.}}
+\renewcommand{\theenumii}{\textbf{\alph{enumii}}}
+\renewcommand{\labelenumii}{\textbf{\theenumii.}}
+
+
+
+%%%%%Package à appeler après Babel%%%%%%%%%%%%
+
+%%%%%%%%Flottants%%%%%%%%%%%%%%%%%%%%%%%%
+%packages qui doivent etre chargés après le package babel
+%car ils utilsient le package caption
+\usepackage{float,afterpage}
+%Deux types de flottants par défaut : figure et table
+%\begin{figure}[préférences de placement dans l'orde de gauche à droite: t,,b,h,p,h!,H]
+%\caption[texte court pour la liste]{légende}
+%Liste des flottants ; \listoffigures ou \listoftables ou  \listeof{flottant}{titre}
+%Placements par défaut pour tout le document: \floatplacement{figure}{t}
+%Légende avec \caption{Légende} suivie de \label{Etiquette}
+%Quand un flottant passe en mode p aucun autre flottant ne peut etre inséré
+%tant qu'une page entire de flottants n'a pas été composée
+%Pour vider le stocke de flottants on utilise la commande \clearpage
+%\clearpage force u nsaut de page et réserve la page suivante aux flottants
+% Pour finir la page en cours, utiliser \afterpage{\clearpage} 
+
+%Défintion de nouveaux flottants
+%\newfloat{nom}{positionnement}{extension du fichier de liste}[compteur d'appui]
+%\newfloat{ex}{hb}{loex}[chapter]
+%\floatname{ex}{\textit{Exemple}} nom dans la légende du flottant
+%\floatstyle{boxed}
+%\listof{ex}{Liste des exemples de code}
+
+\usepackage[section]{placeins}
+%pour que les flottants soient bien inclus dans la section à laquelle ils appartiennent
+
+\usepackage{subfig}
+%sous-flottants
+%\subfloat[légende]{sous-flottant}
+%Pour faire apparaitre les sous-flottants dans la liste des flottants :
+%\setcounter{lofdepth}{2}
+
+\usepackage{caption}  %Pour les légendes
+%voir Latex pour l'impatient page 94 (pour la commande \captioof{type de flottant}[texte court] {texte}
+%voir Latex pour l'impatient page 94 pour le paramétrage  des options de légendes
+
+%%%%%%%%%%%%%%%%%%%Présentation de codes sources%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+%On utilise l?environnement lstlisting pour insérer
+%un code source.
+%En plus de l?environnement lstlisting, on peut également utiliser la
+%commande \lstinline qui fonctionne comme la commande \verb, en ce
+%sens qu?on peut utiliser n?importe quel caractère comme délimiteur. Enfin,
+%la commande \lstinputlisting permet de charger un code source depuis
+%un fichier externe.
+%Il y a deux manières de préciser des options : soit via l?option de l?envi-
+%ronnement ou de la commande, soit en utilisant la commande \lstset
+%qui permet de définir des options de manière globale.
+
+\lstset{ %
+  language=Python,                % the language of the code
+  basicstyle=\ttfamily,           % the size of the fonts that are used for the code
+  %numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny,  % the style that is used for the line-numbers
+  %stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  %numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  tabsize=4,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  %title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  breakindent=1cm,
+  keywordstyle=\color{blue},          % keyword style
+  commentstyle=\color{red},       % comment style
+  %stringstyle=\ttfamily\color{green},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  morekeywords={*,...},              % if you want to add more keywords to the set
+  deletekeywords={...}              % if you want to delete keywords from the given language
+  upquote=true,columns=flexible,
+xleftmargin=1cm,xrightmargin=1cm,
+ inputencoding=utf8,			%Les lignes qui suivent sont pour le codage utf8
+  extendedchars=true,
+  literate=%
+            {é}{{\'{e}}}1
+            {è}{{\`{e}}}1
+            {ê}{{\^{e}}}1
+            {ë}{{\¨{e}}}1
+            {û}{{\^{u}}}1
+            {ù}{{\`{u}}}1
+            {â}{{\^{a}}}1
+            {à}{{\`{a} }}1
+            {î}{{\^{i}}}1
+            {ô}{{\^{o}}}1
+            {ç}{{\c{c}}}1
+            {Ç}{{\c{C}}}1
+            {É}{{\'{E}}}1
+            {Ê}{{\^{E}}}1
+            {À}{{\`{A}}}1
+            {Â}{{\^{A}}}1
+            {Î}{{\^{I}}}1
+}
+
+\lstdefinestyle{rond}{
+  numbers=none,
+  backgroundcolor=\color{gristclair},
+  frameround =tttt
+}
+
+\lstdefinestyle{compil}{
+  numbers=none,
+  backgroundcolor=\color{gristclair}
+}
+%\lstset{language=Python,basicstyle=\small , frame=single,tabsize=4,showspaces=false,showtabs=false,showstringspaces=false,numbers=left,numberstyle=\tiny , extendedchars=true}
+
+%%%%%Packages pour l'environnement algobox%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+%%%%%%%%%Package Algorithmic%%%%%%
+%incompatibilité avec la package algorithm utilisé pour l'environnement algobox
+\begin{comment}
+\usepackage{algorithmic}
+\algsetup{indent=1 em }
+\renewcommand{\algorithmiccomment}{\STATE //}
+\renewcommand{\algorithmicrequire}{\textbf{Entrée(s)}}
+\renewcommand{\algorithmicensure}{\textbf{Sortie(s)}}
+\renewcommand{\algorithmicwhile}{\textbf{tant que}}
+\renewcommand{\algorithmicdo}{\textbf{faire}}
+\renewcommand{\algorithmicendwhile}{\textbf{fin du tant que}}
+\renewcommand{\algorithmicend}{\textbf{fin}}
+\renewcommand{\algorithmicif}{\textbf{si}}
+\renewcommand{\algorithmicendif}{\textbf{fin du si}}
+\renewcommand{\algorithmicelse}{\textbf{sinon}}
+\renewcommand{\algorithmicelsif}{\textbf{fin du sinon}}
+\renewcommand{\algorithmicthen}{\textbf{alors}}
+\renewcommand{\algorithmicfor}{\textbf{pour}}
+\renewcommand{\algorithmicforall}{\textbf{pour tout}}
+\renewcommand{\algorithmicto}{\textbf{\a}}
+\renewcommand{\algorithmicendfor}{\textbf{fin du pour}}
+\renewcommand{\algorithmicdo}{\textbf{faire}}
+\renewcommand{\algorithmicloop}{\textbf{boucler}}
+\renewcommand{\algorithmicendloop}{\textbf{fin de la boucle}}
+\renewcommand{\algorithmicrepeat}{\textbf{r\ep\eter}}
+\renewcommand{\algorithmicuntil}{\textbf{jusqu'\a}}
+\renewcommand{\algorithmicprint}{\textbf{afficher}}
+\end{comment}
+%%%%%%%%PAckage algorithm%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[french,lined,boxed]{algorithm2e}
+%\SetArgSty{textit}
+%\SetKwInput{Init}{\textbf{Initialisation}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%Packages spécifiques pour les sorties pdf%%%%%%%%
+
+%%%%Insertion de liens hypertextes %%%%
+
+\usepackage[urlcolor=red,% Liens vers une page web
+            linkcolor=blue, %Liens internes au document
+            colorlinks=true]{hyperref}
+
+
+%%%%%   Insertion de pages de fichiers pdf%%%%
+
+%\usepackage{pdfpages}
+
+%Le package pdfpages permet d?effectuer facilement des opérations sur
+% des fichiers PDF. La première chose qu?on peut faire consiste à insérer
+% A certaines pages d?un document PDF dans un document L TEX. On uti- lise pour cela la commande \includepdf. On spécifie les pages que l?on souhaite insérer avec la possibilité de définir des intervalles ou d?insérer une page blanche avec {}, avec l?option pages. L?exemple suivant insère la page 1, suivie d?une page blanche, suivie des pages 5 à 9, suivies de la page 15 du document monDocument.pdf. \includepdf[pages={1,{},5-9,15}]{monDocument.pdf} Il est également possible d?obtenir plusieurs pages par feuille. On utilise pour cela l?option nup. On définit ensuite l?espacement à mettre entre les pages logique avec l?option delta et on peut avoir une bordure autour des pages logiques avec l?option frame. Par exemple, pour insérer toutes les pages du document monDocument.pdf, avec 3 × 2 pages par feuille, séparées par 5mm et une bordure, il faut écrire : \includepdf[pages=-,nup=3x2,frame]{monDocument.pdf} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%Environnements et commandes persos%%%%%
+
+%%%%%%%Creer son propre fichier de style%%%%
+%on regroupe ses commandes dans un fichier d'extension .sty comme local.sty
+%%on charge son fichier de style avant le \begin{document} avec \input{local.sty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%Environnements persos%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Syntaxe :
+%\newenvironment{nom}[nombre d'args][defaut]{definitions initiales}{definitions finales}
+%definitions intiales sont les commandes appelées par \begin{nom}
+%Definitions finales sont les commandes appelées par \end{nom}
+
+%%%%%%%%%%%%%%%%Définitions des environnemts persostheoreme, exemple ..%%%%
+%%%% Exercice avec encadré %%%%
+%\newcounter{exo}
+%\newenvironment{exercice}[1]
+%{\par \bigskip  \noindent \addtocounter{exo}{1} \shadowbox{\textbf{Exercice} \textbf{\theexo}} \hspace{0.5cm}{\itshape #1} \vspace*{10pt} \par}
+%{\par \bigskip }
+
+\newcounter{exercice}
+\newenvironment{exercice}[1]
+{\par \medskip   \addtocounter{exercice}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  barre=zigzag, noborder = true, logo=\bccrayon, marge=4]{~\textbf{Exercice} \textbf{\theexercice} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+%%Sans Numéro
+\newenvironment{exerciceStar}[1]
+{\par \bigskip  \noindent \addtocounter{exostar}{1} \shadowbox{\textbf{Exercice}} \hspace{0.5cm}{\itshape #1} \vspace*{10pt} \par}
+{\par \bigskip }
+
+%%%% Exercice avec trait %%%%
+\newcounter{exoB}
+\newenvironment{exerciceB}[1]
+{\par \bigskip  \noindent \addtocounter{exoB}{1} \hrulefill \quad { \large \textbf{Exercice \theexoB}  {\quad \itshape #1}  } \quad \hrulefill \par \medskip }
+{\par \bigskip }
+
+
+%%Sans option
+\newenvironment{exerciceB2}
+{\par \bigskip  \noindent \addtocounter{exoB}{1} \hrulefill \quad { \large \textbf{Exercice \theexoB}} \quad \hrulefill \par \medskip }
+{\par \bigskip }
+
+
+%%Sans numéro
+\newenvironment{exerciceBStar}[1]
+{\par \bigskip  \noindent \hrulefill \quad { \large \bfseries  #1  } \quad \hrulefill \par \medskip}
+{\par \bigskip }
+
+%%%% Exercice avec dingbat %%%%
+
+\newcounter{exoC}
+\newenvironment{exerciceC}[2][101]
+{\par \bigskip  \noindent \addtocounter{exoC}{1} \dingfill{#1} {\quad  \large \textbf{Exercice \theexoC} \quad  {\itshape #2} } \dingfill{#1} \par \medskip}
+{\par \bigskip }
+
+%%Sans numéro
+
+\newenvironment{exerciceCStar}[2][101]
+{\par \bigskip  \noindent \dingfill{#1} \quad {\large \bfseries  #2 } \quad  \dingfill{#1} \par \medskip}
+{\par \bigskip }
+
+\newenvironment{cours}[1]
+{\par \bigskip  \noindent  \shadowbox{\textbf{Question de cours} } \hspace{0.5cm}{\itshape #1} \vspace*{10pt} \par}
+{\par \bigskip }
+
+%\newcounter{act}
+%\newenvironment{activite}[1]
+%{\par \medskip  \noindent \addtocounter{act}{1} \fbox{\textbf{Activité~} \textbf{\theact}} \hspace{0.5cm}{\itshape #1} \vspace*{10pt} \par}
+%{\par \bigskip }
+
+
+
+%%Bloc-note
+
+\newcounter{blocn}
+\newenvironment{blocnote}[1]
+{\par \medskip   \addtocounter{blocn}{1} \begin{leftbar} \noindent  \underline{\textbf{Bloc-Note} \textbf{\theblocn}} \hspace{0.5cm}{\itshape #1}   \vspace*{10pt} \par }
+{\end{leftbar} \par \bigskip }
+
+\newenvironment{blocnote*}[1]
+{\par \medskip    \begin{leftbar} \noindent  \underline{\textbf{Bloc-Note} } \hspace{0.5cm}{\itshape #1}   \vspace*{10pt} \par }
+{\end{leftbar} \par \bigskip }
+
+
+%%Axiomes, Theoremes, Propriété, Définition, Methode, Preuve
+
+
+\newenvironment{axiome}[1]
+{\par \medskip   \begin{leftbar} \noindent \underline{\textbf{Axiome}}\hspace{0.5cm}{\itshape #1}   \vspace*{10pt} \par }
+{\end{leftbar}  \par \medskip }
+
+
+\newcounter{thme}
+\newenvironment{theoreme}[1]
+{\par \medskip  \addtocounter{thme}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Théorème} \textbf{\thethme} {\itshape #1} }   \par}
+{
+\end{bclogo}
+ \par \bigskip}
+
+ \newenvironment{theoremedef}[1]
+{\par \medskip   \addtocounter{thme}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Théorème-Définition} \textbf{\thethme} {\itshape #1} }   \par}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+\newcounter{prop}
+\newenvironment{propriete}[1]
+{\par \medskip   \addtocounter{prop}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Propriété} \textbf{\theprop} {\itshape #1} }   \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newenvironment{corollaire}[1]
+{\par \medskip   \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Corollaire} {\itshape #1} } \par }
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newenvironment{demo}[1]
+{\par \medskip   \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=zigzag, noborder = true, logo=\bcloupe, marge=0]{~\textbf{Démonstration} {\itshape #1} } \par \vspace{10pt}}
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newcounter{activite}
+\newenvironment{activite}[1]
+{\par \medskip   \noindent   \addtocounter{activite}{1}
+\begin{bclogo}[arrondi =0.1,   noborder = true, logo=\bcvelo, marge=4]{~\textbf{Activité} \textbf{\theactivite} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newcounter{rque}
+\newenvironment{remarque}
+{\par \medskip    \addtocounter{rque}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=snake, noborder = true, logo=\bcinfo, marge=0]{~\textbf{Remarque} \textbf{\therque}}  \par }
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newcounter{def}
+\newenvironment{definition}[1]
+{\par \medskip   \addtocounter{def}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Définition} \textbf{\thedef} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newcounter{exple}
+\newenvironment{exemple}[1]
+{\par \medskip   \addtocounter{exple}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,   noborder = true, logo=\bccrayon, marge=4]{~\textbf{Exemple} \textbf{\theexple} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newcounter{capacite}
+\newenvironment{capacite}[1]
+{\par \medskip   \addtocounter{capacite}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,   noborder = true, logo=\bccrayon, marge=4]{~\textbf{Capacité} \textbf{\thecapacite} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+\newcounter{entrainement}
+\newenvironment{entrainement}[1]
+{\par \medskip   \addtocounter{entrainement}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,   noborder = true,barre=zigzag, logo=\bcvelo, marge=4]{~\textbf{Entraînement} \textbf{\theentrainement} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newcounter{alg}
+\newenvironment{algorithme}[1]
+{\par \medskip   \addtocounter{alg}{1} \noindent  
+ \begin {bclogo}[noborder = true, barre=zigzag,logo=\bcpython, marge=4] {~\textbf{Algorithmique} \textbf{\thealg} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newcounter{prog}
+\newenvironment{programme}[1]
+{\par \medskip   \addtocounter{prog}{1} \noindent  
+ \begin {bclogo}[noborder = true, logo=\bcpython, marge=4] {~\textbf{Programme} \textbf{\theprog} {\itshape #1} }  \par  \bigskip}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+\newcounter{logi}
+\newenvironment{logique}[1]
+{\par \medskip   \addtocounter{logi}{1} \noindent  
+ \begin {bclogo}[noborder = true, barre=zigzag,logo=\bclampe, marge=4] {~\textbf{Logique} \textbf{\thelogi} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newenvironment{methode}[1]
+{\par \medskip    \noindent  
+ \begin {bclogo}[arrondi =0.1,logo=\bcoutil, marge=4,noborder = true] {~\textbf{Méthode}   {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newcounter{histo}
+\newenvironment{histoire}[1]
+{\par \medskip   \addtocounter{histo}{1} \noindent  
+ \begin {bclogo}[couleur = blue!10 , arrondi =0.1,logo=\bchorloge, marge=4] {~\textbf{Histoire} \textbf{\thehisto} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+
+
+\newenvironment{introduction}
+{\par \medskip    \noindent  
+ \begin {bclogo}[couleur = blue!5 , arrondi =0.1,logo=\bcrosevents, marge=4] {~\textbf{Introduction}    }
+ \par }
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+%\newcounter{thme}
+%\newenvironment{theoreme}[1]
+%{\par \medskip   \begin{framed} \noindent \addtocounter{thme}{1} \underline{\textbf{Théorème} \textbf{\thethme}} {\itshape #1}  \vspace*{10pt} \par }
+%{\end{framed} \par \bigskip }
+
+%\newcounter{thmedef}
+%\newenvironment{theoremedef}[1]
+%{\par \medskip   \begin{framed} \noindent \addtocounter{thmedef}{1} \underline{\textbf{Théorème-Définition} \textbf{\thethmedef}} {\itshape #1}  \vspace*{10pt} \par }
+%{\end{framed} \par \bigskip }
+
+%\newcounter{def}
+%\newenvironment{definition}
+%{\par \medskip   \begin{leftbar} \noindent \addtocounter{def}{1}\underline{\textbf{Définition} \textbf{\thedef}}  \vspace*{10pt} \par  }
+%{\end{leftbar}  \par \medskip }
+
+
+
+%\newcounter{corollaire}
+%\newenvironment{corollaire}[1]
+%{\par \medskip   \begin{framed} \noindent \addtocounter{corollaire}{1} \underline{\textbf{Corollaire} \textbf{\thecorollaire}} {\itshape #1}  \vspace*{10pt} \par }
+%{\end{framed} \par \bigskip }
+%
+%
+%\newenvironment{preuve}[1]{ 
+%\noindent\underline{\textbf{Preuve :}} \hspace{0.5cm}{\itshape #1}\par  \medskip 
+%\begin{flushleft} \itshape
+%        }  %instructions initiales de l'environnement
+%{\hfill$\Box$\end{flushleft}\par \bigskip }  %instructions finales de l'environnement   : symbole de fin de preuve  droite
+%
+%
+%\newcounter{correc}
+%\newenvironment{corrige}[1]
+%{\par \bigskip  \noindent  \addtocounter{correc}{1}\shadowbox{\textbf{Corrigé} \textbf{\thecorrec}} \hspace{0.5cm}{\itshape #1} \vspace*{10pt} \par}
+%{\par \bigskip }
+
+
+%\newenvironment{methode}[1]
+%{\par \medskip   \begin{framed} \noindent\underline{\textbf{Méthode}} \hspace{0.5cm}{\itshape #1} \vspace*{10pt} \par  }
+%{\end{framed} \par \medskip }
+
+%\newcounter{prop}
+%\newenvironment{propriete}[1]
+%{\par \medskip   \begin{framed} \noindent \addtocounter{prop}{1}
+% \underline{\textbf{Propriété} \textbf{\theprop}}\hspace{0.5cm}{\itshape #1}\vspace*{10pt} \par  }
+%{\end{framed} \par \medskip }
+
+
+%\newcounter{rque}
+%\newenvironment{remarque}
+%{\par \medskip  \noindent \addtocounter{rque}{1}\underline{\textbf{Remarque} \textbf{\therque}} \itshape \vspace*{10pt} \par}
+%{\par \medskip }
+
+%\newenvironment{remarque*}
+%{\par \medskip   \noindent\underline{\textbf{Remarque :}}  \\ \noindent}
+%{\par \medskip }
+%
+%\newenvironment{definitions}
+%{\par \medskip   \begin{framed} \noindent \addtocounter{def}{1}\underline{\textbf{Définitions} \textbf{\thedef}} \vspace*{10pt} \par }
+%{\end{framed} \par \medskip }
+
+
+%\newcounter{exple}
+%\newenvironment{exemple}[1]
+%{\par \medskip  \noindent \addtocounter{exple}{1} \underline{\textbf{Exemple} \textbf{\theexple} } \hspace{0.5cm}{\itshape #1} \vspace*{10pt} \par}
+%{\par \medskip }
+
+%\newenvironment{exemples}
+%{\par \medskip  \noindent \addtocounter{exple}{1} \underline{\textbf{Exemples} \textbf{\theexple}} \vspace*{10pt} \par}
+%{\par \medskip }
+
+
+%\newcounter{alg}
+%\newenvironment{algorithme}[1]
+%{\par \medskip   \begin {bclogo}[ noborder = true, barre=zigzag,logo=\bccrayon] \noindent \addtocounter{alg}{1}\underline{\textbf{Algorithme} \textbf{\thealg}} {\itshape #1} \vspace*{10pt} \par  }
+%{\end{bclogo}  \par \medskip}
+
+
+%Environnement contenu pour un document présentant une progression annuelle
+\newenvironment{contenu}
+{\par \medskip   \begin {bclogo}[ noborder = true,logo=\bccrayon] \noindent {\large \textbf{Contenu de la séance}} \vspace*{10pt} \par  }
+{\end{bclogo}  \par \medskip }
+
+%Environnement programme pour un document présentant une progression annuelle
+%\newenvironment{programme}
+%{\par \medskip   \begin {bclogo}[ noborder = true, barre=zigzag,logo=\bcinfo] \noindent {\large \textbf{Programme officiel}} \vspace*{10pt} \par  }
+%{\end{bclogo}  \par \medskip }
+
+%Environnement programme pour un document présentant une progression annuelle
+\newenvironment{ressource}
+{\par \medskip   \begin {bclogo}[ noborder = true,logo=\bcbook] \noindent {\large \textbf{Ressources}}\\vspace*{10pt} \par }
+{\end{bclogo}  \par \medskip }
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%Commandes personnelles%%%%%%%%%%%%%
+
+
+%%%Syntaxe
+%\newcommand{\nom}[nombre d'arguments][valeur par defaut de l'argument optionnel]{definition}
+%L'argument optionnel est toujours le premier
+%Exemple : \newcommand{\Sf}[2][\bfseries]{{\sffamily#1#2}}
+%utilisation : \Sf{texte} avec la valeur par defaut ou \Sf[\itshape]{texte}
+
+
+
+%%%%%%%%%%%%%%%%%Commandes  de Pierre Duclosson %%%%%%%%%%%%%%%%%%%%%%%
+% ----- Dfinition de la macro pour le quadrillage des zones laisses libres pour les notes des lves   
+
+\newcommand{\quadrillage}[1]{
+\setlength{\unitlength}{1mm}
+\vskip 0,5cm
+\multido{\i=0+1}{#1}{%
+     \begin{picture}(150,5)
+     \linethickness{0,005mm}
+     \put(-7,0){\grid(170,5)(5,5)}
+     \end{picture}\vskip 0,001cm
+     }
+\vskip 0,5cm
+}
+
+% -------  Une autre macro pour laisser une zone libre blanche de tant de ligne  par exemple \ligne{12}  laisse 12 lignes
+
+\newcommand{\ligne}[1]{%
+\vskip 0,5cm   
+% si tu veux placer un repre au dbut de l'espace libre c'est ici
+\multido{\i=0+1}{#1}{%
+    \vphantom{X}
+    }
+% si tu veux placer un repre  la fin de l'espace libre c'est ici
+\vskip 0,5cm
+}
+
+
+
+%%%%%%%Commande pour avoir un certain nombre de lignes en pointillés
+%sur une certaine largeur%%%%
+\newlength{\parpointille}
+\setlength{\parpointille}{0.5\baselineskip}
+
+\newcommand{\Pointilles}[2]{%
+\multido{}{#1}{%
+\makebox[#2]{\dotfill}\\[\parpointille]
+}}
+
+%\Pointilles{4}{\linewidth}
+
+%Meme commande mais avec pour seul paramètre le nombre de lignes
+\newcommand{\lignes}[1]{%
+\multido{}{#1}{%
+\makebox[\linewidth]{\dotfill}\\[\parpointille]
+}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Commandes  diverses %%%%%%%%%%%
+\newcommand{\ie}{c'est-à-dire}
+
+%%%%%Pour une citation%%%%%%%%%%%%%%%%%%%%
+\newsavebox{\auteurbm}
+\newenvironment{bonmot}[1]%
+  {\small\slshape%
+  \savebox{\auteurbm}{\upshape\sffamily#1}%
+  \begin{flushright}}
+  {\\[4pt]\usebox{\auteurbm}
+  \end{flushright}\normalsize\upshape}
+  
+%%Réponse à l'envers
+\newcommand{\reponse}[2]{{\scriptsize  \underline{Réponse #1:} \rotatebox[origin=c]{360}{\ #2} }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%Commandes MATHS%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%Pour les tableaux de variation avec PST PLus%%%%%%%%%%%%%%%%
+%\usepackage{tabvar}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%Commande \ensuremath pour bien gérer le passage en mode mathématique%%%
+%\newcommand{\R}{\ensuremath{\mathbb{R}}}      %Bien
+%\newcommand{\R}{\mathbb{R}}         %OK
+%\newcommand{\R}{$\mathbb{R}$}    %mal
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%Commande \DeclareMathOperator pour définir de nouveaux opérateurs (en lettres romaines droites)%%%%%
+%\DeclareMathOperator{\sh}{sh}
+%\DeclareMathOperator{\ch}{ch}
+
+%%%%%%%%%%%%%%%%%%Maths divers%%%%%%%%%%%%%%%%%%%%%%%%%
+%Delimiteurs
+\newcommand{\delim}[3]{\raise #1\hbox{$\left #2\vbox to #3{}\right.$}}
+
+
+%%%%%%%%%%%%%Nombres%%%%%%%%%%%%%%%%
+
+%Ensemble prive de...
+%\newcommand{\prive}{\boi}%{\backslash}
+
+%Ensembles de nombres%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{~\ensuremath{]0;+\infty[}~}
+\newcommand{\K}{\mathbb{K}}
+
+%%%%%%%%Arithmetique%%%%%%%%%%
+%PGCD, PPCM
+\newcommand{\PGCD}{\mathop{\rm PGCD}\nolimits}
+\newcommand{\PPCM}{\mathop{\rm PPCM}\nolimits}
+
+%Intervalles
+\newcommand{\interoo}[2]{]#1\, ;\, #2[}
+\newcommand{\Interoo}[2]{\left]#1\, ;\, #2\right[}
+\newcommand{\interof}[2]{]#1\, ;\, #2]}
+\newcommand{\Interof}[2]{\left]#1\, ;\, #2\right]}
+\newcommand{\interfo}[2]{[#1\, ;\, #2[}
+\newcommand{\Interfo}[2]{\left[#1\, ;\, #2\right[}
+\newcommand{\interff}[2]{[#1\, ;\, #2]}
+\newcommand{\Interff}[2]{\left[#1\, ;\, #2\right]}
+%\newcommand\interentiers #1#2{[\! [#1\, ;\, #2]\! ]}
+\newcommand{\interentiers}[2]{\llbracket #1\, ;\, #2\rrbracket}
+%
+
+
+%%%%%%%%%%%%%%Nombres complexes%%%%%
+
+\newcommand{\ic}{\text{i}}
+%\newcommand{\I}{\text{i}}
+\newcommand{\im}[1]{\text{Im}\left(#1\right)}
+\newcommand{\re}[1]{\text{Re}\left(#1\right)}
+\newcommand{\Arg}[1]{\text{arg}\left(#1\right)}
+\newcommand{\Mod}[1]{\left[#1\right]}
+%Parties entiÃ¨re, rÃ©elle, imaginaire, nombre i
+\newcommand{\ent}[1]{\text{E}\left(#1\right)}
+\renewcommand{\Re}{\mathop{\rm Re}\nolimits}
+\renewcommand{\Im}{\mathop{\rm Im}\nolimits}
+\renewcommand{\i}{\textrm{i}}
+
+%%%%%%%%%%%Probabilites et statistiques%%%%%
+\newcommand{\loibinom}[2]{\mathcal{B}\left(#1\ ; \ #2 \right)}
+\newcommand{\loinorm}[2]{\mathcal{N}\left(#1\ ; \ #2 \right)}
+\newcommand{\loiexp}[1]{\mathcal{E}\left(#1\right)}
+\newcommand{\proba}[1]{\mathbb{P}\big(#1\big)}
+\newcommand{\probacond}[2]{\mathbb{P}_{#2}\big(#1\big)}
+\newcommand{\esperance}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\variance}[1]{\mathbb{V}\left(#1\right)}
+\newcommand{\ecart}[1]{\sigma\left(#1\right)}
+\newcommand{\dnormx}{\frac{1}{\sqrt{2\pi}} \text{e}^{-\frac{x^2}{2}}}
+\newcommand{\dnormt}{\frac{1}{\sqrt{2\pi}} \text{e}^{-\frac{t^2}{2}}}
+\newcommand{\nbalea}[2]{\reinitrand[first=#1, last=#2, counter=num]  \rand $\thenum$}  %retourne un entier aleatoire antre les bornes #1 et #2 comprises
+%Covariance
+\newcommand{\cov}{\mathop{\rm cov}\nolimits}
+%
+
+
+%%%%%%%%%%Analyse%%%%%%%%%%%
+
+%%%%%%%%%%%Courbe%%%%%%%%%%%%
+\newcommand{\courbe}[1]{\ensuremath{\mathcal{C}_{#1}}}
+
+%%%%%%%Fonction exponentielle%%%%%
+\newcommand{\fe}{~fonction exponentielle~}
+\newcommand{\e}{\text{e}}
+
+%Fonction cotangente
+\newcommand{\cotan}{\mathop{\rm cotan}\nolimits}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Fonctions hyperboliques
+\newcommand{\ch}{\mathop{\rm ch}\nolimits}
+\newcommand{\sh}{\mathop{\rm sh}\nolimits}
+
+
+%%%%%%%%%%%%%%Limites%%%%%%
+\newcommand{\limite}[2]{\lim\limits
+_{x \to #1} #2}
+\newcommand{\limitesuite}[1]{\lim\limits
+_{n \to +\infty} #1}
+\newcommand{\limiteg}[2]{\lim\limits
+_{\substack{x \to #1 \\ x < #1 }} #2}
+\newcommand{\limited}[2]{\lim\limits
+_{\substack{x \to #1 \\ x > #1 }} #2}
+
+%%%%%%%%%%Continuité%%%%%%%%%%%
+\newcommand{\TVI}{théorème des valeurs intermédiaires}
+
+%%%%%%%%%%%Suites%%%%%%%%%%%%
+\newcommand{\suite}[1]{\ensuremath{\left(#1_{n}\right)}}
+\newcommand{\Suite}[2]{\ensuremath{\left(#1\right)_{#2}}}
+%
+
+%%%%%%%%%%%%%%%Calcul intégral%%%%%%
+\newcommand{\dx}{\ensuremath{\text{d}x}}		% dx
+\newcommand{\dt}{\ensuremath{\text{d}t}}		% dt
+\newcommand{\dtheta}{\ensuremath{\text{d}\theta}}		% dtheta
+\newcommand{\dy}{\ensuremath{\text{d}y}}		% dy
+\newcommand{\dq}{\ensuremath{\text{d}q}}		% dq
+
+%%%Intégrale%%%
+\newcommand{\integralex}[3]{\int_{#1}^{#2} #3 \ \dx}
+\newcommand{\integralet}[3]{\int_{#1}^{#2} #3 \ \dt}
+\newcommand{\integraletheta}[3]{\int_{#1}^{#2} #3 \ \dtheta}
+
+%%%%%Equivalent%%
+\newcommand{\equivalent}[1]{\build\sim_{#1}^{}}
+
+%o et O%%%%
+\renewcommand{\o}[2]{\build o_{#1\to #2}^{}}
+\renewcommand{\O}[2]{\build O_{#1\to #2}^{}}
+
+
+
+%%%%%%%%%%%%%%%Geometrie%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%Reperes%%%%%%%%%%%%%%
+\def\Oij{\ensuremath{\left(\text{O},~\vect{\imath},~\vect{\jmath}\right)}}
+\def\Oijk{\ensuremath{\left(\text{O},~\vect{\imath},~ \vect{\jmath},~ \vect{k}\right)}}
+\def\Ouv{\ensuremath{\left(\text{O},~\vect{u},~\vect{v}\right)}}
+\renewcommand{\ij}{(\vec\imath\, ;\vec\jmath\,)}
+\newcommand{\ijk}{(\vec\imath\, ;\vec\jmath\, ;\vec k\,)}
+\newcommand{\OIJ}{(O\,;\, I\,;\, J\,)}
+\newcommand{\repere}[3]{\big(#1\, ;\,\vect{#2} ;\vect{#3}\big)}
+\newcommand{\reperesp}[4]{\big(#1\, ;\,\vect{#2} ;\vect{#3} ;\vect{#4}\big)}
+
+%%%%%%%%%Coordonnees%%%%%%%%%%%%%%
+\newcommand{\coord}[2]{(#1\, ;\, #2)}
+\newcommand{\bigcoord}[2]{\big(#1\, ;\, #2\big)}
+\newcommand{\Coord}[2]{\left(#1\, ;\, #2\right)}
+\newcommand{\coordesp}[3]{(#1\, ;\, #2\, ;\, #3)}
+\newcommand{\bigcoordesp}[3]{\big(#1\, ;\, #2\, ;\, #3\big)}
+\newcommand{\Coordesp}[3]{\left(#1\, ;\, #2\, ;\, #3\right)}
+\newcommand{\Vcoord}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
+%Symboles entre droites
+%\newcommand{\paral}{\sslash}
+\newcommand{\paral}{\mathop{/\!\! /}}
+%
+%%%%%%%%%Produit scalaire, Angles%%%%%%%%%%
+\newcommand{\scal}[2]{\vect{#1} \, \cdot \, \vect{#2}}
+\newcommand{\Angle}[2]{\left(\vect{#1} \, , \, \vect{#2}\right)}
+\newcommand{\Anglegeo}[2]{\left(\widehat{\vect{#1} \, ; \, \vect{#2}}\right)}
+\renewcommand{\angle}[1]{\widehat{#1}}
+\newcommand{\anglevec}[2]{\left(\vect {#1}\, ,\,\vect {#2} \right)}
+\newcommand{\anglevecteur}[2]{(#1\, , \, #2)}
+\newcommand{\Anglevec}[2]{(\vecteur{#1}\, ,\,\vecteur{#2})}
+%
+
+%Arc
+%\newcommand{\arc}[1]{\wideparen{#1}}
+\newcommand{\arcoriente}[1]{\overset{\curvearrowright}{#1}}
+%
+%
+
+
+%%%%%%%%%%%%%%%Normes%%%%%%%%%%%%%%%%
+\newcommand{\norme}[1]{\left\| #1\right\|}
+\newcommand{\normebis}[1]{\delim{2pt}{\|}{9pt}\! #1\delim{2pt}{\|}{9pt}}
+\newcommand{\normetriple}[1]{\left |\kern -.07em\left\| #1\right |\kern -.07em\right\|}
+\newcommand{\valabs}[1]{\big| \, #1 \, \big|}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%Degré%%%%%%
+%\newcommand{\Degre}{\ensuremath{^\circ}}
+%La commande \degre est déjà définie dans le package babel
+
+%%%%%%%%%%Vecteurs%%%%%%%%%%%
+\newcommand{\vect}[1]{\mathchoice%
+{\overrightarrow{\displaystyle\mathstrut#1\,\,}}%
+{\overrightarrow{\textstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptscriptstyle\mathstrut#1\,\,}}}
+
+
+
+%%%%%%%%%%%%%Algebre%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%Systemes%%%%%%%%%%%
+%Systemes
+\newcommand{\sys}[2]{
+\left\lbrace
+ \begin{array}{l}
+  \negthickspace\negthickspace #1\\
+  \negthickspace\negthickspace #2\\
+ \end{array}
+\right.\negthickspace\negthickspace}
+\newcommand{\Sys}[3]{
+\left\lbrace
+ \begin{array}{l}
+  #1\\
+  #2\\
+  #3\\
+ \end{array}
+\right.}
+\newcommand{\Sysq}[4]{
+\left\lbrace
+ \begin{array}{l}
+  #1\\
+  #2\\
+  #3\\
+  #4\\
+ \end{array}
+\right.}
+%
+%
+
+%%%%%%%%%%%%%%%%Matrices%%%%%%%%%%%%%%%%%%
+%Comatrice
+\newcommand{\com}{\mathop{\rm com}\nolimits}
+%
+%
+%Trace
+\newcommand{\tr}{\mathop{\rm tr}\nolimits}
+%
+%
+%Transposee
+\newcommand{\transposee}[1]{{\vphantom{#1}}^t\negmedspace #1}
+%
+%
+%Noyau
+\newcommand{\Ker}{\mathop{\rm Ker}\nolimits}
+%
+%
+
+%
+%Matrices
+\newcommand{\Mn}{\mathcal M_n}
+\newcommand{\matrice}[4]{
+\left(
+ \begin{array}{cc}
+  #1 & #2 \\
+  #3 & #4
+ \end{array}
+\right)}
+
+\newcommand{\Matrice}[9]{
+\left(
+ \begin{array}{ccc}
+  #1 & #2 & #3\\
+  #4 & #5 & #6\\
+  #7 & #8 & #9
+ \end{array}
+\right)}
+\newcommand{\Vect}[3]{
+\left(\negmedspace
+ \begin{array}{c}
+  #1\\
+  #2\\
+  #3
+ \end{array}\negmedspace
+\right)}
+\newcommand{\Ideux}{\matrice{1}{0}{0}{1}}
+\newcommand{\Itrois}{\Matrice{1}{0}{0}{0}{1}{0}{0}{0}{1}}
+%
+%
+%Determinants
+\newcommand{\determinant}[4]{
+\left|
+ \begin{array}{cc}
+  #1 & #2 \\
+  #3 & #4
+ \end{array}
+\right|}
+\newcommand{\Determinant}[9]{
+\left|
+ \begin{array}{ccc}
+  #1 & #2 & #3\\
+  #4 & #5 & #6\\
+  #7 & #8 & #9
+ \end{array}
+\right|}
+
+
+%%%%%%%%%%Cadre Algobox ancien%%%%%%%%%%%%
+\begin{comment}
+\newenvironment{cadrecode}{%
+  \def\FrameCommand{{\color[HTML]{888888}\vrule width 3pt}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\end{comment}
+
+%%%%%%%%%Environnement pour la derniere version d'Algobox%%%%%%%%%%
+%FONTES POUR ALGO
+\DeclareFontFamily{T1}{lmtt}{} 
+\DeclareFontShape{T1}{lmtt}{m}{n}{<-> ec-lmtl10}{} 
+\DeclareFontShape{T1}{lmtt}{m}{\itdefault}{<-> ec-lmtlo10}{} 
+\DeclareFontShape{T1}{lmtt}{\bfdefault}{n}{<-> ec-lmtk10}{} 
+\DeclareFontShape{T1}{lmtt}{\bfdefault}{\itdefault}{<-> ec-lmtko10}{}
+\renewcommand{\ttdefault}{lmtt}
+
+%%MISE EN PAGE
+%\usepackage{geometry}
+%\renewcommand{\headrulewidth}{0.5pt}
+%\renewcommand{\footrulewidth}{0pt}
+%\geometry{tmargin=2.5cm,lmargin=2cm,rmargin=2cm,bmargin=2.5cm}
+%\fancyhead[C]{\small \url{triangulaire-pour-correc.alg} - \texttt{Page \thepage} }
+%\fancyfoot[C]{\small \texttt{Généré par Algobox le 23.08.2017} }
+%\pagestyle{fancy}
+%ALGO
+\definecolor{fctcolor}{RGB}{154,77,0}
+\definecolor{fond}{RGB}{136,136,136}
+\definecolor{sicolor}{RGB}{128,0,128}
+\definecolor{tantquecolor}{RGB}{221,111,6}
+\definecolor{pourcolor}{RGB}{187,136,0}
+\definecolor{bloccolor}{RGB}{128,0,0}
+\newenvironment{cadrecode}{%
+\def\FrameCommand{{\color{fond}\vrule width 5pt}\fcolorbox{fond}{white}}%
+\MakeFramed {\hsize \linewidth \advance\hsize-\width \FrameRestore}\begin{footnotesize}}%
+{\end{footnotesize}\endMakeFramed}
+\makeatletter
+\def\therule{\makebox[\algorithmicindent][l]{\hspace*{.5em}\color{fond} \vrule width 1pt height .75\baselineskip depth .25\baselineskip}}%
+\newtoks\therules
+\therules={}
+\def\appendto#1#2{\expandafter#1\expandafter{\the#1#2}}
+\def\gobblefirst#1{#1\expandafter\expandafter\expandafter{\expandafter\@gobble\the#1}}%
+\def\Ligne{\State\unskip\the\therules}% 
+\def\pushindent{\appendto\therules\therule}%
+\def\popindent{\gobblefirst\therules}%
+\def\printindent{\unskip\the\therules}%
+\def\printandpush{\printindent\pushindent}%
+\def\popandprint{\popindent\printindent}%
+\def\Variables{\Ligne \textcolor{bloccolor}{\textbf{VARIABLES}}}
+\def\Fonctions{\Ligne \textcolor{fctcolor}{\textbf{FONCTIONS\_UTILISEES}}}
+\def\Si#1{\Ligne \textcolor{sicolor}{\textbf{SI}} #1 \textcolor{sicolor}{\textbf{ALORS}}}%
+\def\Sinon{\Ligne \textcolor{sicolor}{\textbf{SINON}}}%
+\def\Pour#1#2#3{\Ligne \textcolor{pourcolor}{\textbf{POUR}} #1 \textcolor{pourcolor}{\textbf{ALLANT\_DE}} #2 \textcolor{pourcolor}{\textbf{A}} #3}%
+\def\Tantque#1{\Ligne \textcolor{tantquecolor}{\textbf{TANT\_QUE}} #1 \textcolor{tantquecolor}{\textbf{FAIRE}}}%
+\def\Fct#1{\Ligne \textcolor{fctcolor}{\textbf{FONCTION}} \textbf{#1}}%
+\algdef{SE}[WHILE]{DebutTantQue}{FinTantQue}
+  {\pushindent \printindent  \textcolor{tantquecolor}{\textbf{DEBUT\_TANT\_QUE}}}
+  {\printindent \popindent  \textcolor{tantquecolor}{\textbf{FIN\_TANT\_QUE}}}%
+\algdef{SE}[FOR]{DebutPour}{FinPour}
+  {\pushindent \printindent \textcolor{pourcolor}{\textbf{DEBUT\_POUR}}}
+  {\printindent \popindent  \textcolor{pourcolor}{\textbf{FIN\_POUR}}}%
+\algdef{SE}[IF]{DebutSi}{FinSi}%
+  {\pushindent \printindent \textcolor{sicolor}{\textbf{DEBUT\_SI}}}
+  {\printindent \popindent \textcolor{sicolor}{\textbf{FIN\_SI}}}%
+\algdef{SE}[IF]{DebutSinon}{FinSinon}
+  {\pushindent \printindent \textcolor{sicolor}{\textbf{DEBUT\_SINON}}}
+  {\printindent \popindent \textcolor{sicolor}{\textbf{FIN\_SINON}}}%
+\algdef{SE}[PROCEDURE]{DebutAlgo}{FinAlgo}
+   {\printandpush \textcolor{bloccolor}{\textbf{DEBUT\_ALGORITHME}}}%
+   {\popandprint \textcolor{bloccolor}{\textbf{FIN\_ALGORITHME}}}%
+\algdef{SE}[PROCEDURE]{DebutFonction}{FinFonction}
+   {\printandpush \textcolor{fctcolor}{\textbf{DEBUT\_FONCTION}}}%
+   {\popandprint \textcolor{fctcolor}{\textbf{FIN\_FONCTION}}}%   
+\makeatother
+\newenvironment{algobox}%
+{%
+\begin{ttfamily}
+\begin{algorithmic}[1]
+\begin{cadrecode}
+\labelwidth 1.5em
+\leftmargin\labelwidth \addtolength{\leftmargin}{\labelsep}
+}
+{%
+\end{cadrecode}
+\end{algorithmic}
+\end{ttfamily}
+}
+
+%%%%%%Cadre Maxima%%%%%%%
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\everymath{\displaystyle} % permet d'avoir tout les math en displaystyle
+
+
+
+%%%%%Fin des commandes Mathematiques%%%%%%%%
+
+
+
+%%%%%%%%%%Commandes specifiques au document %%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%Paramétrage de l'en-tete et du pied de page%%%%%%%%%%%%%%
+
+%%%%%Titre courant (en tete) et pied de page%%%%%%%
+\usepackage{fancyhdr}
+%\pagestyle{plain,empty,headings ou fancy}
+%plain : titre courant vide, piede de page avec le numero seul
+%empty : titre courant et peide de page vides
+%headings : titre courant et peide de page définis par la classe
+%fancy : 12 réglages possibles pour:
+%\fancyhead[LE,RO]{\thepage} ou \fancyfoot[CO]{\thepage}
+% L pour gauche, C pour median, R pour droite, E pour eve, pair et O pour odd,impair
+%A connaitre : \leftmark pour le nom du chapitre courant et \rightmark pour la section courante
+%fancyhdr trace  automatiquement une ligne en haut et en bas de chaque page.
+%Par défaut l'épaisseur de ces lignes est nulle
+%Pour les faire apparaitre on règles les dimensions \headrulewidth et \footrulewidth
+%\renewcommand{\headrulewidth}{0pt}
+
+
+
+\pagestyle{fancy}
+
+
+\fancyfoot[C]{Page
+\thepage/\pageref{LastPage}}
+\fancyhead[R]{{\Large ISN }}
+%\fancyhead[L]{\includegraphics[scale=0.12]{/home/frederic/Maths/logo-parc.png}}
+\fancyhead[L]{\includegraphics[scale=0.12]{/home/fjunier/Maths/logo-parc.png}}
+\fancyhead[C]{\textbf{Portée de variable, passage d'argument}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{\Large ISN}  % Pour spécifier l'auteur qui sera affiché sous le titre
+\title{\Large Chapitre 6 : Représentation des nombres} % Titre 
+%\date{\small \itshape À partir d'une version originale de M.Duclosson} %en utilisant \today on obtiendra la date courante lors de la production du document
+\renewcommand{\thesection}{\Roman{section}}  % permet de numéroter les sections en chiffres romains
+
+
+
+
+
+
+\begin{document}
+
+\maketitle  %produit le titre conformément aux instructions données par \author, \date ...etc
+
+% ------------------------------------------------   Introduction   -------------------------------------------
+
+
+\setlength{\parindent}{0cm}
+
+\begin{introduction}{}
+La mémoire des ordinateurs est constituée d'une multitude de petits circuits électroniques (des transistors) et  chacun 
+ne peut être que dans deux états électriques : notés arbitrairement 0 et 1.
+
+La valeur 0 ou 1 d'un circuit mémoire élémentaire s'appelle un \textbf{chiffre binaire}, un \textbf{booléen} ou un \textbf{bit} (abréviation de \textbf{binary digit}). 
+
+
+Depuis les années 1970, l'unité de mesure de l'espace (disque ou mémoire)  est  \textbf{l'octet} ou \textbf{byte}. Un octet correspond à 8 bits. Un octet peut donc prendre $2^{8}=256$ valeurs différentes. 
+
+En pratique, un ordinateur manipule des \textbf{mots machines} de plusieurs octets. La taille mot correspond au nombre d'adressages possibles de la mémoire vive RAM. On rappelle que dans l'architecture de Von Neumann, la mémoire contient des données et des programmes et en particulier un \textbf{mot machine}  peut contenir l'adresse d'un autre mot mémoire \ldots 
+
+Les \textbf{mots machines} sont de nos jours le plus souvent de $64$ bits.
+
+Tout type d'information (nombre, caractère, couleur \ldots)  peut être stocké sous forme de séquence de bits. Un \textbf{encodage} est nécessaire pour définir une représentation binaire. Dans   ce chapitre, nous aborderons les encodages simples des nombres entiers,  entiers relatifs ou des réels.
+
+\end{introduction}    
+
+\section{Encodage des entiers naturels}
+ 
+ \subsection{Représentation en base 10}
+ 
+ \begin{exemple}{}
+
+L'entier naturel $7307$ s'écrit en base 10 comme une séquence de trois chiffres dont le poids dépend de leur position dans l'écriture. 
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+\hline 
+Séquence de chiffres & 7 & 3 & 0 & 7 \\ 
+\hline 
+Position & 3 & 2 & 1 & 0 \\ 
+\hline 
+Poids & $10^{3}$ & $10^{2}$ & $10^{1}$ & $10^{0}$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+
+La décomposition de $7307$ en base 10 s'écrit donc : $7307=7 \times 10^{3}+3 \times 10^{2} + 0 \times 10^{1} + 7 \times 10^{0}$.
+
+ \end{exemple}
+ 
+\begin{exercice}{}
+ 
+\begin{enumerate}
+	\item Écrire en \texttt{Python} une fonction \texttt{chiffes2nombre(t)} qui retourne l'entier naturel correspondant à la liste de ses chiffres en base $10$. 
+	
+	Les chiffres sont ordonnés dans la liste par poids décroissant comme dans la représentation usuelle.
+	
+\begin{lstlisting}[style=compil]
+In [2]: chiffres2nombre([7,3,4])
+Out[2]: 734
+\end{lstlisting}
+	
+	\Pointilles{5}{\linewidth}
+	
+	
+	\item On considère   l'algorithme d'Horner décrit ci-dessous :
+	
+\begin{center}
+\begin{verbatim}
+Fonction horner(liste)
+    nombre prend  la valeur 0
+    Pour chiffre dans liste #on  commence par les chiffres de poids forts
+        nombre prend  la valeur nombre x 10 + chiffre
+        nombre prend la valeur nombre + chiffre
+    Retourner nombre
+\end{verbatim}
+\end{center}
+
+\begin{enumerate}
+	\item Dérouler l'exécution de cet algorithme appliqué à la liste \texttt{[7, 3, 0, 7]}.
+	
+\Pointilles{4}{\linewidth}
+
+	\item Implémenter  en \texttt{Python} la fonction \texttt{horner}. Que fait cette fonction ?
+	
+	\Pointilles{6}{\linewidth}	
+\end{enumerate}
+\end{enumerate}
+
+ 
+\end{exercice}
+
+
+\begin{exercice}{}
+
+On donne ci-dessous une suite d'instructions permettant de collecter dans une liste les chiffres de $73$ en base $10$.
+
+{\small
+\begin{lstlisting}[style=compil]
+In [15]:  (n, t) = (73, [])
+
+In [16]:  t.append(n % 10)
+
+In [17]:  n = n // 10
+
+In [18]:  (n, t)
+Out[18]: (7, [3])
+
+In [19]:  t.append(n % 10)
+
+In [20]:  n = n // 10
+
+In [21]:  (n, t)
+Out[21]: (0, [3, 7])
+
+In [22]:  t.reverse()
+
+In [23]:  t
+Out[23]: [7, 3]
+\end{lstlisting}
+}
+
+\begin{enumerate}
+	\item Écrire en pseudo-code  une fonction qui prend en argument un entier et retourne la liste de ses chiffres  en base $10$.
+	
+\Pointilles{6}{\linewidth}
+
+	\item Implémenter cette fonction en \texttt{Python}
+	
+\Pointilles{6}{\linewidth}
+	
+\end{enumerate}
+
+
+\end{exercice}
+ 
+  \subsection{Représentation en base 2}
+ 
+ 
+ \begin{theoremedef}{}
+ 
+La mémoire d'un ordinateur ne pouvant stocker que des séquences de bit pouvant prendre uniquement deux états, pour représenter un entier naturel en machine, il faut l'écrire en base deux où les seuls chiffres disponibles sont  $0$ et $1$. 
+
+Pour se convaincre que tout entier naturel peut s'écrire en base deux, on pourra visionner la vidéo sur cette page \url{http://video.math.cnrs.fr/magie-en-base-deux/}.
+
+Tout entier naturel $n$   peut s'écrire de façon unique en base $2$ sous la forme  $c_{k}c_{k-1}\cdots c_{1}c_{0}$ telle que   :
+$$n=\sum_{i=0}^{k}b_{i}\times 2^i \, \text{ avec } \forall i \in \interentiers{0}{k}, \, b_{i} \in \interentiers{0}{1}$$
+$b_{k}$ est le bit de poids fort et $c_{0}$ est le bit de poids faible.
+Pour distinguer l'écriture en base $2$ de l'écriture en base $10$ on pourra écrire $\overline{101}^{2}$ pour par exemple l'écriture de $5$ en base $2$.
+ 
+ 
+ \end{theoremedef}
+ 
+ 
+ 
+\begin{exercice}{}
+ 
+ 	\begin{enumerate}
+ 	\item Expliquer la formule suivante : « Il existe $10$ catégories  de personnes : celles qui comprennent le binaire et les autres.»
+ 	
+ 	\Pointilles{2}{\linewidth}
+ 	
+ 	    \item Compter jusqu'à 18 en binaire.
+ 	    
+ 	    \Pointilles{2}{\linewidth}
+ 	    
+ 	    \item Quel est le plus grand entier non signé qu'on peut représenter en base 2 avec un mot de $64$ bits ? de $n$ bits ? 
+ 	    
+ 	        \Pointilles{2}{\linewidth}
+ 	        
+ 	        
+\item C'est en $\overline{11110010000}^{2}$ qu'Alan Turing a défini sa machine à calculer universelle.  Exprimer ce nombre en base dix.
+
+    \Pointilles{2}{\linewidth}
+    
+
+\item Écrire en \texttt{Python} une fonction \texttt{bits2nombre(t)} qui retourne l'entier naturel (en base dix) représenté par la séquence de bits \texttt{t} avec les bits de poids fort à gauche.
+
+\begin{center}
+\begin{lstlisting}[style=compil]
+In [26]:  bits2nombre([1,1,0,1])
+Out[26]: 13
+\end{lstlisting}
+\end{center}
+
+    \Pointilles{6}{\linewidth}
+    
+    
+ 	\end{enumerate}
+ 
+\end{exercice}
+
+\vspace*{-10pt}
+
+\begin{exercice}{}
+
+
+
+\begin{enumerate}
+\item Regarder la vidéo  sur la page  \url{http://video.math.cnrs.fr/magie-en-base-deux/}.
+
+\item En utilisant les deux algorithmes présentés dans la video, convertir en base $2$ les entiers naturels d'écritures décimales $37$ et $18$.
+
+\Pointilles{5}{\linewidth}
+
+
+	\item Compléter le code de la fonction \texttt{codageBinaireGlouton(n)} qui retourne une liste de 0 ou de 1 représentant le codage binaire de l'entier n écrit en base 10 en appliquant l'algorithme glouton décrit dans la vidéo.
+	
+\begin{lstlisting}[style=rond]
+def codageBinaireGlouton(n):
+    binaire = []
+    puissance2 = 1
+    while puissance2 < n:
+        puissance2 = puissance2 * 2
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    return binaire
+\end{lstlisting}
+	
+	\item  Compléter le code de la fonction \texttt{codageBinaire2(n)} qui retourne une liste de 0 ou de 1 représentant le codage binaire de l'entier n écrit en base 10 en appliquant l'algorithme des divisions successives décrit dans la vidéo.
+	
+	
+\begin{lstlisting}[style=rond]
+def codageBinaire2(n):
+    binaire = []
+    while n > 2:
+        .................................
+        .................................
+        .................................
+        .................................
+        .................................
+    binaire.reverse()
+    return binaire
+\end{lstlisting}
+
+\end{enumerate}
+
+\end{exercice}
+
+
+\begin{exercice}{}
+
+\begin{enumerate}
+\item \begin{multicols}{2}
+\begin{enumerate}
+  \item $\overline{10010}^{\,(2)}+\overline{1101}^{\,(2)}$
+  \item $\overline{100111}^{\,(2)}\times\overline{101}^{\,(2)}$
+\end{enumerate}
+\end{multicols}
+
+\Pointilles{5}{\linewidth}
+
+
+\item Écrire  en \texttt{Python} une fonction \texttt{additionBinaire8bits(t1, t2)} qui retourne la liste \texttt{t3} des bits de la somme des entiers représentés par les listes d
+de bits \texttt{t1} et \texttt{t2}.  
+
+\bcattention{} \texttt{t1}, \texttt{t2} et \texttt{t3} doivent être des listes de taille $8$ correspondant à la représentation d'un entier sur un octet avec les bits de poids forts à gauche.
+Donner un exemple d'exécution où la fonction retourne un résultat faux. Expliquer pourquoi.
+
+\begin{lstlisting}[style=compil]
+In [29]:  additionBinaire8bits([1,0,1,0,1,1,1,0],[0,0,0,0,1,1,1,1])
+Out[29]: [1, 0, 1, 1, 1, 1, 0, 1]
+\end{lstlisting}
+
+
+\Pointilles{6}{\linewidth}
+
+
+\end{enumerate}
+
+\end{exercice}
+
+\begin{methode}{}
+
+\begin{itemize}[label=\ding{43}]
+
+\item En \texttt{Python}, les entiers naturels et relatifs sont de type \texttt{int} et sont représentés de façon exacte, la seule limitation étant celle de la mémoire disponible.
+
+
+\begin{lstlisting}[style=compil]
+In [2]: (type(734), type(-1))
+Out[2]: (int, int)
+\end{lstlisting}
+
+\item En \texttt{Python}, pour convertir l'écriture d'un entier naturel de la base $2$ vers la base $10$, on  préfixe la séquence de bits de \texttt{0b} :
+
+\begin{lstlisting}[style=compil]
+In [35]: 0b101
+Out[35]: 5
+\end{lstlisting}
+
+\item Pour  convertir l'écriture d'un entier naturel de la base $10$ vers la base $2$, on utilise la fonction \texttt{bin} :
+
+\begin{lstlisting}[style=compil]
+In [36]: bin(5)
+Out[36]: '0b101'
+\end{lstlisting}
+
+
+\end{itemize}
+
+\end{methode}
+ 
+ 
+ \subsection{Représentation en base 16}
+ 
+ 
+ \begin{theoremedef}{}
+Plus généralement, on peut représenter un entier naturel dans n'importe quelle base. 
+
+Une base très utilisée en informatique est la base $16$. 
+
+On étend  les dix chiffres de la base $10$ avec A, B, C, D, E et F pour représenter $10$, $11$, $12$, $13$, $14$ et $15$. 
+
+En  base $16$  chaque octet  est représenté par deux chiffres ce qui permet de condenser l'écriture.
+
+Par exemple, chaque carte réseau  possède une  adresse MAC codée sur $48$ bits soit $6$ octets et représentée par une séquence de $6$ chiffres en base $16$ séparés par le caractère \texttt{:} sous la forme : \texttt{c8:60:00:a4:89:ab}
+
+De même, les couleurs en représentation (R,G,B) sont codées sur $3$ octets et dans le langage HTML des pages Web on les rencontre souvent notées comme séquence de six chiffres en base $16$ préfixés par le caractère \# : par exemple \#FF0000 va coder un rouge pur.
+ \end{theoremedef}
+ 
+ \begin{exercice}{}
+La représentation hexadécimale s'obtient facilement à partir de  la représentation binaire. Puisque $2^4=16$, pour convertir un octet de binaire en hexadécimal, il suffit de regrouper les bits par $4$. \\
+Ainsi $154$ représenté en binaire sur un octet par $\overbrace{\overline{1001}^{2}}^{\overline{9}^{16}}\overbrace{\overline{1010}^{2}}^{\overline{\text{A}}^{16}}$   a pour représentation hexadécimale $\overline{9\text{A}}^{16}$ car $9 \times 16 + 10 = 154$.\\
+Convertir de m\^eme en hexadécimal les octets suivants :
+\begin{multicols}{3}
+\begin{itemize}
+\item $11101010$
+\item $10011011$
+\item $1100000$
+\end{itemize} 
+\end{multicols}
+
+\Pointilles{4}{\linewidth}
+
+\end{exercice}
+
+
+\begin{methode}{}
+
+\begin{itemize}[label=\ding{43}]
+
+\item En \texttt{Python}, pour convertir l'écriture d'un entier naturel de la base $16$ vers la base $10$, on  préfixe la séquence de bits de \texttt{0x} :
+
+\begin{lstlisting}[style=compil]
+In [5]: 0x9A
+Out[5]: 154
+\end{lstlisting}
+
+\item Pour  convertir l'écriture d'un entier naturel de la base $10$ vers la base $16$, on utilise la fonction \texttt{hex} :
+
+\begin{lstlisting}[style=compil]
+In [6]: hex(154)
+Out[6]: '0x9a'
+\end{lstlisting}
+
+
+\end{itemize}
+
+\end{methode}
+ 
+
+\section{Encodage des entiers relatifs}
+
+
+\begin{exercice}{}
+
+On souhaite représenter des entiers relatifs sur trois bits.
+
+\begin{enumerate}
+	\item Combien d'entiers relatifs peut-on représenter sur trois bits ?
+
+\Pointilles{1}{\linewidth}
+
+	\item On décide de représenter le signe d'un entier par le bit de poids fort ($0$ pour positif et $1$ pour négatif) et de garder les deux autres bits pour représenter la valeur absolue du nombre.
+	
+\begin{enumerate}
+
+\item  Quels entiers peut-on représenter sur $3$ bits avec cet encodage ?
+	
+	\Pointilles{4}{\linewidth}
+	
+\item Additionner les représentations de $1$ et de $-1$ dans cet encodage ? Que remarque-t-on ?
+
+	
+	\Pointilles{3}{\linewidth}
+	
+\end{enumerate}
+
+\item L'encodage par complément à $2$ des entiers relatifs consiste à garder le bit de poids fort pour le signe, à coder les positifs comme précédemment et  à coder les négatifs en prenant pour les deux bits de poids faible   l'inverse du bit de  la représentation de leur valeur absolue (le complément à $2$ de $0$ est $1$ et celui de $1$ est $0$ car $1+1=10$ en binaire). La figure ci-dessous illustre l'encodage en complément à $1$ sur $3$ bits.
+
+\begin{center}
+
+\begin{tikzpicture}
+\draw (90:2) node[above]{\raisebox{12pt}{binaire}} node{$000$};
+\draw (45:2) node {$001$};
+\draw (0:2) node {$010$};
+\draw (-45:2) node {$011$};
+\draw (-90:2) node {$100$};
+\draw (-135:2) node {$101$};
+\draw (-180:2) node {$110$};
+\draw (-225:2) node {$111$};
+\draw (90:3.5) node[above]{\raisebox{12pt}{\color{red}{décimal}}} node{\color{red}{$0$}};
+\draw (45:3.5) node {\color{red}{$1$}};
+\draw (0:3.5) node {\color{red}{$2$}};
+\draw (-45:3.5) node {\color{red}{$3$}};
+\draw (-90:3.5) node {\color{red}{$-4$}};
+\draw (-135:3.5) node {\color{red}{$-3$}};
+\draw (-180:3.5) node {\color{red}{$-2$}};
+\draw (-225:3.5) node {\color{red}{$-1$}};
+\end{tikzpicture}
+\end{center}
+
+
+\begin{enumerate}
+
+	\item Vérifier si  l'addition des représentations de $1$ et de $-1$ dans cet encodage donne bien $0$. 
+	
+	
+	\Pointilles{2}{\linewidth}
+	
+	\item Vérifier si  l'addition des représentations de $1$ et de $-1$ dans cet encodage donne bien $0$ et si l'addition des représentations de $-1$ et de $-1$ dans cet encodage donne bien $-2$ (en excluant la dernière retenue sortante).
+	
+	
+	\Pointilles{2}{\linewidth}
+	
+	
+	\item Que donne l'addition des représentations de $3$  et $1$ sur $3$ bits ? Commenter
+	
+		\Pointilles{2}{\linewidth}
+		
+    
+		\item Déterminer les entiers  relatifs qu'on peut représenter en complément à $2$ sur $n$ bits ?
+	
+		\Pointilles{3}{\linewidth}
+		
+		
+	\item Quels entiers relatifs peut-on représenter en complément à $2$ sur $n$ bits ?
+	
+		\Pointilles{3}{\linewidth}
+	
+	
+	\item Comment peut-on obtenir l'encodage en complément à $2$ d'un entier naturel inférieur à $2^{n}-1$ sur $n$ bits ?
+	
+	
+			\Pointilles{3}{\linewidth}
+	
+	
+	\item La classe \texttt{int8} du module \texttt{numpy} permet de créer des entiers signés codés sur $8$ bits. Commenter les résultat des exécutions ci-dessous :
+	
+\begin{lstlisting}[style=compil]
+In [12]: import numpy
+
+In [13]: numpy.int8(127) + numpy.int8(1)
+__main__:1: RuntimeWarning: overflow encountered in byte_scalars
+Out[13]: -128
+
+In [14]: numpy.int8(-127) + numpy.int8(-2)
+__main__:1: RuntimeWarning: overflow encountered in byte_scalars
+Out[14]: 127
+\end{lstlisting}
+
+
+		\Pointilles{3}{\linewidth}
+	
+	
+\end{enumerate}
+
+\end{enumerate}
+ 
+\end{exercice}
+
+
+
+\newpage
+
+\section{Encodage des réels}
+
+ \vspace*{-15pt}
+ 
+ \begin{exercice}{}
+ 
+ \begin{enumerate}
+    \item Quel est le type de représentation des nombres réels en \texttt{Python} ? 
+
+\begin{lstlisting}[style=compil]
+In [15]: (type(1),type(1.0), type(4 // 2), type(4/2))
+Out[15]: (int, float, int, float)
+\end{lstlisting}
+  
+  
+  \Pointilles{3}{\linewidth}
+  
+  
+  \item Commenter les résultats d'exécution ci-dessous :
+
+{\small
+\begin{lstlisting}[style=compil]
+In [1]: 0. + 0.2 == 0.3
+Out[1]: False
+
+In [2]: 1.6 + (3.2 + 1.7)
+Out[2]: 6.5
+
+In [3]: (1.6 + 3.2) + 1.7
+Out[3]: 6.500000000000001
+
+In [4]: 1.5  *(3.2 + 1.4)
+Out[4]: 6.8999999999999995
+
+In [5]: 1.5  * 3.2 + 1.5 * 1.4
+Out[5]: 6.9
+
+In [6]: x = 1e200
+
+In [7]: x * x
+Out[7]: inf
+
+In [8]: (x * x) * 0
+Out[8]: nan
+
+In [9]: y = 10 ** 400
+
+In [10]: type(y + 1.0)
+---------------------------------------------------------------------------
+OverflowError                             Traceback (most recent call last)
+<ipython-input-49-01ee37eb4b77> in <module>
+----> 1 type(y + 1.0)
+
+OverflowError: int too large to convert to float
+
+In [10]: type(y + 1)
+Out[10]: int
+\end{lstlisting}
+   }
+ 
+  
+  \Pointilles{10}{\linewidth}
+  
+ 	\item Lire l'article disponible sur la page Web \url{http://www.apprendre-en-ligne.net/bloginfo/index.php/2008/10/10/79-problemes-d-arrondi}. Quels problèmes  peuvent causer la représentation approchée des nombres réels en informatique ?
+ 	
+ 	  \Pointilles{4}{\linewidth}
+ 	
+ 	
+ \end{enumerate}
+ 
+ \end{exercice}
+ 
+  \vspace*{-15pt}
+  
+ \begin{theoremedef}{}
+ 
+Les nombres réels sont représentés usuellement en informatique sous la forme de  \textbf{flottants} en référence au mode de représentation en virgule flottante similaire à la notation scientifique en base dix où un réel $x$ est représenté sous la forme d'un triplet (signe $s$, mantisse $m$, exposant $n$) avec $x=(-1)^{s} \times m \times 10^{n}$.
+
+La représentation des flottants est fixée par la norme IEEE 754 : les différences avec  la notation scientifique sont la base ($2$ pour les flottants) et l'exposant $n$ qui est décalé avec un biais $d$ qui permet de représenter des exposants négatifs et positifs comme des entiers.
+
+\medskip
+
+Un flottant $f$ est alors de la forme $\boxed{f=(-1)^{s} \times m \times 2^{n-d}}$ avec $m \in \Interfo{1}{2}$.
+
+
+\medskip
+
+Par exemple pour  $-12.015625 = -2^{3}\times\left(1+\frac{1}{2}+\frac{1}{2^9}\right)$  le signe est $-1$, l'exposant est $3$ et la mantisse est $\frac{1}{2}+\frac{1}{2^9}$.
+
+On donne ci-dessous la représentation de $-12.015625$ comme flottant au format simple précision sur $32$ bits obtenue avec le simulateur \url{https://www.h-schmidt.net/FloatConverter/IEEE754.html}.
+
+\begin{center}
+\includegraphics[scale=0.4]{images/flottant.png}
+\end{center}
+
+En précision $32$ bits,  le signe $s$ se code sur le bit de poids fort, puis l'exposant est codé sur $8$ bits avec un biais $d=2^{8-1}-1=127$ et une mantisse codée sur $23$ bits.
+
+Par défaut le premier bit de la mantisse n'est pas codé et considéré comme égal à $1$.
+
+Comment peut-on représenter le $0$ ? La convention est de réserver les valeurs extrêmes de l'exposant non biaisé $e$ ($0$ et $255$ pour un codage sur $8$ bits) aux valeurs  particulières  comme $0$ (exposant $0$) ou l'infini (exposant $255$).
+
+\bcattention{} Les flottants permettent de représenter des nombres très grands ou très petits. \texttt{Python} est particulier car les entiers peuvent être arbitrairement grands mais le coût en espace mémoire est important. Mais les flottants ne  sont que des représentations approchées des réels et il existe un écart non nul  entre deux flottants consécutifs, un  écart élastique qui  dépasse $1$ au delà de $2^{52}$. Par conséquent il faut éviter de tester l'égalité entre deux flottants $a$ et $b$ mais plutôt tester une inégalité $\valabs{a - b} < \varepsilon$.
+ 
+ \end{theoremedef}
+ 
+ \vspace*{-15pt}
+ 
+ \begin{exercice}{}
+ 
+En $1202$, \textit{Leonardo Fibonacci} a donné sans démonstration, dans son ouvrage \textit{Liber Abaci} un algorithme permettant d'écrire toute fraction d'entiers positive $\frac{p}{q}$ avec $\frac{p}{q} \in ]\,0\:;\:1\,[$ sous forme d'une somme de  fractions égyptiennes,  de  numérateur $1$ :  %\footnote{Si $\frac{p}{q}>1$ on lui retranche d'abord sa partie entière.}  :
+
+\begin{quote}
+	{\itshape
+\og{} Soustraire à la fraction donnée la plus grande fraction égyptienne possible, répéter l'opération avec la nouvelle fraction, et ainsi de suite jusqu'à ce que l'opération donne une fraction égyptienne. \fg{}
+}
+\end{quote}
+
+\textbf{Il s'agit d'un algorithme glouton car à chaque étape, il réalise un choix localement optimal : la plus grande fraction égyptienne inférieure ou égale à  la fraction restante.} 
+
+Par exemple on a  $\frac{2}{3}=\frac{1}{2}+\frac{1}{6} \quad \text{ou} \quad \frac{2}{59}=\frac{1}{36} + \frac{1}{236} + \frac{1}{531}$. 
+
+
+\begin{enumerate}
+
+			\item Appliquer cet algorithme à la main pour obtenir une décomposition  de $\frac{2}{5}$ puis de $\frac{51}{105}$.
+			\item On considère les deux fonctions de décomposition ci-après. 
+			
+Appeler ces fonctions avec les arguments  \texttt{3/4} puis \texttt{2/5}. 
+
+Que peut-on observer ?  Comment l'expliquer ?
+
+	\item On choisit désormais  de représenter une fraction  non pas sous forme d'approximation décimale (flottant en \texttt{Python}) mais sous la forme du couple d'entiers constitué par leur numérateur et leur dénominateur. Par exemple $\frac{4}{17}=\frac{p}{q}$ sera représenté par le couple d'entiers $p=4$ et $q=17$ et non par le flottant \texttt{0.23529411764705882}.  
+		
+\end{enumerate}
+
+\begin{minipage}{0.45\linewidth}
+\begin{lstlisting}[style=rond]
+def decomposition1(x):
+    decomp = []
+    while x != 0:
+        n = 1
+        while 1/n > x:            
+            n += 1
+        decomp.append(n)
+        x = x - 1 / n
+        print(x, decomp)
+    return decomp
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{lstlisting}[style=rond]
+import math 
+
+def decomposition2(x):
+    decomp = []
+    while x != 0:        
+        n = math.ceil(1/x)
+        decomp.append(n)
+        x = x - 1 / n
+        print(x, decomp)
+    return decomp
+\end{lstlisting}
+\end{minipage}
+
+
+\begin{enumerate}[start=3]
+
+	
+\item	\begin{enumerate}
+		\item Soit $p$ et $q$ le numérateur et le dénominateur respectifs de  la fraction au début d'une itération fixée de la boucle externe et soit $n$ le dénominateur correspondant au choix glouton. Exprimer le numérateur et le dénominateur  de  la fraction restante en fonction de $p$, $q$ et $n$. Tester les formules obtenues pour retrouver que $\frac{4}{17}=\frac{1}{5}+\frac{1}{29}+\frac{1}{1233}+\frac{1}{3039345}$. 
+		\item Écrire une fonction \lstinline+decomposition3(p, q)+   qui implémente  l'algorithme avec cette représentation des fractions.
+		\item  Écrire un programme qui détermine le plus grand dénominateur et le $n$ pour lequel il est atteint sur l'ensemble des  décompositions calculées par l'algorithme pour les fractions  $\frac{4}{n}$ avec $5 \leqslant n \leqslant 288$. 
+		\item Tester l'appel \lstinline+decomposition3(4, 289)+. En cas d'erreur déboguer puis corriger le code. Indice : les calculs ne doivent manipuler que des entiers.
+
+%Une conjecture d'\textit{Erdos} suppose que toutes les fractions $\frac{4}{n}$ avec $n \geqslant 5$ se décomposent en trois fractions égyptiennes. Sur \url{https://oeis.org/A073101}, on trouvera $4/41 = 1/11 + 1/154 + 1/631$. L'algorithme glouton est-il optimal pour le nombre de termes de la décomposition.
+	\end{enumerate}			
+	
+	\end{enumerate}
+ 
+  \end{exercice}
+
+ \vspace*{-15pt}
+ 
+ \begin{methode}{}
+ 
+ \begin{itemize}
+ 	\item Le module \texttt{sys} permet d'obtenir des informations sur la précision de la représentation des flottants en \texttt{Python} (double précision sur $64$ bits) :
+ \begin{lstlisting}[style=compil]
+In [52]: sys.float_info
+Out[52]: sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1) 
+ \end{lstlisting}
+ On peut lire que les flottants représentables sont compris entre $10^{-308}$ et $10^{308}$ environ et que le plus petit écart entre deux flottants au voisinage de $1$ est $2^{-52} \approx  2.220446049250313e-16$.
+ 
+ \item Le module \texttt{decimal} permet d'obtenir la représentation approchée d'un réel sous forme de flottant.
+  \begin{lstlisting}[style=compil]
+In [53]: import decimal
+
+In [54]: decimal.Decimal.from_float(0.1)
+Out[54]: Decimal('0.1000000000000000055511151231257827021181583404541015625')
+ \end{lstlisting}
+ 
+ 
+ \end{itemize}
+ \end{methode}
+ 
+\end{document} %  ======================  FIN  ==========================

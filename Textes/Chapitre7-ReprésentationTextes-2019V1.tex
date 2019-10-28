@@ -1626,16 +1626,16 @@ _{\substack{x \to #1 \\ x > #1 }} #2}
 \fancyhead[R]{{\Large ISN }}
 \fancyhead[L]{\includegraphics[scale=0.12]{/home/frederic/Maths/logo-parc.png}}
 %\fancyhead[L]{\includegraphics[scale=0.12]{/home/fjunier/Maths/logo-parc.png}}
-\fancyhead[C]{\textbf{Représentation des nombres}}
+\fancyhead[C]{\textbf{Représentation des textes}}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{\Large ISN}  % Pour spécifier l'auteur qui sera affiché sous le titre
-\title{\Large Chapitre 6 : Représentation des nombres} % Titre 
+\title{\Large Chapitre 6 : Représentation des textes} % Titre 
 \date{\small Année scolaire 2019/2020} %en utilisant \today on obtiendra la date courante lors de la production du document
-\renewcommand{\thesection}{\Roman{section}}  % permet de numéroter les sections en chiffres romains
+%\renewcommand{\thesection}{\Roman{section}}  % permet de numéroter les sections en chiffres romains
 
 
 
@@ -1652,715 +1652,374 @@ _{\substack{x \to #1 \\ x > #1 }} #2}
 \setlength{\parindent}{0cm}
 
 \begin{introduction}{}
-La mémoire des ordinateurs est constituée d'une multitude de petits circuits électroniques (des transistors) et  chacun 
-ne peut être que dans deux états électriques : notés arbitrairement 0 et 1.
-
-La valeur 0 ou 1 d'un circuit mémoire élémentaire s'appelle un \textbf{chiffre binaire}, un \textbf{booléen} ou un \textbf{bit} (abréviation de \textbf{binary digit}). 
-
-
-Depuis les années 1970, l'unité de mesure de l'espace (disque ou mémoire)  est  \textbf{l'octet} ou \textbf{byte}. Un octet correspond à 8 bits. Un octet peut donc prendre $2^{8}=256$ valeurs différentes. 
-
-En pratique, un ordinateur manipule des \textbf{mots machines} de plusieurs octets. La taille mot correspond au nombre d'adressages possibles de la mémoire vive RAM. On rappelle que dans l'architecture de Von Neumann, la mémoire contient des données et des programmes et en particulier un \textbf{mot machine}  peut contenir l'adresse d'un autre mot mémoire \ldots 
-
-Les \textbf{mots machines} sont de nos jours le plus souvent de $64$ bits.
-
-Tout type d'information (nombre, caractère, couleur \ldots)  peut être stocké sous forme de séquence de bits. Un \textbf{encodage} est nécessaire pour définir une représentation binaire. Dans   ce chapitre, nous aborderons les encodages simples des nombres entiers,  entiers relatifs ou des réels.
-
+Le but de ce chapitre est de comprendre comment les textes sont représentés dans un ordinateur et d'apprendre à manipuler le type \lstinline{str} de \texttt{Python} qui leur est dédié.
 \end{introduction}    
 
-\section{Encodage des entiers naturels}
- 
- \subsection{Représentation en base 10}
- 
-  \vspace*{-20pt}
-  
-  
- \begin{exemple}{}
+\section{Chaînes de caractères en \texttt{Python}}
 
-L'entier naturel $7307$ s'écrit en base 10 comme une séquence de trois chiffres dont le poids dépend de leur position dans l'écriture. 
+\vspace*{-20pt}
 
-\begin{center}
-\begin{tabular}{|l|c|c|c|c|}
-\hline 
-Séquence de chiffres & 7 & 3 & 0 & 7 \\ 
-\hline 
-Position & 3 & 2 & 1 & 0 \\ 
-\hline 
-Poids & $10^{3}$ & $10^{2}$ & $10^{1}$ & $10^{0}$ \\ 
-\hline 
-\end{tabular} 
-\end{center}
+\begin{methode}{}
 
+\begin{itemize}[label=\ding{43}]
 
-La décomposition de $7307$ en base 10 s'écrit donc : $7307=7 \times 10^{3}+3 \times 10^{2} + 0 \times 10^{1} + 7 \times 10^{0}$.
+\item Une chaîne de caractères est une séquence éventuellement vide de caractères. Chaque caractère est uen chaîne de longueur 1.
 
- \end{exemple}
- 
-  \vspace*{-20pt}
-  
-\begin{exercice}{}
- 
-\begin{enumerate}
-	\item Écrire en \texttt{Python} une fonction \texttt{chiffes2nombre(t)} qui retourne l'entier naturel correspondant à la liste de ses chiffres en base $10$. 
-	
-	Les chiffres sont ordonnés dans la liste par poids décroissant comme dans la représentation usuelle.
-	
-\begin{lstlisting}[style=compil]
-In [2]: chiffres2nombre([7,3,4])
-Out[2]: 734
+En \texttt{Python}, les chaînes de caractères définissent le type \texttt{str}. La longueur d'une chaîne de caractères s'obtient avec la fonction \texttt{len}.
+
+\begin{lstlisting}
+In [6]: a = 1
+
+In [7]: type(a)
+Out[7]: int
+
+In [8]: b = str(a)
+
+In [9]: b, type(b)
+Out[9]: ('1', str)
+
+In [10]: len(b), len('un'), len('')
+Out[10]: (1, 2, 0)
 \end{lstlisting}
-	
-	\Pointilles{5}{\linewidth}
-	
-	
-	\item On considère   l'algorithme d'Horner décrit ci-dessous :
-	
-\begin{center}
-\begin{verbatim}
-Fonction horner(liste)
-    nombre prend  la valeur 0
-    Pour chiffre dans liste #on  commence par les chiffres de poids forts
-        nombre prend  la valeur nombre x 10 + chiffre
-        nombre prend la valeur nombre + chiffre
-    Retourner nombre
-\end{verbatim}
-\end{center}
 
-\begin{enumerate}
-	\item Dérouler l'exécution de cet algorithme appliqué à la liste \texttt{[7, 3, 0, 7]}.
-	
-\Pointilles{4}{\linewidth}
 
-	\item Implémenter  en \texttt{Python} la fonction \texttt{horner}. Que fait cette fonction ?
-	
-	\Pointilles{6}{\linewidth}	
-\end{enumerate}
-\end{enumerate}
+\item Les chaînes de caractères partagent certaines propriétés avec les listes :
+\begin{itemize}
+\item Une chaîne de caractères \texttt{c} peut être vue comme un tableau de caractères indexés de 0 à \texttt{len(c) - 1} de gauche à droite et de \texttt{-1} à \texttt{-len(c)} de droite à gauche. L'opérateur crochet permet d'accéder au caractère d'index \texttt{i} avec la syntaxe \texttt{c[i]} ou à la tranche de caractères d'index appartenant à l'intervalle $\Interfo{\text{\texttt{i}}}{\texttt{j}}$  avec la syntaxe \texttt{c[i:j]} si \texttt{0 $\leqslant$ i < j} ou \texttt{c[i:j:-1]} si \texttt{i < j $\leqslant$ -1}.
 
- 
-\end{exercice}
+\begin{lstlisting}
+In [26]: c[0], c[1], c[len(c)-1]
+Out[26]: ('X', 'Y', 'T')
 
-  \vspace*{-20pt}
-\begin{exercice}{}
+In [27]: c[-1], c[-2], c[-len(c)]
+Out[27]: ('T', 'Z', 'X')
 
-On donne ci-dessous une suite d'instructions permettant de collecter dans une liste les chiffres de $73$ en base $10$.
-
-{\small
-\begin{lstlisting}[style=compil]
-In [15]:  (n, t) = (73, [])
-
-In [16]:  t.append(n % 10)
-
-In [17]:  n = n // 10
-
-In [18]:  (n, t)
-Out[18]: (7, [3])
-
-In [19]:  t.append(n % 10)
-
-In [20]:  n = n // 10
-
-In [21]:  (n, t)
-Out[21]: (0, [3, 7])
-
-In [22]:  t.reverse()
-
-In [23]:  t
-Out[23]: [7, 3]
+In [28]: c[1:3], c[-1:-len(c):-1]
+Out[28]: ('YZ', 'TZY')
 \end{lstlisting}
-}
 
-\begin{enumerate}
-	\item Écrire en pseudo-code  une fonction qui prend en argument un entier et retourne la liste de ses chiffres  en base $10$.
-	
-\Pointilles{6}{\linewidth}
+\item On peut itérer sur une chaîne de caractères avec une boucle \texttt{for}.
 
-	\item Implémenter cette fonction en \texttt{Python}
-	
-\Pointilles{6}{\linewidth}
-	
-\end{enumerate}
-
-
-\end{exercice}
- 
-   \vspace*{-20pt}
-   
-  \subsection{Représentation en base 2}
- 
-   \vspace*{-20pt}
- 
- \begin{theoremedef}{}
- 
-La mémoire d'un ordinateur ne pouvant stocker que des séquences de bit pouvant prendre uniquement deux états, pour représenter un entier naturel en machine, il faut l'écrire en base deux où les seuls chiffres disponibles sont  $0$ et $1$. 
-
-Pour se convaincre que tout entier naturel peut s'écrire en base deux, on pourra visionner la vidéo sur cette page \url{http://video.math.cnrs.fr/magie-en-base-deux/}.
-
-Tout entier naturel $n$   peut s'écrire de façon unique en base $2$ sous la forme  $c_{k}c_{k-1}\cdots c_{1}c_{0}$ telle que   :
-$$n=\sum_{i=0}^{k}b_{i}\times 2^i \, \text{ avec } \forall i \in \interentiers{0}{k}, \, b_{i} \in \interentiers{0}{1}$$
-$b_{k}$ est le bit de poids fort et $c_{0}$ est le bit de poids faible.
-Pour distinguer l'écriture en base $2$ de l'écriture en base $10$ on pourra écrire $\overline{101}^{2}$ pour par exemple l'écriture de $5$ en base $2$.
- 
- 
- \end{theoremedef}
- 
-   \vspace*{-20pt}
- 
-\begin{exercice}{}
- 
- 	\begin{enumerate}
- 	\item Expliquer la formule suivante : « Il existe $10$ catégories  de personnes : celles qui comprennent le binaire et les autres.»
- 	
- 	\Pointilles{2}{\linewidth}
- 	
- 	    \item Compter jusqu'à 18 en binaire.
- 	    
- 	    \Pointilles{2}{\linewidth}
- 	    
- 	    \item Quel est le plus grand entier non signé qu'on peut représenter en base 2 avec un mot de $64$ bits ? de $n$ bits ? 
- 	    
- 	        \Pointilles{2}{\linewidth}
- 	        
- 	        
-\item C'est en $\overline{11110010000}^{2}$ qu'Alan Turing a défini sa machine à calculer universelle.  Exprimer ce nombre en base dix.
-
-    \Pointilles{2}{\linewidth}
-    
-
-\item Écrire en \texttt{Python} une fonction \texttt{bits2nombre(t)} qui retourne l'entier naturel (en base dix) représenté par la séquence de bits \texttt{t} avec les bits de poids fort à gauche.
-
-\begin{center}
-\begin{lstlisting}[style=compil]
-In [26]:  bits2nombre([1,1,0,1])
-Out[26]: 13
+\begin{lstlisting}
+In [18]: for c in 'XY':
+    ...:     print(c)
+    ...:     
+X
+Y
 \end{lstlisting}
-\end{center}
+\item On peut concaténer deux chaînes pour créer une nouvelle chaîne avec l'opérateur \texttt{+}.
+\begin{lstlisting}
+In [19]: a, b, c = 'belle','-','ile'
 
-    \Pointilles{6}{\linewidth}
-    
-    
- 	\end{enumerate}
- 
-\end{exercice}
+In [20]: a + b + c
+Out[20]: 'belle-ile'
+\end{lstlisting}
+\end{itemize}
+\item Une chaîne de caractères d'identifiant \texttt{chaine} est un objet \texttt{Python} qui intègre  de nombreuses méthodes accessibles avec la notation pointée \texttt{chaine.methode()}. On peut les découvrir en saisissant \texttt{dir(chaine)} ou dans la documentation en ligne :
+
+\url{https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str} 
+
+\begin{lstlisting}
+In [24]: a = 'un beau marin'
+
+In [25]: a.find('beau')
+Out[25]: 3
+
+In [26]: a.replace('b','v')
+Out[26]: 'un veau marin'
+
+In [27]: a.upper()
+Out[27]: 'UN BEAU MARIN'
+
+In [28]: dir(a)
+Out[28]: ['__add__',
+ '__class__',
+ '__contains__',
+....
+\end{lstlisting}
+\end{itemize}
+\end{methode}
 
 \vspace*{-20pt}
 
 \begin{exercice}{}
 
-
-
 \begin{enumerate}
-\item Regarder la vidéo  sur la page  \url{http://video.math.cnrs.fr/magie-en-base-deux/}.
-
-\item En utilisant les deux algorithmes présentés dans la video, convertir en base $2$ les entiers naturels d'écritures décimales $37$ et $18$.
-
-\Pointilles{5}{\linewidth}
-
-
-	\item Compléter le code de la fonction \texttt{codageBinaireGlouton(n)} qui retourne une liste de 0 ou de 1 représentant le codage binaire de l'entier n écrit en base 10 en appliquant l'algorithme glouton décrit dans la vidéo.
-	
-\begin{lstlisting}[style=rond]
-def codageBinaireGlouton(n):
-    binaire = []
-    puissance2 = 1
-    while puissance2 < n:
-        puissance2 = puissance2 * 2
-    ...............................
-    ...............................
-    ...............................
-    ...............................
-    ...............................
-    ...............................
-    return binaire
+	\item Recopier et compléter le code de la  fonction \texttt{miroir} qui prend en paramètre une chaîne de caractères, pour qu'elle  retourne la chaîne de caractères renversée :
+\begin{lstlisting}
+def miroir(chaine):
+    res = ''
+    for c in chaine:
+        #a completer
+    return res
 \end{lstlisting}
-	
-	\item  Compléter le code de la fonction \texttt{codageBinaire2(n)} qui retourne une liste de 0 ou de 1 représentant le codage binaire de l'entier n écrit en base 10 en appliquant l'algorithme des divisions successives décrit dans la vidéo.
-	
-	
-\begin{lstlisting}[style=rond]
-def codageBinaire2(n):
-    binaire = []
-    while n > 2:
-        .................................
-        .................................
-        .................................
-        .................................
-        .................................
-    binaire.reverse()
-    return binaire
+
+
+\begin{lstlisting}
+In [33]: miroir('Suis-je toujours  la plus belle?')
+Out[33]: '?elleb sulp al  sruojuot ej-siuS'
+\end{lstlisting}
+
+\item Écrire une fonction \texttt{palindrome(chaine)} qui retourne un booléen indiquant si la chaîne de caractères est un palindrome. Cette fonction ne doit pas tenir compte des espaces.
+
+\begin{lstlisting}
+In [38]: palindrome('caser vite ce palindrome ne mord ni lape cet ivre sac')
+Out[38]: True
 \end{lstlisting}
 
 \end{enumerate}
-
 \end{exercice}
 
- \vspace*{-20pt}
-\begin{exercice}{}
-
-\begin{enumerate}
-\item \begin{multicols}{2}
-\begin{enumerate}
-  \item $\overline{10010}^{\,(2)}+\overline{1101}^{\,(2)}$
-  \item $\overline{100111}^{\,(2)}\times\overline{101}^{\,(2)}$
-\end{enumerate}
-\end{multicols}
-
-\Pointilles{5}{\linewidth}
+\section{Du code ASCII à l'Unicode}
 
 
-\item Écrire  en \texttt{Python} une fonction \texttt{additionBinaire8bits(t1, t2)} qui retourne la liste \texttt{t3} des bits de la somme des entiers représentés par les listes d
-de bits \texttt{t1} et \texttt{t2}.  
+\subsection{Table de codage ASCII}
 
-\bcattention{} \texttt{t1}, \texttt{t2} et \texttt{t3} doivent être des listes de taille $8$ correspondant à la représentation d'un entier sur un octet avec les bits de poids forts à gauche.
-Donner un exemple d'exécution où la fonction retourne un résultat faux. Expliquer pourquoi.
+Pour représenter de manière informatique un texte, il faut commencer par se donner une correspondance entre lettres et nombres. C'est ici qu'interviennent les tables de codages.
+\medskip
 
-\begin{lstlisting}[style=compil]
-In [29]:  additionBinaire8bits([1,0,1,0,1,1,1,0],[0,0,0,0,1,1,1,1])
-Out[29]: [1, 0, 1, 1, 1, 1, 0, 1]
-\end{lstlisting}
+\begin{definition}{(Table de codage)}
+ \textbf{Une table de codage} ou \textbf{jeu de caractères} ou  \textbf{charset} ou  \textbf{code point} permet de faire correspondre les    caractères qu'on souhaite coder à  un unique code.
 
-
-\Pointilles{6}{\linewidth}
+\end{definition}
 
 
-\end{enumerate}
 
-\end{exercice}
- \vspace*{-20pt}
-\begin{methode}{}
+Au début des années $1960$, devant la multiplication des encodages de caractères et leurs incompatibilités mutuelles, l'ANSI (\textit{American National Standards Institute}), définit une norme appelée  \textbf{ASCII}  (\textit{American Standard Code for Information Interchange}). 
 
-\begin{itemize}[label=\ding{43}]
+Ce standard permet de coder 128 caractères sur 7 bits ($2^7=128$), le bit de poids fort étant réservé à des contrôles d'erreur : ce bit de parité est choisi pour que le nombre total de bits à $1$ dans l'octet soit toujours pair.
 
-\item En \texttt{Python}, les entiers naturels et relatifs sont de type \texttt{int} et sont représentés de façon exacte, la seule limitation étant celle de la mémoire disponible.
+\medskip
 
+La table de codage \textbf{ASCII} représentée ci-dessous contient :
 
-\begin{lstlisting}[style=compil]
-In [2]: (type(734), type(-1))
-Out[2]: (int, int)
-\end{lstlisting}
-
-\item En \texttt{Python}, pour convertir l'écriture d'un entier naturel de la base $2$ vers la base $10$, on  préfixe la séquence de bits de \texttt{0b} :
-
-\begin{lstlisting}[style=compil]
-In [35]: 0b101
-Out[35]: 5
-\end{lstlisting}
-
-\item Pour  convertir l'écriture d'un entier naturel de la base $10$ vers la base $2$, on utilise la fonction \texttt{bin} :
-
-\begin{lstlisting}[style=compil]
-In [36]: bin(5)
-Out[36]: '0b101'
-\end{lstlisting}
-
-
-\end{itemize}
-
-\end{methode}
-   \vspace*{-20pt}
- 
- \subsection{Représentation en base 16}
- 
-  \vspace*{-20pt}
- \begin{theoremedef}{}
-Plus généralement, on peut représenter un entier naturel dans n'importe quelle base. 
-
-Une base très utilisée en informatique est la base $16$. 
-
-On étend  les dix chiffres de la base $10$ avec A, B, C, D, E et F pour représenter $10$, $11$, $12$, $13$, $14$ et $15$. 
-
-En  base $16$  chaque octet  est représenté par deux chiffres ce qui permet de condenser l'écriture.
-
-Par exemple, chaque carte réseau  possède une  adresse MAC codée sur $48$ bits soit $6$ octets et représentée par une séquence de $6$ chiffres en base $16$ séparés par le caractère \texttt{:} sous la forme : \texttt{c8:60:00:a4:89:ab}
-
-De même, les couleurs en représentation (R,G,B) sont codées sur $3$ octets et dans le langage HTML des pages Web on les rencontre souvent notées comme séquence de six chiffres en base $16$ préfixés par le caractère \# : par exemple \#FF0000 va coder un rouge pur.
- \end{theoremedef}
- 
-   \vspace*{-20pt}
-   
- \begin{exercice}{}
-La représentation hexadécimale s'obtient facilement à partir de  la représentation binaire. Puisque $2^4=16$, pour convertir un octet de binaire en hexadécimal, il suffit de regrouper les bits par $4$. \\
-Ainsi $154$ représenté en binaire sur un octet par $\overbrace{\overline{1001}^{2}}^{\overline{9}^{16}}\overbrace{\overline{1010}^{2}}^{\overline{\text{A}}^{16}}$   a pour représentation hexadécimale $\overline{9\text{A}}^{16}$ car $9 \times 16 + 10 = 154$.\\
-Convertir de m\^eme en hexadécimal les octets suivants :
-\begin{multicols}{3}
 \begin{itemize}
-\item $11101010$
-\item $10011011$
-\item $1100000$
-\end{itemize} 
-\end{multicols}
-
-\Pointilles{4}{\linewidth}
-
-\end{exercice}
- \vspace*{-20pt}
-
-\begin{methode}{}
-
-\begin{itemize}[label=\ding{43}]
-
-\item En \texttt{Python}, pour convertir l'écriture d'un entier naturel de la base $16$ vers la base $10$, on  préfixe la séquence de bits de \texttt{0x} :
-
-\begin{lstlisting}[style=compil]
-In [5]: 0x9A
-Out[5]: 154
-\end{lstlisting}
-
-\item Pour  convertir l'écriture d'un entier naturel de la base $10$ vers la base $16$, on utilise la fonction \texttt{hex} :
-
-\begin{lstlisting}[style=compil]
-In [6]: hex(154)
-Out[6]: '0x9a'
-\end{lstlisting}
-
-
+\item  les lettres de l'alphabet latin en majuscule et minuscule et les chiffres de $0$ à $9$ ;
+\item des signes de ponctuation et es opérateurs arithmétiques ;
+\item des caractères spéciaux (tabulation, retour chariot, nouvelle ligne \ldots) et des caractères de contrôle non imprimables pour des protocole de communication et des contrôles de périphériques (Fin de transmission, EOT, demande de transmission ENQ \ldots).
 \end{itemize}
 
-\end{methode}
-   \vspace*{-20pt}
-
-\section{Encodage des entiers relatifs}
-
- \vspace*{-20pt}
-\begin{exercice}{}
-
-On souhaite représenter des entiers relatifs sur trois bits.
-
-\begin{enumerate}
-	\item Combien d'entiers relatifs peut-on représenter sur trois bits ?
-
-\Pointilles{1}{\linewidth}
-
-	\item On décide de représenter le signe d'un entier par le bit de poids fort ($0$ pour positif et $1$ pour négatif) et de garder les deux autres bits pour représenter la valeur absolue du nombre.
-	
-\begin{enumerate}
-
-\item  Quels entiers peut-on représenter sur $3$ bits avec cet encodage ?
-	
-	\Pointilles{4}{\linewidth}
-	
-\item Additionner les représentations de $1$ et de $-1$ dans cet encodage ? Que remarque-t-on ?
-
-	
-	\Pointilles{3}{\linewidth}
-	
-\end{enumerate}
-
-\item L'encodage par complément à $2$ des entiers relatifs consiste à garder le bit de poids fort pour le signe, à coder les positifs comme précédemment et  à coder les négatifs en prenant pour les deux bits de poids faible   l'inverse du bit de  la représentation de leur valeur absolue (le complément à $2$ de $0$ est $1$ et celui de $1$ est $0$ car $1+1=10$ en binaire). La figure ci-dessous illustre l'encodage en complément à $1$ sur $3$ bits.
+\newpage
 
 \begin{center}
+{\bf La table de codage ASCII :}
+\medskip
 
-\begin{tikzpicture}
-\draw (90:2) node[above]{\raisebox{12pt}{binaire}} node{$000$};
-\draw (45:2) node {$001$};
-\draw (0:2) node {$010$};
-\draw (-45:2) node {$011$};
-\draw (-90:2) node {$100$};
-\draw (-135:2) node {$101$};
-\draw (-180:2) node {$110$};
-\draw (-225:2) node {$111$};
-\draw (90:3.5) node[above]{\raisebox{12pt}{\color{red}{décimal}}} node{\color{red}{$0$}};
-\draw (45:3.5) node {\color{red}{$1$}};
-\draw (0:3.5) node {\color{red}{$2$}};
-\draw (-45:3.5) node {\color{red}{$3$}};
-\draw (-90:3.5) node {\color{red}{$-4$}};
-\draw (-135:3.5) node {\color{red}{$-3$}};
-\draw (-180:3.5) node {\color{red}{$-2$}};
-\draw (-225:3.5) node {\color{red}{$-1$}};
-\end{tikzpicture}
+\includegraphics[width=16 cm]{images/ascii_table.jpg}
+
+
 \end{center}
+
+\begin{exercice}{}
+En \texttt{Python}, la fonction \texttt{ord} associe à un caractère son code Unicode et la fonction \texttt{chr} est sa réciproque :
+
+\begin{lstlisting}
+In [39]: ord('a'), ord('z'), ord('A'), ord('Z')
+Out[39]: (97, 122, 65, 90)
+
+In [40]: chr(65), chr(90)
+Out[40]: ('A', 'Z')
+
+In [41]: [chr(ord('a') + k) for k in range(26)]
+Out[41]: ['a', 'b', 'c', ..... ,'y', 'z']
+
+In [42]: ''.join([chr(ord('a') + k) for k in range(26)])
+Out[42]: 'abcdefghijklmnopqrstuvwxyz'
+\end{lstlisting}
+
 
 
 \begin{enumerate}
+	\item Définir en quelques lignes le chiffrement d'une chaîne de caractères par l'algorithme \texttt{rot13}.
+	
+	\uline{Ressources :} \url{https://fr.wikipedia.org/wiki/ROT13}
 
-	\item Vérifier si  l'addition des représentations de $1$ et de $-1$ dans cet encodage donne bien $0$. 
-	
-	
-	\Pointilles{2}{\linewidth}
-	
-	\item Vérifier si  l'addition des représentations de $1$ et de $-1$ dans cet encodage donne bien $0$ et si l'addition des représentations de $-1$ et de $-1$ dans cet encodage donne bien $-2$ (en excluant la dernière retenue sortante).
-	
-	
-	\Pointilles{2}{\linewidth}
-	
-	
-	\item Que donne l'addition des représentations de $3$  et $1$ sur $3$ bits ? Commenter
-	
-		\Pointilles{2}{\linewidth}
-		
-    
-		\item Déterminer les entiers  relatifs qu'on peut représenter en complément à $2$ sur $n$ bits ?
-	
-		\Pointilles{3}{\linewidth}
-		
-		
-	\item Quels entiers relatifs peut-on représenter en complément à $2$ sur $n$ bits ?
-	
-		\Pointilles{3}{\linewidth}
-	
-	
-	\item Comment peut-on obtenir l'encodage en complément à $2$ d'un entier naturel inférieur à $2^{n}-1$ sur $n$ bits ?
-	
-	
-			\Pointilles{3}{\linewidth}
-	
-	
-	\item La classe \texttt{int8} du module \texttt{numpy} permet de créer des entiers signés codés sur $8$ bits. Commenter les résultat des exécutions ci-dessous :
-	
-\begin{lstlisting}[style=compil]
-In [12]: import numpy
+\item L'image par \texttt{rot13} du caractère \texttt{'H'} est \texttt{'E'}.
 
-In [13]: numpy.int8(127) + numpy.int8(1)
-__main__:1: RuntimeWarning: overflow encountered in byte_scalars
-Out[13]: -128
+\begin{itemize}
+\item on  calcule d'abord le rang alphabétique d'un caractère :
 
-In [14]: numpy.int8(-127) + numpy.int8(-2)
-__main__:1: RuntimeWarning: overflow encountered in byte_scalars
-Out[14]: 127
+\begin{lstlisting}
+In [56]: ord('R') - ord('A')
+Out[56]: 17
 \end{lstlisting}
 
+\item puis on ajoute $13$ à ce rang et on prend le reste dans la division euclidienne par $26$
+\begin{lstlisting}
+In [59]: (ord('R') - ord('A') + 13) % 26
+Out[59]: 4
+\end{lstlisting}
 
-		\Pointilles{3}{\linewidth}
-	
-	
+\item enfin on retrouve le rang du caractère associé au rang alphabétique calculé :
+\begin{lstlisting}
+In [60]: chr(ord('A') + 4)
+Out[60]: 'E'
+\end{lstlisting}
+\end{itemize}
+
+Écrire une   fonction \texttt{rot13(chaine)} qui chiffre ou déchiffre la chaîne (en majuscules ou convertie en majuscules avec \texttt{chaine.upper()}) passée en paramètre, avec l'algorithme \texttt{rot13}.
+
 \end{enumerate}
 
-\end{enumerate}
- 
 \end{exercice}
 
-  \vspace*{-20pt}
+\begin{exercice}{Défi Turing problème 165}
+Le fichier \texttt{dico.txt} contient \np{323471} mots français non accentués. En associant à chaque lettre son rang dans l'alphabet (a=1, b=2, c=3, \ldots, z=26), puis en multipliant entre elles toutes les lettres d'un mot, on obtient un nombre.
 
-%\newpage
+Par exemple, "chaud" $= 3 \times 8 \times 1 \times 21 \times 4 = 2016$. 
 
-\section{Encodage des réels}
+Si l'on applique ce procédé à tous les mots du fichier \texttt{dico.txt}, quelle est l'année du troisième millénaire qui sera atteinte le plus souvent ?
 
- \vspace*{-20pt}
- 
- \begin{exercice}{}
- 
- \begin{enumerate}
-    \item Quel est le type de représentation des nombres réels en \texttt{Python} ? 
+{\itshape Plus de défis sur \url{http://apprendre-en-ligne.net/turing/enonces.php}.}
+
+\end{exercice}
+
+\subsection{Tables de codages ISO-8859}
+
+Les caractères de la table \textbf{ASCII} se sont vite avérés insuffisants pour l'encodage de textes dans d'autres langues que l'Anglais qui ne comprend pas de caractères accentués par exemple. Pour y remédier, l'\textbf{ISO} (\textit{Organisation internationale de normalisation}) a proposé la norme \textbf{ISO-8859} qui   étend la table \textbf{ASCII} en utilisant le huitième bit. Sur un octet, on peut ainsi représenter deux fois plus de caractères, soit $2^{8}=256$. 
+
+La norme \textbf{ISO 8859} comprend seize tables de codages, certes compatibles entre elles et avec ASCCI sur les $128$ premiers caractères, mais avec $256$ caractères il n'est pas possible d'écrire un texte avec un mélange de caractères arabes et russes. 
+
+De plus, avec la mondialisation des échanges numériques et la multiplication des encodages, les problèmes d'incompatibilité d'encodages se sont multipliés. Qui  n'a jamais reçu de courriel avec d'étranges caractères comme ci-dessous ?
 
 \begin{lstlisting}[style=compil]
-In [15]: (type(1),type(1.0), type(4 // 2), type(4/2))
-Out[15]: (int, float, int, float)
+Je transf??re le message ?? Valentin
 \end{lstlisting}
+
+L'encodage du message n'étant pas reconnu par le client de messagerie, les caractères accentués \texttt{è} et \texttt{à} ont été remplacés par des signes \texttt{?}.
+
+
+\subsection{Table de codage universelle et encodages Unicode}
+
+Pour assurer l'universalité de la représentation des caractères, l'\textbf{ISO} a  défini une table de codage universelle, l'\textit{Universal Character Set} sous la norme \textbf{ISO-10646}. Cette norme associe à chaque caractère un unique nombre appelé \textbf{point de code} et permet de représenter $2^{32}=\np{4294967296}$ caractères. Actuellement, $\np{110000}$ caractères sont recensés.
+
+Chaque point de code est de la forme \texttt{U+xxxx} où chaque chiffre \texttt{x} est un caractère hexadécimal (base $16$) avec au moins quatre chiffres.
+
+Il est possible d'encoder chaque point de code sur  $4$ octets mais des encodages plus compacts ont été imaginés dans la norme \textbf{Unicode}. En effet, il suffit d'un octet pour stocker les caractères \textbf{ASCII} et de deux octets pour les plus courants dont le point de code est compris entre $0$ et $2^{16}-1=\np{65535}$.
+
+Les encodages \textbf{Unicode} sont notés \textbf{UTF-}\textit{n} où \textit{n} est le nombre minimal de bits pour représenter un point de code.
+
+L'encodage \textbf{Unicode} le plus courant est \textbf{UTF-8}. 
+
+
+\begin{exercice}{}
+
+Sur la page \url{https://unicode-table.com/fr/} se trouve un moteur de recherche de caractère par \textbf{point de code}.
+
+\begin{enumerate}
+	\item Déterminer la valeur en décimal (base $10$) du point de code \texttt{U+ABCD}.
+	\item Rechercher le caractère dont le point de code est \texttt{U+263A}.
+	\item Tester puis expliquer le code ci-dessous :
+\begin{lstlisting}[style=rond]
+pointcode = 0x263A
+print(pointcode)
+for k in range(10):
+	print(chr(pointcode))
+	pointcode = pointcode + 1	
+\end{lstlisting}
+  \item En \texttt{Python}, pour saisir directement un caractère à partir de son point de code, on peut  utiliser des séquences d'échappement spéciales :   \verb+'\uxxxx'+ si le point de code peut s'écrire avec $4$ chiffres hexadécimaux, ou \verb+'\Uxxxxxxxx'+ s'il faut plus de quatre chiffres, en remplissant par des 0 à gauche les positions vides sur les huit possibles. Néanmoins il est plus pratique d'utiliser \texttt{chr} avec comme argument le point de code en décimal ou en hexadécimal.
   
-  
-  \Pointilles{3}{\linewidth}
-  
-  
-  \item Commenter les résultats d'exécution ci-dessous :
+  \begin{enumerate}
+  	\item Tester l'instruction ci-dessous dans une console \texttt{Python}
+  \begin{lstlisting}[style=compil]
+In [11]: print("\U0001f600")                                                    
+\end{lstlisting}
+\item Écrire un code \texttt{Python} qui affiche tous les caractères dont le point de code est compris entre \texttt{U+1F600} et \texttt{U+Ff64F}.
+  \end{enumerate}
+
+
+\end{enumerate}
+
+\end{exercice}
+
+
+\begin{methode}{}
+Les méthodes \texttt{encode} et \texttt{decode} permettent de transformer une chaîne de caractères de type \texttt{'str'} en séquence d'octets de type \texttt{'bytes'} et réciproquement. Il faut préciser l'encodage.
 
 {\small
-\begin{lstlisting}[style=compil]
-In [1]: 0. + 0.2 == 0.3
-Out[1]: False
-
-In [2]: 1.6 + (3.2 + 1.7)
-Out[2]: 6.5
-
-In [3]: (1.6 + 3.2) + 1.7
-Out[3]: 6.500000000000001
-
-In [4]: 1.5  *(3.2 + 1.4)
-Out[4]: 6.8999999999999995
-
-In [5]: 1.5  * 3.2 + 1.5 * 1.4
-Out[5]: 6.9
-
-In [6]: x = 1e200
-
-In [7]: x * x
-Out[7]: inf
-
-In [8]: (x * x) * 0
-Out[8]: nan
-
-In [9]: y = 10 ** 400
-
-In [10]: type(y + 1.0)
-OverflowError                             Traceback (most recent call last)
-<ipython-input-49-01ee37eb4b77> in <module>
-----> 1 type(y + 1.0)
-OverflowError: int too large to convert to float
-
-In [10]: type(y + 1)
-Out[10]: int
-\end{lstlisting}
-   }
- 
-  
-  \Pointilles{10}{\linewidth}
-  
- 	\item Lire l'article disponible sur la page Web \url{http://www.apprendre-en-ligne.net/bloginfo/index.php/2008/10/10/79-problemes-d-arrondi}. Quels problèmes  peuvent causer la représentation approchée des nombres réels en informatique ?
- 	
- 	  \Pointilles{4}{\linewidth}
- 	
- 	\item 
-\begin{minipage}{0.55\linewidth}
-Dans l'épisode 2 de la saison 10 des Simpson (1998), intitulé "La Dernière Invention d'Homer", on peut voir le tableau ci-contre.
- Rappelons que le grand théorème de Fermat, démontré par Andrew Wiles,  affirme qu'il n'existe pas de nombres entiers strictement positifs $x$, $y$ et $z$ tels que $x^n+y^n=z^n$   pour tout entier $n>2$.
-Par défaut en \texttt{Python}, les flottants sont représentés en double précision sur $64$ bits et les entiers sont en précision infinie. Le module \texttt{numpy} propose un type de flottants sur $32$ bits.
-\end{minipage}\hfill
-\begin{minipage}{0.4\linewidth}
-	\begin{center}
- 	\includegraphics[scale=1]{images/simpson.jpg}
- 	\end{center}
-\end{minipage}
- 
-
-Évaluez les tests suivants et commentez.
-
-\begin{lstlisting}[style=compil]
-In [34]: import numpy as np                                                                                                                    
-
-In [35]: np.float32(np.float32(3987) ** 12 + np.float32(4365) ** 12) == np.float32(np.float32(4472) ** 12)                                     
-Out[35]: ........
-
-In [36]: float(3987) ** 12 + float(4365) ** 12 == float(4472) ** 12                                                                            
-Out[36]: .....
-
-In [37]: 3987 ** 12 + 4365 ** 12 == 4472 ** 12                                                                                                 
-Out[37]: ........
-\end{lstlisting}
-
-\Pointilles{3}{\linewidth}
- \end{enumerate}
- 
- \end{exercice}
- 
-  \vspace*{-20pt}
-  
- \begin{theoremedef}{}
- 
-Les nombres réels sont représentés usuellement en informatique sous la forme de  \textbf{flottants} en référence au mode de représentation en virgule flottante similaire à la notation scientifique en base dix où un réel $x$ est représenté sous la forme d'un triplet (signe $s$, mantisse $m$, exposant $n$) avec $x=(-1)^{s} \times m \times 10^{n}$.
-
-La représentation des flottants est fixée par la norme IEEE 754 : les différences avec  la notation scientifique sont la base ($2$ pour les flottants) et l'exposant $n$ qui est décalé avec un biais $d$ qui permet de représenter des exposants négatifs et positifs comme des entiers.
-
-\medskip
-
-Un flottant $f$ est alors de la forme $\boxed{f=(-1)^{s} \times m \times 2^{n-d}}$ avec $m \in \Interfo{1}{2}$.
-
-
-\medskip
-
-Par exemple pour  $-12.015625 = -2^{3}\times\left(1+\frac{1}{2}+\frac{1}{2^9}\right)$  le signe est $-1$, l'exposant est $3$ et la mantisse est $\frac{1}{2}+\frac{1}{2^9}$.
-
-On donne ci-après la représentation de $-12.015625$ comme flottant au format simple précision sur $32$ bits obtenue avec le simulateur \url{https://www.h-schmidt.net/FloatConverter/IEEE754.html}.
-
-
-En précision $32$ bits,  le signe $s$ se code sur le bit de poids fort, puis l'exposant est codé sur $8$ bits avec un biais $d=2^{8-1}-1=127$ et une mantisse codée sur $23$ bits.
-
-Par défaut le premier bit de la mantisse n'est pas codé et considéré comme égal à $1$.
-
-Comment peut-on représenter le $0$ ? La convention est de réserver les valeurs extrêmes de l'exposant non biaisé $e$ ($0$ et $255$ pour un codage sur $8$ bits) aux valeurs  particulières  comme $0$ (exposant $0$) ou l'infini (exposant $255$).
-
 \begin{center}
-\includegraphics[scale=0.4]{images/flottant.png}
+\begin{tikzpicture}
+\node[draw] (S) at (0,0) {\texttt{chaine} de type \texttt{str}};
+\node[draw] (B) at (7,0) {\texttt{chaine\_bytes} de type \texttt{bytes}};
+\draw[->,>=latex] (S) to[bend left] node[pos=0.5, above] {\texttt{chaine\_bytes = chaine.encode("utf-8")}} (B);
+\draw[->,>=latex] (B) to[bend left] node[pos=0.5, below] {\texttt{chaine = chaine\_bytes.decode("utf-8")}} (S);
+\end{tikzpicture}
+
 \end{center}
-
-\bcattention{} Les flottants permettent de représenter des nombres très grands ou très petits. \texttt{Python} est particulier car les entiers peuvent être arbitrairement grands mais le coût en espace mémoire est important. Mais les flottants ne  sont que des représentations approchées des réels et il existe un écart non nul  entre deux flottants consécutifs, un  écart élastique qui  dépasse $1$ au delà de $2^{52}$. Par conséquent il faut éviter de tester l'égalité entre deux flottants $a$ et $b$ mais plutôt tester une inégalité $\valabs{a - b} < \varepsilon$.
- 
- \end{theoremedef}
- 
- \vspace*{-30pt}
- 
- \begin{exercice}{}
- 
-En $1202$, \textit{Leonardo Fibonacci} a donné sans démonstration, dans son ouvrage \textit{Liber Abaci} un algorithme permettant d'écrire toute fraction d'entiers positive $\frac{p}{q}$ avec $\frac{p}{q} \in ]\,0\:;\:1\,[$ sous forme d'une somme de  fractions égyptiennes,  de  numérateur $1$ :  %\footnote{Si $\frac{p}{q}>1$ on lui retranche d'abord sa partie entière.}  :
-
-\begin{quote}
-	{\itshape
-\og{} Soustraire à la fraction donnée la plus grande fraction égyptienne possible, répéter l'opération avec la nouvelle fraction, et ainsi de suite jusqu'à obtenir une fraction égyptienne. \fg{}
 }
-\end{quote}
 
-\textbf{Il s'agit d'un algorithme glouton car à chaque étape, il réalise un choix localement optimal : la plus grande fraction égyptienne inférieure ou égale à  la fraction restante.} 
+Les octets d'une séquence d'octets de type \texttt{bytes} sont représentés par le   caractère ASCII correspondant s'ils ont une valeur inférieure ou égale à $127$ (\texttt{7F} en hexadécimal) ou par leur  valeur hexadécimale préfixée de la séquence  \verb+\x+. Par exemple le caractère \texttt{'é'} est codé en \textbf{UTF-8} sur deux octets de valeurs hexadécimales \texttt{C3} et \texttt{A9}. En \textbf{ISO-8859-1} ou \textbf{Latin1}, le caractère \texttt{'é'} est codé sur un seul octet. On peut mettre en évidence les incompatibilités de ces deux encodages pour les caractères non ASCII.
 
-Par exemple on a  $\frac{2}{3}=\frac{1}{2}+\frac{1}{6} \quad \text{ou} \quad \frac{2}{59}=\frac{1}{36} + \frac{1}{236} + \frac{1}{531}$. 
+\begin{lstlisting}[style=compil]
+In [35]: "lycée".encode("utf-8")                                                                                     
+Out[35]: b'lyc\xc3\xa9e'
+ 
+In [36]: b'lyc\xc3\xa9e'.decode("utf-8")                                                                             
+Out[36]: 'lycée'
 
+In [37]: "lycée".encode("latin1")                                                                                    
+Out[37]: b'lyc\xe9e'
+
+In [38]: b'lyc\xe9e'.decode("utf-8")                                                                                 
+---------------------------------------------------------------------------
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe9 in position 3: invalid continuation byte
+\end{lstlisting}
+
+\end{methode}
+
+
+\begin{exercice}{}
+
+Le principe de l'encodage \textbf{UTF-8} est le suivant :
+
+\begin{itemize}
+	\item Si le bit de poids fort du premier octet lu est $0$ alors il s'agit d'un caractère ASCII codé sur les 7 bits restants. 
+	\item Sinon, le nombre de bits de poids forts successifs du premier octet qui sont à $1$ donne le nombre d'octets sur lequel le caractère est encodé. Chaque octet suivant commence par la séquence de deux bits $10$ et le point de code en binaire est encodé sur les bits qui ne sont pas utilisés pour le formatage. 
+	
+Par exemple le caractère de point de code \texttt{U+263A} soit $9786$ en décimal et $\overline{\underbrace{10}_{\text{octet }1}\underbrace{011000}_{\text{octet }2}\underbrace{111010}_{\text{octet }3}}^{2}$ en binaire est encodé sur trois octets par :
+
+\begin{equation*}
+\overbrace{\underbrace{111}_{\text{format}}\underbrace{00010}_{\text{codage}}}^{\text{octet 1}}   \quad  \overbrace{\underbrace{10}_{\text{format}}\underbrace{011000}_{\text{codage}}}^{\text{octet 2}}  \quad   \overbrace{\underbrace{10}_{\text{format}}\underbrace{111010}_{\text{codage}}}^{\text{octet 3}}
+\end{equation*}
+
+
+\begin{tabular}{|l|l|c|}
+\hline 
+Plage de points de code & Séquence d'octets (en binaire)  & bits codants \\ 
+\hline 
+\texttt{U+0000} (0) à \texttt{U+007F} (127) (ASCII) & \texttt{0xxxxxxx} & $7$ bits \\ 
+\hline 
+\texttt{U+008F} (128) à \texttt{U+07FF} (2047)  & \texttt{110xxxxx} \texttt{10xxxxxx} & $11$ bits \\ 
+\hline 
+\texttt{U+0800} (2048) à \texttt{U+FFFF} (65535) & \texttt{1110xxxx} \texttt{10xxxxxx} \texttt{10xxxxxx} & $16$ bits \\ 
+\hline 
+\texttt{U+10000} (65536) à \texttt{U+10FFF} (1114111)  & \texttt{110xxxxx} \texttt{10xxxxxx}  \texttt{10xxxxxx} \texttt{10xxxxxx}  & $21$ bits \\ 
+\hline 
+\end{tabular} 
+\end{itemize}
 
 \begin{enumerate}
-
-			\item Appliquer cet algorithme à la main pour obtenir une décomposition  de $\frac{2}{5}$ puis de $\frac{51}{105}$.
-			\item On considère les deux fonctions de décomposition ci-après. 			
-Appeler ces fonctions avec les arguments  \texttt{3/4} puis \texttt{2/5}. 
-Que peut-on observer ?  Comment l'expliquer ?
-
-	\item On choisit désormais  de représenter une fraction  non pas sous forme d'approximation décimale (flottant en \texttt{Python}) mais sous la forme du couple d'entiers constitué par leur numérateur et leur dénominateur. Par exemple $\frac{4}{17}=\frac{p}{q}$ sera représenté par le couple d'entiers $p=4$ et $q=17$ et non par le flottant \texttt{0.23529411764705882}.  
-		
+	\item Combien de caractères peut-on encoder en \textbf{UTF-8} ?
+	\item Sur combien de caractères sont encodés les caractères accentués en \textbf{UTF-8} ?
+	\item Écrire une fonction \texttt{unicode(s)} qui affiche pour chaque caractère de la chaîne \texttt{s}, le caractère \texttt{s}, son point de code et son encodage \texttt{UTF-8} sous forme d'octets en hexadécimal puis en binaire.
+	\item Déterminer l'encodage \texttt{UTF-8} en donnant les octets en décimal, en binaire et en hexadécimal des caractères suivants :
+		\begin{enumerate}
+		    \item le caractère @ de  point de code \texttt{U+0040}
+		    \item le caractère æ  de point de code \texttt{U+00E6}
+			\item le caractère $\mathbb{Q}$ de point de code \texttt{U+211A}
+		\end{enumerate}
+	\item Écrire en \texttt{Python} une fonction  \texttt{longueur(b)} qui parcours une chaîne d'octets de type \texttt{bytes} encodée en \textbf{UTF-8} et qui retourne le nombre de caractères représentés.
 	
-\item	\begin{enumerate}
-		\item Soit $p$ et $q$ le numérateur et le dénominateur respectifs de  la fraction au début d'une itération fixée de la boucle externe et soit $n$ le dénominateur correspondant au choix glouton. Exprimer le numérateur et le dénominateur  de  la fraction restante en fonction de $p$, $q$ et $n$. Tester les formules obtenues pour retrouver que $\frac{4}{17}=\frac{1}{5}+\frac{1}{29}+\frac{1}{1233}+\frac{1}{3039345}$. 
-		\item Écrire une fonction \lstinline+decomposition3(p, q)+   qui implémente  l'algorithme avec cette représentation des fractions.
-		\item  Écrire un programme qui détermine le plus grand dénominateur et le $n$ pour lequel il est atteint sur l'ensemble des  décompositions calculées par l'algorithme pour les fractions  $\frac{4}{n}$ avec $5 \leqslant n \leqslant 288$. 
-		\item Tester l'appel \lstinline+decomposition3(4, 289)+. En cas d'erreur déboguer puis corriger le code. Indice : les calculs ne doivent manipuler que des entiers.
+\bcattention{} Il est interdit de convertir la séquence d'octets en chaîne de caractères avec la méthode \texttt{decode}.
+\end{enumerate}
 
-%Une conjecture d'\textit{Erdos} suppose que toutes les fractions $\frac{4}{n}$ avec $n \geqslant 5$ se décomposent en trois fractions égyptiennes. Sur \url{https://oeis.org/A073101}, on trouvera $4/41 = 1/11 + 1/154 + 1/631$. L'algorithme glouton est-il optimal pour le nombre de termes de la décomposition.
-	\end{enumerate}			
-	
-	\end{enumerate}
-	
-	
-\begin{minipage}{0.45\linewidth}
-\begin{lstlisting}[style=rond]
-def decomposition1(x):
-    decomp = []
-    while x != 0:
-        n = 1
-        while 1/n > x:            
-            n += 1
-        decomp.append(n)
-        x = x - 1 / n
-        print(x, decomp)
-    return decomp
-\end{lstlisting}
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\linewidth}
-\begin{lstlisting}[style=rond]
-import math 
 
-def decomposition2(x):
-    decomp = []
-    while x != 0:        
-        n = math.ceil(1/x)
-        decomp.append(n)
-        x = x - 1 / n
-        print(x, decomp)
-    return decomp
-\end{lstlisting}
-\end{minipage}
+\end{exercice}
 
- 
-  \end{exercice}
+{\itshape 
+\underline{\emph{\textbf{Sources :}}}
 
- \vspace*{-25pt}
- 
- \begin{methode}{}
- Pour la documentation \texttt{Python} sur les flottants lire l'article :
- 
- \url{https://docs.python.org/fr/3.7/tutorial/floatingpoint.html}.
- \begin{itemize}
- 	\item Le module \texttt{sys} permet d'obtenir des informations sur la précision de la représentation des flottants en \texttt{Python} (double précision sur $64$ bits) :
- \begin{lstlisting}[style=compil]
-In [52]: sys.float_info
-Out[52]: sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1) 
- \end{lstlisting}
- On peut lire que les flottants représentables sont compris entre $10^{-308}$ et $10^{308}$ environ et que le plus petit écart entre deux flottants au voisinage de $1$ est $2^{-52} \approx  2.220446049250313e-16$.
- 
- \item Le module \texttt{decimal} permet d'obtenir la représentation approchée d'un réel sous forme de flottant.
-  \begin{lstlisting}[style=compil]
-In [53]: import decimal
+Le contenu de ce cours et certains exercices sont directement inspirés du chapitre 21 du  \emph{Manuel de première NSI} chez Ellipses.
 
-In [54]: decimal.Decimal.from_float(0.1)
-Out[54]: Decimal('0.1000000000000000055511151231257827021181583404541015625')
- \end{lstlisting}
- 
- 
- \end{itemize}
- \end{methode}
- 
+}
 \end{document} %  ======================  FIN  ==========================

@@ -1740,19 +1740,25 @@ Out[28]: ['__add__',
 \end{itemize}
 \end{methode}
 
-\vspace*{-20pt}
+\newpage
+
+
 
 \begin{exercice}{}
 
 \begin{enumerate}
-	\item Recopier et compléter le code de la  fonction \texttt{miroir} qui prend en paramètre une chaîne de caractères, pour qu'elle  retourne la chaîne de caractères renversée :
+	\item Compléter le code de la  fonction \texttt{miroir} qui prend en paramètre une chaîne de caractères, pour qu'elle  retourne la chaîne de caractères renversée :
+
+{\doublespacing
 \begin{lstlisting}
 def miroir(chaine):
     res = ''
     for c in chaine:
-        #a completer
+        ..............
+        ..............
     return res
 \end{lstlisting}
+}
 
 
 \begin{lstlisting}
@@ -1767,6 +1773,10 @@ In [38]: palindrome('caser vite ce palindrome ne mord ni lape cet ivre sac')
 Out[38]: True
 \end{lstlisting}
 
+
+    \Pointilles{6}{\linewidth}
+    
+    
 \end{enumerate}
 \end{exercice}
 
@@ -1799,7 +1809,7 @@ La table de codage \textbf{ASCII} représentée ci-dessous contient :
 \item des caractères spéciaux (tabulation, retour chariot, nouvelle ligne \ldots) et des caractères de contrôle non imprimables pour des protocole de communication et des contrôles de périphériques (Fin de transmission, EOT, demande de transmission ENQ \ldots).
 \end{itemize}
 
-\newpage
+%\newpage
 
 \begin{center}
 {\bf La table de codage ASCII :}
@@ -1809,6 +1819,8 @@ La table de codage \textbf{ASCII} représentée ci-dessous contient :
 
 
 \end{center}
+
+\vspace*{-20pt}
 
 \begin{exercice}{}
 En \texttt{Python}, la fonction \texttt{ord} associe à un caractère son code Unicode et la fonction \texttt{chr} est sa réciproque :
@@ -1830,10 +1842,14 @@ Out[42]: 'abcdefghijklmnopqrstuvwxyz'
 
 
 \begin{enumerate}
-	\item Définir en quelques lignes le chiffrement d'une chaîne de caractères par l'algorithme \texttt{rot13}.
+	\item Définir le chiffrement d'une chaîne de caractères par l'algorithme \texttt{rot13}.
 	
 	\uline{Ressources :} \url{https://fr.wikipedia.org/wiki/ROT13}
 
+
+    \Pointilles{2}{\linewidth}
+    
+    
 \item L'image par \texttt{rot13} du caractère \texttt{'H'} est \texttt{'E'}.
 
 \begin{itemize}
@@ -1850,6 +1866,8 @@ In [59]: (ord('R') - ord('A') + 13) % 26
 Out[59]: 4
 \end{lstlisting}
 
+\vspace*{-10pt}
+
 \item enfin on retrouve le rang du caractère associé au rang alphabétique calculé :
 \begin{lstlisting}
 In [60]: chr(ord('A') + 4)
@@ -1859,6 +1877,10 @@ Out[60]: 'E'
 
 Écrire une   fonction \texttt{rot13(chaine)} qui chiffre ou déchiffre la chaîne (en majuscules ou convertie en majuscules avec \texttt{chaine.upper()}) passée en paramètre, avec l'algorithme \texttt{rot13}.
 
+
+    \Pointilles{5}{\linewidth}
+    
+    
 \end{enumerate}
 
 \end{exercice}
@@ -1870,6 +1892,10 @@ Par exemple, "chaud" $= 3 \times 8 \times 1 \times 21 \times 4 = 2016$.
 
 Si l'on applique ce procédé à tous les mots du fichier \texttt{dico.txt}, quelle est l'année du troisième millénaire qui sera atteinte le plus souvent ?
 
+
+    \Pointilles{10}{\linewidth}
+    
+    
 {\itshape Plus de défis sur \url{http://apprendre-en-ligne.net/turing/enonces.php}.}
 
 \end{exercice}
@@ -1908,7 +1934,15 @@ Sur la page \url{https://unicode-table.com/fr/} se trouve un moteur de recherche
 
 \begin{enumerate}
 	\item Déterminer la valeur en décimal (base $10$) du point de code \texttt{U+ABCD}.
+	
+	    \Pointilles{1}{\linewidth}
+	    
+	    
 	\item Rechercher le caractère dont le point de code est \texttt{U+263A}.
+	
+	    \Pointilles{1}{\linewidth}
+	    
+	    
 	\item Tester puis expliquer le code ci-dessous :
 \begin{lstlisting}[style=rond]
 pointcode = 0x263A
@@ -1917,14 +1951,28 @@ for k in range(10):
 	print(chr(pointcode))
 	pointcode = pointcode + 1	
 \end{lstlisting}
+
+    \Pointilles{2}{\linewidth}
+    
+    
   \item En \texttt{Python}, pour saisir directement un caractère à partir de son point de code, on peut  utiliser des séquences d'échappement spéciales :   \verb+'\uxxxx'+ si le point de code peut s'écrire avec $4$ chiffres hexadécimaux, ou \verb+'\Uxxxxxxxx'+ s'il faut plus de quatre chiffres, en remplissant par des 0 à gauche les positions vides sur les huit possibles. Néanmoins il est plus pratique d'utiliser \texttt{chr} avec comme argument le point de code en décimal ou en hexadécimal.
   
   \begin{enumerate}
   	\item Tester l'instruction ci-dessous dans une console \texttt{Python}
   \begin{lstlisting}[style=compil]
-In [11]: print("\U0001f600")                                                    
+In [11]: print("\U0001f600")    
+
+OU [11] : ...................                                                
 \end{lstlisting}
+
+   
+    
+    
 \item Écrire un code \texttt{Python} qui affiche tous les caractères dont le point de code est compris entre \texttt{U+1F600} et \texttt{U+Ff64F}.
+
+ \Pointilles{4}{\linewidth}
+ 
+ 
   \end{enumerate}
 
 
@@ -2000,17 +2048,45 @@ Plage de points de code & Séquence d'octets (en binaire)  & bits codants \\
 
 \begin{enumerate}
 	\item Combien de caractères peut-on encoder en \textbf{UTF-8} ?
+	
+	    \Pointilles{1}{\linewidth}
+	    
+	    
 	\item Sur combien de caractères sont encodés les caractères accentués en \textbf{UTF-8} ?
+	
+	    \Pointilles{1}{\linewidth}
+	    
+	    
 	\item Écrire une fonction \texttt{unicode(s)} qui affiche pour chaque caractère de la chaîne \texttt{s}, le caractère \texttt{s}, son point de code et son encodage \texttt{UTF-8} sous forme d'octets en hexadécimal puis en binaire.
+	
+	
+	    \Pointilles{5}{\linewidth}
+	    
+	    
+	    
 	\item Déterminer l'encodage \texttt{UTF-8} en donnant les octets en décimal, en binaire et en hexadécimal des caractères suivants :
 		\begin{enumerate}
 		    \item le caractère @ de  point de code \texttt{U+0040}
+		    
+		    \Pointilles{1}{\linewidth}
+		    
 		    \item le caractère æ  de point de code \texttt{U+00E6}
+		    
+		        \Pointilles{1}{\linewidth}
+		        
 			\item le caractère $\mathbb{Q}$ de point de code \texttt{U+211A}
+			
+			    \Pointilles{1}{\linewidth}
+			    
+			    
 		\end{enumerate}
 	\item Écrire en \texttt{Python} une fonction  \texttt{longueur(b)} qui parcours une chaîne d'octets de type \texttt{bytes} encodée en \textbf{UTF-8} et qui retourne le nombre de caractères représentés.
 	
 \bcattention{} Il est interdit de convertir la séquence d'octets en chaîne de caractères avec la méthode \texttt{decode}.
+
+    \Pointilles{8}{\linewidth}
+    
+    
 \end{enumerate}
 
 

@@ -1,3 +1,8 @@
+## Liens 
+
+* [Mon site Web](http://www.frederic-junier.org/)
+* [ENT Lycée du Parc rubrique ISN](https://le-parc.ent.auvergnerhonealpes.fr/classes/isn/)
+
 ## Jupyter Hub
 
 Pour accéder aux Notebook Jupyter du dépôt en mode interactif, cliquez sur le lien Binder ci-dessous.
@@ -21,7 +26,23 @@ Pour accéder aux Notebook Jupyter du dépôt en mode interactif, cliquez sur le
   
 ## Chapitres 
 
-
-* Chapitre 1 : variables et tests
+* Chapitre 1 :
+  - [Pages Web](http://www.frederic-junier.org/ISN/Architecture-HTML-CSS-Internet-2019/pages/ISN_Introduction_Chapitre1.html)
+  
+* Chapitre 2 : variables et tests
   - [cours version pdf](VariablesTests/Chapite2-VariablesTests-2019V1.pdf)
-  - [corrigé version notebook Jupyter](VariablesTests/Corrige/ISN_Chap1_Variables_Tests_Corrige.ipynb)
+  - [corrigé version notebook Jupyter](VariablesTests/corrige/ISN_Chap1_Variables_Tests_Corrige.ipynb)
+  
+  
+* Chapitre 3 : boucles et fonctions
+  - [cours version pdf](BouclesFonctions/Chapite3-Boucles-Fonctions-2019V1.pdf)
+  - [corrigé version notebook Jupyter](BouclesFonctions/ressources/Boucles_Fonctions_2019_2020.ipynb)
+  - [corrigé version pdf](BouclesFonctions/ressources/Boucles_Fonctions_2019_2020.pdf)
+ 
+ * Chapitre 4 : listes 
+  - [cours version pdf](Listes/Chapite3-Listes-2019V1.pdf)
+  - [corrigé version notebook Jupyter](Listes/Corrige/Cours3_Listes.ipynb)
+  - [corrigé version pdf](Listes/Corrige/Cours3_Listes.pdf)
+  
+  
+

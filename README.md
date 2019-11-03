@@ -26,7 +26,7 @@ Pour accéder aux Notebook Jupyter du dépôt en mode interactif, cliquez sur le
   
 ## Chapitres 
 
-* Chapitre 1 :
+* Chapitre 1 : architecture de Von Neumann et Web
   - [Pages Web](http://www.frederic-junier.org/ISN/Architecture-HTML-CSS-Internet-2019/pages/ISN_Introduction_Chapitre1.html)
   
 * Chapitre 2 : variables et tests
@@ -39,7 +39,7 @@ Pour accéder aux Notebook Jupyter du dépôt en mode interactif, cliquez sur le
   - [corrigé version notebook Jupyter](BouclesFonctions/ressources/Boucles_Fonctions_2019_2020.ipynb)
   - [corrigé version pdf](BouclesFonctions/ressources/Boucles_Fonctions_2019_2020.pdf)
  
- * Chapitre 4 : listes 
+* Chapitre 4 : listes 
   - [cours version pdf](Listes/Chapite3-Listes-2019V1.pdf)
   - [corrigé version notebook Jupyter](Listes/Corrige/Cours3_Listes.ipynb)
   - [corrigé version pdf](Listes/Corrige/Cours3_Listes.pdf)

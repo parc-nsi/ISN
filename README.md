@@ -31,7 +31,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   
 * Chapitre 2 : variables et tests
   - [cours version pdf](VariablesTests/Chapite2-VariablesTests-2019V1.pdf)
-  - [corrigé version notebook Jupyter](VariablesTests/corrige/ISN_Chap1_Variables_Tests_Corrige.ipynb)
+  - [corrigé version notebook Jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=VariablesTests/corrige/ISN_Chap1_Variables_Tests_Corrige.ipynb)
   
   
 * Chapitre 3 : boucles et fonctions

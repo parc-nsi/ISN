@@ -23,6 +23,28 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [repl.it](https://repl.it/languages/python3)
   - [Pythontutor](http://pythontutor.com/)  : permet de visualiser l'évolution des variables
   
+## Devoirs 
+
+### DM 
+
+* DM 1 :
+  - [énoncé](Devoirs/DM/DM1/ISN-DM1-2020V1.pdf)
+  - [corrigé version pdf](Devoirs/DM/DM1/corrige/ISN_DM1_2020_Corrige.pdf)
+  - [corrigé version ipynb](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Devoirs/DM/DM1/ressources/ISN_DM1_2020_Corrige.ipynb)
+  
+* DM 1 :
+  - [énoncé]()
+  - [corrigé]()
+  
+* DM 3 :
+  - [énoncé]()
+  - [corrigé]()
+  
+  
+ * DM 4 :
+  - [énoncé]()
+
+  
   
 ## Chapitres 
 
@@ -36,12 +58,12 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   
 * Chapitre 3 : boucles et fonctions
   - [cours version pdf](BouclesFonctions/Chapite3-Boucles-Fonctions-2019V1.pdf)
-  - [corrigé version notebook Jupyter](BouclesFonctions/ressources/Boucles_Fonctions_2019_2020.ipynb)
+  - [corrigé version notebook Jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=BouclesFonctions/ressources/Boucles_Fonctions_2019_2020.ipynb)
   - [corrigé version pdf](BouclesFonctions/ressources/Boucles_Fonctions_2019_2020.pdf)
  
 * Chapitre 4 : listes 
   - [cours version pdf](Listes/Chapite3-Listes-2019V1.pdf)
-  - [corrigé version notebook Jupyter](Listes/Corrige/Cours3_Listes.ipynb)
+  - [corrigé version notebook Jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Listes/Corrige/Cours3_Listes.ipynb)
   - [corrigé version pdf](Listes/Corrige/Cours3_Listes.pdf)
   
   

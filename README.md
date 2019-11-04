@@ -32,17 +32,19 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [corrigé version pdf](Devoirs/DM/DM1/corrige/ISN_DM1_2020_Corrige.pdf)
   - [corrigé version ipynb](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Devoirs/DM/DM1/ressources/ISN_DM1_2020_Corrige.ipynb)
   
-* DM 1 :
-  - [énoncé]()
-  - [corrigé]()
+* DM 2 :
+  - [énoncé](Devoirs/DM/DM2/ISN-DM2-2020V1.pdf)
+  - [corrigé version pdf](Devoirs/DM/DM2/corrige/Corrige_DM2_ISN.pdf)
+  - [corrigé version ipynb](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Devoirs/DM/DM2/corrige/Corrige_DM2_ISN.ipynb)
   
 * DM 3 :
-  - [énoncé]()
-  - [corrigé]()
+  - [énoncé](Devoirs/DM/APB/ISN-DM3-2020V1.pdf)
+  - [corrigé version pdf](Devoirs/DM/APB/corrige/DM1_ISN_APB.pdf)
+  - [corrigé version ipynb](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Devoirs/DM/APB/corrige/DM1_ISN_APB.ipynb)
   
   
  * DM 4 :
-  - [énoncé]()
+  - [énoncé](Devoirs/DM/2048/DM-2048V1.pdf)
 
   
   

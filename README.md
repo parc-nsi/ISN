@@ -69,7 +69,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [corrigé version pdf](Listes/Corrige/Cours3_Listes.pdf)
   
   
- * Chapitre 5 : portée des variables 
+* Chapitre 5 : portée des variables 
   - [cours version pdf](PorteeVariable/Chapite5-Portee-Variable-2019V1.pdf)
   - [corrigé version notebook Jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=PorteeVariable/ressources/Porteee_variable.ipynb)
   - [corrigé version pdf](PorteeVariable/ressourcesCorrige/Porteee_variable.pdf)

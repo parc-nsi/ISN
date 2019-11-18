@@ -47,7 +47,12 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [énoncé](Devoirs/DM/2048/DM-2048V1.pdf)
 
   
-  
+## DS  :
+
+* DS 1 :
+  - [énoncé](Devoirs/DS)
+  - [corrigé version pdf](Devoirs/DS/)
+
 ## Chapitres 
 
 * Chapitre 1 : architecture de Von Neumann et Web

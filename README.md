@@ -50,8 +50,8 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 ## DS  :
 
 * DS 1 :
-  - [énoncé](Devoirs/DS)
-  - [corrigé version pdf](Devoirs/DS/)
+  - [énoncé](Devoirs/DS/ISN-DS1-2019V1.pdf)
+  - [corrigé version pdf](Devoirs/DS/ISN-CorrigeDS1-2019V1.pdf)
 
 ## Chapitres 
 

@@ -81,3 +81,8 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [corrigé version html](PorteeVariable/ressources/Porteee_variable.html)
   
 
+* Chapitre 6 : représentations des nombres
+  - [cours version pdf](ReprésentationNombres/Chapite6-ReprésentationNombres-2019V1.pdf)
+  - [corrigé version notebook Jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.ipynb)
+  - [corrigé version pdf](ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.pdf)
+  - [corrigé version html](ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.html)

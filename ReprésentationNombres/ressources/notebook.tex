@@ -286,7 +286,7 @@ nombres}\label{repruxe9sentation-des-nombres}
     \subsection{Encodage des entiers
 naturels}\label{encodage-des-entiers-naturels}
 
-    \subsubsection{Exemple 1}\label{exemple-1}
+    \subsubsection{Exercice 1}\label{exercice-1}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}3}]:} \PY{k}{def} \PY{n+nf}{chiffres2nombre}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
@@ -309,6 +309,52 @@ naturels}\label{encodage-des-entiers-naturels}
 {\color{outcolor}Out[{\color{outcolor}4}]:} 734
 \end{Verbatim}
             
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k}{def} \PY{n+nf}{horner}\PY{p}{(}\PY{n}{liste}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Retourne un entier à partir de la liste de ses chiffres}
+        \PY{l+s+sd}{    ordonnée par poids décroissant\PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{n}{nombre} \PY{o}{=} \PY{l+m+mi}{0}
+            \PY{k}{for} \PY{n}{chiffre} \PY{o+ow}{in} \PY{n}{liste}\PY{p}{:}
+                \PY{n}{nombre} \PY{o}{=} \PY{n}{nombre} \PY{o}{*} \PY{l+m+mi}{10}
+                \PY{n}{nombre} \PY{o}{=} \PY{n}{nombre} \PY{o}{+} \PY{n}{chiffre}
+            \PY{k}{return} \PY{n}{nombre}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{horner}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{7}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}2}]:} 734
+\end{Verbatim}
+            
+    \subsection{Exercice 2}\label{exercice-2}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k}{def} \PY{n+nf}{listeChiffre}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Retourne la liste de chiffres en base 10 d\PYZsq{}un entier n\PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{n}{leschiffres} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+            \PY{k}{while} \PY{n}{n} \PY{o}{\PYZgt{}} \PY{l+m+mi}{10}\PY{p}{:}
+                \PY{n}{chiffre} \PY{o}{=} \PY{n}{n} \PY{o}{\PYZpc{}} \PY{l+m+mi}{10}
+                \PY{n}{leschiffres}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{chiffre}\PY{p}{)}
+                \PY{n}{n} \PY{o}{=} \PY{n}{n} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{10}
+            \PY{n}{leschiffres}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{n}\PY{p}{)}
+            \PY{n}{leschiffres}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+            \PY{k}{return} \PY{n}{leschiffres}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{listeChiffre}\PY{p}{(}\PY{l+m+mi}{734}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:} [7, 3, 4]
+\end{Verbatim}
+            
     \subsection{Exercice 3}\label{exercice-3}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -324,6 +370,92 @@ naturels}\label{encodage-des-entiers-naturels}
 
 
     \subsection{Exercice 4}\label{exercice-4}
+
+    \href{https://www.youtube.com/embed/HsS7kaFDrXg}{\includegraphics{https://www.youtube.com/embed/HsS7kaFDrXg}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{k}{def} \PY{n+nf}{codageBinaireGlouton}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+             \PY{n}{binaire} \PY{o}{=} \PY{p}{[}\PY{p}{]}    
+             \PY{n}{puissance2} \PY{o}{=} \PY{l+m+mi}{1}
+             \PY{k}{while} \PY{n}{puissance2} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{n}\PY{p}{:}
+                 \PY{n}{puissance2} \PY{o}{=} \PY{n}{puissance2} \PY{o}{*} \PY{l+m+mi}{2}
+             \PY{n}{puissance2} \PY{o}{=} \PY{n}{puissance2} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{2} 
+             \PY{c+c1}{\PYZsh{}puissance2 contient alors la plus grande puissance de 2 \PYZlt{}= n}
+             \PY{k}{while} \PY{n}{puissance2} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{2}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{puissance2} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{n}\PY{p}{:}
+                     \PY{n}{binaire}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+                     \PY{n}{n} \PY{o}{=} \PY{n}{n} \PY{o}{\PYZhy{}} \PY{n}{puissance2}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{binaire}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+                 \PY{n}{puissance2} \PY{o}{=} \PY{n}{puissance2} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{2}
+             \PY{n}{binaire}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{n}\PY{p}{)}
+             \PY{k}{return} \PY{n}{binaire}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{p}{[}\PY{n}{codageBinaireGlouton}\PY{p}{(}\PY{n}{n}\PY{p}{)} \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{17}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}26}]:} [[0],
+          [1],
+          [1, 0],
+          [1, 1],
+          [1, 0, 0],
+          [1, 0, 1],
+          [1, 1, 0],
+          [1, 1, 1],
+          [1, 0, 0, 0],
+          [1, 0, 0, 1],
+          [1, 0, 1, 0],
+          [1, 0, 1, 1],
+          [1, 1, 0, 0],
+          [1, 1, 0, 1],
+          [1, 1, 1, 0],
+          [1, 1, 1, 1],
+          [1, 0, 0, 0, 0]]
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{k}{def} \PY{n+nf}{codageBinaire2}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+             \PY{n}{binaire} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{while} \PY{n}{n} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{2}\PY{p}{:}
+                 \PY{n}{binaire}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{n} \PY{o}{\PYZpc{}} \PY{l+m+mi}{2}\PY{p}{)}
+                 \PY{n}{n} \PY{o}{=} \PY{n}{n} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{2}
+             \PY{n}{binaire}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{n}\PY{p}{)}
+             \PY{n}{binaire}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+             \PY{k}{return} \PY{n}{binaire}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{p}{[}\PY{n}{codageBinaire2}\PY{p}{(}\PY{n}{n}\PY{p}{)} \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{17}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}29}]:} [[0],
+          [1],
+          [1, 0],
+          [1, 1],
+          [1, 0, 0],
+          [1, 0, 1],
+          [1, 1, 0],
+          [1, 1, 1],
+          [1, 0, 0, 0],
+          [1, 0, 0, 1],
+          [1, 0, 1, 0],
+          [1, 0, 1, 1],
+          [1, 1, 0, 0],
+          [1, 1, 0, 1],
+          [1, 1, 1, 0],
+          [1, 1, 1, 1],
+          [1, 0, 0, 0, 0]]
+\end{Verbatim}
+            
+    \subsection{Exercice 5}\label{exercice-5}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}8}]:} \PY{k}{def} \PY{n+nf}{additionBinaire8bits}\PY{p}{(}\PY{n}{t1}\PY{p}{,} \PY{n}{t2}\PY{p}{)}\PY{p}{:}
@@ -346,37 +478,34 @@ naturels}\label{encodage-des-entiers-naturels}
 {\color{outcolor}Out[{\color{outcolor}10}]:} [1, 0, 1, 1, 1, 1, 0, 1]
 \end{Verbatim}
             
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{n+nb}{bin}\PY{p}{(}\PY{l+m+mi}{37}\PY{p}{)}\PY{p}{,} \PY{n+nb}{bin}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{)}
-\end{Verbatim}
+    \subsection{Exemple de dépassement de capacité pour des entiers non
+signés sur 8
+bits}\label{exemple-de-duxe9passement-de-capacituxe9-pour-des-entiers-non-signuxe9s-sur-8-bits}
 
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}2}]:} ('0b100101', '0b10010')
-\end{Verbatim}
-            
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+{\color{incolor}In [{\color{incolor}31}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{np}\PY{o}{.}\PY{n}{int8}\PY{p}{(}\PY{l+m+mi}{127}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{int8}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}33}]:} \PY{n}{np}\PY{o}{.}\PY{n}{uint8}\PY{p}{(}\PY{l+m+mi}{255}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{uint8}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-/home/fjunier/.local/lib/python3.6/site-packages/ipykernel\_launcher.py:1: RuntimeWarning: overflow encountered in byte\_scalars
+/home/fjunier/.local/lib/python3.6/site-packages/ipykernel\_launcher.py:1: RuntimeWarning: overflow encountered in ubyte\_scalars
   """Entry point for launching an IPython kernel.
 
     \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}5}]:} -128
+{\color{outcolor}Out[{\color{outcolor}33}]:} 0
 \end{Verbatim}
             
     \subsection{Représentation des
 réels}\label{repruxe9sentation-des-ruxe9els}
+
+    \subsection{Exercice 9}\label{exercice-9}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}3}]:} \PY{k}{def} \PY{n+nf}{decomposition\PYZus{}fraction\PYZus{}egyptienneV1}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}

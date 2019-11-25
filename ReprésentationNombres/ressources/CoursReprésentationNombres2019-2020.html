@@ -12607,7 +12607,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exemple-1">Exemple 1<a class="anchor-link" href="#Exemple-1">&#182;</a></h3>
+<h3 id="Exercice-1">Exercice 1<a class="anchor-link" href="#Exercice-1">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12664,6 +12664,122 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">horner</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retourne un entier à partir de la liste de ses chiffres</span>
+<span class="sd">    ordonnée par poids décroissant&quot;&quot;&quot;</span>
+    <span class="n">nombre</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">chiffre</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+        <span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span> <span class="o">*</span> <span class="mi">10</span>
+        <span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span> <span class="o">+</span> <span class="n">chiffre</span>
+    <span class="k">return</span> <span class="n">nombre</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">horner</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>734</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercice-2">Exercice 2<a class="anchor-link" href="#Exercice-2">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">listeChiffre</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retourne la liste de chiffres en base 10 d&#39;un entier n&quot;&quot;&quot;</span>
+    <span class="n">leschiffres</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">chiffre</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">10</span>
+        <span class="n">leschiffres</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chiffre</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">10</span>
+    <span class="n">leschiffres</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">leschiffres</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">leschiffres</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">listeChiffre</span><span class="p">(</span><span class="mi">734</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[7, 3, 4]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12697,6 +12813,169 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Exercice-4">Exercice 4<a class="anchor-link" href="#Exercice-4">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://www.youtube.com/embed/HsS7kaFDrXg"><img src="https://www.youtube.com/embed/HsS7kaFDrXg" alt="Watch the video"></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">codageBinaireGlouton</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">binaire</span> <span class="o">=</span> <span class="p">[]</span>    
+    <span class="n">puissance2</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">puissance2</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">puissance2</span> <span class="o">=</span> <span class="n">puissance2</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="n">puissance2</span> <span class="o">=</span> <span class="n">puissance2</span> <span class="o">//</span> <span class="mi">2</span> 
+    <span class="c1">#puissance2 contient alors la plus grande puissance de 2 &lt;= n</span>
+    <span class="k">while</span> <span class="n">puissance2</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">puissance2</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">binaire</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">puissance2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">binaire</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">puissance2</span> <span class="o">=</span> <span class="n">puissance2</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">binaire</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">binaire</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">codageBinaireGlouton</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">17</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[[0],
+ [1],
+ [1, 0],
+ [1, 1],
+ [1, 0, 0],
+ [1, 0, 1],
+ [1, 1, 0],
+ [1, 1, 1],
+ [1, 0, 0, 0],
+ [1, 0, 0, 1],
+ [1, 0, 1, 0],
+ [1, 0, 1, 1],
+ [1, 1, 0, 0],
+ [1, 1, 0, 1],
+ [1, 1, 1, 0],
+ [1, 1, 1, 1],
+ [1, 0, 0, 0, 0]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">codageBinaire2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">binaire</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">binaire</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">binaire</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">binaire</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">binaire</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">codageBinaire2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">17</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[[0],
+ [1],
+ [1, 0],
+ [1, 1],
+ [1, 0, 0],
+ [1, 0, 1],
+ [1, 1, 0],
+ [1, 1, 1],
+ [1, 0, 0, 0],
+ [1, 0, 0, 1],
+ [1, 0, 1, 0],
+ [1, 0, 1, 1],
+ [1, 1, 0, 0],
+ [1, 1, 0, 1],
+ [1, 1, 1, 0],
+ [1, 1, 1, 1],
+ [1, 0, 0, 0, 0]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercice-5">Exercice 5<a class="anchor-link" href="#Exercice-5">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12753,42 +13032,17 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="mi">37</span><span class="p">),</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exemple-de-d&#233;passement-de-capacit&#233;-pour-des-entiers-non-sign&#233;s-sur-8-bits">Exemple de d&#233;passement de capacit&#233; pour des entiers non sign&#233;s sur 8 bits<a class="anchor-link" href="#Exemple-de-d&#233;passement-de-capacit&#233;-pour-des-entiers-non-sign&#233;s-sur-8-bits">&#182;</a></h2>
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(&#39;0b100101&#39;, &#39;0b10010&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -12801,10 +13055,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">(</span><span class="mi">127</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12821,7 +13075,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/fjunier/.local/lib/python3.6/site-packages/ipykernel_launcher.py:1: RuntimeWarning: overflow encountered in byte_scalars
+<pre>/home/fjunier/.local/lib/python3.6/site-packages/ipykernel_launcher.py:1: RuntimeWarning: overflow encountered in ubyte_scalars
   &#34;&#34;&#34;Entry point for launching an IPython kernel.
 </pre>
 </div>
@@ -12829,13 +13083,13 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[33]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>-128</pre>
+<pre>0</pre>
 </div>
 
 </div>
@@ -12849,6 +13103,14 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Repr&#233;sentation-des-r&#233;els">Repr&#233;sentation des r&#233;els<a class="anchor-link" href="#Repr&#233;sentation-des-r&#233;els">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercice-9">Exercice 9<a class="anchor-link" href="#Exercice-9">&#182;</a></h2>
 </div>
 </div>
 </div>

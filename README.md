@@ -23,6 +23,12 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [repl.it](https://repl.it/languages/python3)
   - [Pythontutor](http://pythontutor.com/)  : permet de visualiser l'évolution des variables
   
+
+## Conférence de Judicael Courant : "Une brève histoire des langages de programmation"
+
+[Captation vidéo de la conférence](https://tube.ac-lyon.fr/videos/watch/2f7065e3-13c7-432c-80cc-94e769d38272)
+
+
 ## Devoirs 
 
 ### DM 

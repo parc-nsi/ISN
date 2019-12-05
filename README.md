@@ -107,15 +107,7 @@ différents formats:
 Voici le script:
 
 
-```shell
-    #! /bin/sh
-
-    mkdir -p small
-
-    read -p "Quel est l'extension des fichiers ?" ext
-    read -p "Quel est le ratio en pourcentage ?" rat
-
-    for file in  *.$ext;
-       do convert $file -resize $rat% small/$file;
-    done;
+```python
+for k in range(3):
+  print(k)
 ```

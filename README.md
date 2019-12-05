@@ -92,3 +92,30 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [corrigé version notebook Jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.ipynb)
   - [corrigé version pdf](ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.pdf)
   - [corrigé version html](ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.html)
+
+### Script avec interaction
+
+Nous allons découvrir qui permet de convertir des fichiers image en
+différents formats:
+
+    OVERVIEW
+           The convert program is a member of the ImageMagick suite of tools.
+           Use it to convert between image formats as well as resize an image,
+           blur, crop, despeckle, dither, draw on, flip, join, re-sample,
+           and much more.
+
+Voici le script:
+
+
+```shell
+    #! /bin/sh
+
+    mkdir -p small
+
+    read -p "Quel est l'extension des fichiers ?" ext
+    read -p "Quel est le ratio en pourcentage ?" rat
+
+    for file in  *.$ext;
+       do convert $file -resize $rat% small/$file;
+    done;
+```

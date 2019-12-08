@@ -92,3 +92,10 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [corrigé version notebook Jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.ipynb)
   - [corrigé version pdf](ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.pdf)
   - [corrigé version html](ReprésentationNombres/ressources/CoursReprésentationNombres2019-2020.html)
+  
+
+* Chapitre 6 : représentations des textes
+  - [cours version pdf](Textes/Chapitre7-ReprésentationTextes-2019V1.pdf)
+  - [corrigé version notebook Jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Textes/ressources/Chapitre_Textes.ipynb)
+  - [corrigé version pdf](Textes/ressources/Chapitre_Textes.pdf)
+  - [corrigé version html](Textes/ressources/Chapitre_Textes.html)

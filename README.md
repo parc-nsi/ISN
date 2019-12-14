@@ -103,5 +103,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 
 * Chapitre 7 : représentations des images
   - [cours version pdf](Images/ISN-Cours-Images-V1.pdf)
-  - [corrigé version pdf](Images/ISN-Corrigé-Images-2019.pdf)
+  - [corrigé version pdf](Images/ressources/ISN-Corrigé-Images-2019.pdf)
+  - [corrigé version html](Images/ressources/Correction_Cours_Images.html)
+  - [corrigé version jupyter notebook](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Images/ressources/Correction_Cours_Images.ipynb)
   - [ressources](https://github.com/frederic-junier/ISN/tree/master/Images/ressources)

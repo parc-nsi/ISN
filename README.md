@@ -104,4 +104,4 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 * Chapitre 7 : représentations des images
   - [cours version pdf](Images/ISN-Cours-Images-V1.pdf)
   - [corrigé version pdf](Images/ISN-Corrigé-Images-2019.pdf)
-  - [ressources](Images/ressources)
+  - [ressources](https://github.com/frederic-junier/ISN/tree/master/Images/ressources)

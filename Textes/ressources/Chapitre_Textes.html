@@ -12591,13 +12591,184 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercice-2-Codage-ROT13">Exercice 2 Codage ROT13<a class="anchor-link" href="#Exercice-2-Codage-ROT13">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rot13</span><span class="p">(</span><span class="n">chaine</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">chaine</span> <span class="o">=</span> <span class="n">chaine</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">origine</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chaine</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="n">origine</span> <span class="o">+</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="n">origine</span> <span class="o">+</span> <span class="mi">13</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rot13</span><span class="p">(</span><span class="s1">&#39;ave cesar&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;NIRGPRFNE&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Module-this-le-Zen-de-Python">Module <code>this</code> le Zen de Python<a class="anchor-link" href="#Module-this-le-Zen-de-Python">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Commençons par importer le module <code>this</code> de <code>Python</code> pour obtenir un court texte résumant la philosphie du langage</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than right now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">psource</span> this
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ci-dessous le code source du module, expliquez le code :</p>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Gur Mra bs Clguba, ol Gvz Crgref</span>
+
+<span class="s2">Ornhgvshy vf orggre guna htyl.</span>
+<span class="s2">Rkcyvpvg vf orggre guna vzcyvpvg.</span>
+<span class="s2">Fvzcyr vf orggre guna pbzcyrk.</span>
+<span class="s2">Pbzcyrk vf orggre guna pbzcyvpngrq.</span>
+<span class="s2">Syng vf orggre guna arfgrq.</span>
+<span class="s2">Fcnefr vf orggre guna qrafr.</span>
+<span class="s2">Ernqnovyvgl pbhagf.</span>
+<span class="s2">Fcrpvny pnfrf nera&#39;g fcrpvny rabhtu gb oernx gur ehyrf.</span>
+<span class="s2">Nygubhtu cenpgvpnyvgl orngf chevgl.</span>
+<span class="s2">Reebef fubhyq arire cnff fvyragyl.</span>
+<span class="s2">Hayrff rkcyvpvgyl fvyraprq.</span>
+<span class="s2">Va gur snpr bs nzovthvgl, ershfr gur grzcgngvba gb thrff.</span>
+<span class="s2">Gurer fubhyq or bar-- naq cersrenoyl bayl bar --boivbhf jnl gb qb vg.</span>
+<span class="s2">Nygubhtu gung jnl znl abg or boivbhf ng svefg hayrff lbh&#39;er Qhgpu.</span>
+<span class="s2">Abj vf orggre guna arire.</span>
+<span class="s2">Nygubhtu arire vf bsgra orggre guna *evtug* abj.</span>
+<span class="s2">Vs gur vzcyrzragngvba vf uneq gb rkcynva, vg&#39;f n onq vqrn.</span>
+<span class="s2">Vs gur vzcyrzragngvba vf rnfl gb rkcynva, vg znl or n tbbq vqrn.</span>
+<span class="s2">Anzrfcnprf ner bar ubaxvat terng vqrn -- yrg&#39;f qb zber bs gubfr!&quot;&quot;&quot;</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mi">97</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">):</span>
+        <span class="n">d</span><span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">c</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">13</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Exercice-165-du-D&#233;fi-Turing">Exercice 165 du D&#233;fi Turing<a class="anchor-link" href="#Exercice-165-du-D&#233;fi-Turing">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
@@ -12663,7 +12834,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">unicode</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
@@ -12710,7 +12881,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unicode</span><span class="p">(</span><span class="s2">&quot;lycée&quot;</span><span class="p">)</span>
@@ -12745,7 +12916,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;0x65&#39;] | Octet
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unicode2</span><span class="p">(</span><span class="s2">&quot;lycée&quot;</span><span class="p">)</span>
@@ -12785,7 +12956,7 @@ Octets codants en binaire :
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unicode3</span><span class="p">(</span><span class="s2">&quot;lycée&quot;</span><span class="p">)</span>
@@ -12837,7 +13008,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">etoile</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">8902</span><span class="p">)</span>
@@ -12850,7 +13021,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">etoile_octet</span> <span class="o">=</span> <span class="n">etoile</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
@@ -12863,7 +13034,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">etoile_octet</span>
@@ -12879,7 +13050,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -12896,7 +13067,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">etoile_liste_octet</span> <span class="o">=</span> <span class="p">[</span><span class="nb">bin</span><span class="p">(</span><span class="n">octet</span><span class="p">)</span> <span class="k">for</span> <span class="n">octet</span> <span class="ow">in</span> <span class="n">etoile_octet</span><span class="p">]</span>
@@ -12928,7 +13099,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">etoile_liste_decimal</span> <span class="o">=</span> <span class="p">[</span><span class="n">octet</span> <span class="k">for</span> <span class="n">octet</span> <span class="ow">in</span> <span class="n">etoile_octet</span><span class="p">]</span>
@@ -12968,7 +13139,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">longueur</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
@@ -12999,7 +13170,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">longueur</span><span class="p">(</span><span class="n">etoile</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
@@ -13015,20 +13186,7 @@ Caractère : e | Point de code  : 101 | Octets (hexa) : [&#39;65&#39;] | Octets 
 
 <div class="output_area">
 
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3
-11100010
-trois
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[48]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -13045,7 +13203,7 @@ trois
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">chaine</span> <span class="o">=</span> <span class="s1">&#39;élémentaire mon cher Watson&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
@@ -13058,7 +13216,7 @@ trois
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">longueur</span><span class="p">(</span><span class="s1">&#39;élémentaire mon cher Watson&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
@@ -13074,7 +13232,7 @@ trois
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[75]:</div>
+<div class="prompt output_prompt">Out[23]:</div>
 
 
 
@@ -13091,7 +13249,7 @@ trois
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;élémentaire mon cher Watson&#39;</span><span class="p">)</span>
@@ -13107,7 +13265,7 @@ trois
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[76]:</div>
+<div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -13124,7 +13282,7 @@ trois
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">chaine</span> <span class="o">=</span> <span class="s1">&#39;élémentaire mon cher Watson&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
@@ -13137,7 +13295,7 @@ trois
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">chaine</span><span class="p">)</span>
@@ -13153,7 +13311,7 @@ trois
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[52]:</div>
+<div class="prompt output_prompt">Out[26]:</div>
 
 
 
@@ -13170,7 +13328,7 @@ trois
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">chaine</span><span class="p">)</span>
@@ -13186,7 +13344,7 @@ trois
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[54]:</div>
+<div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -13203,7 +13361,7 @@ trois
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">chaine</span>
@@ -13219,7 +13377,7 @@ trois
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[56]:</div>
+<div class="prompt output_prompt">Out[28]:</div>
 
 
 
@@ -13236,7 +13394,7 @@ trois
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;1110&#39;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
@@ -13252,7 +13410,7 @@ trois
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[66]:</div>
+<div class="prompt output_prompt">Out[29]:</div>
 
 
 

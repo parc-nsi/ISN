@@ -1,8 +1,8 @@
 1. Créer un fichier `chapitre_image_bitmap.py`  avec  `Pyzo`
 
-![Lena](./lenagray-256.png)
+![Lena](./lenagray.png)
 
-2. Récupérer le fichier [`lenagray-256.ppng`](./lenagray-256.png) et le copier dans le même répertoire que `chapitre_image_bitmap.py`
+2. Récupérer le fichier [`lenagray.ppng`](./lenagray.png) et le copier dans le même répertoire que `chapitre_image_bitmap.py`
 
 3. Copier/Coller  le code `Python` ci-dessous dans `chapitre_image_bitmap.py`. Exécuter puis chercher à  comprendre.
 
@@ -12,7 +12,7 @@ import numpy
 from random import randint
 
 #on ouvre l'image
-im = Image.open('lenagray-256.png')
+im = Image.open('lenagray.png')
 
 #on affiche les dimensions, le format de fichier et le mode de l'image (binaire, niveaux de gris (L), RGB)
 print(im.size,im.format, im.mode)
@@ -21,13 +21,13 @@ print(im.size,im.format, im.mode)
 tab = numpy.asarray(im)
 
 #on affiche le pixel en première ligne et dernière colonne
-print(tab[0][255])
+print(tab[0][511])
 
 #on affiche les vingt premiers pixels de la première ligne
 print(tab[0][:20])
 
 #on affiche le pixel en dernière ligne et première colonne
-print(tab[255][0])
+print(tab[511][0])
 
 #on crée un tableau 2 de mêmes dimensions que tab et rempli de 0
 #Attention à bien créer un tableau numpy et à préciser le type 'uint8' qui correspond à un octer par pixel
@@ -48,7 +48,7 @@ im2.save("lenagray-flop.png")
 3. Compléter le programme avec un code qui crée l'image ci-dessous :
 
 
-![Lena-flip](./lenagray-256-flip.png)
+![Lena-flip](./lenagray-flip.png)
 
 4. Compléter la fonction `negatif` pour qu'elle enregistre sur le disque un négatif de l'image source en niveaux de gris.
 
@@ -67,4 +67,4 @@ def negatif_gris(source, but):
 Voici le résultat attendu pour `negatif_gris('lenagray-256.png', 'lenagray-256-negatif.png')` :
 
 
-![Lena-negatif](./lenagray-256-negatif.png)
+![Lena-negatif](./lenagray-negatif.png)

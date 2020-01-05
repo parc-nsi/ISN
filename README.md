@@ -51,6 +51,8 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   
 * DM 4 :
   - [énoncé](Devoirs/DM/2048/DM-2048V1.pdf)
+  - [corrigé](Devoirs/DM/2048/DM_2048_Corrige.pdf)
+  - [corrigé version notebook jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Devoirs/DM/2048/DM_2048_Corrige.ipynb)
 
   
 ## DS  :

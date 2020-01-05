@@ -39,3 +39,24 @@ im2 = Image.fromarray(tab2)
 #on enregistre cette image sur le disque
 im2.save("lenagray-flop.png")
 ~~~
+
+3. Compléter le programme avec un code qui crée l'image ci-dessous :
+
+
+4. Compléter la fonction `negatif` pour qu'elle enregistre sur le disque un négatif de l'image source en niveaux de gris.
+
+~~~python
+def negatif_gris(source, but):
+    """Enregistre sur le disque un négatif de l'image source en niveaux de gris"""
+    imsource= Image.open(source)
+    tab = numpy.asarray(imsource)
+    nbcol, nblig = len(tab[0]), len(tab)
+    tab2 = numpy.array([ [0] * nbcol for _ in range(nblig) ], dtype ='uint8')    
+    "à compléter"
+    imbut = Image.fromarray(tab2)
+    imbut.save(but)
+~~~
+
+Voici le résultat attendu pour `negatif_gris('lenagray-256.png', 'lenagray-256-negatif.png')` :
+
+

@@ -108,6 +108,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 
 * Chapitre 7 : représentations des images
   - [cours version pdf](Images/ISN-Cours-Images-V1.pdf)
+  - Avant de faire la transformation du photomaton, un [exercice d'introduction à la manipulation d'images bitmap](Images/intro_image_bitmap/intro_image.md)
   - [corrigé version pdf](Images/ressources/ISN-Corrigé-Images-2019.pdf)
   - [corrigé version html](Images/ressources/Correction_Cours_Images.html)
   - [corrigé version jupyter notebook](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Images/ressources/Correction_Cours_Images.ipynb)

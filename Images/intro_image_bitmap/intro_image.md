@@ -1,6 +1,6 @@
 1. Créer un fichier `chapitre_image_bitmap.py`  avec  `Pyzo`
 
-![./lenagray-256.png](Lena)
+![Lena](./lenagray-256.png)
 
 2. Récupérer le fichier [`lenagray-256.ppng`](./lenagray-256.png) et le copier dans le même répertoire que `chapitre_image_bitmap.py`
 

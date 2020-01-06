@@ -2,14 +2,14 @@
 
 ![Lena](./lenagray.png)
 
-2. Récupérer le fichier [`lenagray.ppng`](./lenagray.png) et le copier dans le même répertoire que `chapitre_image_bitmap.py`
+2. Récupérer le fichier [`lenagray.png`](./lenagray.png) et le copier dans le même répertoire que `chapitre_image_bitmap.py`
 
 3. Copier/Coller  le code `Python` ci-dessous dans `chapitre_image_bitmap.py`. Exécuter puis chercher à  comprendre.
 
 ~~~python
 from PIL import Image
 import numpy
-from random import randint
+
 
 #on ouvre l'image
 im = Image.open('lenagray.png')
@@ -64,7 +64,7 @@ def negatif_gris(source, but):
     imbut.save(but)
 ~~~
 
-Voici le résultat attendu pour `negatif_gris('lenagray-256.png', 'lenagray-256-negatif.png')` :
+Voici le résultat attendu pour `negatif_gris('lenagray.png', 'lenagray-negatif.png')` :
 
 
 ![Lena-negatif](./lenagray-negatif.png)

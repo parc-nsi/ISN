@@ -113,3 +113,10 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [corrigé version html](Images/ressources/Correction_Cours_Images.html)
   - [corrigé version jupyter notebook](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Images/ressources/Correction_Cours_Images.ipynb)
   - [ressources](https://github.com/frederic-junier/ISN/tree/master/Images/ressources)
+  
+* Chapitre 8 : recherches en table, séquentielle ou dichotomique
+    - [cours version pdf](RechercheSeqDicho/RechercheSeqDicho-Cours-2018-V1.pdf)
+    - [corrigé version html](RechercheSeqDicho/ressources/RechercheSequentielleDichotomique.html)
+    - [corrigé version jupyter notebook](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=RechercheSeqDicho/ressources/RechercheSequentielleDichotomique.ipynb)
+    - [ressources](https://github.com/frederic-junier/ISN/tree/master/RechercheSeqDicho/ressources)
+

@@ -52,9 +52,9 @@ def recherche_dicho(L, e):
         if L[milieu] == e:
             return True
         elif L[milieu] < e:
-            fin = milieu - 1
-        else:
             debut = milieu + 1
+        else:
+            fin = milieu - 1
     return False
     
 def recherche_dicho2(L, e):

@@ -10,10 +10,10 @@ all: $(TARGET)
 	pandoc -s $< --listings --template="/home/fjunier/Pandoc/template-pandocV1.tex" --filter ~/Pandoc/filtre.py -V colorlinks -f markdown+table_captions+link_attributes --toc -V toc-title:"Table des matières" -o $@
 	
 %.html: %source.md
-	pandoc -s   -c ~/Pandoc/style_nsi.css  --mathjax --toc  -V toc-title:"Table des matières" $< -o $@
+	pandoc -s   -c "../Pandoc/style_nsi.css"  --mathjax --toc  -V toc-title:"Table des matières" $< -o $@
 
 %slidy.html: %source.md
-	pandoc -s  -V geometry:margin=1.5cm --mathjax -t slidy  -c ~/Pandoc/style_nsi.css  $< -o $@
+	pandoc -s  -V geometry:margin=1.5cm --mathjax -t slidy  -c "../Pandoc/style_nsi.css"  $< -o $@
 
 %git.md: %source.md
 	pandoc -s   --filter ~/Pandoc/filtre.py --webtex  -V colorlinks --toc  -V toc-title:"Table des matières" -t gfm  $<  -o $@

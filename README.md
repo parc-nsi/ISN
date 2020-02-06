@@ -123,6 +123,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 * Chapitre 9 : architecture, circuits logiques
     - [cours version pdf](CircuitsLogiques/cours-circuits-logiques-.pdf)
     - [cours version markdown](CircuitsLogiques/cours-circuits-logiques-git.md)
+    - [cours version html](CircuitsLogiques/cours-circuits-logiques-.html)
     - [cours version  diaporama html](CircuitsLogiques/cours-circuits-logiques-slidy.html)
     - [ressources](https://github.com/frederic-junier/ISN/tree/master/CircuitsLogiques)
 

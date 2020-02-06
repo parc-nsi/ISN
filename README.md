@@ -1,3 +1,7 @@
+## Licence
+
+Tous les documents disponibles sur ce dépôt Github sont placés sous licence [Creative Commons Attribution Share Alike 4.0 International](LICENSE)
+
 ## Liens 
 
 * [Mon site Web](http://www.frederic-junier.org/)

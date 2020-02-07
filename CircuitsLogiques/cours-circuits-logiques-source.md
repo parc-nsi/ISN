@@ -1,6 +1,6 @@
 ---
 title : Circuits logiques
-author : Première ISN Lycée du Parc
+author : Première NSI Lycée du Parc
 numbersections: true
 fontsize: 11pt
 geometry:
@@ -474,7 +474,7 @@ Le circuit à réaliser doit donc comporter 7 sorties, soit une sortie par diode
     * construire le circuit  avec le bouton `Build circuit`  et le  nommer `de6faces`
     * compléter le circuit avec des `Random Generator` (outils `Memory`) en entrée et des `LED` (outils `Input - Output`) en sortie comme dans la figure ci-dessous.
 
-![Circuit dé 6 faces](images/de_6_faces.png){width="50%"}\
+![Circuit dé 6 faces](images/de_6_faces.png){width="45%"}\
 :::
 
 

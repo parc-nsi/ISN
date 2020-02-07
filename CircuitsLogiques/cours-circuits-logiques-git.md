@@ -20,6 +20,7 @@
       - [Demi-additionneur et additionneur 1
         bit](#demi-additionneur-et-additionneur-1-bit)
       - [Simuler le hasard](#simuler-le-hasard)
+  - [Opérations bit à bit en `Python`](#opérations-bit-à-bit-en-python)
 
 # Crédits
 
@@ -789,9 +790,7 @@ possède :
 **Exercice 12**
 
 Dans cet exercice, on veut réaliser un circuit logique qui simule un dé
-électronique à diodes (LED), comme le montre la figure ci-dessous.
-
-![Dé à 6 faces (LED)](images/de.png)  
+électronique à diodes (LED).
 
 Les différentes combinaisons d’affichage du dé électronique sont
 représentées dans la figure ci-dessous :
@@ -854,4 +853,158 @@ diode (a, b, c, d, e, f, g) et 3 entrées x, y, z.
         `Memory`) en entrée et des `LED` (outils `Input - Output`) en
         sortie comme dans la figure ci-dessous.
 
-![Circuit dé 6 faces](images/de_6_faces.png)
+![Circuit dé 6 faces](images/de_6_faces.png)  
+
+# Opérations bit à bit en `Python`
+
+**Propriété 3**
+
+Les fonctions booléennes élémentaires (`OR`, `AND`, `NOT`, `XOR`)
+existent en `Python` sous la forme d’opérateurs booléens mais sont
+également implémentés sous la forme d’opérateurs bit à bit sur les
+nombres. Un *opérateur bit à bit* (*bitwise* en anglais) s’applique sur
+les bits de même poids des représentations binaires de ses opérandes.
+
+| Opérateur booléen   | Opérateur bit à bit | Exemple                         |
+| :------------------ | ------------------- | :------------------------------ |
+| `and` , ET          | `&`                 | `>>> bin(0b101001 & 0b101010)`  |
+|                     |                     | `'0b101000'`                    |
+| `or` , OU           | `\|`                | `>>> bin(0b101001 \| 0b101010)` |
+|                     |                     | `'0b101011'`                    |
+| `xor` , OU EXCLUSIF | `^`                 | `>>> bin(0b101001 ^ 0b101010)`  |
+|                     |                     | `'0b000011'`                    |
+| `not` , NEGATION    | `~`                 | `>>> ~5 #~x retourne -x - 1`    |
+|                     |                     | `-6`                            |
+
+Exemples d’utilisation d’opérateurs bit à bit :
+
+  - On peut utiliser le `ET` bit à bit pour sélectionner uniquement
+    certains bits, par exemple les bits de rang pairs :
+
+<!-- end list -->
+
+``` python
+>>> bits_pairs = sum(2 ** k for k in range(0, 8, 2))
+>>> bin(bits_pairs)
+'0b1010101'
+>>> bin(183)
+'0b10110111'
+>>> bin(183 & bits_pairs)
+'0b10100010'
+```
+
+  - Le `OU EXCLUSIF` peut servir à masquer / démasquer une partie de la
+    représentation binaire d’un nombre (on peut l’employer avec tout
+    objet codé numériquement comme une image ou un caractère).
+
+<!-- end list -->
+
+``` python
+>>> diego = 69
+>>> masque = 42
+>>> zorro = diego ^ masque
+>>> zorro
+111
+>>> zorro ^ masque
+69
+```
+
+**Exercice 13**
+
+Dans un réseau `IP` l’adresse `IP` d’une machine est constitué d’un
+préfixe correspondant à l’adresse du réseau (commune à toutes les
+machines du réseau) et à un suffixe machine, identifiant la machine sur
+le réseau.
+
+Le préfixe réseau s’obtient à partir de l’adresse `IP` de la machine en
+faisant un `ET` bit à bit avec le masque de sous-réseau.
+
+Par exemple si l’adresse est `192.168.11.12` de représentation binaire
+`11000000.10101000.00000111.00001011` et le masque de sous-réseau est
+`255.255.252.0` de représentation binaire
+
+`11111111.11111111.11111100.00000000` alors le préfixe réseau est
+`11000000.10101000.00001000.00000000` soit `192.168.8.0`.
+
+On donne ci-dessous deux fonctions outils :
+
+``` python
+def ip2liste(ip):
+    "Transforme une  adresse IP V4 (type str) en liste d'entiers"
+    return [int(champ) for champ in ip.split('.')]
+
+def liste2ip(ipliste):
+    "Transforme une  liste d'entiers en adresse IP V4 (type str)"
+    return '.'.join(str(n) for n in ipliste)
+```
+
+1.  Écrire une fonction de signature `prefixe_reseau(ip, masque)` qui
+    retourne le préfixe réseau sous forme d’adresse IP V4 (type `str`) à
+    partir d’une adresse IP V4 et d’un masque de sous-réseau.
+
+2.  Écrire une fonction de signature `suffixe_machine(ip, masque)` qui
+    retourne le suffixe machine sous forme d’adresse IP V4 (type `str`)
+    à partir d’une adresse IP V4 et d’un masque de sous-réseau.
+
+Voici un exemple de résultat attendu :
+
+``` python
+>>> prefixe_reseau('145.245.11.254','255.255.252.0')
+'145.245.8.0'
+>>> suffixe_machine('145.245.11.254','255.255.252.0')
+'0.0.3.254'
+```
+
+**Propriété 4**
+
+`Python` définit également des opérateurs sur les bits d’un nombre, plus
+efficaces que les opérations mathématiques équivalentes :
+
+  - Le décalage de `nombre` de `n` bits vers la gauche multiplie
+    `nombre` par
+    ![2^{n}](https://latex.codecogs.com/png.latex?2%5E%7Bn%7D "2^{n}")
+    et s’écrit `nombre << n`.
+
+  - Le décalage de `nombre` de `n` bits vers la droite divise `nombre`
+    par ![2^{n}](https://latex.codecogs.com/png.latex?2%5E%7Bn%7D
+    "2^{n}") et s’écrit `nombre >> n`.
+
+**Exercice 14**
+
+Dans l’algorithme de recherche dichotomique, après division en deux de
+la zone de recherche, l’algorithme s’appelle lui-même sur l’une des deux
+moitiés. C’est un algorithme de type  qui peut se programmer
+récursivement comme nous le verrons dans le chapitre sur la
+récursivité.
+
+Si on note  la taille de la liste, une autre implémentation, non
+récursive, est la suivante :
+
+  - on commence la recherche au début de la liste et on avance avec un
+    pas `pas = n // 2` ou `pas = n >> 1` jusqu’au premier élément
+    supérieur à l’élément cherché ;
+
+  - on repart de l’élément précédent le point d’arrêt et on avance
+    désormais avec un pas
+    
+    `pas = pas >> 1` ;
+
+  - on répète en boucle ces instructions jusqu’à ce que le pas atteigne
+    ![1](https://latex.codecogs.com/png.latex?1 "1").
+
+A la fin de de la boucle, on détermine si l’élément sur lequel on s’est
+arrêté est l’élément recherché.
+
+Compléter le code de la fonction `recherche_dicho2` qui implémente cet
+algorithme.
+
+``` python
+def recherche_dicho2(L, e):
+    x, n  = 0, len(L)
+    pas = n >> 1
+    while pas >= 1:
+        while x + pas < n and .................:
+            x = ..............
+        pas = ................
+    return ............
+```

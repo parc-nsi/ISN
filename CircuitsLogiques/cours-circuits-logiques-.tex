@@ -41,7 +41,7 @@
 }
 \hypersetup{
   pdftitle={Circuits logiques},
-  pdfauthor={Première NSI Lycée du Parc},
+  pdfauthor={Première ISN Lycée du Parc},
   colorlinks=true,
   linkcolor=Maroon,
   filecolor=Maroon,
@@ -82,7 +82,7 @@
 \setcounter{secnumdepth}{5}
 
 \title{Circuits logiques}
-\author{Première NSI Lycée du Parc}
+\author{Première ISN Lycée du Parc}
 \date{}
 
 %%%jolis boites
@@ -1876,14 +1876,12 @@ possède :
 \begin{exercice}{}
 
 Dans cet exercice, on veut réaliser un circuit logique qui simule un dé
-électronique à diodes (LED), comme le montre la figure ci-dessous.
-
-\includegraphics{images/de.png}\\
+électronique à diodes (LED).
 
 Les différentes combinaisons d'affichage du dé électronique sont
 représentées dans la figure ci-dessous :
 
-\includegraphics{images/faces_de.png}\\
+\includegraphics[width=0.8\textwidth,height=\textheight]{images/faces_de.png}\\
 
 Par exemple, si on veut afficher 3, il faut allumer les diodes a, d et
 g. Pour les combinaisons d'entrée (x,y,z)= (0,0,0,) et (X,Y,Z)=(1,1,1)
@@ -1903,7 +1901,7 @@ pourquoi on peut réduire le nombre de sorties de \(8\) à \(7\).
 Le circuit à réaliser doit donc comporter 7 sorties, soit une sortie par
 diode (a, b, c, d, e, f, g) et 3 entrées x, y, z.
 
-\includegraphics{images/circuit-de.png}\\
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/circuit-de.png}\\
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1966,7 +1964,262 @@ x & y & z & a & b & c & d & e & f & g\tabularnewline
   \end{itemize}
 \end{enumerate}
 
-\includegraphics{images/de_6_faces.png}\\
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/de_6_faces.png}\\
+
+\end{exercice}
+
+\hypertarget{opuxe9rations-bit-uxe0-bit-en-python}{%
+\section{\texorpdfstring{Opérations bit à bit en
+\texttt{Python}}{Opérations bit à bit en Python}}\label{opuxe9rations-bit-uxe0-bit-en-python}}
+
+\begin{propriete}{}
+
+Les fonctions booléennes élémentaires (\passthrough{\lstinline!OR!},
+\passthrough{\lstinline!AND!}, \passthrough{\lstinline!NOT!},
+\passthrough{\lstinline!XOR!}) existent en
+\passthrough{\lstinline!Python!} sous la forme d'opérateurs booléens
+mais sont également implémentés sous la forme d'opérateurs bit à bit sur
+les nombres. Un \emph{opérateur bit à bit} (\emph{bitwise} en anglais)
+s'applique sur les bits de même poids des représentations binaires de
+ses opérandes.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.24\columnwidth}\raggedright
+Opérateur booléen\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\raggedright
+Opérateur bit à bit\strut
+\end{minipage} & \begin{minipage}[b]{0.46\columnwidth}\raggedright
+Exemple\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.24\columnwidth}\raggedright
+\passthrough{\lstinline!and!} , ET\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\passthrough{\lstinline!\&!}\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\passthrough{\lstinline!>>> bin(0b101001 \& 0b101010)!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\passthrough{\lstinline!'0b101000'!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright
+\passthrough{\lstinline!or!} , OU\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\passthrough{\lstinline!|!}\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\passthrough{\lstinline!>>> bin(0b101001 | 0b101010)!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\passthrough{\lstinline!'0b101011'!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright
+\passthrough{\lstinline!xor!} , OU EXCLUSIF\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\passthrough{\lstinline!^!}\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\passthrough{\lstinline!>>> bin(0b101001 ^ 0b101010)!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\passthrough{\lstinline!'0b000011'!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright
+\passthrough{\lstinline!not!} , NEGATION\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\passthrough{\lstinline!\~!}\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\passthrough{\lstinline!>>> \~5 \#\~x retourne -x - 1!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\passthrough{\lstinline!-6!}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{propriete}
+
+Exemples d'utilisation d'opérateurs bit à bit :
+
+\begin{itemize}
+\tightlist
+\item
+  On peut utiliser le \passthrough{\lstinline!ET!} bit à bit pour
+  sélectionner uniquement certains bits, par exemple les bits de rang
+  pairs :
+\end{itemize}
+
+\begin{lstlisting}[language=Python]
+>>> bits_pairs = sum(2 ** k for k in range(0, 8, 2))
+>>> bin(bits_pairs)
+'0b1010101'
+>>> bin(183)
+'0b10110111'
+>>> bin(183 & bits_pairs)
+'0b10100010'
+\end{lstlisting}
+
+\begin{itemize}
+\tightlist
+\item
+  Le \passthrough{\lstinline!OU EXCLUSIF!} peut servir à masquer /
+  démasquer une partie de la représentation binaire d'un nombre (on peut
+  l'employer avec tout objet codé numériquement comme une image ou un
+  caractère).
+\end{itemize}
+
+\begin{lstlisting}[language=Python]
+>>> diego = 69
+>>> masque = 42
+>>> zorro = diego ^ masque
+>>> zorro
+111
+>>> zorro ^ masque
+69
+\end{lstlisting}
+
+\begin{exercice}{}
+
+Dans un réseau \passthrough{\lstinline!IP!} l'adresse
+\passthrough{\lstinline!IP!} d'une machine est constitué d'un préfixe
+correspondant à l'adresse du réseau (commune à toutes les machines du
+réseau) et à un suffixe machine, identifiant la machine sur le réseau.
+
+Le préfixe réseau s'obtient à partir de l'adresse
+\passthrough{\lstinline!IP!} de la machine en faisant un
+\passthrough{\lstinline!ET!} bit à bit avec le masque de sous-réseau.
+
+Par exemple si l'adresse est \passthrough{\lstinline!192.168.11.12!} de
+représentation binaire
+\passthrough{\lstinline!11000000.10101000.00000111.00001011!} et le
+masque de sous-réseau est \passthrough{\lstinline!255.255.252.0!} de
+représentation binaire
+
+\passthrough{\lstinline!11111111.11111111.11111100.00000000!} alors le
+préfixe réseau est
+\passthrough{\lstinline!11000000.10101000.00001000.00000000!} soit
+\passthrough{\lstinline!192.168.8.0!}.
+
+On donne ci-dessous deux fonctions outils :
+
+\begin{lstlisting}[language=Python]
+def ip2liste(ip):
+    "Transforme une  adresse IP V4 (type str) en liste d'entiers"
+    return [int(champ) for champ in ip.split('.')]
+
+def liste2ip(ipliste):
+    "Transforme une  liste d'entiers en adresse IP V4 (type str)"
+    return '.'.join(str(n) for n in ipliste)
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Écrire une fonction de signature
+  \passthrough{\lstinline!prefixe\_reseau(ip, masque)!} qui retourne le
+  préfixe réseau sous forme d'adresse IP V4 (type
+  \passthrough{\lstinline!str!}) à partir d'une adresse IP V4 et d'un
+  masque de sous-réseau.
+\item
+  Écrire une fonction de signature
+  \passthrough{\lstinline!suffixe\_machine(ip, masque)!} qui retourne le
+  suffixe machine sous forme d'adresse IP V4 (type
+  \passthrough{\lstinline!str!}) à partir d'une adresse IP V4 et d'un
+  masque de sous-réseau.
+\end{enumerate}
+
+Voici un exemple de résultat attendu :
+
+\begin{lstlisting}[language=Python]
+>>> prefixe_reseau('145.245.11.254','255.255.252.0')
+'145.245.8.0'
+>>> suffixe_machine('145.245.11.254','255.255.252.0')
+'0.0.3.254'
+\end{lstlisting}
+
+\end{exercice}
+
+\begin{propriete}{}
+
+\passthrough{\lstinline!Python!} définit également des opérateurs sur
+les bits d'un nombre, plus efficaces que les opérations mathématiques
+équivalentes :
+
+\begin{itemize}
+\item
+  Le décalage de \passthrough{\lstinline!nombre!} de
+  \passthrough{\lstinline!n!} bits vers la gauche multiplie
+  \passthrough{\lstinline!nombre!} par \(2^{n}\) et s'écrit
+  \passthrough{\lstinline!nombre << n!}.
+\item
+  Le décalage de \passthrough{\lstinline!nombre!} de
+  \passthrough{\lstinline!n!} bits vers la droite divise
+  \passthrough{\lstinline!nombre!} par \(2^{n}\) et s'écrit
+  \passthrough{\lstinline!nombre >> n!}.
+\end{itemize}
+
+\end{propriete}
+
+\begin{exercice}{}
+
+Dans l'algorithme de recherche dichotomique, après division en deux de
+la zone de recherche, l'algorithme s'appelle lui-même sur l'une des deux
+moitiés. C'est un algorithme de type \textit{Diviser pour régner} qui
+peut se programmer récursivement comme nous le verrons dans le chapitre
+sur la récursivité.
+
+Si on note \lstinline+n+ la taille de la liste, une autre
+implémentation, non récursive, est la suivante :
+
+\begin{itemize}
+\item
+  on commence la recherche au début de la liste et on avance avec un pas
+  \passthrough{\lstinline!pas = n // 2!} ou
+  \passthrough{\lstinline!pas = n >> 1!} jusqu'au premier élément
+  supérieur à l'élément cherché ;
+\item
+  on repart de l'élément précédent le point d'arrêt et on avance
+  désormais avec un pas
+
+  \passthrough{\lstinline!pas = pas >> 1!} ;
+\item
+  on répète en boucle ces instructions jusqu'à ce que le pas atteigne
+  \(1\).
+\end{itemize}
+
+A la fin de de la boucle, on détermine si l'élément sur lequel on s'est
+arrêté est l'élément recherché.
+
+Compléter le code de la fonction
+\passthrough{\lstinline!recherche\_dicho2!} qui implémente cet
+algorithme.
+
+\begin{lstlisting}[language=Python]
+def recherche_dicho2(L, e):
+    x, n  = 0, len(L)
+    pas = n >> 1
+    while pas >= 1:
+        while x + pas < n and .................:
+            x = ..............
+        pas = ................
+    return ............
+\end{lstlisting}
 
 \end{exercice}
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Première NSI Lycée du Parc" />
+  <meta name="author" content="Première ISN Lycée du Parc" />
   <title>Circuits logiques</title>
   <style>
     code{white-space: pre-wrap;}
@@ -85,7 +85,7 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Circuits logiques</h1>
-<p class="author">Première NSI Lycée du Parc</p>
+<p class="author">Première ISN Lycée du Parc</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Table des matières</h2>
@@ -114,6 +114,7 @@
 <li><a href="#demi-additionneur-et-additionneur-1-bit">Demi-additionneur et additionneur 1 bit</a></li>
 <li><a href="#simuler-le-hasard">Simuler le hasard</a></li>
 </ul></li>
+<li><a href="#opérations-bit-à-bit-en-python">Opérations bit à bit en <code>Python</code></a></li>
 </ul>
 </nav>
 <h1 class="unnumbered" id="crédits" class="unnumbered">Crédits</h1>
@@ -894,16 +895,14 @@ Si <code>x</code> et <code>y</code> sont des booléens, leur <em>disjonction</em
 </div>
 <h2 id="simuler-le-hasard">Simuler le hasard</h2>
 <div class="exercice">
-<p>Dans cet exercice, on veut réaliser un circuit logique qui simule un dé électronique à diodes (LED), comme le montre la figure ci-dessous.</p>
-<p><img src="images/de.png" alt="Dé à 6 faces (LED)" /><br />
-</p>
+<p>Dans cet exercice, on veut réaliser un circuit logique qui simule un dé électronique à diodes (LED).</p>
 <p>Les différentes combinaisons d’affichage du dé électronique sont représentées dans la figure ci-dessous :</p>
-<p><img src="images/faces_de.png" alt="Faces du dé (LED)" /><br />
+<p><img src="images/faces_de.png" style="width:80.0%" alt="Faces du dé (LED)" /><br />
 </p>
 <p>Par exemple, si on veut afficher 3, il faut allumer les diodes a, d et g. Pour les combinaisons d’entrée (x,y,z)= (0,0,0,) et (X,Y,Z)=(1,1,1) aucune diode ne doit être allumée.</p>
 <p>Il s’agit d’une forme de <strong>transcodeur 3 bits vers 8 bits</strong>. Les <span class="math inline">\(3\)</span> bits d’entrée représentent le codage d’un nombre sur <span class="math inline">\(3\)</span> bits en notation positionnelle et les <span class="math inline">\(8\)</span> bits de sortie représentent le codage de ce même nombre en notation additive. Par exemple si (x,y,z) = (1,0,1) en entrée, le nombre est <span class="math inline">\(1 \times 2^{2} + 0 \times 2^{1} + 1 \times 2^{0}=5\)</span> et il est représenté par cinq bits de sortie positionnés à <span class="math inline">\(1\)</span>. Pour simuler un dé à 6 faces, deux entrées, (x,y,z) = (0,0,0) et (x,y,z) = (1,1,1), correspondent à la même sortie (tous les bits de sortie à 0), c’est pourquoi on peut réduire le nombre de sorties de <span class="math inline">\(8\)</span> à <span class="math inline">\(7\)</span>.</p>
 <p>Le circuit à réaliser doit donc comporter 7 sorties, soit une sortie par diode (a, b, c, d, e, f, g) et 3 entrées x, y, z.</p>
-<p><img src="images/circuit-de.png" alt="Circuit dé 6 faces" /><br />
+<p><img src="images/circuit-de.png" style="width:60.0%" alt="Circuit dé 6 faces" /><br />
 </p>
 <ol type="1">
 <li>Compléter la table de vérité de ce circuit :</li>
@@ -1033,8 +1032,139 @@ Si <code>x</code> et <code>y</code> sont des booléens, leur <em>disjonction</em
 <li>compléter le circuit avec des <code>Random Generator</code> (outils <code>Memory</code>) en entrée et des <code>LED</code> (outils <code>Input - Output</code>) en sortie comme dans la figure ci-dessous.</li>
 </ul></li>
 </ol>
-<p><img src="images/de_6_faces.png" alt="Circuit dé 6 faces" /><br />
+<p><img src="images/de_6_faces.png" style="width:50.0%" alt="Circuit dé 6 faces" /><br />
 </p>
+</div>
+<h1 id="opérations-bit-à-bit-en-python">Opérations bit à bit en <code>Python</code></h1>
+<div class="propriete">
+<p>Les fonctions booléennes élémentaires (<code>OR</code>, <code>AND</code>, <code>NOT</code>, <code>XOR</code>) existent en <code>Python</code> sous la forme d’opérateurs booléens mais sont également implémentés sous la forme d’opérateurs bit à bit sur les nombres. Un <em>opérateur bit à bit</em> (<em>bitwise</em> en anglais) s’applique sur les bits de même poids des représentations binaires de ses opérandes.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 23%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Opérateur booléen</th>
+<th>Opérateur bit à bit</th>
+<th style="text-align: left;">Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>and</code> , ET</td>
+<td><code>&amp;</code></td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; bin(0b101001 &amp; 0b101010)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"><code>'0b101000'</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>or</code> , OU</td>
+<td><code>|</code></td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; bin(0b101001 | 0b101010)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"><code>'0b101011'</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>xor</code> , OU EXCLUSIF</td>
+<td><code>^</code></td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; bin(0b101001 ^ 0b101010)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"><code>'0b000011'</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>not</code> , NEGATION</td>
+<td><code>~</code></td>
+<td style="text-align: left;"><code>&gt;&gt;&gt; ~5 #~x retourne -x - 1</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"><code>-6</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Exemples d’utilisation d’opérateurs bit à bit :</p>
+<ul>
+<li>On peut utiliser le <code>ET</code> bit à bit pour sélectionner uniquement certains bits, par exemple les bits de rang pairs :</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">&gt;&gt;&gt;</span> bits_pairs <span class="op">=</span> <span class="bu">sum</span>(<span class="dv">2</span> <span class="op">**</span> k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">2</span>))</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">bin</span>(bits_pairs)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">&#39;0b1010101&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">bin</span>(<span class="dv">183</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">&#39;0b10110111&#39;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">bin</span>(<span class="dv">183</span> <span class="op">&amp;</span> bits_pairs)</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">&#39;0b10100010&#39;</span></span></code></pre></div>
+<ul>
+<li>Le <code>OU EXCLUSIF</code> peut servir à masquer / démasquer une partie de la représentation binaire d’un nombre (on peut l’employer avec tout objet codé numériquement comme une image ou un caractère).</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">&gt;&gt;&gt;</span> diego <span class="op">=</span> <span class="dv">69</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="op">&gt;&gt;&gt;</span> masque <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="op">&gt;&gt;&gt;</span> zorro <span class="op">=</span> diego <span class="op">^</span> masque</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="op">&gt;&gt;&gt;</span> zorro</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="dv">111</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="op">&gt;&gt;&gt;</span> zorro <span class="op">^</span> masque</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="dv">69</span></span></code></pre></div>
+<div class="exercice">
+<p>Dans un réseau <code>IP</code> l’adresse <code>IP</code> d’une machine est constitué d’un préfixe correspondant à l’adresse du réseau (commune à toutes les machines du réseau) et à un suffixe machine, identifiant la machine sur le réseau.</p>
+<p>Le préfixe réseau s’obtient à partir de l’adresse <code>IP</code> de la machine en faisant un <code>ET</code> bit à bit avec le masque de sous-réseau.</p>
+<p>Par exemple si l’adresse est <code>192.168.11.12</code> de représentation binaire <code>11000000.10101000.00000111.00001011</code> et le masque de sous-réseau est <code>255.255.252.0</code> de représentation binaire</p>
+<p><code>11111111.11111111.11111100.00000000</code> alors le préfixe réseau est <code>11000000.10101000.00001000.00000000</code> soit <code>192.168.8.0</code>.</p>
+<p>On donne ci-dessous deux fonctions outils :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> ip2liste(ip):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co">&quot;Transforme une  adresse IP V4 (type str) en liste d&#39;entiers&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="cf">return</span> [<span class="bu">int</span>(champ) <span class="cf">for</span> champ <span class="kw">in</span> ip.split(<span class="st">&#39;.&#39;</span>)]</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">def</span> liste2ip(ipliste):</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="co">&quot;Transforme une  liste d&#39;entiers en adresse IP V4 (type str)&quot;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="cf">return</span> <span class="st">&#39;.&#39;</span>.join(<span class="bu">str</span>(n) <span class="cf">for</span> n <span class="kw">in</span> ipliste)</span></code></pre></div>
+<ol type="1">
+<li><p>Écrire une fonction de signature <code>prefixe_reseau(ip, masque)</code> qui retourne le préfixe réseau sous forme d’adresse IP V4 (type <code>str</code>) à partir d’une adresse IP V4 et d’un masque de sous-réseau.</p></li>
+<li><p>Écrire une fonction de signature <code>suffixe_machine(ip, masque)</code> qui retourne le suffixe machine sous forme d’adresse IP V4 (type <code>str</code>) à partir d’une adresse IP V4 et d’un masque de sous-réseau.</p></li>
+</ol>
+<p>Voici un exemple de résultat attendu :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="op">&gt;&gt;&gt;</span> prefixe_reseau(<span class="st">&#39;145.245.11.254&#39;</span>,<span class="st">&#39;255.255.252.0&#39;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">&#39;145.245.8.0&#39;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="op">&gt;&gt;&gt;</span> suffixe_machine(<span class="st">&#39;145.245.11.254&#39;</span>,<span class="st">&#39;255.255.252.0&#39;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">&#39;0.0.3.254&#39;</span></span></code></pre></div>
+</div>
+<div class="propriete">
+<p><code>Python</code> définit également des opérateurs sur les bits d’un nombre, plus efficaces que les opérations mathématiques équivalentes :</p>
+<ul>
+<li><p>Le décalage de <code>nombre</code> de <code>n</code> bits vers la gauche multiplie <code>nombre</code> par <span class="math inline">\(2^{n}\)</span> et s’écrit <code>nombre &lt;&lt; n</code>.</p></li>
+<li><p>Le décalage de <code>nombre</code> de <code>n</code> bits vers la droite divise <code>nombre</code> par <span class="math inline">\(2^{n}\)</span> et s’écrit <code>nombre &gt;&gt; n</code>.</p></li>
+</ul>
+</div>
+<div class="exercice">
+<p>Dans l’algorithme de recherche dichotomique, après division en deux de la zone de recherche, l’algorithme s’appelle lui-même sur l’une des deux moitiés. C’est un algorithme de type  qui peut se programmer récursivement comme nous le verrons dans le chapitre sur la récursivité.</p>
+<p>Si on note  la taille de la liste, une autre implémentation, non récursive, est la suivante :</p>
+<ul>
+<li><p>on commence la recherche au début de la liste et on avance avec un pas <code>pas = n // 2</code> ou <code>pas = n &gt;&gt; 1</code> jusqu’au premier élément supérieur à l’élément cherché ;</p></li>
+<li><p>on repart de l’élément précédent le point d’arrêt et on avance désormais avec un pas</p>
+<p><code>pas = pas &gt;&gt; 1</code> ;</p></li>
+<li><p>on répète en boucle ces instructions jusqu’à ce que le pas atteigne <span class="math inline">\(1\)</span>.</p></li>
+</ul>
+<p>A la fin de de la boucle, on détermine si l’élément sur lequel on s’est arrêté est l’élément recherché.</p>
+<p>Compléter le code de la fonction <code>recherche_dicho2</code> qui implémente cet algorithme.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> recherche_dicho2(L, e):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    x, n  <span class="op">=</span> <span class="dv">0</span>, <span class="bu">len</span>(L)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    pas <span class="op">=</span> n <span class="op">&gt;&gt;</span> <span class="dv">1</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="cf">while</span> pas <span class="op">&gt;=</span> <span class="dv">1</span>:</span>
+<span id="cb7-5"><a href="#cb7-5"></a>        <span class="cf">while</span> x <span class="op">+</span> pas <span class="op">&lt;</span> n <span class="kw">and</span> .................:</span>
+<span id="cb7-6"><a href="#cb7-6"></a>            x <span class="op">=</span> ..............</span>
+<span id="cb7-7"><a href="#cb7-7"></a>        pas <span class="op">=</span> ................</span>
+<span id="cb7-8"><a href="#cb7-8"></a>    <span class="cf">return</span> ............</span></code></pre></div>
 </div>
 </body>
 </html>

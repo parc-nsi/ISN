@@ -1,6 +1,6 @@
 ---
 title : Circuits logiques
-author : Première NSI Lycée du Parc
+author : Terminale ISN Lycée du Parc
 numbersections: true
 fontsize: 11pt
 geometry:

@@ -128,13 +128,13 @@ sortie.
 
 <div class="center">
 
-![Transistor](images/porte_nor.png)  
+![Porte NOR](images/porte_nor.png)  
 
 </div>
 
 <div class="center">
 
-![Transistor](images/porte_nand.png)  
+![Porte NAND](images/porte_nand.png)  
 
 </div>
 

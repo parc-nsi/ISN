@@ -60,63 +60,58 @@
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(240,380)" to="(270,380)"/>
-    <wire from="(210,260)" to="(240,260)"/>
-    <wire from="(240,260)" to="(270,260)"/>
-    <wire from="(380,260)" to="(410,260)"/>
+    <wire from="(310,260)" to="(400,260)"/>
+    <wire from="(210,260)" to="(270,260)"/>
     <wire from="(290,200)" to="(290,240)"/>
     <wire from="(160,260)" to="(210,260)"/>
+    <wire from="(420,200)" to="(420,240)"/>
+    <wire from="(400,260)" to="(410,260)"/>
     <wire from="(270,260)" to="(280,260)"/>
-    <wire from="(300,380)" to="(310,380)"/>
-    <wire from="(290,330)" to="(290,360)"/>
-    <wire from="(240,260)" to="(240,380)"/>
-    <wire from="(380,260)" to="(380,380)"/>
-    <wire from="(310,380)" to="(380,380)"/>
-    <wire from="(310,260)" to="(380,260)"/>
+    <wire from="(440,260)" to="(480,260)"/>
     <wire from="(210,200)" to="(210,260)"/>
-    <comp lib="0" loc="(270,260)" name="Transistor">
-      <a name="type" val="n"/>
-      <a name="facing" val="west"/>
+    <comp lib="6" loc="(353,117)" name="Text">
+      <a name="text" val="Porte NAND"/>
     </comp>
-    <comp lib="6" loc="(297,168)" name="Text">
-      <a name="text" val=" Grille Transistor 1"/>
-    </comp>
-    <comp lib="6" loc="(308,295)" name="Text">
-      <a name="text" val="Grille Transistor 2"/>
-    </comp>
-    <comp lib="6" loc="(205,170)" name="Text">
-      <a name="text" val="Sortie"/>
+    <comp lib="0" loc="(130,260)" name="Constant"/>
+    <comp lib="0" loc="(160,260)" name="Pull Resistor">
+      <a name="facing" val="east"/>
+      <a name="pull" val="1"/>
     </comp>
     <comp lib="0" loc="(210,200)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(130,260)" name="Constant"/>
-    <comp lib="0" loc="(410,260)" name="Ground">
+    <comp lib="6" loc="(426,171)" name="Text">
+      <a name="text" val="Grille Transistor 2"/>
+    </comp>
+    <comp lib="6" loc="(297,168)" name="Text">
+      <a name="text" val=" Grille Transistor 1"/>
+    </comp>
+    <comp lib="0" loc="(480,260)" name="Ground">
       <a name="facing" val="east"/>
     </comp>
-    <comp lib="0" loc="(270,380)" name="Transistor">
+    <comp lib="0" loc="(270,260)" name="Transistor">
       <a name="type" val="n"/>
       <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(420,200)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="6" loc="(205,170)" name="Text">
+      <a name="text" val="Sortie"/>
     </comp>
     <comp lib="0" loc="(290,200)" name="Pin">
       <a name="facing" val="south"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(160,260)" name="Pull Resistor">
-      <a name="facing" val="east"/>
-      <a name="pull" val="1"/>
-    </comp>
-    <comp lib="0" loc="(290,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="6" loc="(281,125)" name="Text">
-      <a name="text" val="Porte NOR deux transistors en parallèles"/>
-    </comp>
-    <comp lib="6" loc="(385,238)" name="Text">
+    <comp lib="6" loc="(482,239)" name="Text">
       <a name="text" val="Source"/>
+    </comp>
+    <comp lib="0" loc="(400,260)" name="Transistor">
+      <a name="type" val="n"/>
+      <a name="facing" val="west"/>
     </comp>
   </circuit>
 </project>

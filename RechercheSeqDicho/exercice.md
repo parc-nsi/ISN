@@ -2,7 +2,7 @@
 
 Compléter le code de la fonction ci-dessous pour qu'elle retourne le maximum de l'ensemble des éléments contenus dans la variable `mat`passée en argument. `mat` est un matrice de nombres, c'est-à-dire une  liste de  listes d'entiers qui ont toutes la  même longueur.
 
-~~~~python
+~~~python
 In [5]: mat = [[1,2,3], [4,5,6]]
 
 In [6]: mat[1]

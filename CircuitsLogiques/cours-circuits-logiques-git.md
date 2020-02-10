@@ -402,8 +402,8 @@ booléennes élémentaires :
     "x \\wedge ( y \\wedge z) = (x \\wedge y) \\wedge z") et ![x . (y .
     z) = (x . y) .
     z](https://latex.codecogs.com/png.latex?x%20.%20%28y%20.%20z%29%20%3D%20%28x%20.%20y%29%20.%20z
-    "x . (y . z) = (x . y) . z") ou ![x \\vee ( y \\vee z) = (x \\vee y)
-    \\vee
+    "x . (y . z) = (x . y) . z")  
+    ou ![x \\vee ( y \\vee z) = (x \\vee y) \\vee
     z](https://latex.codecogs.com/png.latex?x%20%5Cvee%20%28%20y%20%5Cvee%20z%29%20%3D%20%28x%20%5Cvee%20y%29%20%5Cvee%20z
     "x \\vee ( y \\vee z) = (x \\vee y) \\vee z") et ![x + (y + z) = (x
     + y) +
@@ -437,7 +437,7 @@ booléennes élémentaires :
 
 <!-- end list -->
 
-2.  Les fonctions booléennes élémentaire respectent des règles de
+1.  Les fonctions booléennes élémentaire respectent des règles de
     priorité : la *négation* est prioritaire sur la *conjonction* qui
     est proritaire sur la *disjonction*.  
     **Il est recommandé de mettre des parenthèses plutôt que d’appliquer

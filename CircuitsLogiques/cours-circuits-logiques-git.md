@@ -104,7 +104,7 @@ logiques, une européenne et une américaine.**
 
 ![porte NOT européeenne](images/porte_not_european.png)  
 
-&
+
 
 ![porte NOT américaine](images/porte_not_american.png)  
 

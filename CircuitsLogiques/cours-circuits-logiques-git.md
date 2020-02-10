@@ -25,7 +25,7 @@
 # Crédits
 
 *Ce cours est largement inspiré du chapitre 22 du manuel NSI de la
-collection Tortue chez Ellipsen auteurs : Ballabonski, Conchon,
+collection Tortue chez Ellipse auteurs : Ballabonski, Conchon,
 Filliatre, N’Guyen.*
 
 # Préambule
@@ -161,7 +161,10 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers
 <div class="minipage" width="0.5\linewidth" data-center="true">
 
 ![Porte NOR européenne](images/porte_nor_european.png)  
-& ![Porte NOR américaine](images/porte_nor_american.png)  
+
+&
+
+![Porte NOR américaine](images/porte_nor_american.png)  
 
 </div>
 

@@ -314,9 +314,9 @@ On considère la fonction booléenne dont la table de vérité est :
 **Voici les  représentations symboliques de la  porte logique `XOR` :**
 
 :::{.minipage width="0.5\linewidth" center="true"}
-![Porte XOR européenne](images/porte_xor_european.png)\
+![Porte XOR europeenne](images/porte_xor_european.png)\
 &
-![Porte XOR américaine](images/porte_xor_american.png)\
+![Porte XOR americaine](images/porte_xor_american.png)\
 :::
 
 # Circuits combinatoires 

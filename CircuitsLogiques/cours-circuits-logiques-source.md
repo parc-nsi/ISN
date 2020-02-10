@@ -19,7 +19,7 @@ _Ce cours est largement inspiré du chapitre 22 du manuel NSI de la collection T
 Les circuits d'une ordinateur manipulent uniquement des 0 ou des 1 représentés en interne par des tensions hautes ou basses. Les premiers ordinateurs construits dans la période 1945-1950 sont basés sur une technologie de tube à vide ou tube électrique. En 1947, aux laboratoires Bell, [Shockley, Bardeen et Brattain](https://fr.wikipedia.org/wiki/Transistor) inventent le __transistor__ au _germanium_ un petit composant électronique qui se comporte comme un interrupteur.  Les transistors, plus petits et dissipant moins de chaleur, vont supplanter les tubes électriques : en 1954 le _germanium_ est remplacé par le _silicium_, en 1955 apparaissent les premiers ordinteurs entièrement transistorisés, en 1960 le transistor à effet de champ permet l'intégration de dizaines composants dans un centimètre carré. Les transistors sont ensuite directement gravés dans une plaque de _silicium_ constitutant un __cicrcuit intégré__. En 1965 Gordon Moore futur directeur d'Intel énonce la [loi empirique](https://fr.wikipedia.org/wiki/Loi_de_Moore) portant son nom qui fixe une feuille de route à l'industrie des mircroprocesseurs :  le doublement de la densité d'intégration des transistors tous les deux ans. Cette loi s'est vérifiée jusqu'à présent avec une finesse de gravure d'environ 5 nanomètres en 2020.  Le [graphique](https://en.wikipedia.org/wiki/Moore%27s_law#/media/File:Moore's_Law_Transistor_Count_1971-2018.png) ci-dessous représente l'évolution du  nombre de transistors par circuit intégré.
 
 :::center
-![Loi de Moore Source : Wikipedia](images/640px-Moore's_Law_Transistor_Count_1971-2018.png){width=90%}\
+![Loi de Moore Source : Wikipedia](images/640px-Moores_Law_Transistor_Count_1971-2018.png){width=90%}\
 :::
 
 # Portes logiques
@@ -69,15 +69,9 @@ On donne ci-dessous les représentations de deux portes logiques :
 
 Chacune de  ces portes logiques comportent deux   bits d'entrée : A pour  la grille du transistor 1 et B pourla grille du transistor 2 et un bit de sortie.
 
-:::{.minipage width="0.5\linewidth" center="true"}
-![Porte NAND](images/porte_nand.png)\
-&
-![Porte NOR](images/porte_nor.png)\
-:::
-
 Compléter leurs tables logiques.
 
-Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers [porte_NAND.circ](ircuits_logisim/porte_NAND.circ) et [porte_NOR.circ](circuits_logisim/porte_NOR.circ).
+Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers [porte_NAND.circ](circuits_logisim/porte_NAND.circ) et [porte_NOR.circ](circuits_logisim/porte_NOR.circ).
 
 | A      | B    | NAND(A, B) |
 |:------:|------|------------|
@@ -94,6 +88,11 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers [porte_
 | 1      | 1    |            |
 :::
 
+:::{.minipage width="0.5\linewidth" center="true"}
+![Porte NAND](images/porte_nand.png){width="80%"}\
+&
+![Porte NOR](images/porte_nor.png){width="80%"}\
+:::
 
   
 **Voici les  représentations symboliques des  portes logiques NAND et NOR :**
@@ -184,7 +183,7 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) : [exercice3.circ](cir
 1. Construire un circuit représentant une porte `OR` uniquement avec des portes `NOR`.
 2. Construire un circuit représentant une porte `AND` uniquement avec des portes `NAND`.
 
-Ainsi chacune des portes, `NAND` ou `OR` permet de construire les portes `NOT`, `OR`, `AND`. Toute porte logique pouvant logique pouvant s'exprimer à l'aide de ces trois portes, les portes `NAND` et `OR` sont dites *universelles*.
+Ainsi chacune des portes, `NAND` ou `OR` permet de construire les portes `NOT`, `OR`, `AND`. Toute porte logique  pouvant s'exprimer à l'aide de ces trois portes, les portes `NAND` et `OR` sont dites *universelles*.
 :::
 
 
@@ -211,7 +210,7 @@ def table_verite_2bits(fonction):
     for a in .............:
         for b in .............:
             print('|{:^10}|{:^10}|{:^15}|'.format(......, ......, 
-            int(fonctionbool(a,b))))
+            int(fonction(bool(a),bool(b)))))
 ~~~
 
 1. Vérifier que  les tables de vérité affichées pour les fonctions `bool.__or__`, `bool.__and__`  et `bool.__not__` sont correctes.
@@ -400,7 +399,7 @@ La sortie $s$ prend pour valeur le bit des unités et la sortie $r$ le bit de re
 
 4. Justifier qu'un __demi-additionneur binaire 1 bit__  peut être représenté par le circuit ci-dessous.
 
-![Demi-additionneur binaire](images/demi_additionneur.png)\
+![Demi-additionneur binaire](images/demi_additionneur.png){width="50%"}\
 
 5. Ouvrir le logiciel [Logisim](http://www.cburch.com/logisim/) et construire un circuit combinatoire  représentant un __demi-additionneur binaire 1 bit__.
 :::
@@ -480,10 +479,9 @@ Le circuit à réaliser doit donc comporter 7 sorties, soit une sortie par diode
     * construire le circuit  avec le bouton `Build circuit`  et le  nommer `de6faces`
     * compléter le circuit avec des `Random Generator` (outils `Memory`) en entrée et des `LED` (outils `Input - Output`) en sortie comme dans la figure ci-dessous.
 
-![Circuit dé 6 faces](images/de_6_faces.png){width="45%"}\
 :::
 
-
+![Circuit dé 6 faces](images/de_6_faces.png){width="45%"}\
 
 # Opérations bit à bit en `Python`
 

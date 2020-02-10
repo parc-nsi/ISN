@@ -25,10 +25,10 @@
 # Crédits
 
 *Ce cours est largement inspiré du chapitre 22 du manuel NSI de la
-collection Tortue chez Ellipse auteurs : Ballabonski, Conchon,
+collection Tortue chez Ellipsen auteurs : Ballabonski, Conchon,
 Filliatre, N’Guyen.*
 
-# Préambule 
+# Préambule
 
 Les circuits d’une ordinateur manipulent uniquement des 0 ou des 1
 représentés en interne par des tensions hautes ou basses. Les premiers
@@ -54,8 +54,12 @@ gravure d’environ 5 nanomètres en 2020. Le
 ci-dessous représente l’évolution du nombre de transistors par circuit
 intégré.
 
+<div class="center">
 
-![Loi de Moore Source Wikipedia](images/640px-Moores_Law_Transistor_Count_1971-2018.png)  
+![Loi de Moore Source :
+Wikipedia](images/640px-Moores_Law_Transistor_Count_1971-2018.png)  
+
+</div>
 
 # Portes logiques
 
@@ -84,10 +88,11 @@ logique** ou **Inverseur**.
 Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 [transistor.circ](circuits_logisim/transistor.circ).
 
-
+<div class="center">
 
 ![Transistor](images/transistor.png)  
 
+</div>
 
 | A | B = NON(A) |
 | :-: | ---------- |
@@ -99,14 +104,12 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 **Il existe deux conventions de représentation symbolique des portes
 logiques, une européenne et une américaine.**
 
+<div class="minipage" width="0.5\linewidth" data-centre="true">
 
+![porte NOT européeenne](images/porte_not_european.png)  
+& ![porte NOT américaine](images/porte_not_american.png)  
 
-![porte NOT europeenne](images/porte_not_european.png)  
-
-
-
-![porte NOT americaine](images/porte_not_american.png)  
-
+</div>
 
 ## D’autres portes logiques
 
@@ -122,10 +125,6 @@ On donne ci-dessous les représentations de deux portes logiques :
 Chacune de ces portes logiques comportent deux bits d’entrée : A pour la
 grille du transistor 1 et B pourla grille du transistor 2 et un bit de
 sortie.
-
-![Porte NOR](images/porte_nor.png)  
-
-![Porte NAND](images/porte_nand.png)   
 
 Compléter leurs tables logiques.
 
@@ -147,22 +146,29 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers
 | 1 | 0 |           |
 | 1 | 1 |           |
 
+<div class="minipage" width="0.5\linewidth" data-center="true">
+
+![Porte NAND](images/porte_nand.png)  
+& ![Porte NOR](images/porte_nor.png)  
+
+</div>
+
 **Voici les représentations symboliques des portes logiques NAND et NOR
 :**
 
-![Porte NAND europeenne](images/porte_nand_european.png)  
+<div class="minipage" width="0.5\linewidth" data-center="true">
 
-![Porte NAND americaine](images/porte_nand_american.png)  
+![Porte NAND européenne](images/porte_nand_european.png)  
+& ![Porte NAND américaine](images/porte_nand_american.png)  
 
+</div>
 
+<div class="minipage" width="0.5\linewidth" data-center="true">
 
+![Porte NOR européenne](images/porte_nor_european.png)  
+& ![Porte NOR américaine](images/porte_nor_american.png)  
 
-![Porte NOR europeenne](images/porte_nor_european.png)  
-
-
-
-![Porte NOR americaine](images/porte_nor_american.png)  
-
+</div>
 
 ### Portes logiques et fonctions logiques élémentaires
 
@@ -225,20 +231,19 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 **Voici les représentations symboliques des portes logiques `AND` et
 `OR` :**
 
+<div class="minipage" width="0.5\linewidth" data-center="true">
 
+![Porte AND européenne](images/porte_and_european.png)  
+& ![Porte AND américaine](images/porte_and_american.png)  
 
-![Porte AND europeenne](images/porte_and_european.png)  
+</div>
 
-![Porte AND americaine](images/porte_and_american.png)  
+<div class="minipage" width="0.5\linewidth" data-center="true">
 
+![Porte OR européenne](images/porte_or_european.png)  
+& ![Porte OR américaine](images/porte_or_american.png)  
 
-
-
-![Porte OR europenne](images/porte_or_european.png)  
-
-
-![Porte OR americaine](images/porte_or_american.png)  
-
+</div>
 
 **Exercice 4**
 
@@ -248,9 +253,8 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
     des portes `NAND`.
 
 Ainsi chacune des portes, `NAND` ou `OR` permet de construire les portes
-`NOT`, `OR`, `AND`. Toute porte logique  pouvant
-s’exprimer à l’aide de ces trois portes, les portes `NAND` et `OR`
-sont dites *universelles*.
+`NOT`, `OR`, `AND`. Toute porte logique pouvant s’exprimer à l’aide de
+ces trois portes, les portes `NAND` et `OR` sont dites *universelles*.
 
 # Fonctions booléennes
 
@@ -301,7 +305,7 @@ def table_verite_2bits(fonction):
     for a in .............:
         for b in .............:
             print('|{:^10}|{:^10}|{:^15}|'.format(......, ......, 
-            int(fonctionbool(a,b))))
+            int(fonction(bool(a),bool(b)))))
 ```
 
 1.  Vérifier que les tables de vérité affichées pour les fonctions

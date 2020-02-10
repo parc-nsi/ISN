@@ -545,8 +545,8 @@ On considère la fonction booléenne dont la table de vérité est :
 
 <div class="minipage" width="0.5\linewidth" data-center="true">
 
-![Porte XOR européenne](images/porte_xor_european.png)  
-& ![Porte XOR américaine](images/porte_xor_american.png)  
+![Porte XOR europeenne](images/porte_xor_european.png)  
+& ![Porte XOR americaine](images/porte_xor_american.png)  
 
 </div>
 

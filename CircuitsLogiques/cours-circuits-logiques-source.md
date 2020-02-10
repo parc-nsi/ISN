@@ -310,7 +310,7 @@ On considère la fonction booléenne dont la table de vérité est :
 4.  Cette fonction s'appelle `OU EXCLUSIF` ou `XOR`. Ce nom vous paraît-il bien choisi ?
 
 :::
-
+ 
 **Voici les  représentations symboliques de la  porte logique `XOR` :**
 
 :::{.minipage width="0.5\linewidth" center="true"}

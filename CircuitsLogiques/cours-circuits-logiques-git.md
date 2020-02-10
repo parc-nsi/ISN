@@ -84,11 +84,10 @@ logique** ou **Inverseur**.
 Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 [transistor.circ](circuits_logisim/transistor.circ).
 
-<div class="center">
+
 
 ![Transistor](images/transistor.png)  
 
-</div>
 
 | A | B = NON(A) |
 | :-: | ---------- |
@@ -100,7 +99,7 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 **Il existe deux conventions de représentation symbolique des portes
 logiques, une européenne et une américaine.**
 
-<div class="minipage" width="0.5\linewidth" data-centre="true">
+
 
 ![porte NOT européeenne](images/porte_not_european.png)  
 
@@ -108,7 +107,6 @@ logiques, une européenne et une américaine.**
 
 ![porte NOT américaine](images/porte_not_american.png)  
 
-</div>
 
 ## D’autres portes logiques
 

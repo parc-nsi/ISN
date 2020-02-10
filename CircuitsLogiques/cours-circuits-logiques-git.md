@@ -437,9 +437,9 @@ booléennes élémentaires :
 
 <!-- end list -->
 
-1.  Les fonctions booléennes élémentaire respectent des règles de
+2.  Les fonctions booléennes élémentaire respectent des règles de
     priorité : la *négation* est prioritaire sur la *conjonction* qui
-    est proritaire sur la *disjonction*.  
+    est prioritaire sur la *disjonction*.  
     **Il est recommandé de mettre des parenthèses plutôt que d’appliquer
     les règles de priorité dans l’écriture des expressions booléennes.**
 

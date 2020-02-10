@@ -130,7 +130,7 @@ sortie.
 Compléter leurs tables logiques.
 
 Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers
-[porte\_NAND.circ](ircuits_logisim/porte_NAND.circ) et
+[porte\_NAND.circ](circuits_logisim/porte_NAND.circ) et
 [porte\_NOR.circ](circuits_logisim/porte_NOR.circ).
 
 | A | B | NAND(A, B) |

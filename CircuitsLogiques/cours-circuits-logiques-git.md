@@ -151,7 +151,8 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers
 
 <div class="minipage" width="0.5\linewidth" data-center="true">
 ![Porte NAND européenne](images/porte_nand_european.png)  
-& ![Porte NAND américaine](images/porte_nand_american.png)  
+
+![Porte NAND américaine](images/porte_nand_american.png)  
 </div>
 
 <div class="minipage" width="0.5\linewidth" data-center="true">
@@ -224,8 +225,9 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 
 <div class="minipage" width="0.5\linewidth" data-center="true">
 
-![Porte AND européenne](images/porte_and_european.png)  
-& ![Porte AND américaine](images/porte_and_american.png)  
+![Porte AND europeenne](images/porte_and_european.png)  
+
+![Porte AND americaine](images/porte_and_american.png)  
 
 </div>
 

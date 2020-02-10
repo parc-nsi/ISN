@@ -69,6 +69,12 @@ On donne ci-dessous les représentations de deux portes logiques :
 
 Chacune de  ces portes logiques comportent deux   bits d'entrée : A pour  la grille du transistor 1 et B pourla grille du transistor 2 et un bit de sortie.
 
+:::{.minipage width="0.5\linewidth" center="true"}
+![Porte NAND](images/porte_nand.png)\
+&
+![Porte NOR](images/porte_nor.png)\
+:::
+
 Compléter leurs tables logiques.
 
 Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers [porte_NAND.circ](ircuits_logisim/porte_NAND.circ) et [porte_NOR.circ](circuits_logisim/porte_NOR.circ).

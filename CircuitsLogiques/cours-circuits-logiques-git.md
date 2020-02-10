@@ -28,7 +28,7 @@
 collection Tortue chez Ellipse auteurs : Ballabonski, Conchon,
 Filliatre, N’Guyen.*
 
-# Préambule
+# Préambule 
 
 Les circuits d’une ordinateur manipulent uniquement des 0 ou des 1
 représentés en interne par des tensions hautes ou basses. Les premiers

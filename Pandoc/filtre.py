@@ -70,6 +70,8 @@ def convertdivs(key, value, format, meta):
             elif classes[0] == "propriete":
                 compteur_propriete += 1
                 return  [{'t': 'Plain', 'c': [ {'t': 'Strong', 'c' : [{'t': 'Str', 'c' : 'Propriété ' + str(compteur_propriete)}]}]}]     + contents
+            elif "minipage" or "center" in classes:
+                return   contents
 
 
                 

@@ -123,6 +123,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
     - [corrigé version html](RechercheSeqDicho/ressources/RechercheSequentielleDichotomique.html)
     - [corrigé version jupyter notebook](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=RechercheSeqDicho/ressources/RechercheSequentielleDichotomique.ipynb)
     - [ressources](https://github.com/frederic-junier/ISN/tree/master/RechercheSeqDicho/ressources)
+    - [Exercices sur la recherche séquentielle](RechercheSeqDicho/exercice.md)
 
 * Chapitre 9 : architecture, circuits logiques
     - [cours version pdf](CircuitsLogiques/cours-circuits-logiques-.pdf)

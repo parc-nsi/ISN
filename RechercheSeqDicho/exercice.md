@@ -54,3 +54,29 @@ def insertion_dicho_gauche(L, e):
                 "à compléter"
         return .............
  ~~~
+ 
+ Résultats attendus :
+ 
+ ~~~python 
+In [18]: L = [0,4,7,8,10]
+
+In [19]: insertion_dicho_gauche(L,0) 
+Out[19]: 0
+
+In [20]: insertion_dicho_gauche(L,8) 
+Out[20]: 3
+
+In [22]: insertion_dicho_gauche(L,5) 
+Out[22]: 2
+
+In [23]: insertion_dicho_gauche(L,10) 
+Out[23]: 4
+
+In [25]: insertion_dicho_gauche(L,11) 
+Out[25]: 5
+
+In [26]: L.insert(insertion_dicho_gauche(L,11), 11)
+
+In [27]: L
+Out[27]: [0, 4, 7, 8, 10, 11] 
+~~~

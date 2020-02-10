@@ -54,12 +54,9 @@ gravure d’environ 5 nanomètres en 2020. Le
 ci-dessous représente l’évolution du nombre de transistors par circuit
 intégré.
 
-<div class="center">
 
 ![Loi de Moore Source :
 Wikipedia](images/640px-Moore's_Law_Transistor_Count_1971-2018.png)  
-
-</div>
 
 # Portes logiques
 
@@ -154,10 +151,8 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers
 :**
 
 <div class="minipage" width="0.5\linewidth" data-center="true">
-
 ![Porte NAND européenne](images/porte_nand_european.png)  
 & ![Porte NAND américaine](images/porte_nand_american.png)  
-
 </div>
 
 <div class="minipage" width="0.5\linewidth" data-center="true">

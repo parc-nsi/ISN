@@ -104,12 +104,8 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 **Il existe deux conventions de représentation symbolique des portes
 logiques, une européenne et une américaine.**
 
-<div class="minipage" width="0.5\linewidth" data-centre="true">
-
 ![porte NOT européeenne](images/porte_not_european.png)  
 & ![porte NOT américaine](images/porte_not_american.png)  
-
-</div>
 
 ## D’autres portes logiques
 
@@ -146,29 +142,17 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers
 | 1 | 0 |           |
 | 1 | 1 |           |
 
-<div class="minipage" width="0.5\linewidth" data-center="true">
-
 ![Porte NAND](images/porte_nand.png)  
 & ![Porte NOR](images/porte_nor.png)  
-
-</div>
 
 **Voici les représentations symboliques des portes logiques NAND et NOR
 :**
 
-<div class="minipage" width="0.5\linewidth" data-center="true">
-
 ![Porte NAND européenne](images/porte_nand_european.png)  
 & ![Porte NAND américaine](images/porte_nand_american.png)  
 
-</div>
-
-<div class="minipage" width="0.5\linewidth" data-center="true">
-
 ![Porte NOR européenne](images/porte_nor_european.png)  
 & ![Porte NOR américaine](images/porte_nor_american.png)  
-
-</div>
 
 ### Portes logiques et fonctions logiques élémentaires
 
@@ -231,19 +215,11 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 **Voici les représentations symboliques des portes logiques `AND` et
 `OR` :**
 
-<div class="minipage" width="0.5\linewidth" data-center="true">
-
 ![Porte AND européenne](images/porte_and_european.png)  
 & ![Porte AND américaine](images/porte_and_american.png)  
 
-</div>
-
-<div class="minipage" width="0.5\linewidth" data-center="true">
-
 ![Porte OR européenne](images/porte_or_european.png)  
 & ![Porte OR américaine](images/porte_or_american.png)  
-
-</div>
 
 **Exercice 4**
 
@@ -543,12 +519,8 @@ On considère la fonction booléenne dont la table de vérité est :
 
 **Voici les représentations symboliques de la porte logique `XOR` :**
 
-<div class="minipage" width="0.5\linewidth" data-center="true">
-
 ![Porte XOR europeenne](images/porte_xor_european.png)  
 & ![Porte XOR americaine](images/porte_xor_american.png)  
-
-</div>
 
 # Circuits combinatoires
 

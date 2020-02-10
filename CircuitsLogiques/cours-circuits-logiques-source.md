@@ -111,7 +111,7 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers [porte_
 
    
 ### Portes logiques et fonctions logiques élémentaires
-
+ 
 :::exercice
 Fichier de test [Logisim](http://www.cburch.com/logisim/) : [exercice2.circ](circuits_logisim/exercice2.circ).
 

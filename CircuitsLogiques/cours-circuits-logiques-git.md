@@ -101,11 +101,11 @@ logiques, une européenne et une américaine.**
 
 
 
-![porte NOT européeenne](images/porte_not_european.png)  
+![porte NOT europeenne](images/porte_not_european.png)  
 
 
 
-![porte NOT américaine](images/porte_not_american.png)  
+![porte NOT americaine](images/porte_not_american.png)  
 
 
 ## D’autres portes logiques
@@ -151,18 +151,18 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers
 :**
 
 <div class="minipage" width="0.5\linewidth" data-center="true">
-![Porte NAND européenne](images/porte_nand_european.png)  
+![Porte NAND europeenne](images/porte_nand_european.png)  
 
-![Porte NAND américaine](images/porte_nand_american.png)  
+![Porte NAND americaine](images/porte_nand_american.png)  
 </div>
 
 <div class="minipage" width="0.5\linewidth" data-center="true">
 
-![Porte NOR européenne](images/porte_nor_european.png)  
+![Porte NOR europeenne](images/porte_nor_european.png)  
 
 &
 
-![Porte NOR américaine](images/porte_nor_american.png)  
+![Porte NOR americaine](images/porte_nor_american.png)  
 
 </div>
 

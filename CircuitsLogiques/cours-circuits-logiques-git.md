@@ -126,17 +126,15 @@ Chacune de ces portes logiques comportent deux bits d’entrée : A pour la
 grille du transistor 1 et B pourla grille du transistor 2 et un bit de
 sortie.
 
-<div class="center">
 
 ![Porte NOR](images/porte_nor.png)  
 
-</div>
 
-<div class="center">
+
 
 ![Porte NAND](images/porte_nand.png)  
 
-</div>
+
 
 
 Compléter leurs tables logiques.

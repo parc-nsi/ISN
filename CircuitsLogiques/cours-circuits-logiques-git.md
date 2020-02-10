@@ -402,8 +402,8 @@ booléennes élémentaires :
     "x \\wedge ( y \\wedge z) = (x \\wedge y) \\wedge z") et ![x . (y .
     z) = (x . y) .
     z](https://latex.codecogs.com/png.latex?x%20.%20%28y%20.%20z%29%20%3D%20%28x%20.%20y%29%20.%20z
-    "x . (y . z) = (x . y) . z")  
-    ou ![x \\vee ( y \\vee z) = (x \\vee y) \\vee
+    "x . (y . z) = (x . y) . z") ou ![x \\vee ( y \\vee z) = (x \\vee y)
+    \\vee
     z](https://latex.codecogs.com/png.latex?x%20%5Cvee%20%28%20y%20%5Cvee%20z%29%20%3D%20%28x%20%5Cvee%20y%29%20%5Cvee%20z
     "x \\vee ( y \\vee z) = (x \\vee y) \\vee z") et ![x + (y + z) = (x
     + y) +
@@ -413,10 +413,10 @@ booléennes élémentaires :
     \\wedge
     z)](https://latex.codecogs.com/png.latex?x%20%5Cwedge%20%28%20y%20%5Cvee%20z%29%20%3D%20%28x%20%5Cwedge%20y%29%20%5Cvee%20%28x%20%5Cwedge%20z%29
     "x \\wedge ( y \\vee z) = (x \\wedge y) \\vee (x \\wedge z)") et ![x
-    . (y + z) = x . y + x
-    z](https://latex.codecogs.com/png.latex?x%20.%20%28y%20%2B%20z%29%20%3D%20x%20.%20y%20%2B%20x%20z
-    "x . (y + z) = x . y + x z") ou ![x \\vee ( y \\wedge z) = (x \\vee
-    y) \\wedge (x \\vee
+    . (y + z) = x . y + x .
+    z](https://latex.codecogs.com/png.latex?x%20.%20%28y%20%2B%20z%29%20%3D%20x%20.%20y%20%2B%20x%20.%20z
+    "x . (y + z) = x . y + x . z") ou ![x \\vee ( y \\wedge z) = (x
+    \\vee y) \\wedge (x \\vee
     z)](https://latex.codecogs.com/png.latex?x%20%5Cvee%20%28%20y%20%5Cwedge%20z%29%20%3D%20%28x%20%5Cvee%20y%29%20%5Cwedge%20%28x%20%5Cvee%20z%29
     "x \\vee ( y \\wedge z) = (x \\vee y) \\wedge (x \\vee z)") et ![x +
     (y . z) = (x + y) . (x +

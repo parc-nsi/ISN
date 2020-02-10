@@ -21,3 +21,18 @@ def max_matrice(mat):
       "à compléter"
   return maxi
 ~~~
+
+
+## Exercice 2
+
+Ecrire une fonction de signature  `recherche_seq_matrice(mat)` qui retourne un booléen indiquant la présence du nombre  `n` parmi les nombres  contenus dans la variable `mat`passée en argument. `mat` est un matrice de nombres, c'est-à-dire une  liste de  listes d'entiers qui ont toutes la  même longueur.
+
+~~~python
+In [5]: mat = [[1,2,3], [4,5,6]]
+
+In [6]: mat[1]
+Out[6]: [4, 5, 6]
+
+In [7]: mat[1][2]
+Out[7]: 6
+~~~

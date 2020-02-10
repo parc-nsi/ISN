@@ -55,7 +55,7 @@ ci-dessous représente l’évolution du nombre de transistors par circuit
 intégré.
 
 
-![Loi de Moore Source Wikipedia](images/640px-Moore's_Law_Transistor_Count_1971-2018.png)  
+![Loi de Moore Source Wikipedia](images/640px-Moores_Law_Transistor_Count_1971-2018.png)  
 
 # Portes logiques
 

@@ -54,12 +54,8 @@ gravure d’environ 5 nanomètres en 2020. Le
 ci-dessous représente l’évolution du nombre de transistors par circuit
 intégré.
 
-<div class="center">
-
 ![Loi de Moore Source :
 Wikipedia](images/640px-Moores_Law_Transistor_Count_1971-2018.png)  
-
-</div>
 
 # Portes logiques
 
@@ -88,11 +84,7 @@ logique** ou **Inverseur**.
 Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 [transistor.circ](circuits_logisim/transistor.circ).
 
-<div class="center">
-
 ![Transistor](images/transistor.png)  
-
-</div>
 
 | A | B = NON(A) |
 | :-: | ---------- |

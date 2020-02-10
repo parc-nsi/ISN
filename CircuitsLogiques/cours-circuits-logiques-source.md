@@ -35,6 +35,7 @@ Un transistor représente une fonction logique dont le bit d'entrée est l'état
 
 Fichier de test [Logisim](http://www.cburch.com/logisim/) : [transistor.circ](circuits_logisim/transistor.circ).
 :::
+ 
 :::center
 ![Transistor](images/transistor.png){width=50%}\
 :::

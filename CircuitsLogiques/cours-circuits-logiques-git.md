@@ -103,7 +103,10 @@ logiques, une européenne et une américaine.**
 <div class="minipage" width="0.5\linewidth" data-centre="true">
 
 ![porte NOT européeenne](images/porte_not_european.png)  
-& ![porte NOT américaine](images/porte_not_american.png)  
+
+&
+
+![porte NOT américaine](images/porte_not_american.png)  
 
 </div>
 
@@ -234,7 +237,10 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 <div class="minipage" width="0.5\linewidth" data-center="true">
 
 ![Porte OR européenne](images/porte_or_european.png)  
-& ![Porte OR américaine](images/porte_or_american.png)  
+
+&
+
+![Porte OR américaine](images/porte_or_american.png)  
 
 </div>
 

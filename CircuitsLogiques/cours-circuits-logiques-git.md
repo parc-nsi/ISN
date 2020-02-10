@@ -150,21 +150,19 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers
 **Voici les représentations symboliques des portes logiques NAND et NOR
 :**
 
-<div class="minipage" width="0.5\linewidth" data-center="true">
 ![Porte NAND europeenne](images/porte_nand_european.png)  
 
 ![Porte NAND americaine](images/porte_nand_american.png)  
-</div>
 
-<div class="minipage" width="0.5\linewidth" data-center="true">
+
+
 
 ![Porte NOR europeenne](images/porte_nor_european.png)  
 
-&
+
 
 ![Porte NOR americaine](images/porte_nor_american.png)  
 
-</div>
 
 ### Portes logiques et fonctions logiques élémentaires
 
@@ -227,23 +225,20 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
 **Voici les représentations symboliques des portes logiques `AND` et
 `OR` :**
 
-<div class="minipage" width="0.5\linewidth" data-center="true">
+
 
 ![Porte AND europeenne](images/porte_and_european.png)  
 
 ![Porte AND americaine](images/porte_and_american.png)  
 
-</div>
 
-<div class="minipage" width="0.5\linewidth" data-center="true">
+
 
 ![Porte OR europenne](images/porte_or_european.png)  
 
-&
 
 ![Porte OR americaine](images/porte_or_american.png)  
 
-</div>
 
 **Exercice 4**
 

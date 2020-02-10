@@ -63,9 +63,9 @@ Wikipedia](images/640px-Moores_Law_Transistor_Count_1971-2018.png)
 
 **Définition 1**
 
-Un **transitor** possède trois broches : la grille, la sortie (ou drain)
-et la source soumis à des états de tension haute ou basse qu’on peut
-assimiler aux valeurs binaires 1 et 0 d’un **bit**. Si la tension
+Un **transistor** possède trois broches : la grille, la sortie (ou
+drain) et la source soumis à des états de tension haute ou basse qu’on
+peut assimiler aux valeurs binaires 1 et 0 d’un **bit**. Si la tension
 appliquée sur la grille est haute (bit à 1) alors le transitor laisse
 passer le courant entre la source d’énergie et la sortie et ce dernier
 passe à l’état de tension basse (bit à 0), sinon la sortie reste en

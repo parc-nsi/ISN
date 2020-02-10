@@ -27,7 +27,7 @@ Les circuits d'une ordinateur manipulent uniquement des 0 ou des 1 représentés
 ## Le transistor porte logique de base
 
 :::definition
-Un __transitor__ possède trois broches : la grille, la  sortie (ou drain) et la source soumis à des états de tension haute ou basse qu'on peut assimiler aux valeurs binaires 1 et 0 d'un __bit__. Si la tension appliquée sur la grille est haute (bit à  1) alors le transitor laisse passer le courant entre la source d'énergie et la sortie et ce dernier passe à l'état de tension basse (bit à 0), sinon la sortie reste en tension haute (bit  1).
+Un __transistor__ possède trois broches : la grille, la  sortie (ou drain) et la source soumis à des états de tension haute ou basse qu'on peut assimiler aux valeurs binaires 1 et 0 d'un __bit__. Si la tension appliquée sur la grille est haute (bit à  1) alors le transitor laisse passer le courant entre la source d'énergie et la sortie et ce dernier passe à l'état de tension basse (bit à 0), sinon la sortie reste en tension haute (bit  1).
 
 Une __fonction logique__ prend un ou plusieurs bits en entrée et retourne un ou plusieurs bits en sortie. Une __table logique__  représente toutes les sorties produites par une fonction logique pour toutes les entrées possibles.
 

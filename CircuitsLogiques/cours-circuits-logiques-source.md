@@ -116,7 +116,7 @@ Vérifier avec [Logisim](http://www.cburch.com/logisim/) et les fichiers [porte_
 Fichier de test [Logisim](http://www.cburch.com/logisim/) : [exercice2.circ](circuits_logisim/exercice2.circ).
 
 1. Compléter la table logique de la porte logique représentée par le circuit ci-dessous. Quelle porte logique peut-on ainsi représenter ?
-
+ 
 ![Porte NOT](images/porte_not_with_nor.png)\
 
 | A      | B = f(A)   |

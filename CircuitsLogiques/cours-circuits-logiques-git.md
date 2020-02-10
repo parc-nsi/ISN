@@ -127,7 +127,7 @@ sortie.
 
 ![Porte NOR](images/porte_nor.png)  
 
-![Porte NOT](images/porte_not_with_nor.png)   
+![Porte NAND](images/porte_nand.png)   
 
 Compléter leurs tables logiques.
 

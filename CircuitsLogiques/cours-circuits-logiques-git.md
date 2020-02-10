@@ -248,7 +248,7 @@ Fichier de test [Logisim](http://www.cburch.com/logisim/) :
     des portes `NAND`.
 
 Ainsi chacune des portes, `NAND` ou `OR` permet de construire les portes
-`NOT`, `OR`, `AND`. Toute porte logique pouvant logique pouvant
+`NOT`, `OR`, `AND`. Toute porte logique  pouvant
 s’exprimer à l’aide de ces trois portes, les portes `NAND` et `OR`
 sont dites *universelles*.
 

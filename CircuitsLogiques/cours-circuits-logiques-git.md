@@ -544,7 +544,7 @@ est donnée ci-dessous :
 |                        1                         | 0                                                | 0                                                                          |
 |                        1                         | 1                                                | 1                                                                          |
 
-1.  En utilisant la méthode exposée dans l’exercice , déterminer une
+1.  En utilisant la méthode exposée dans l’exercice 7, déterminer une
     expression booléenne de la fonction
     ![f](https://latex.codecogs.com/png.latex?f "f").
 
@@ -881,7 +881,7 @@ Exemples d’utilisation d’opérateurs bit à bit :
 
 **Exercice 13**
 
-Dans un réseau `IP` l’adresse `IP` d’une machine est constitué d’un
+Dans un réseau `IP` l’adresse `IP` d’une machine est constituée d’un
 préfixe correspondant à l’adresse du réseau (commune à toutes les
 machines du réseau) et à un suffixe machine, identifiant la machine sur
 le réseau.

@@ -342,7 +342,7 @@ On considère la fonction booléeenne $f$ dont la table de vérité est donnée 
 | 1   | 0   |      0      |
 | 1   | 1   |      1      |
 
-1. En utilisant la méthode exposée dans l'exercice , déterminer une expression booléenne de la fonction $f$.
+1. En utilisant la méthode exposée dans l'exercice 7, déterminer une expression booléenne de la fonction $f$.
 2. Ouvrir le logiciel [Logisim](http://www.cburch.com/logisim/) et construire un circuit combinatoire  représentant cette fonction booléenne : 
 
    * En utilisant les portes logiques `NOT`, `NOR`, `NAND`, `AND`, `OR` ou `XOR`.
@@ -541,7 +541,7 @@ Exemples d'utilisation d'opérateurs bit à bit :
 ~~~
 :::exercice
 
-Dans un réseau `IP` l'adresse `IP` d'une machine est constitué d'un préfixe correspondant à l'adresse du réseau (commune à toutes les machines du réseau) et à un suffixe machine, identifiant la machine sur le réseau. 
+Dans un réseau `IP` l'adresse `IP` d'une machine est constituée d'un préfixe correspondant à l'adresse du réseau (commune à toutes les machines du réseau) et à un suffixe machine, identifiant la machine sur le réseau. 
 
 Le préfixe réseau s'obtient à partir de l'adresse `IP` de la  machine en faisant un `ET` bit à bit avec le masque de sous-réseau.
 

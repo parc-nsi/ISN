@@ -132,3 +132,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
     - [cours version  diaporama html](CircuitsLogiques/cours-circuits-logiques-slidy.html)
     - [ressources](https://github.com/frederic-junier/ISN/tree/master/CircuitsLogiques)
 
+
+* Projet Final :
+    - [Consignes pour le projet final](ProjetFinal/ISN_Presentation_Projet2020.pdf)
+  

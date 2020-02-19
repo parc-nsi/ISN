@@ -241,7 +241,7 @@ def appui_touche(event):
     if joueur == JOUEUR_2 and not choix_joueur2 and tour != 0:
         if event.keysym == 'Left' and xcurseur >= COTE_CASE:
             plateau.coords(curseur, xcurseur - COTE_CASE, ycurseur, xcurseur, ycurseur + COTE_CASE)
-            xcurseur, ycurseur = curseur - COTE_CASE, ycurseur
+            xcurseur, ycurseur = xcurseur - COTE_CASE, ycurseur
         elif event.keysym == 'Right' and xcurseur <= 2 * COTE_CASE:
             plateau.coords(curseur, xcurseur + COTE_CASE, ycurseur, xcurseur + 2 * COTE_CASE, ycurseur + COTE_CASE)
             xcurseur, ycurseur = xcurseur + COTE_CASE, ycurseur

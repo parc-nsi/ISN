@@ -617,7 +617,10 @@ lien hypertexte vers la page <https://www.w3schools.com/> est :
 Réponses :
 
 1)  `<a href="https://www.w3schools.com/">lien hypertexte</a>`
+
 2)  `<a
     href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
+
 3)  `<a href="lien hypertexte">https://www.w3schools.com/</a>`
+
 4)  `<href a="https://www.w3schools.com/">lien hypertexte</href>`

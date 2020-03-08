@@ -587,10 +587,10 @@ L'inventeur du World Wide Web au CERN est   :
 
 Réponses :
 
-A) Tim Berners-Lee
-B) Ted Nelson
-C) Louis Pouzin
-D) Vinton Cerf
+A. Tim Berners-Lee
+B. Ted Nelson
+C. Louis Pouzin
+D. Vinton Cerf
 :::
 
 
@@ -599,11 +599,11 @@ Dans le fichier source d'une page Web, le code qui permet de créer un lien hype
 
 Réponses :
 
-A) `<a href="https://www.w3schools.com/">lien hypertexte</a>`
+A. `<a href="https://www.w3schools.com/">lien hypertexte</a>`
 
-B) `<a href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
+B. `<a href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
 
-C) `<a href="lien hypertexte">https://www.w3schools.com/</a>`
+C. `<a href="lien hypertexte">https://www.w3schools.com/</a>`
 
-D) `<href a="https://www.w3schools.com/">lien hypertexte</href>`
+D. `<href a="https://www.w3schools.com/">lien hypertexte</href>`
 :::

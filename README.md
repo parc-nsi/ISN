@@ -133,7 +133,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
     - [ressources](https://github.com/frederic-junier/ISN/tree/master/CircuitsLogiques)
 
 
-* Chapitre 10 :tris
+* Chapitre 10 : tris
     - [cours version pdf](Tris/Tris-Cours2018-V1.pdf)
     - [corrigé exercices version notebook](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Tris/notebook/Tris_2018.ipynb)
     - [corrigé exercices version pdf](Tris/notebook/Tris_2018.pdf)

@@ -135,4 +135,11 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 
 * Projet Final :
     - [Consignes pour le projet final](ProjetFinal/ISN_Presentation_Projet2020.pdf)
+    
+* Révisions Python avec `ipythonblocks`:
+    - [notebook](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Ipythonblocks/Revisions_Python_Ipythoncodeblocks.ipynb)
+    - [version html](Ipythonblocks/Revisions_Python_Ipythoncodeblocks.html)
+
+
+
   

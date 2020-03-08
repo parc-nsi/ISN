@@ -136,9 +136,16 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 * Projet Final :
     - [Consignes pour le projet final](ProjetFinal/ISN_Presentation_Projet2020.pdf)
     
+    
 * Révisions Python avec `ipythonblocks`:
     - [notebook](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=Ipythonblocks/Revisions_Python_Ipythoncodeblocks.ipynb)
     - [version html](Ipythonblocks/Revisions_Python_Ipythoncodeblocks.html)
+    
+* Préparation de l'oral du bac ISN (liste d'exercices) :
+  - [version pdf](OralBac/Preparation-oral-bac-.pdf)
+  - [version Github markdown](OralBac/Preparation-oral-bac-git.md)
+  - [version diaporama HTML](OralBac/Preparation-oral-bac-slidy.html)
+  - [version simple HTML](OralBac/Preparation-oral-bac-.html)
 
 
 

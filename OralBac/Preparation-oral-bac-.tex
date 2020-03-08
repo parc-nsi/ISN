@@ -54,6 +54,15 @@
 \newcommand{\passthrough}[1]{#1}
 \lstset{defaultdialect=[5.3]Lua}
 \lstset{defaultdialect=[x86masm]Assembler}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -1259,6 +1268,24 @@ Réponses :
 
 \end{exercice}
 
+\begin{exercice}{}
+
+\emph{Auteur : Nicolas Réveret, question n°379 Genumsi}
+
+On a saisi le code suivant :
+
+\begin{lstlisting}[language=Python]
+liste = [0, 1, 2, 3]
+compteur = 0
+for i in range(len(liste)-1) :
+    for j in range(i,len(liste)) :
+        compteur += 1
+\end{lstlisting}
+
+Que contient la variable compteur à la fin de l'exécution de ce script ?
+
+\end{exercice}
+
 \hypertarget{repruxe9sentation-des-nombres-des-textes-ou-des-images}{%
 \section{Représentation des nombres, des textes ou des
 images}\label{repruxe9sentation-des-nombres-des-textes-ou-des-images}}
@@ -1429,6 +1456,78 @@ ce modèle et comment communiquent-elles ?
 
 \end{exercice}
 
+\begin{exercice}{}
+
+A quelle expression logique correspond cette table de vérité ?
+
+\begin{longtable}[]{@{}cll@{}}
+\toprule
+A & B & f(A, B)\tabularnewline
+\midrule
+\endhead
+0 & 0 & 1\tabularnewline
+0 & 1 & 1\tabularnewline
+1 & 0 & 1\tabularnewline
+1 & 1 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+A quelle expression logique correspond cette table de vérité ?
+
+\begin{longtable}[]{@{}cll@{}}
+\toprule
+A & B & f(A, B)\tabularnewline
+\midrule
+\endhead
+0 & 0 & 0\tabularnewline
+0 & 1 & 0\tabularnewline
+1 & 0 & 0\tabularnewline
+1 & 1 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+A quelle expression logique correspond cette table de vérité ?
+
+\begin{longtable}[]{@{}cll@{}}
+\toprule
+A & B & f(A, B)\tabularnewline
+\midrule
+\endhead
+0 & 0 & 0\tabularnewline
+0 & 1 & 1\tabularnewline
+1 & 0 & 1\tabularnewline
+1 & 1 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+A quelle expression logique correspond cette table de vérité ?
+
+\begin{longtable}[]{@{}cll@{}}
+\toprule
+A & B & f(A, B)\tabularnewline
+\midrule
+\endhead
+0 & 0 & 0\tabularnewline
+0 & 1 & 1\tabularnewline
+1 & 0 & 1\tabularnewline
+1 & 1 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{exercice}
+
 \hypertarget{algorithmique}{%
 \section{Algorithmique}\label{algorithmique}}
 
@@ -1446,7 +1545,7 @@ Réponses :
 \def\labelenumi{\Alph{enumi})}
 \tightlist
 \item
-  Internet Protocol\}
+  Internet Protocol
 \item
   HTML
 \item

@@ -388,9 +388,25 @@ Réponses :
 3)  1 et `len(tableau)`
 4)  1 et `len(tableau) + 1`
 
+**Exercice 18**
+
+*Auteur : Nicolas Réveret, question n°379 Genumsi*
+
+On a saisi le code suivant :
+
+``` python
+liste = [0, 1, 2, 3]
+compteur = 0
+for i in range(len(liste)-1) :
+    for j in range(i,len(liste)) :
+        compteur += 1
+```
+
+Que contient la variable compteur à la fin de l’exécution de ce script ?
+
 # Représentation des nombres, des textes ou des images
 
-**Exercice 18**
+**Exercice 19**
 
 1.  Représenter en binaire le nombre d’écriture décimale 49.
 2.  Représenter en base dix, le nombre dont l’écriture en base deux est
@@ -401,7 +417,7 @@ Réponses :
       - ![10111](https://latex.codecogs.com/png.latex?10111 "10111")
 4.  Détermine le nombre de caractères qu’on peut coder sur un octet.
 
-**Exercice 19**
+**Exercice 20**
 
 1.  Convertir 3970 en base 6.
 2.  Convertir en base dix l’entier naturel dont l’écriture en base six
@@ -415,7 +431,7 @@ Exemple : `base6([1, 3, 2])` doit renvoyer 56 car ![1 \\times 6^{2} + 3
 = 56](https://latex.codecogs.com/png.latex?1%20%5Ctimes%206%5E%7B2%7D%20%2B%203%20%5Ctimes%206%20%2B%202%20%3D%2056
 "1 \\times 6^{2} + 3 \\times 6 + 2 = 56").
 
-**Exercice 20**
+**Exercice 21**
 
 1.  Pour déterminer la liste des chiffres en base dix d’un entier
     naturel, un élève a écrit la fonction ci-dessous :
@@ -469,7 +485,7 @@ def somme_chiffres_base2(n):
     chiffre de l’écriture en base dix de l’entier naturel `n` passé en
     paramètre.
 
-**Exercice 21**
+**Exercice 22**
 
 Le nombre de chiffres en base
 ![2](https://latex.codecogs.com/png.latex?2 "2") d’un entier naturel
@@ -503,30 +519,74 @@ def nbchiffres_base2(n):
 
 # Architecture
 
-**Exercice 22**
+**Exercice 23**
 
 En 1945, John Von Neumann a décrit un modèle d’architecture qui est
 encore valable pour les ordinateurs actuels. Quelles sont les entités de
 ce modèle et comment communiquent-elles ?
 
+**Exercice 24**
+
+A quelle expression logique correspond cette table de vérité ?
+
+| A | B | f(A, B) |
+| :-: | - | ------- |
+| 0 | 0 | 1       |
+| 0 | 1 | 1       |
+| 1 | 0 | 1       |
+| 1 | 1 | 0       |
+
+**Exercice 25**
+
+A quelle expression logique correspond cette table de vérité ?
+
+| A | B | f(A, B) |
+| :-: | - | ------- |
+| 0 | 0 | 0       |
+| 0 | 1 | 0       |
+| 1 | 0 | 0       |
+| 1 | 1 | 1       |
+
+**Exercice 26**
+
+A quelle expression logique correspond cette table de vérité ?
+
+| A | B | f(A, B) |
+| :-: | - | ------- |
+| 0 | 0 | 0       |
+| 0 | 1 | 1       |
+| 1 | 0 | 1       |
+| 1 | 1 | 1       |
+
+**Exercice 27**
+
+A quelle expression logique correspond cette table de vérité ?
+
+| A | B | f(A, B) |
+| :-: | - | ------- |
+| 0 | 0 | 0       |
+| 0 | 1 | 1       |
+| 1 | 0 | 1       |
+| 1 | 1 | 0       |
+
 # Algorithmique
 
 # Le Web
 
-**Exercice 23**
+**Exercice 28**
 
 Le protocole qui permet à un client de faire une requête de page Web
 auprès d’un serveur Web s’appelle :
 
 Réponses :
 
-1)  Internet Protocol}
+1)  Internet Protocol
 2)  HTML
 3)  HTTP
 4)  TCP
 5)  WWW
 
-**Exercice 24**
+**Exercice 29**
 
 Si la page demandée n’est pas disponible, le serveur Web renvoie au
 client un code d’erreur :
@@ -538,7 +598,7 @@ Réponses :
 3)  403
 4)  503
 
-**Exercice 25**
+**Exercice 30**
 
 L’inventeur du World Wide Web au CERN est :
 
@@ -549,7 +609,7 @@ Réponses :
 3)  Louis Pouzin
 4)  Vinton Cerf
 
-**Exercice 26**
+**Exercice 31**
 
 Dans le fichier source d’une page Web, le code qui permet de créer un
 lien hypertexte vers la page <https://www.w3schools.com/> est :

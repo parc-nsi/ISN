@@ -390,6 +390,21 @@ C)  1 et `len(tableau)`
 D)  1 et `len(tableau) + 1`
 :::
 
+:::exercice
+_Auteur : Nicolas Réveret, question n°379 Genumsi_
+
+On a saisi le code suivant :
+
+~~~python
+liste = [0, 1, 2, 3]
+compteur = 0
+for i in range(len(liste)-1) :
+    for j in range(i,len(liste)) :
+        compteur += 1
+~~~
+
+Que contient la variable compteur à la fin de l’exécution de ce script ? 
+:::
 
 # Représentation des nombres, des textes ou des images
 
@@ -486,6 +501,58 @@ En 1945, John Von Neumann a décrit un modèle d’architecture qui est encore v
 actuels. Quelles sont les entités de ce modèle et comment communiquent-elles ?
 :::
 
+:::exercice
+A quelle expression logique correspond cette table de vérité ?
+
+| A      | B    | f(A, B)    |
+|:------:|------|------------|
+| 0      | 0    |   1        |
+| 0      | 1    |   1        |
+| 1      | 0    |   1        |
+| 1      | 1    |   0        |
+
+:::
+
+:::exercice
+A quelle expression logique correspond cette table de vérité ?
+
+| A      | B    | f(A, B)    |
+|:------:|------|------------|
+| 0      | 0    |   0        |
+| 0      | 1    |   0        |
+| 1      | 0    |   0        |
+| 1      | 1    |   1        |
+
+:::
+
+:::exercice
+A quelle expression logique correspond cette table de vérité ?
+
+| A      | B    | f(A, B)    |
+|:------:|------|------------|
+| 0      | 0    |    0       |
+| 0      | 1    |    1       |
+| 1      | 0    |    1       |
+| 1      | 1    |    1       |
+
+:::
+
+
+
+:::exercice
+A quelle expression logique correspond cette table de vérité ?
+
+| A      | B    | f(A, B)    |
+|:------:|------|------------|
+| 0      | 0    |     0      |
+| 0      | 1    |     1      |
+| 1      | 0    |     1      |
+| 1      | 1    |     0      |
+
+:::
+
+
+
 # Algorithmique
 
 # Le Web
@@ -495,7 +562,7 @@ Le protocole qui permet à un client de faire une requête de page Web auprès d
 
 Réponses :
 
-A) Internet Protocol}
+A) Internet Protocol
 B) HTML
 C) HTTP
 D) TCP

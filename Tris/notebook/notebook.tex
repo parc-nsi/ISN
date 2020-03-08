@@ -1,0 +1,895 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Tris\_2018}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Algorithmes de tri}\label{algorithmes-de-tri}
+
+    \subsection{Préambule}\label{pruxe9ambule}
+
+    Quelques liens pour découvrir et comparer des algorithmes de tris :
+
+\begin{itemize}
+\tightlist
+\item
+  \href{fr.wikipedia.org/wiki/Algorithme_de_tri}{Article de Wikipedia}
+\item
+  \href{http://interstices.info/jcms/c_6973/les-algorithmes-de-tri}{Article
+  du site Interstices}
+\item
+  \href{http://www.sorting-algorithms.com/}{Comparaison des algorithmes
+  de tris}
+\end{itemize}
+
+Au fait ce texte saisi dans une cellule du
+\href{http://ipython.org/}{notebook d'IPython} utilise le langage de
+balises \href{http://daringfireball.net/projects/markdown/}{Markdown},
+surcouche d'HTML.
+
+    \subsection{Imports des modules}\label{imports-des-modules}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+         \PY{k+kn}{import} \PY{n+nn}{time}
+         \PY{k+kn}{from} \PY{n+nn}{random} \PY{k}{import} \PY{n}{randint}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+\end{Verbatim}
+
+
+    \subsection{Tests de correction}\label{tests-de-correction}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{c+c1}{\PYZsh{}Pour tester les fonctions de tri}
+         \PY{c+c1}{\PYZsh{}un tableau contenant 3 tableaux d\PYZsq{}entiers aléatoires de tailles 10, 100, 1000}
+         \PY{n}{BENCH2} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{n}{i}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{]}
+         
+         \PY{c+c1}{\PYZsh{}idem mais avec 3 tableaux d\PYZsq{}entiers aléatoires de tailles impaires}
+         \PY{n}{BENCH1} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{]}
+         
+         \PY{k}{def} \PY{n+nf}{bontri}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Détermine si un tableau est trié dans l\PYZsq{}ordre croissant\PYZsq{}\PYZsq{}\PYZsq{}}
+             \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{p}{]} \PY{o}{\PYZgt{}} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{:}
+                     \PY{k}{return} \PY{k+kc}{False}
+             \PY{k}{return} \PY{k+kc}{True}
+         
+         \PY{k}{def} \PY{n+nf}{procedure\PYZus{}to\PYZus{}fonction}\PY{p}{(}\PY{n}{f}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Remplace la fonction f qui est une procedure ne retournant rien par une }
+         \PY{l+s+sd}{    fonction fbis qui exécute f sur ses arguments puis retourne ses arguments.}
+         \PY{l+s+sd}{    Nécessaire pour composer une fonction de tri sur place avec bontri\PYZsq{}\PYZsq{}\PYZsq{}}
+             
+             \PY{k}{def} \PY{n+nf}{fbis}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{f}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{)}
+                 \PY{k}{return} \PY{n}{args}
+                 
+             \PY{k}{return} \PY{n}{fbis}
+         
+         \PY{k}{def} \PY{n+nf}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH}\PY{p}{)}\PY{p}{:}
+             \PY{c+c1}{\PYZsh{}copie profonde de BENCH qui est un tableau de tableaux}
+             \PY{n}{COPIE} \PY{o}{=} \PY{p}{[}\PY{n}{t}\PY{p}{[}\PY{p}{:}\PY{p}{]} \PY{k}{for} \PY{n}{t} \PY{o+ow}{in} \PY{n}{BENCH}\PY{p}{]} 
+             \PY{k}{return} \PY{p}{[}\PY{n}{bontri}\PY{p}{(}\PY{n}{procedure\PYZus{}to\PYZus{}fonction}\PY{p}{(}\PY{n}{tri}\PY{p}{)}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{)} \PY{k}{for} \PY{n}{t} \PY{o+ow}{in} \PY{n}{COPIE}\PY{p}{]}
+\end{Verbatim}
+
+
+    \subsubsection{Chronomètre}\label{chronomuxe8tre}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{k}{def} \PY{n+nf}{timetest}\PY{p}{(}\PY{n}{fonction}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}exécute la fonction et affiche son temps d\PYZsq{}exécution \PYZdq{}\PYZdq{}\PYZdq{}}
+             
+             \PY{k}{def} \PY{n+nf}{fonction\PYZus{}modifiee}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,}\PY{o}{*}\PY{o}{*}\PY{n}{kargs}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{debut} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{perf\PYZus{}counter}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{fonction}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,}\PY{o}{*}\PY{o}{*}\PY{n}{kargs}\PY{p}{)}
+                 \PY{k}{return} \PY{n}{time}\PY{o}{.}\PY{n}{perf\PYZus{}counter}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{debut}
+             
+             \PY{k}{return} \PY{n}{fonction\PYZus{}modifiee}
+\end{Verbatim}
+
+
+    \subsection{Tri par sélection}\label{tri-par-suxe9lection}
+
+    \subsubsection{Implémentations du tri par
+sélection}\label{impluxe9mentations-du-tri-par-suxe9lection}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{k}{def} \PY{n+nf}{index\PYZus{}mini}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{debut}\PY{p}{)}\PY{p}{:}   
+             \PY{k}{if} \PY{n}{t} \PY{o}{==} \PY{p}{[}\PY{p}{]}\PY{p}{:}
+                 \PY{k}{return} \PY{k+kc}{None}
+             \PY{n}{imini} \PY{o}{=} \PY{n}{debut}
+             \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{debut} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{j}\PY{p}{]} \PY{o}{\PYZlt{}} \PY{n}{t}\PY{p}{[}\PY{n}{imini}\PY{p}{]}\PY{p}{:}
+                     \PY{n}{imini} \PY{o}{=} \PY{n}{j}
+             \PY{k}{return} \PY{n}{imini} 
+         
+         \PY{k}{def} \PY{n+nf}{tri\PYZus{}selection}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Tri par sélection avec sélection du minimum\PYZsq{}\PYZsq{}\PYZsq{}}
+             \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)} 
+             \PY{k}{for} \PY{n}{debut} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{imini} \PY{o}{=} \PY{n}{index\PYZus{}mini}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{debut}\PY{p}{)}
+                 \PY{n}{t}\PY{p}{[}\PY{n}{debut}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{imini}\PY{p}{]} \PY{o}{=} \PY{n}{t}\PY{p}{[}\PY{n}{imini}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{debut}\PY{p}{]}
+                 
+         \PY{k}{def} \PY{n+nf}{index\PYZus{}maxi}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{fin}\PY{p}{)}\PY{p}{:}   
+             \PY{k}{if} \PY{n}{t} \PY{o}{==} \PY{p}{[}\PY{p}{]}\PY{p}{:}
+                 \PY{k}{return} \PY{k+kc}{None}
+             \PY{n}{imaxi} \PY{o}{=} \PY{n}{fin}
+             \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{fin}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{j}\PY{p}{]} \PY{o}{\PYZgt{}} \PY{n}{t}\PY{p}{[}\PY{n}{imaxi}\PY{p}{]}\PY{p}{:}
+                     \PY{n}{imaxi} \PY{o}{=} \PY{n}{j}
+             \PY{k}{return} \PY{n}{imaxi}
+         
+         \PY{k}{def} \PY{n+nf}{tri\PYZus{}selection2}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Tri par sélection avec sélection du maximum\PYZsq{}\PYZsq{}\PYZsq{}}
+             \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)} 
+             \PY{k}{for} \PY{n}{fin} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{imaxi} \PY{o}{=} \PY{n}{index\PYZus{}maxi}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{fin}\PY{p}{)}
+                 \PY{n}{t}\PY{p}{[}\PY{n}{fin}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{imaxi}\PY{p}{]} \PY{o}{=} \PY{n}{t}\PY{p}{[}\PY{n}{imaxi}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{fin}\PY{p}{]}
+\end{Verbatim}
+
+
+    \subsubsection{Test de correction du tri par
+sélection}\label{test-de-correction-du-tri-par-suxe9lection}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{k}{for} \PY{n}{tri} \PY{o+ow}{in} \PY{p}{[}\PY{n}{tri\PYZus{}selection}\PY{p}{,} \PY{n}{tri\PYZus{}selection2}\PY{p}{]}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH1}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH2}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[True, True, True]
+[True, True, True]
+[True, True, True]
+[True, True, True]
+
+    \end{Verbatim}
+
+    \subsubsection{Complexité du tri par
+sélection}\label{complexituxe9-du-tri-par-suxe9lection}
+
+    Complexité du tri par sélection pour une liste de \(n\) entiers : chaque
+boucle interne de recherche du maximum dans la partie de \(n-i\) valeurs
+non encore triées, effectue \(n-i\) comparaisons ; donc l'algorithme
+nécessite \((n-1)+(n-2)+\cdots+1=\frac{n(n-1)}{2}\) comparaisons. Il
+s'agit donc d'une \textbf{complexité quadratique} que la liste initiale
+soit déjà triée ou non (comme on peut le constater sur l'exemple
+ci-dessus).
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://fr.wikipedia.org/wiki/Tri_par_sélection}{Article de
+  Wikipedia}
+\item
+  \href{http://www.sorting-algorithms.com/selection-sort}{Le site
+  sorting algorithms}
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{n}{liste\PYZus{}tris} \PY{o}{=} \PY{p}{[}\PY{n}{tri\PYZus{}selection}\PY{p}{,} \PY{n}{tri\PYZus{}selection2}\PY{p}{]}
+         \PY{n}{liste\PYZus{}taille} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{1001}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}rapport\PYZus{}carre} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{float}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{taille} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{liste} \PY{o}{=} \PY{p}{[}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{taille}\PY{p}{)} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{taille}\PY{p}{)}\PY{p}{]}
+             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{tri} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{:}             
+                 \PY{n}{liste\PYZus{}rapport\PYZus{}carre}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{timetest}\PY{p}{(}\PY{n}{tri}\PY{p}{)}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}        
+         \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{rapport\PYZus{}carre} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}rapport\PYZus{}carre}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{,} \PY{n}{rapport\PYZus{}carre} \PY{o}{/} \PY{n}{rapport\PYZus{}carre}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{liste\PYZus{}tris}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Temps / taille ** 2 normalisé par la moyenne}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{complexite\PYZhy{}quadratique\PYZhy{}tri\PYZus{}selection.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{Tri par bulles}\label{tri-par-bulles}
+
+    L'algorithme du tri par bulles consiste à trier un tableau en ne
+s'autorisant qu'à échanger deux éléments consécutifs de ce tableau. On
+peut démontrer que l'algorithme suivant trie n'importe quel tableau :
+
+\begin{itemize}
+\tightlist
+\item
+  chercher deux éléments consécutifs rangés dans le désordre ;
+\item
+  si deux tels éléments existent, les échanger et recommencer ;
+\item
+  sinon arrêter.
+\end{itemize}
+
+Descriptions du tri par bulles :
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://fr.wikipedia.org/wiki/Tri_\%C3\%A0_bulles}{Article de
+  Wikipedia}
+\item
+  \href{http://www.sorting-algorithms.com/bubble-sort}{Le site sorting
+  algorithms}
+\end{itemize}
+
+    \subsubsection{Implémentations du tri par
+bulles}\label{impluxe9mentations-du-tri-par-bulles}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{k}{def} \PY{n+nf}{tri\PYZus{}bulles}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+             \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+             \PY{k}{for} \PY{n}{bulle} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{n} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{bulle}\PY{p}{)}\PY{p}{:}
+                     \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{k} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{]} \PY{o}{\PYZlt{}} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{p}{:}
+                         \PY{n}{t}\PY{p}{[}\PY{n}{k} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{p}{]} \PY{o}{=} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{k} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{]}
+                         
+                         
+         \PY{k}{def} \PY{n+nf}{tri\PYZus{}bulles2}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+             \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+             \PY{n}{continuer} \PY{o}{=} \PY{k+kc}{True}
+             \PY{n}{bulle} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{while} \PY{n}{continuer}\PY{p}{:}
+                 \PY{n}{continuer} \PY{o}{=} \PY{k+kc}{False}
+                 \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{n} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{bulle}\PY{p}{)}\PY{p}{:}
+                     \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{k} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{]} \PY{o}{\PYZlt{}} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{p}{:}
+                         \PY{n}{t}\PY{p}{[}\PY{n}{k} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{p}{]} \PY{o}{=} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{k} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{]}
+                         \PY{n}{continuer} \PY{o}{=} \PY{k+kc}{True}
+                 \PY{n}{bulle} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+\end{Verbatim}
+
+
+    \subsubsection{Test de correction du tri par
+bulles}\label{test-de-correction-du-tri-par-bulles}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{k}{for} \PY{n}{tri} \PY{o+ow}{in} \PY{p}{[}\PY{n}{tri\PYZus{}bulles}\PY{p}{,} \PY{n}{tri\PYZus{}bulles2}\PY{p}{]}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH1}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH2}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[True, True, True]
+[True, True, True]
+[True, True, True]
+[True, True, True]
+
+    \end{Verbatim}
+
+    \subsubsection{Complexité du tri par
+bulles}\label{complexituxe9-du-tri-par-bulles}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Tri par bulles de la liste {[}72, 39, 29, 59{]} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Etape 1 {[}39,72,29,59{]}
+  \item
+    Etape 2 {[}39,29,72,59{]}
+  \item
+    Etape 3 {[}39,29,59,72{]}
+  \item
+    Etape 4 {[}29,39,59,72{]}
+  \end{itemize}
+\item
+  Implémentation en Python du Tri par bulles, coir ci-dessous plusieurs
+  versions.
+\item
+  Selon l'implémentation \texttt{tri\_bulles} ou \texttt{tri\_bulles2}
+  (voir ci-dessus) la complexité du tri par bulles est
+  \textbf{quadratique} (comme pour le tri par sélection) ou
+  \textbf{linéaire} (comme pour le tri par insertion) sur \emph{les
+  listes déjà triées}.
+\item
+  Si on applique le tri par bulles à une liste triée dans l'ordre
+  décroissant comme \([n,n-1,n-2,..,1]\), quelle que soit
+  l'implémentation, on a besoin de \(i-1\) permutations (comparaison +
+  échange) pour \(i\) allant de \(n\) à \(1\) soit un total de
+  \((n-1)+(n-2)+\cdots+1=\frac{n(n-1)}{2}\) permutations. La complexité
+  du tri par bulles est donc \textbf{quadratique} sur les listes triées
+  dans l'ordre inverse.
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}45}]:} \PY{n}{liste\PYZus{}tris} \PY{o}{=} \PY{p}{[}\PY{n}{tri\PYZus{}bulles}\PY{p}{,} \PY{n}{tri\PYZus{}bulles2}\PY{p}{]}
+         \PY{n}{liste\PYZus{}taille} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{1001}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}rapport\PYZus{}carre} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{float}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{taille} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{liste} \PY{o}{=} \PY{p}{[}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{taille}\PY{p}{)} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{taille}\PY{p}{)}\PY{p}{]}
+             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{tri} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{:}             
+                 \PY{n}{liste\PYZus{}rapport\PYZus{}carre}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{timetest}\PY{p}{(}\PY{n}{tri}\PY{p}{)}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}        
+         \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{rapport\PYZus{}carre} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}rapport\PYZus{}carre}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{,} \PY{n}{rapport\PYZus{}carre} \PY{o}{/} \PY{n}{rapport\PYZus{}carre}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{liste\PYZus{}tris}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Temps / taille ** 2 normalisé par la moyenne}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{complexite\PYZhy{}quadratique\PYZhy{}tri\PYZus{}bulles.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{Tri par insertion}\label{tri-par-insertion}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Descriptions du tri par insertion :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{http://fr.wikipedia.org/wiki/Tri_par_insertion}{Article de
+    Wikipedia}
+  \item
+    \href{http://www.sorting-algorithms.com/insertion-sort}{Le site
+    sorting algorithms}
+  \end{itemize}
+\item
+  Implémentation du tri par insertion en Python (voir ci-dessous)
+\item
+  Contrairement au tri par sélection, si l'on interrompt l'exécution de
+  l'algorithme du tri par sélection après \(k\) étapes après \(k\)
+  étapes, la sous-liste des \(k\) premiers éléments déjà triés n'est pas
+  celle des \(k\) plus petits élements de la liste triée finale.
+\end{enumerate}
+
+    \subsubsection{Implémentations du tri par
+insertion}\label{impluxe9mentations-du-tri-par-insertion}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{k}{def} \PY{n+nf}{insertion}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{k}\PY{p}{)}\PY{p}{:}   
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}A partir de l\PYZsq{}indice k, insère l\PYZsq{}élément t[k] de t }
+         \PY{l+s+sd}{    à sa place dans t[:k] triée dans l\PYZsq{}ordre croissant\PYZdq{}\PYZdq{}\PYZdq{}}
+             \PY{n}{i} \PY{o}{=} \PY{n}{k} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}
+             \PY{n}{element} \PY{o}{=} \PY{n}{t}\PY{p}{[}\PY{n}{k}\PY{p}{]}
+             \PY{k}{while} \PY{n}{i} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZgt{}} \PY{n}{element}\PY{p}{:}
+                 \PY{n}{t}\PY{p}{[}\PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+                 \PY{n}{i} \PY{o}{=} \PY{n}{i} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}
+             \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{element}
+             
+         \PY{k}{def} \PY{n+nf}{tri\PYZus{}insertion}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+             \PY{n}{n} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+             \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{insertion}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{k}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{Test de correction du tri par
+insertion}\label{test-de-correction-du-tri-par-insertion}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{k}{for} \PY{n}{tri} \PY{o+ow}{in} \PY{p}{[}\PY{n}{tri\PYZus{}insertion}\PY{p}{]}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH1}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH2}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[True, True, True]
+[True, True, True]
+
+    \end{Verbatim}
+
+    \subsubsection{Complexité du tri par
+insertion}\label{complexituxe9-du-tri-par-insertion}
+
+    Analyse de complexité du tri par insertion :
+
+\begin{itemize}
+\tightlist
+\item
+  Dans \textbf{le meilleur des cas} le tableau (ou liste) est déjà trié,
+  on effectue alors une seule comparaison à chaque insertion soit
+  \(n-1\) comparaisons au total
+\item
+  \textbf{En moyenne} (liste d'entiers aléatoires) le nombre de
+  comparaisons est de l'ordre de \(n-1+\frac{n(n-1)}{4}\)
+\item
+  \textbf{Dans le pire des cas} le tableau est trié dans l'ordre inverse
+  on effectue \(i\) comparaisons lors de l'insertion d'indice \(i\) soit
+  \(1+2+\cdots+(n-2)+(n-1)+\cdots+1=\frac{n(n-1)}{2}\) comparaisons.
+\end{itemize}
+
+\textbf{La complexité du tri par insertion } est donc
+\textbf{quadratique} dans le cas moyen et le pire des cas et
+\textbf{linéaire} dans le meilleur des cas (liste déjà triée). Cette
+bonne propriété que ne possèdent pas les tris par sélection ou par
+bulles, font du tri par insertion un tri efficace lorsqu'il y a peu de
+comparaisons ou que la liste est presque déjà triée.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} \PY{n}{liste\PYZus{}tris} \PY{o}{=} \PY{p}{[}\PY{n}{tri\PYZus{}insertion}\PY{p}{]}
+         \PY{n}{liste\PYZus{}taille} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{1001}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}rapport\PYZus{}carre} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{float}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{taille} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{liste} \PY{o}{=} \PY{p}{[}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{taille}\PY{p}{)} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{taille}\PY{p}{)}\PY{p}{]}
+             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{tri} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{:}             
+                 \PY{n}{liste\PYZus{}rapport\PYZus{}carre}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{timetest}\PY{p}{(}\PY{n}{tri}\PY{p}{)}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}        
+         \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{rapport\PYZus{}carre} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}rapport\PYZus{}carre}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{,} \PY{n}{rapport\PYZus{}carre} \PY{o}{/} \PY{n}{rapport\PYZus{}carre}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{liste\PYZus{}tris}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Temps / taille ** 2 normalisé par la moyenne}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{complexite\PYZhy{}quadratique\PYZhy{}tri\PYZus{}insertion.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_35_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{Tri fusion}\label{tri-fusion}
+
+    Descriptions du tri par fusion :
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://fr.wikipedia.org/wiki/Tri_fusion}{Article de Wikipedia}
+\item
+  \href{http://www.sorting-algorithms.com/merge-sort}{Le site sorting
+  algorithms}
+\item
+  \href{https://interstices.info/jcms/c_6973/les-algorithmes-de-tri}{Article
+  du site Interstices}
+\end{itemize}
+
+    \subsubsection{Implémentation du tri
+fusion}\label{impluxe9mentation-du-tri-fusion}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}48}]:} \PY{k}{def} \PY{n+nf}{fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{q}\PY{p}{,} \PY{n}{r}\PY{p}{)}\PY{p}{:}
+             \PY{n}{tampon} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{n}{i} \PY{o}{=} \PY{n}{p}
+             \PY{n}{j} \PY{o}{=} \PY{n}{q}    
+             \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{r} \PY{o}{\PYZhy{}} \PY{n}{p}\PY{p}{)}\PY{p}{:}            \PY{c+c1}{\PYZsh{}fusion des sous\PYZhy{}listes triées }
+                 \PY{k}{if} \PY{n}{j} \PY{o}{==} \PY{n}{r} \PY{o+ow}{or} \PY{p}{(}\PY{n}{j} \PY{o}{\PYZlt{}} \PY{n}{r} \PY{o+ow}{and} \PY{n}{i} \PY{o}{\PYZlt{}} \PY{n}{q} \PY{o+ow}{and} \PY{n}{liste}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{liste}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                     \PY{n}{tampon}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{tampon}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
+             \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{r} \PY{o}{\PYZhy{}} \PY{n}{p}\PY{p}{)}\PY{p}{:}            \PY{c+c1}{\PYZsh{}recopie de tampon  dans liste[p:r]}
+                 \PY{n}{liste}\PY{p}{[}\PY{n}{p} \PY{o}{+} \PY{n}{k}\PY{p}{]} \PY{o}{=} \PY{n}{tampon}\PY{p}{[}\PY{n}{k}\PY{p}{]}
+         
+         \PY{k}{def} \PY{n+nf}{tri\PYZus{}fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{r}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{p} \PY{o}{+} \PY{l+m+mi}{1} \PY{o}{\PYZlt{}} \PY{n}{r}\PY{p}{:}
+                 \PY{n}{q} \PY{o}{=} \PY{p}{(}\PY{n}{p} \PY{o}{+} \PY{n}{r}\PY{p}{)} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{2}
+                 \PY{n}{tri\PYZus{}fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{q}\PY{p}{)}
+                 \PY{n}{tri\PYZus{}fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{,} \PY{n}{q}\PY{p}{,} \PY{n}{r}\PY{p}{)}
+                 \PY{n}{fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{q}\PY{p}{,} \PY{n}{r}\PY{p}{)}        
+\end{Verbatim}
+
+
+    \subsubsection{Test de correction du tri
+fusion}\label{test-de-correction-du-tri-fusion}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}50}]:} \PY{k}{for} \PY{n}{tri} \PY{o+ow}{in} \PY{p}{[}\PY{k}{lambda} \PY{n}{liste} \PY{p}{:} \PY{n}{tri\PYZus{}fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{liste}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH1}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}tri}\PY{p}{(}\PY{n}{tri}\PY{p}{,} \PY{n}{BENCH2}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[True, True, True]
+[True, True, True]
+
+    \end{Verbatim}
+
+    \subsubsection{Complexité du tri
+fusion}\label{complexituxe9-du-tri-fusion}
+
+    La complexité du \textbf{tri fusion} sur une liste de taille \(n\) est
+de l'ordre de grandeur de \(n \ln(n)\) :
+
+\begin{itemize}
+\tightlist
+\item
+  la profondeur de l'arbre d'appels récursifs est de l'ordre de
+  \(\frac{\ln(n)}{\ln(2)}\) le logarithme binaire de \(n\)
+\item
+  au niveau \(k\) on a \(2^{k}\) sous-listes de taille
+  \(\frac{n}{2^{k}}\) qu'on fusionne en \(2^{k} \times \frac{1}{2}\)
+  appels à la fonction \textbf{fusion} et chaque appel à \textbf{fusion}
+  coûte \(2 \times \frac{n}{2^{k}}\) comparaisons ; on a donc
+  \(2^{k} \times \frac{1}{2} \times \frac{n}{2^{k}} \times 2 = n\)
+  comparaisons par niveau de l'arbre
+\item
+  le nombre total de comparaisons dans l'arbre est donc bien de l'ordre
+  de grandeur de \(\frac{\ln(n)}{\ln(2)} \times n\)
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}76}]:} \PY{k}{def}  \PY{n+nf}{tri\PYZus{}Fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{)}\PY{p}{:} \PY{k}{return} \PY{n}{tri\PYZus{}fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{liste}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}tris} \PY{o}{=} \PY{p}{[}\PY{n}{tri\PYZus{}Fusion}\PY{p}{]}
+         \PY{n}{liste\PYZus{}taille} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{10001}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}rapport\PYZus{}taille} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{float}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{taille} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{liste} \PY{o}{=} \PY{p}{[}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{taille}\PY{p}{)} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{taille}\PY{p}{)}\PY{p}{]}
+             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{tri} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{:}             
+                 \PY{n}{liste\PYZus{}rapport\PYZus{}taille}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{timetest}\PY{p}{(}\PY{n}{tri}\PY{p}{)}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{log}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}        
+         \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{rapport\PYZus{}taille}  \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}rapport\PYZus{}taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{,} \PY{n}{rapport\PYZus{}taille} \PY{o}{/} \PY{n}{rapport\PYZus{}taille}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{liste\PYZus{}tris}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Temps / (taille * ln(taille)) normalisé par la moyenne}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{complexite\PYZhy{}nln(n)\PYZhy{}tri\PYZus{}fusion.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_44_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{Comparaison des tris}\label{comparaison-des-tris}
+
+    \subsubsection{Les tris en lice}\label{les-tris-en-lice}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{k}{def}  \PY{n+nf}{tri\PYZus{}Fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{)}\PY{p}{:} \PY{k}{return} \PY{n}{tri\PYZus{}fusion}\PY{p}{(}\PY{n}{liste}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{liste}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}tris} \PY{o}{=} \PY{p}{[}\PY{n}{tri\PYZus{}selection}\PY{p}{,} \PY{n}{tri\PYZus{}bulles2}\PY{p}{,} \PY{n}{tri\PYZus{}insertion}\PY{p}{,} \PY{n}{tri\PYZus{}Fusion}\PY{p}{]}
+\end{Verbatim}
+
+
+    \subsubsection{Comparaison des tris sur des listes
+aléatoires}\label{comparaison-des-tris-sur-des-listes-aluxe9atoires}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}71}]:} \PY{n}{liste\PYZus{}taille} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{1000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{,} \PY{l+m+mi}{5001}\PY{p}{,} \PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}temps} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{taille} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{liste} \PY{o}{=} \PY{p}{[}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{taille}\PY{p}{)} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{taille}\PY{p}{)}\PY{p}{]}
+             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{tri} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{liste\PYZus{}temps}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{timetest}\PY{p}{(}\PY{n}{tri}\PY{p}{)}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{p}{:}\PY{p}{]}\PY{p}{)}
+         \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{temps} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}temps}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{loglog}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{,} \PY{n}{temps}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{liste\PYZus{}tris}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZhy{}tris\PYZhy{}listes\PYZhy{}aleatoires.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_49_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Comparaison des tris sur des listes triées dans l'ordre
+inverse}\label{comparaison-des-tris-sur-des-listes-triuxe9es-dans-lordre-inverse}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}70}]:} \PY{n}{liste\PYZus{}taille} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{1000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{,} \PY{l+m+mi}{5001}\PY{p}{,} \PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}temps} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{taille} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{liste} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{taille}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{tri} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{liste\PYZus{}temps}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{timetest}\PY{p}{(}\PY{n}{tri}\PY{p}{)}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{p}{:}\PY{p}{]}\PY{p}{)}
+         \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{temps} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}temps}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{loglog}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{,} \PY{n}{temps}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{liste\PYZus{}tris}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZhy{}tris\PYZhy{}listes\PYZhy{}ordre\PYZhy{}inverse.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_51_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Comparaison des tris sur des listes déjà
+triées}\label{comparaison-des-tris-sur-des-listes-duxe9juxe0-triuxe9es}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}73}]:} \PY{n}{liste\PYZus{}taille} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{1000}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{,} \PY{l+m+mi}{5001}\PY{p}{,} \PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{)}
+         \PY{n}{liste\PYZus{}temps} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{taille} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{liste} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{taille}\PY{p}{)}\PY{p}{)}
+             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{tri} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}tris}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{liste\PYZus{}temps}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{timetest}\PY{p}{(}\PY{n}{tri}\PY{p}{)}\PY{p}{(}\PY{n}{liste}\PY{p}{[}\PY{p}{:}\PY{p}{]}\PY{p}{)}
+         \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{temps} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{liste\PYZus{}temps}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{loglog}\PY{p}{(}\PY{n}{liste\PYZus{}taille}\PY{p}{,} \PY{n}{temps}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{liste\PYZus{}tris}\PY{p}{[}\PY{n}{k}\PY{p}{]}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZhy{}tris\PYZhy{}listes\PYZhy{}deja\PYZhy{}tri.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_53_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

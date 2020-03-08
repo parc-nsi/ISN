@@ -578,8 +578,11 @@ Si la page demandée n'est pas disponible, le serveur Web renvoie au client un c
 Réponses :
 
 1. 404
+   
 2. 504
+   
 3. 403
+   
 4. 503
 :::
 
@@ -590,8 +593,11 @@ L'inventeur du World Wide Web au CERN est   :
 Réponses :
 
 1. Tim Berners-Lee
+   
 2. Ted Nelson
+   
 3. Louis Pouzin
+   
 4. Vinton Cerf
 :::
 

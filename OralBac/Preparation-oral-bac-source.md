@@ -34,10 +34,10 @@ Quelle affirmation est vraie dans celles proposées ci-dessous ?
 
 Réponses :
 
-A) On sort de la boucle while dès que `nombre > 5`
-B) On sort de la boucle while dès que `nombre < 5`
-C) On sort de la boucle while dès que `nombre <= 5`
-D) On continue la boucle tant que `nombre <= 5`
+1. On sort de la boucle while dès que `nombre > 5`
+1. On sort de la boucle while dès que `nombre < 5`
+3. On sort de la boucle while dès que `nombre <= 5`
+4. On continue la boucle tant que `nombre <= 5`
 :::
 
 
@@ -68,7 +68,7 @@ Quel code est correct ?
 
 Réponses :
 
-A)
+1.
 
 ~~~python
 a = int ( input("Saisir un nombre entre 1 et 20") )
@@ -76,14 +76,14 @@ while (a < 1 and a > 20) :
       a = int ( input("Saisir un nombre entre 1 et 20") )
 ~~~
 
-B)
+1.
 
 ~~~python
 while (a < 1 and a > 20) :
     a = int ( input("Saisir un nombre entre 1 et 20") )
 ~~~
 
-C)
+3.
 
 ~~~python
 a = int ( input("Saisir un nombre entre 1 et 20") )
@@ -91,7 +91,7 @@ while (a < 1 or a > 20) :
     a = int ( input("Saisir un nombre entre 1 et 20") )
 ~~~
 
-D)
+4.
 
 ~~~python
 a = int ( input("Saisir un nombre entre 1 et 20") )
@@ -181,10 +181,10 @@ Quelle est la valeur de la variable `tab` ?
 
 Réponses :
 
-A) `[2,3,4,5,7,8]`
-B) `[5,7,8,2,3,4]`
-C) `[8,7,5,4,3,2]`
-D) `[4,3,2,8,7,5]`
+1. `[2,3,4,5,7,8]`
+2. `[5,7,8,2,3,4]`
+3. `[8,7,5,4,3,2]`
+4. `[4,3,2,8,7,5]`
 :::
 
 
@@ -204,10 +204,10 @@ def inc(val):
 a = carre(inc(3.0))
 ~~~
 
-A) 9.0
-B) 12.0
-C) 10.0
-D) 16.0
+1. 9.0
+1. 12.0
+3. 10.0
+4. 16.0
 :::
 
 :::exercice
@@ -220,10 +220,10 @@ Que renvoie : `liste_pays[2]` ?
 
 Réponses :
 
-A) `"France"`
-B) `"Allemagne"`
-C) `"Italie"`
-D) `"Belgique"`
+1. `"France"`
+1. `"Allemagne"`
+3. `"Italie"`
+4. `"Belgique"`
 
 :::
 
@@ -235,10 +235,10 @@ _Auteur : Christophe Beasse_
 
 Réponses :
 
-A)  `[(1,0),(2,1),(2,1)]`
-B)  `[(1,0),(2,1),(3,2)]`
-C)  `[(1,0),(2,0),(2,1)]`
-D)  `[(0,0),(1,1),(2,2)]`
+1.  `[(1,0),(2,1),(2,1)]`
+1.  `[(1,0),(2,1),(3,2)]`
+3.  `[(1,0),(2,0),(2,1)]`
+4.  `[(0,0),(1,1),(2,2)]`
 
 :::
 
@@ -260,7 +260,7 @@ Quelle est la fonction qui ne convient pas ?
 
 Réponses :
 
-A)
+1.
 
 ~~~python
 def compte(t):
@@ -281,7 +281,7 @@ B)
       return cpt
 ~~~
 
-C)
+3.
 
 ~~~python
     def compte(t):
@@ -302,25 +302,27 @@ Quel est le résultat de l'évaluation de l'expression Python suivante ?
 
 Réponses :
 
-A) `[0, 2, 4, 6, 8]`
+1. `[0, 2, 4, 6, 8]`
 B) `[1, 2, 4, 8]`
-C) `[0, 1, 4, 9]`
-D) `[1, 2, 4, 8, 16]`
+3. `[0, 1, 4, 9]`
+4. `[1, 2, 4, 8, 16]`
 :::
 
 :::exercice
 _Auteur : Germain Becker, question n°326 Genumsi_
 Quel est le tableau `t` construit par les instructions suivantes ?
 
+~~~python
 tab = [1, 2, -3, 7, 4, 10, -1, 0]
 t = [e for e in tab if e >= 0]
+~~~
 
 Réponses :
 
-A)   `t = [1, 2, 7, 4, 10, 0]`
-B)   `t = [e, e, e, e, e, e]`
-C)   `t = [1, 2, 7, 4, 10]`
-D)   `t = [-3, -1, 0]`
+1.   `t = [1, 2, 7, 4, 10, 0]`
+2.   `t = [e, e, e, e, e, e]`
+3.   `t = [1, 2, 7, 4, 10]`
+4.   `t = [-3, -1, 0]`
 :::
 
 :::exercice
@@ -334,10 +336,10 @@ Quelle est la valeur de t[1][2] ?
 
 Réponses :
 
-A) 1
-B) 3
-C) 4
-D) 2
+1. 1
+2. 3
+3. 4
+4. 2
 
 
 
@@ -358,13 +360,13 @@ for i in range(4):
 
 Réponses :
 
-A)   `[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1]]`
+1.   `[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1]]`
 
-B)   `[[0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 1]]`
+2.   `[[0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 1]]`
 
-C)   `[[0, 0, 0, 1], [0, 0, 1, 0], [0, 1, 0, 0], [1, 0, 0, 0]]`
+3.   `[[0, 0, 0, 1], [0, 0, 1, 0], [0, 1, 0, 0], [1, 0, 0, 0]]`
 
-D)  `[[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 1], [1, 1, 1, 1]]`
+4.  `[[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 1], [1, 1, 1, 1]]`
 
 :::
 
@@ -384,10 +386,10 @@ def moyenne(tableau) :
 
 Réponses :
 
-A)  0 et `len(tableau)`
-B)  0 et `len(tableau) + 1`
-C)  1 et `len(tableau)`
-D)  1 et `len(tableau) + 1`
+1.  0 et `len(tableau)`
+2.  0 et `len(tableau) + 1`
+3.  1 et `len(tableau)`
+4.  1 et `len(tableau) + 1`
 :::
 
 :::exercice
@@ -562,11 +564,11 @@ Le protocole qui permet à un client de faire une requête de page Web auprès d
 
 Réponses :
 
-A) Internet Protocol
-B) HTML
-C) HTTP
-D) TCP
-E) WWW
+1. Internet Protocol
+2. HTML
+3. HTTP
+4. TCP
+5. WWW
 :::
 
 
@@ -575,10 +577,10 @@ Si la page demandée n'est pas disponible, le serveur Web renvoie au client un c
 
 Réponses :
 
-A) 404
-B) 504
-C) 403
-D) 503
+1. 404
+2. 504
+3. 403
+4. 503
 :::
 
 
@@ -587,10 +589,10 @@ L'inventeur du World Wide Web au CERN est   :
 
 Réponses :
 
-A. Tim Berners-Lee
-B. Ted Nelson
-C. Louis Pouzin
-D. Vinton Cerf
+1. Tim Berners-Lee
+2. Ted Nelson
+3. Louis Pouzin
+4. Vinton Cerf
 :::
 
 
@@ -599,11 +601,11 @@ Dans le fichier source d'une page Web, le code qui permet de créer un lien hype
 
 Réponses :
 
-A. `<a href="https://www.w3schools.com/">lien hypertexte</a>`
+1. `<a href="https://www.w3schools.com/">lien hypertexte</a>`
 
-B. `<a href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
+2. `<a href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
 
-C. `<a href="lien hypertexte">https://www.w3schools.com/</a>`
+3. `<a href="lien hypertexte">https://www.w3schools.com/</a>`
 
-D. `<href a="https://www.w3schools.com/">lien hypertexte</href>`
+4. `<href a="https://www.w3schools.com/">lien hypertexte</href>`
 :::

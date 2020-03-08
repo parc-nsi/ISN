@@ -30,10 +30,10 @@ Quelle affirmation est vraie dans celles proposées ci-dessous ?
 
 Réponses :
 
-1)  On sort de la boucle while dès que `nombre > 5`
-2)  On sort de la boucle while dès que `nombre < 5`
-3)  On sort de la boucle while dès que `nombre <= 5`
-4)  On continue la boucle tant que `nombre <= 5`
+1.  On sort de la boucle while dès que `nombre > 5`
+2.  On sort de la boucle while dès que `nombre < 5`
+3.  On sort de la boucle while dès que `nombre <= 5`
+4.  On continue la boucle tant que `nombre <= 5`
 
 **Exercice 2**
 
@@ -63,7 +63,7 @@ Quel code est correct ?
 
 Réponses :
 
-1)  
+1.  
 <!-- end list -->
 
 ``` python
@@ -72,7 +72,7 @@ while (a < 1 and a > 20) :
       a = int ( input("Saisir un nombre entre 1 et 20") )
 ```
 
-2)  
+1.  
 <!-- end list -->
 
 ``` python
@@ -80,7 +80,7 @@ while (a < 1 and a > 20) :
     a = int ( input("Saisir un nombre entre 1 et 20") )
 ```
 
-3)  
+3.  
 <!-- end list -->
 
 ``` python
@@ -89,7 +89,7 @@ while (a < 1 or a > 20) :
     a = int ( input("Saisir un nombre entre 1 et 20") )
 ```
 
-4)  
+4.  
 <!-- end list -->
 
 ``` python
@@ -185,10 +185,10 @@ Quelle est la valeur de la variable `tab` ?
 
 Réponses :
 
-1)  `[2,3,4,5,7,8]`
-2)  `[5,7,8,2,3,4]`
-3)  `[8,7,5,4,3,2]`
-4)  `[4,3,2,8,7,5]`
+1.  `[2,3,4,5,7,8]`
+2.  `[5,7,8,2,3,4]`
+3.  `[8,7,5,4,3,2]`
+4.  `[4,3,2,8,7,5]`
 
 **Exercice 8**
 
@@ -206,10 +206,10 @@ def inc(val):
 a = carre(inc(3.0))
 ```
 
-1)  9.0
-2)  12.0
-3)  10.0
-4)  16.0
+1.  9.0
+2.  12.0
+3.  10.0
+4.  16.0
 
 **Exercice 9**
 
@@ -222,10 +222,10 @@ Que renvoie : `liste_pays[2]` ?
 
 Réponses :
 
-1)  `"France"`
-2)  `"Allemagne"`
-3)  `"Italie"`
-4)  `"Belgique"`
+1.  `"France"`
+2.  `"Allemagne"`
+3.  `"Italie"`
+4.  `"Belgique"`
 
 **Exercice 10**
 
@@ -236,10 +236,10 @@ Quelle est le résultat de : `[ (a,b) for a in range(3) for b in range(a)
 
 Réponses :
 
-1)  `[(1,0),(2,1),(2,1)]`
-2)  `[(1,0),(2,1),(3,2)]`
-3)  `[(1,0),(2,0),(2,1)]`
-4)  `[(0,0),(1,1),(2,2)]`
+1.  `[(1,0),(2,1),(2,1)]`
+2.  `[(1,0),(2,1),(3,2)]`
+3.  `[(1,0),(2,0),(2,1)]`
+4.  `[(0,0),(1,1),(2,2)]`
 
 **Exercice 11**
 
@@ -259,7 +259,7 @@ Quelle est la fonction qui ne convient pas ?
 
 Réponses :
 
-1)  
+1.  
 <!-- end list -->
 
 ``` python
@@ -282,7 +282,7 @@ def compte(t):
       return cpt
 ```
 
-3)  
+3.  
 <!-- end list -->
 
 ``` python
@@ -304,24 +304,33 @@ Quel est le résultat de l’évaluation de l’expression Python suivante ?
 
 Réponses :
 
-1)  `[0, 2, 4, 6, 8]`
+1.  `[0, 2, 4, 6, 8]`
+
+<!-- end list -->
+
 2)  `[1, 2, 4, 8]`
-3)  `[0, 1, 4, 9]`
-4)  `[1, 2, 4, 8, 16]`
+
+<!-- end list -->
+
+3.  `[0, 1, 4, 9]`
+4.  `[1, 2, 4, 8, 16]`
 
 **Exercice 14**
 
 *Auteur : Germain Becker, question n°326 Genumsi* Quel est le tableau
 `t` construit par les instructions suivantes ?
 
-tab = \[1, 2, -3, 7, 4, 10, -1, 0\] t = \[e for e in tab if e \>= 0\]
+``` python
+tab = [1, 2, -3, 7, 4, 10, -1, 0]
+t = [e for e in tab if e >= 0]
+```
 
 Réponses :
 
-1)  `t = [1, 2, 7, 4, 10, 0]`
-2)  `t = [e, e, e, e, e, e]`
-3)  `t = [1, 2, 7, 4, 10]`
-4)  `t = [-3, -1, 0]`
+1.  `t = [1, 2, 7, 4, 10, 0]`
+2.  `t = [e, e, e, e, e, e]`
+3.  `t = [1, 2, 7, 4, 10]`
+4.  `t = [-3, -1, 0]`
 
 **Exercice 15**
 
@@ -335,10 +344,10 @@ Quelle est la valeur de t\[1\]\[2\] ?
 
 Réponses :
 
-1)  1
-2)  3
-3)  4
-4)  2
+1.  1
+2.  3
+3.  4
+4.  2
 
 **Exercice 16**
 
@@ -357,13 +366,13 @@ for i in range(4):
 
 Réponses :
 
-1)  `[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1]]`
+1.  `[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1]]`
 
-2)  `[[0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 1]]`
+2.  `[[0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 1], [0, 0, 0, 1]]`
 
-3)  `[[0, 0, 0, 1], [0, 0, 1, 0], [0, 1, 0, 0], [1, 0, 0, 0]]`
+3.  `[[0, 0, 0, 1], [0, 0, 1, 0], [0, 1, 0, 0], [1, 0, 0, 0]]`
 
-4)  `[[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 1], [1, 1, 1, 1]]`
+4.  `[[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 1], [1, 1, 1, 1]]`
 
 **Exercice 17**
 
@@ -383,10 +392,10 @@ def moyenne(tableau) :
 
 Réponses :
 
-1)  0 et `len(tableau)`
-2)  0 et `len(tableau) + 1`
-3)  1 et `len(tableau)`
-4)  1 et `len(tableau) + 1`
+1.  0 et `len(tableau)`
+2.  0 et `len(tableau) + 1`
+3.  1 et `len(tableau)`
+4.  1 et `len(tableau) + 1`
 
 **Exercice 18**
 
@@ -580,11 +589,11 @@ auprès d’un serveur Web s’appelle :
 
 Réponses :
 
-1)  Internet Protocol
-2)  HTML
-3)  HTTP
-4)  TCP
-5)  WWW
+1.  Internet Protocol
+2.  HTML
+3.  HTTP
+4.  TCP
+5.  WWW
 
 **Exercice 29**
 
@@ -593,10 +602,10 @@ client un code d’erreur :
 
 Réponses :
 
-1)  404
-2)  504
-3)  403
-4)  503
+1.  404
+2.  504
+3.  403
+4.  503
 
 **Exercice 30**
 
@@ -604,10 +613,10 @@ L’inventeur du World Wide Web au CERN est :
 
 Réponses :
 
-1)  Tim Berners-Lee
-2)  Ted Nelson
-3)  Louis Pouzin
-4)  Vinton Cerf
+1.  Tim Berners-Lee
+2.  Ted Nelson
+3.  Louis Pouzin
+4.  Vinton Cerf
 
 **Exercice 31**
 
@@ -616,11 +625,11 @@ lien hypertexte vers la page <https://www.w3schools.com/> est :
 
 Réponses :
 
-1)  `<a href="https://www.w3schools.com/">lien hypertexte</a>`
+1.  `<a href="https://www.w3schools.com/">lien hypertexte</a>`
 
-2)  `<a
+2.  `<a
     href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
 
-3)  `<a href="lien hypertexte">https://www.w3schools.com/</a>`
+3.  `<a href="lien hypertexte">https://www.w3schools.com/</a>`
 
-4)  `<href a="https://www.w3schools.com/">lien hypertexte</href>`
+4.  `<href a="https://www.w3schools.com/">lien hypertexte</href>`

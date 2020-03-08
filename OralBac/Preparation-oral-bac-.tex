@@ -764,7 +764,7 @@ Quelle affirmation est vraie dans celles proposées ci-dessous ?
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   On sort de la boucle while dès que
@@ -812,7 +812,7 @@ Quel code est correct ?
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
 \end{enumerate}
@@ -824,8 +824,7 @@ while (a < 1 and a > 20) :
 \end{lstlisting}
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
-\setcounter{enumi}{1}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
 \end{enumerate}
@@ -836,7 +835,7 @@ while (a < 1 and a > 20) :
 \end{lstlisting}
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
 \tightlist
 \item
@@ -849,7 +848,7 @@ while (a < 1 or a > 20) :
 \end{lstlisting}
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{3}
 \tightlist
 \item
@@ -960,7 +959,7 @@ Quelle est la valeur de la variable \passthrough{\lstinline!tab!} ?
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   \passthrough{\lstinline![2,3,4,5,7,8]!}
@@ -992,7 +991,7 @@ a = carre(inc(3.0))
 \end{lstlisting}
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   9.0
@@ -1018,7 +1017,7 @@ Que renvoie : \passthrough{\lstinline!liste\_pays[2]!} ?
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   \passthrough{\lstinline!"France"!}
@@ -1043,7 +1042,7 @@ Quelle est le résultat de :
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   \passthrough{\lstinline![(1,0),(2,1),(2,1)]!}
@@ -1079,7 +1078,7 @@ Quelle est la fonction qui ne convient pas ?
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
 \end{enumerate}
@@ -1109,7 +1108,7 @@ def compte(t):
 \end{lstlisting}
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
 \tightlist
 \item
@@ -1137,12 +1136,24 @@ Quel est le résultat de l'évaluation de l'expression Python suivante ?
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   \passthrough{\lstinline![0, 2, 4, 6, 8]!}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\Alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
 \item
   \passthrough{\lstinline![1, 2, 4, 8]!}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
 \item
   \passthrough{\lstinline![0, 1, 4, 9]!}
 \item
@@ -1157,13 +1168,15 @@ Réponses :
 tableau \passthrough{\lstinline!t!} construit par les instructions
 suivantes ?
 
-tab = {[}1, 2, -3, 7, 4, 10, -1, 0{]} t = {[}e for e in tab if e
-\textgreater= 0{]}
+\begin{lstlisting}[language=Python]
+tab = [1, 2, -3, 7, 4, 10, -1, 0]
+t = [e for e in tab if e >= 0]
+\end{lstlisting}
 
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   \passthrough{\lstinline!t = [1, 2, 7, 4, 10, 0]!}
@@ -1190,7 +1203,7 @@ Quelle est la valeur de t{[}1{]}{[}2{]} ?
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   1
@@ -1222,7 +1235,7 @@ for i in range(4):
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \item
   \passthrough{\lstinline![[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1]]!}
 \item
@@ -1254,7 +1267,7 @@ def moyenne(tableau) :
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   0 et \passthrough{\lstinline!len(tableau)!}
@@ -1542,7 +1555,7 @@ auprès d'un serveur Web s'appelle :
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Internet Protocol
@@ -1566,7 +1579,7 @@ client un code d'erreur :
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   404
@@ -1587,7 +1600,7 @@ L'inventeur du World Wide Web au CERN est :
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Tim Berners-Lee
@@ -1609,7 +1622,7 @@ lien hypertexte vers la page \url{https://www.w3schools.com/} est :
 Réponses :
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \item
   \passthrough{\lstinline!<a href="https://www.w3schools.com/">lien hypertexte</a>!}
 \item

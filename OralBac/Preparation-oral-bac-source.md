@@ -600,7 +600,10 @@ Dans le fichier source d'une page Web, le code qui permet de créer un lien hype
 Réponses :
 
 A) `<a href="https://www.w3schools.com/">lien hypertexte</a>`
+
 B) `<a href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
+
 C) `<a href="lien hypertexte">https://www.w3schools.com/</a>`
+
 D) `<href a="https://www.w3schools.com/">lien hypertexte</href>`
 :::

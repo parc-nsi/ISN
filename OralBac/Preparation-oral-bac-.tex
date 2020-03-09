@@ -825,6 +825,7 @@ while (a < 1 and a > 20) :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
 \tightlist
 \item
 \end{enumerate}
@@ -883,7 +884,8 @@ l'exécution du code ?
 \begin{exercice}{}
 
 Pour les questions suivantes, il faut utiliser obligatoirement deux
-boucles imbriquées et au maximum deux fois la fonction \verb+print+.
+boucles imbriquées et au maximum deux fois la fonction
+\passthrough{\lstinline!print!}.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1093,7 +1095,7 @@ def compte(t):
 \end{lstlisting}
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
@@ -1140,20 +1142,8 @@ Réponses :
 \tightlist
 \item
   \passthrough{\lstinline![0, 2, 4, 6, 8]!}
-\end{enumerate}
-
-\begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
-\setcounter{enumi}{1}
-\tightlist
 \item
   \passthrough{\lstinline![1, 2, 4, 8]!}
-\end{enumerate}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
 \item
   \passthrough{\lstinline![0, 1, 4, 9]!}
 \item
@@ -1580,7 +1570,6 @@ Réponses :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   404
 \item
@@ -1601,7 +1590,6 @@ Réponses :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Tim Berners-Lee
 \item

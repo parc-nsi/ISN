@@ -76,7 +76,7 @@ while (a < 1 and a > 20) :
       a = int ( input("Saisir un nombre entre 1 et 20") )
 ~~~
 
-1.
+2.
 
 ~~~python
 while (a < 1 and a > 20) :
@@ -119,7 +119,7 @@ Quelle est la valeur de la variable `a` après l'exécution du code ?
 
 
 :::exercice
-Pour les questions suivantes, il faut utiliser obligatoirement deux boucles imbriquées et au maximum deux fois la fonction \verb+print+.
+Pour les questions suivantes, il faut utiliser obligatoirement deux boucles imbriquées et au maximum deux fois la fonction `print`.
 
 1. Ecrire un script Python qui produit l'affichage 1 ci-dessous.
 2. Ecrire un script Python qui produit l'affichage 2 ci-dessous.
@@ -271,7 +271,7 @@ def compte(t):
     return cpt
 ~~~
 
-B)
+2.
 
 ~~~python
     def compte(t):
@@ -303,7 +303,7 @@ Quel est le résultat de l'évaluation de l'expression Python suivante ?
 Réponses :
 
 1. `[0, 2, 4, 6, 8]`
-B) `[1, 2, 4, 8]`
+2. `[1, 2, 4, 8]`
 3. `[0, 1, 4, 9]`
 4. `[1, 2, 4, 8, 16]`
 :::

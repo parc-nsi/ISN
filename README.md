@@ -156,9 +156,10 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [version simple HTML](OralBac/Preparation-oral-bac-.html)
   
   
-* Classe virtuelle :
+* Classe virtuelle du lundi 23/03/2019:
   - [QCM Genumsi](https://genumsi.inria.fr/qcm.php?h=0263895bd98848eb41b69c58b66c66c3)
   - [Corrigé QCM Genumsi](https://genumsi.inria.fr/qcm-corrige.php?cle=ODc7NzM7NzI7NzA7NjU7MTg7MjE7MjI7MjQ7MjY7NDA7NDE7NDI7NDQ7NDU7NDY7NDg7Njg7NzE7MTM2OzE3NzsxNzg7MzAwOzM3MTszOTg=)
+  - Travail par groupes de projet
 
 
 

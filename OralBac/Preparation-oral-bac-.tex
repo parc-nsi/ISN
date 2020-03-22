@@ -1289,9 +1289,167 @@ Que contient la variable compteur à la fin de l'exécution de ce script ?
 
 \end{exercice}
 
+\begin{exercice}{}
+
+Quelle est la valeur référencée par la liste L après exécution du
+programme ci-dessous ?
+
+\begin{lstlisting}[language=Python]
+L = [731, 732, 734]
+L[0], L[1] = L[1], L[0]
+M = L
+M[1] = 732
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  {[}732, 731, 734{]}
+\item
+  {[}731, 732, 734{]}
+\item
+  {[}732, 732, 734{]}
+\end{enumerate}
+
+\end{exercice}
+
 \hypertarget{repruxe9sentation-des-nombres-des-textes-ou-des-images}{%
 \section{Représentation des nombres, des textes ou des
 images}\label{repruxe9sentation-des-nombres-des-textes-ou-des-images}}
+
+\begin{exercice}{}
+
+Le codage en base deux de l'entier 26 en base dix est :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  11010
+\item
+  10010
+\item
+  11001
+\item
+  110010
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Le résultat de la somme
+\(\overline{101101}^{2} + \overline{101111}^{2}\) est :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\overline{1100100}^{2}\)
+\item
+  \(\overline{1110101}^{2}\)
+\item
+  \(\overline{1011100}^{2}\)
+\item
+  \(\overline{1111100}^{2}\)
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Le plus grand entier qu'on peut représenter en base deux sur 8 bits est
+:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  11111111
+\item
+  10000000
+\item
+  255
+\item
+  256
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Le codage en base seize de l'entier \(256\) est :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\overline{F1}^{16}\)
+\item
+  \(\overline{A1}^{16}\)
+\item
+  \(\overline{FA}^{16}\)
+\item
+  \(\overline{FF}^{16}\)
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+L'adresse MAC de la carte Wifi d'un smartphone est
+\texttt{c8:60:00:a4:89:ab} avec six octets codés en base seize.
+
+La transcription en base dix de cette adresse MAC est :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(200:96:0:164:137:171\)
+\item
+  \(20:6:0:14:17:21\)
+\item
+  \(96:0:0:40:72:110\)
+\item
+  \(140:6:0:74:152:186\)
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+La fonction ci-dessous doit retourner la liste des chiffres en base deux
+d'un entier n par ordre décroissant des poids de gauche à droite.
+
+\begin{lstlisting}[language=Python]
+def nombre2chiffres(n):
+    t = []
+    while n >= 2:
+        ..........
+        n = n // 2
+    ..............
+    t.reverse()
+    return t
+\end{lstlisting}
+
+Quelle instruction peut-on écrire en lignes 4 et 6 ?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \passthrough{\lstinline!t.append(n)!}
+\item
+  \passthrough{\lstinline!t.append(n \% 2)!}
+\item
+  \passthrough{\lstinline!t.append(n // 2)!}
+\item
+  \passthrough{\lstinline!t = t + [n \% 2]!}
+\end{enumerate}
+
+\end{exercice}
 
 \begin{exercice}{}
 
@@ -1316,7 +1474,111 @@ images}\label{repruxe9sentation-des-nombres-des-textes-ou-des-images}}
     \(10111\)
   \end{itemize}
 \item
-  Détermine le nombre de caractères qu'on peut coder sur un octet.
+  Déterminer le nombre de caractères qu'on peut coder sur un octet.
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On souhaite convertir 25 de base 10 en base 2. On obtient en binaire :
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  11001
+\item
+  10110
+\item
+  10011
+\item
+  11000
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Quelle est la valeur affichée par l'exécution du test suivant ?
+
+\begin{lstlisting}[language=Python]
+In [1]: 0.1 + 0.2 == 0.3              
+                                                                                                                                                                         
+Out[1]: False
+\end{lstlisting}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \passthrough{\lstinline!True!}
+\item
+  \passthrough{\lstinline!False!}
+\item
+  0.3
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Quelle est la valeur affichée a l'exécution du programme Python suivant
+?
+
+\begin{lstlisting}[language=Python]
+x = 1 
+for i in range(11): 
+    x = x * 2 
+print(x)
+\end{lstlisting}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  1024
+\item
+  2048
+\item
+  23
+\item
+  \(2^{2^{11}}\)
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Quelle est la valeur affichée a l'exécution du programme Python suivant
+?
+
+\begin{lstlisting}[language=Python]
+x = 2 
+for i in range(10): 
+    x = x ** 2 
+print(x)
+\end{lstlisting}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  1024
+\item
+  2048
+\item
+  \(2^{2^{10}}\)
+\item
+  \(2^{2^{11}}\)
 \end{enumerate}
 
 \end{exercice}
@@ -1533,6 +1795,83 @@ A & B & f(A, B)\tabularnewline
 
 \hypertarget{algorithmique}{%
 \section{Algorithmique}\label{algorithmique}}
+
+\begin{exercice}{}
+
+Écrire une fonction \passthrough{\lstinline!min2(a, b)!} qui retourne le
+minimum de deux nombres passés en paramètre, sans utiliser la fonction
+min du module builtins.
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Écrire une fonction \passthrough{\lstinline!min\_liste(L)!} qui retourne
+le minimum d'une liste de nombres passée en paramètre.
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Un élève a écrit la fonction ci-dessus pour déterminer si le premier
+paramètre n est dans la liste L passée en second paramètre. Le
+professeur lui indique que son code comporte des erreurs. Proposer une
+version corrigée de cette fonction.
+
+\begin{lstlisting}[language=Python]
+def element_dans_liste(n, L):
+    for k in range(len(L)):
+        if e == n:
+            return True
+        else:
+            return False
+\end{lstlisting}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Pour chacune des listes ci-dessous, déterminer si l'algorithme le plus
+adapté pour qu'une machine y recherche une valeur est l'algorithme de
+recherche séquentielle ou l'algorithme de recherche dichotomique.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Liste A :
+  \passthrough{\lstinline![4, 6, 15, 20, 21, 26, 31, 41, 42, 50, 69, 87, 88, 92, 97]!}
+\item
+  Liste B :
+  \passthrough{\lstinline![41, 97, 91, 59, 7, 45, 3, 96, 26, 32, 18, 11, 67, 74, 54]!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Compléter le code de la fonction
+\passthrough{\lstinline!recherche\_dicho\_dec(x, L)!} qui prend en
+paramètres un nombre \passthrough{\lstinline!x!} et une liste de nombres
+\passthrough{\lstinline!L!} triée dans l'ordre décroissant. Elle doit
+retourner \passthrough{\lstinline!True!} si \passthrough{\lstinline!x!}
+appartient à L et False sinon.
+
+\begin{lstlisting}[language=Python]
+def recherche_dicho_dec(x, L):
+    a, b = 0, len(L) - 1
+    while a <= b:
+        m = (a + b) // 2
+        if L[m] > x:
+            ..................
+        elif L[m] < x:
+            ................
+        else:
+            .................
+    .........................
+\end{lstlisting}
+
+\end{exercice}
 
 \hypertarget{le-web}{%
 \section{Le Web}\label{le-web}}

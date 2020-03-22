@@ -362,9 +362,85 @@ Terminale ISN Lycée du Parc
 <span id="cb20-5"><a href="#cb20-5"></a>        compteur <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
 <p>Que contient la variable compteur à la fin de l’exécution de ce script ?</p>
 </div>
+<div class="exercice">
+<p>Quelle est la valeur référencée par la liste L après exécution du programme ci-dessous ?</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>L <span class="op">=</span> [<span class="dv">731</span>, <span class="dv">732</span>, <span class="dv">734</span>]</span>
+<span id="cb21-2"><a href="#cb21-2"></a>L[<span class="dv">0</span>], L[<span class="dv">1</span>] <span class="op">=</span> L[<span class="dv">1</span>], L[<span class="dv">0</span>]</span>
+<span id="cb21-3"><a href="#cb21-3"></a>M <span class="op">=</span> L</span>
+<span id="cb21-4"><a href="#cb21-4"></a>M[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">732</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>[732, 731, 734]</li>
+<li>[731, 732, 734]</li>
+<li>[732, 732, 734]</li>
+</ol>
+</div>
 </div>
 <div id="représentation-des-nombres-des-textes-ou-des-images" class="slide section level1">
 <h1>Représentation des nombres, des textes ou des images</h1>
+<div class="exercice">
+<p>Le codage en base deux de l’entier 26 en base dix est :</p>
+<ol style="list-style-type: decimal">
+<li>11010</li>
+<li>10010</li>
+<li>11001</li>
+<li>110010</li>
+</ol>
+</div>
+<div class="exercice">
+<p>Le résultat de la somme <span class="math inline">\(\overline{101101}^{2} + \overline{101111}^{2}\)</span> est :</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\overline{1100100}^{2}\)</span></li>
+<li><span class="math inline">\(\overline{1110101}^{2}\)</span></li>
+<li><span class="math inline">\(\overline{1011100}^{2}\)</span></li>
+<li><span class="math inline">\(\overline{1111100}^{2}\)</span></li>
+</ol>
+</div>
+<div class="exercice">
+<p>Le plus grand entier qu’on peut représenter en base deux sur 8 bits est :</p>
+<ol style="list-style-type: decimal">
+<li>11111111</li>
+<li>10000000</li>
+<li>255</li>
+<li>256</li>
+</ol>
+</div>
+<div class="exercice">
+<p>Le codage en base seize de l’entier <span class="math inline">\(256\)</span> est :</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\overline{F1}^{16}\)</span></li>
+<li><span class="math inline">\(\overline{A1}^{16}\)</span></li>
+<li><span class="math inline">\(\overline{FA}^{16}\)</span></li>
+<li><span class="math inline">\(\overline{FF}^{16}\)</span></li>
+</ol>
+</div>
+<div class="exercice">
+<p>L’adresse MAC de la carte Wifi d’un smartphone est  avec six octets codés en base seize.</p>
+<p>La transcription en base dix de cette adresse MAC est :</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(200:96:0:164:137:171\)</span></li>
+<li><span class="math inline">\(20:6:0:14:17:21\)</span></li>
+<li><span class="math inline">\(96:0:0:40:72:110\)</span></li>
+<li><span class="math inline">\(140:6:0:74:152:186\)</span></li>
+</ol>
+</div>
+<div class="exercice">
+<p>La fonction ci-dessous doit retourner la liste des chiffres en base deux d’un entier n par ordre décroissant des poids de gauche à droite.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">def</span> nombre2chiffres(n):</span>
+<span id="cb22-2"><a href="#cb22-2"></a>    t <span class="op">=</span> []</span>
+<span id="cb22-3"><a href="#cb22-3"></a>    <span class="cf">while</span> n <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb22-4"><a href="#cb22-4"></a>        ..........</span>
+<span id="cb22-5"><a href="#cb22-5"></a>        n <span class="op">=</span> n <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>    ..............</span>
+<span id="cb22-7"><a href="#cb22-7"></a>    t.reverse()</span>
+<span id="cb22-8"><a href="#cb22-8"></a>    <span class="cf">return</span> t</span></code></pre></div>
+<p>Quelle instruction peut-on écrire en lignes 4 et 6 ?</p>
+<ol style="list-style-type: decimal">
+<li><code>t.append(n)</code></li>
+<li><code>t.append(n % 2)</code></li>
+<li><code>t.append(n // 2)</code></li>
+<li><code>t = t + [n % 2]</code></li>
+</ol>
+</div>
 <div class="exercice">
 <ol style="list-style-type: decimal">
 <li>Représenter en binaire le nombre d’écriture décimale 49.</li>
@@ -375,7 +451,57 @@ Terminale ISN Lycée du Parc
 <li><span class="math inline">\(10011\)</span></li>
 <li><span class="math inline">\(10111\)</span></li>
 </ul></li>
-<li>Détermine le nombre de caractères qu’on peut coder sur un octet.</li>
+<li>Déterminer le nombre de caractères qu’on peut coder sur un octet.</li>
+</ol>
+</div>
+<div class="exercice">
+<p>On souhaite convertir 25 de base 10 en base 2. On obtient en binaire :</p>
+<p>Réponses :</p>
+<ol style="list-style-type: decimal">
+<li>11001</li>
+<li>10110</li>
+<li>10011</li>
+<li>11000</li>
+</ol>
+</div>
+<div class="exercice">
+<p>Quelle est la valeur affichée par l’exécution du test suivant ?</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>In [<span class="dv">1</span>]: <span class="fl">0.1</span> <span class="op">+</span> <span class="fl">0.2</span> <span class="op">==</span> <span class="fl">0.3</span>              </span>
+<span id="cb23-2"><a href="#cb23-2"></a>                                                                                                                                                                         </span>
+<span id="cb23-3"><a href="#cb23-3"></a>Out[<span class="dv">1</span>]: <span class="va">False</span></span></code></pre></div>
+<p>Réponses :</p>
+<ol style="list-style-type: decimal">
+<li><code>True</code></li>
+<li><code>False</code></li>
+<li>0.3</li>
+</ol>
+</div>
+<div class="exercice">
+<p>Quelle est la valeur affichée a l’exécution du programme Python suivant ?</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>x <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>): </span>
+<span id="cb24-3"><a href="#cb24-3"></a>    x <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span> </span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<p>Réponses :</p>
+<ol style="list-style-type: decimal">
+<li>1024</li>
+<li>2048</li>
+<li>23</li>
+<li><span class="math inline">\(2^{2^{11}}\)</span></li>
+</ol>
+</div>
+<div class="exercice">
+<p>Quelle est la valeur affichée a l’exécution du programme Python suivant ?</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>x <span class="op">=</span> <span class="dv">2</span> </span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>): </span>
+<span id="cb25-3"><a href="#cb25-3"></a>    x <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span> </span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<p>Réponses :</p>
+<ol style="list-style-type: decimal">
+<li>1024</li>
+<li>2048</li>
+<li><span class="math inline">\(2^{2^{10}}\)</span></li>
+<li><span class="math inline">\(2^{2^{11}}\)</span></li>
 </ol>
 </div>
 <div class="exercice">
@@ -390,30 +516,30 @@ Terminale ISN Lycée du Parc
 <ol style="list-style-type: decimal">
 <li>Pour déterminer la liste des chiffres en base dix d’un entier naturel, un élève a écrit la fonction ci-dessous :</li>
 </ol>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">def</span> liste_chiffres(n):</span>
-<span id="cb21-2"><a href="#cb21-2"></a>    L <span class="op">=</span> [n <span class="op">%</span> <span class="dv">10</span>]</span>
-<span id="cb21-3"><a href="#cb21-3"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb21-4"><a href="#cb21-4"></a>        n <span class="op">=</span> n <span class="op">//</span> <span class="dv">10</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a>        L.insert(<span class="dv">0</span>, n <span class="op">%</span> <span class="dv">10</span>)</span>
-<span id="cb21-6"><a href="#cb21-6"></a>    <span class="cf">return</span> L</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">def</span> liste_chiffres(n):</span>
+<span id="cb26-2"><a href="#cb26-2"></a>    L <span class="op">=</span> [n <span class="op">%</span> <span class="dv">10</span>]</span>
+<span id="cb26-3"><a href="#cb26-3"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb26-4"><a href="#cb26-4"></a>        n <span class="op">=</span> n <span class="op">//</span> <span class="dv">10</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>        L.insert(<span class="dv">0</span>, n <span class="op">%</span> <span class="dv">10</span>)</span>
+<span id="cb26-6"><a href="#cb26-6"></a>    <span class="cf">return</span> L</span></code></pre></div>
 <p>Malheureusement sa fonction ne retourne pas le résultat attendu pour l’entier <span class="math inline">\(730\)</span> :</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">&gt;&gt;&gt;</span> liste_chiffres(<span class="dv">730</span>)</span>
-<span id="cb22-2"><a href="#cb22-2"></a>[<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="op">&gt;&gt;&gt;</span> liste_chiffres(<span class="dv">730</span>)</span>
+<span id="cb27-2"><a href="#cb27-2"></a>[<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">0</span>]</span></code></pre></div>
 <p>Proposer une version corrigée de la fonction <code>liste\_chiffres</code>.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Compléter la fonction <code>somme_chiffres_base2(n)</code> pour qu’elle retourne la somme des chiffres en base deux de l’entier <code>n</code> passé en paramètre.</li>
 </ol>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">def</span> somme_chiffres_base2(n):</span>
-<span id="cb23-2"><a href="#cb23-2"></a>    s <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb23-4"><a href="#cb23-4"></a>        s <span class="op">=</span> s <span class="op">+</span> n <span class="op">%</span> <span class="dv">2</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>        ..............</span>
-<span id="cb23-6"><a href="#cb23-6"></a>    <span class="cf">return</span> s</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">def</span> somme_chiffres_base2(n):</span>
+<span id="cb28-2"><a href="#cb28-2"></a>    s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb28-4"><a href="#cb28-4"></a>        s <span class="op">=</span> s <span class="op">+</span> n <span class="op">%</span> <span class="dv">2</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>        ..............</span>
+<span id="cb28-6"><a href="#cb28-6"></a>    <span class="cf">return</span> s</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Déterminer une valeur possible de la variable  telle que :</li>
 </ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="op">&gt;&gt;&gt;</span> somme_chiffres(secret)</span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="dv">734</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">&gt;&gt;&gt;</span> somme_chiffres(secret)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="dv">734</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Écrire une fonction <code>maximum_chiffre(n)</code> qui retourne le plus grand chiffre de l’écriture en base dix de l’entier naturel <code>n</code> passé en paramètre.</li>
 </ol>
@@ -425,15 +551,15 @@ Terminale ISN Lycée du Parc
 <li>l’unique entier <span class="math inline">\(p\)</span> tel que <span class="math inline">\(2^{p-1} \leqslant n &lt; 2^{p}\)</span> si <span class="math inline">\(n\)</span> supérieur à <span class="math inline">\(0\)</span>.</li>
 </ul>
 <p>Compléter la fonction ci-dessous pour qu’elle retourne le nombre de chiffres en base <span class="math inline">\(2\)</span> de l’entier  passé en paramètres.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">def</span> nbchiffres_base2(n):</span>
-<span id="cb25-2"><a href="#cb25-2"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb25-3"><a href="#cb25-3"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a>    nbchiffre <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>    puissance <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>    <span class="cf">while</span> ..............:</span>
-<span id="cb25-7"><a href="#cb25-7"></a>        .........................</span>
-<span id="cb25-8"><a href="#cb25-8"></a>        .........................</span>
-<span id="cb25-9"><a href="#cb25-9"></a>    <span class="cf">return</span> ......................</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">def</span> nbchiffres_base2(n):</span>
+<span id="cb30-2"><a href="#cb30-2"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb30-3"><a href="#cb30-3"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>    nbchiffre <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a>    puissance <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a>    <span class="cf">while</span> ..............:</span>
+<span id="cb30-7"><a href="#cb30-7"></a>        .........................</span>
+<span id="cb30-8"><a href="#cb30-8"></a>        .........................</span>
+<span id="cb30-9"><a href="#cb30-9"></a>    <span class="cf">return</span> ......................</span></code></pre></div>
 </div>
 </div>
 <div id="architecture" class="slide section level1">
@@ -580,6 +706,42 @@ Terminale ISN Lycée du Parc
 </div>
 <div id="algorithmique" class="slide section level1">
 <h1>Algorithmique</h1>
+<div class="exercice">
+<p>Écrire une fonction <code>min2(a, b)</code> qui retourne le minimum de deux nombres passés en paramètre, sans utiliser la fonction min du module builtins.</p>
+</div>
+<div class="exercice">
+<p>Écrire une fonction <code>min_liste(L)</code> qui retourne le minimum d’une liste de nombres passée en paramètre.</p>
+</div>
+<div class="exercice">
+<p>Un élève a écrit la fonction ci-dessus pour déterminer si le premier paramètre n est dans la liste L passée en second paramètre. Le professeur lui indique que son code comporte des erreurs. Proposer une version corrigée de cette fonction.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> element_dans_liste(n, L):</span>
+<span id="cb31-2"><a href="#cb31-2"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(L)):</span>
+<span id="cb31-3"><a href="#cb31-3"></a>        <span class="cf">if</span> e <span class="op">==</span> n:</span>
+<span id="cb31-4"><a href="#cb31-4"></a>            <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a>        <span class="cf">else</span>:</span>
+<span id="cb31-6"><a href="#cb31-6"></a>            <span class="cf">return</span> <span class="va">False</span></span></code></pre></div>
+</div>
+<div class="exercice">
+<p>Pour chacune des listes ci-dessous, déterminer si l’algorithme le plus adapté pour qu’une machine y recherche une valeur est l’algorithme de recherche séquentielle ou l’algorithme de recherche dichotomique.</p>
+<ol style="list-style-type: decimal">
+<li>Liste A : <code>[4, 6, 15, 20, 21, 26, 31, 41, 42, 50, 69, 87, 88, 92, 97]</code></li>
+<li>Liste B : <code>[41, 97, 91, 59, 7, 45, 3, 96, 26, 32, 18, 11, 67, 74, 54]</code></li>
+</ol>
+</div>
+<div class="exercice">
+<p>Compléter le code de la fonction <code>recherche_dicho_dec(x, L)</code> qui prend en paramètres un nombre <code>x</code> et une liste de nombres <code>L</code> triée dans l’ordre décroissant. Elle doit retourner <code>True</code> si <code>x</code> appartient à L et False sinon.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">def</span> recherche_dicho_dec(x, L):</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    a, b <span class="op">=</span> <span class="dv">0</span>, <span class="bu">len</span>(L) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>    <span class="cf">while</span> a <span class="op">&lt;=</span> b:</span>
+<span id="cb32-4"><a href="#cb32-4"></a>        m <span class="op">=</span> (a <span class="op">+</span> b) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>        <span class="cf">if</span> L[m] <span class="op">&gt;</span> x:</span>
+<span id="cb32-6"><a href="#cb32-6"></a>            ..................</span>
+<span id="cb32-7"><a href="#cb32-7"></a>        <span class="cf">elif</span> L[m] <span class="op">&lt;</span> x:</span>
+<span id="cb32-8"><a href="#cb32-8"></a>            ................</span>
+<span id="cb32-9"><a href="#cb32-9"></a>        <span class="cf">else</span>:</span>
+<span id="cb32-10"><a href="#cb32-10"></a>            .................</span>
+<span id="cb32-11"><a href="#cb32-11"></a>    .........................</span></code></pre></div>
+</div>
 </div>
 <div id="le-web" class="slide section level1">
 <h1>Le Web</h1>

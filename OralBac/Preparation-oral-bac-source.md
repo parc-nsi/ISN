@@ -408,7 +408,103 @@ for i in range(len(liste)-1) :
 Que contient la variable compteur à la fin de l’exécution de ce script ? 
 :::
 
+:::exercice
+
+Quelle est la valeur référencée par la liste L après exécution du programme ci-dessous ?
+
+~~~python
+L = [731, 732, 734]
+L[0], L[1] = L[1], L[0]
+M = L
+M[1] = 732
+~~~
+
+1. [732, 731, 734]
+2. [731, 732, 734]
+3. [732, 732, 734]
+
+:::
+
 # Représentation des nombres, des textes ou des images
+
+
+:::exercice
+Le codage en base deux de l’entier 26 en base dix est :
+
+1. 11010
+2. 10010
+3. 11001
+4. 110010
+
+:::
+
+
+:::exercice
+Le résultat de la somme $\overline{101101}^{2} + \overline{101111}^{2}$ est :
+
+1. $\overline{1100100}^{2}$
+2. $\overline{1110101}^{2}$
+3. $\overline{1011100}^{2}$
+4. $\overline{1111100}^{2}$
+
+:::
+
+:::exercice
+Le plus grand entier qu’on peut représenter en base deux sur 8 bits est :
+
+1. 11111111
+2. 10000000
+3. 255
+4. 256
+:::
+
+
+:::exercice
+Le codage en base seize de l'entier $256$ est :
+
+1. $\overline{F1}^{16}$
+2. $\overline{A1}^{16}$
+3. $\overline{FA}^{16}$
+4. $\overline{FF}^{16}$
+:::
+
+:::exercice
+
+L'adresse MAC de la carte Wifi d'un smartphone  est \texttt{c8:60:00:a4:89:ab} avec six octets codés en base seize.
+
+La transcription en base dix de cette adresse MAC est :
+
+1. $200:96:0:164:137:171$
+2. $20:6:0:14:17:21$
+3. $96:0:0:40:72:110$
+4. $140:6:0:74:152:186$
+:::
+
+
+:::exercice
+La fonction ci-dessous doit retourner la liste des chiffres en base deux d'un entier
+n par ordre décroissant des poids de gauche à droite.
+
+~~~python
+def nombre2chiffres(n):
+    t = []
+    while n >= 2:
+        ..........
+        n = n // 2
+    ..............
+    t.reverse()
+    return t
+~~~
+
+Quelle instruction peut-on écrire en lignes 4 et 6 ?
+
+1. `t.append(n)`
+2. `t.append(n % 2)`
+3. `t.append(n // 2)`
+4. `t = t + [n % 2]`
+:::
+
+
 
 :::exercice
 1. Représenter en binaire le nombre d’écriture décimale 49.
@@ -417,8 +513,75 @@ Que contient la variable compteur à la fin de l’exécution de ce script ?
    * $111$
    * $10011$
    * $10111$
-4. Détermine le nombre de caractères qu'on peut coder sur un octet.
+4. Déterminer le nombre de caractères qu'on peut coder sur un octet.
 :::
+
+:::exercice
+On souhaite convertir 25 de base 10 en base 2.
+On obtient en binaire :
+
+Réponses :
+
+1.    11001
+2.    10110
+3.    10011
+4.    11000
+:::
+
+:::exercice
+Quelle est la valeur affichée par l'exécution du test suivant ?
+
+~~~python
+In [1]: 0.1 + 0.2 == 0.3              
+                                                                                                                                                                         
+Out[1]: False
+~~~
+
+Réponses :
+
+1. `True`
+2. `False`
+3.  0.3
+:::
+
+
+:::exercice
+Quelle est la valeur affichée a l'exécution du programme Python suivant ?
+
+~~~python
+x = 1 
+for i in range(11): 
+    x = x * 2 
+print(x)
+~~~
+
+Réponses :
+
+1.  1024
+2.  2048
+3.  23
+4.  $2^{2^{11}}$
+:::
+
+
+:::exercice
+Quelle est la valeur affichée a l'exécution du programme Python suivant ?
+
+~~~python
+x = 2 
+for i in range(10): 
+    x = x ** 2 
+print(x)
+~~~
+
+Réponses :
+
+1.  1024
+2.  2048
+3.  $2^{2^{10}}$
+4.  $2^{2^{11}}$
+:::
+
 
 :::exercice
 
@@ -556,6 +719,67 @@ A quelle expression logique correspond cette table de vérité ?
 
 
 # Algorithmique
+
+:::exercice
+Écrire une fonction `min2(a, b)` qui retourne le minimum de deux nombres passés en
+paramètre, sans utiliser la fonction min du module builtins.
+:::
+
+
+:::exercice
+Écrire une fonction `min_liste(L)` qui retourne le minimum d’une liste de nombres passée
+en paramètre.
+:::
+
+:::exercice
+Un élève a écrit la fonction ci-dessus pour déterminer si le premier paramètre n est dans la
+liste L passée en second paramètre. Le professeur lui indique que son code comporte des erreurs.
+Proposer une version corrigée de cette fonction.
+
+~~~python
+def element_dans_liste(n, L):
+    for k in range(len(L)):
+        if e == n:
+            return True
+        else:
+            return False
+~~~
+:::
+
+:::exercice
+
+Pour chacune des listes ci-dessous, déterminer si l'algorithme le plus adapté pour qu'une
+machine y recherche une valeur est l’algorithme de recherche séquentielle ou l’algorithme
+de recherche dichotomique.
+
+1. Liste A : `[4, 6, 15, 20, 21, 26, 31, 41, 42, 50, 69, 87, 88, 92, 97]`
+2. Liste B : `[41, 97, 91, 59, 7, 45, 3, 96, 26, 32, 18, 11, 67, 74, 54]`
+:::
+
+
+:::exercice
+
+Compléter le code de la fonction `recherche_dicho_dec(x, L)` qui prend en paramètres
+un nombre `x` et une liste de nombres `L` triée dans l’ordre décroissant. Elle doit retourner
+`True` si `x` appartient à L et False sinon.
+
+~~~python
+def recherche_dicho_dec(x, L):
+    a, b = 0, len(L) - 1
+    while a <= b:
+        m = (a + b) // 2
+        if L[m] > x:
+            ..................
+        elif L[m] < x:
+            ................
+        else:
+            .................
+    .........................
+~~~
+
+
+:::
+
 
 # Le Web
 

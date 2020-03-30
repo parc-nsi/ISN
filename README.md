@@ -143,6 +143,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 
 * Projet Final :
     - [Consignes pour le projet final](ProjetFinal/ISN_Presentation_Projet2020.pdf)
+    - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
     
     
 * Révisions Python avec `ipythonblocks`:

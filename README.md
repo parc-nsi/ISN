@@ -154,6 +154,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [version Github markdown](OralBac/Preparation-oral-bac-git.md)
   - [version diaporama HTML](OralBac/Preparation-oral-bac-slidy.html)
   - [version simple HTML](OralBac/Preparation-oral-bac-.html)
+  - [corrigé mis à jour régulièrement](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=OralBac/Corrige-Oral-Bac.ipynb)
   
   
 * Classe virtuelle du lundi 23/03/2019:

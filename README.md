@@ -161,6 +161,11 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [Corrigé QCM Genumsi](https://genumsi.inria.fr/qcm-corrige.php?cle=ODc7NzM7NzI7NzA7NjU7MTg7MjE7MjI7MjQ7MjY7NDA7NDE7NDI7NDQ7NDU7NDY7NDg7Njg7NzE7MTM2OzE3NzsxNzg7MzAwOzM3MTszOTg=)
   - Travail par groupes de projet
 
+* Classe virtuelle du lundi 30/03/2019:
+  - Préparation de l'oral du bac : exercices 6 à 11 sur [https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html](https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html)
+  - Point étape n°1 du projet : récupération des fiches de synthèse
+  - Travail par groupes de projet
+
 
 
   

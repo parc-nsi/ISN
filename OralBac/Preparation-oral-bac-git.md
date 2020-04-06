@@ -259,19 +259,21 @@ Quelle est la fonction qui ne convient pas ?
 
 Réponses :
 
-1.  
+1.  Réponse 1
+
 <!-- end list -->
 
 ``` python
 def compte(t):
     cpt = 1
     for i in range(1,len(t)):
-    if t[i] != t[i-1]:
-        cpt = cpt + 1
+        if t[i] != t[i-1]:
+            cpt = cpt + 1
     return cpt
 ```
 
-2.  
+2.  Réponse 2
+
 <!-- end list -->
 
 ``` python
@@ -282,7 +284,8 @@ def compte(t):
       return cpt
 ```
 
-3.  
+3.  Réponse 3
+
 <!-- end list -->
 
 ``` python
@@ -451,8 +454,8 @@ Le résultat de la somme ![\\overline{101101}^{2} +
 
 **Exercice 22**
 
-Le plus grand entier qu’on peut représenter en base deux sur 8 bits est
-:
+Le plus grand entier qu’on peut représenter en base deux sur 8 bits a
+pour écriture décimale :
 
 1.  11111111
 2.  10000000

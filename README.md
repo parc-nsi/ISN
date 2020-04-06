@@ -143,6 +143,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 
 * Projet Final :
     - [Consignes pour le projet final](ProjetFinal/ISN_Presentation_Projet2020.pdf)
+    - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
     
     
 * Révisions Python avec `ipythonblocks`:
@@ -154,6 +155,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [version Github markdown](OralBac/Preparation-oral-bac-git.md)
   - [version diaporama HTML](OralBac/Preparation-oral-bac-slidy.html)
   - [version simple HTML](OralBac/Preparation-oral-bac-.html)
+  - [corrigé mis à jour régulièrement](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=OralBac/Corrige-Oral-Bac.ipynb)
   
   
 * Classe virtuelle du lundi 23/03/2019:
@@ -165,6 +167,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - Préparation de l'oral du bac : exercices 6 à 11 sur [https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html](https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html)
   - Point étape n°1 du projet : récupération des fiches de synthèse
   - Travail par groupes de projet
+  - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
 
 
 

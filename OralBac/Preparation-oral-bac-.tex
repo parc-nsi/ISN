@@ -63,6 +63,9 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
+\usepackage[normalem]{ulem}
+% Avoid problems with \sout in headers with hyperref
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -815,6 +818,7 @@ Réponses :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
+  Réponse 1
 \end{enumerate}
 
 \begin{lstlisting}[language=Python]
@@ -828,6 +832,7 @@ while (a < 1 and a > 20) :
 \setcounter{enumi}{1}
 \tightlist
 \item
+  Réponse 2
 \end{enumerate}
 
 \begin{lstlisting}[language=Python]
@@ -840,6 +845,7 @@ while (a < 1 and a > 20) :
 \setcounter{enumi}{2}
 \tightlist
 \item
+  Réponse 3
 \end{enumerate}
 
 \begin{lstlisting}[language=Python]
@@ -853,6 +859,7 @@ while (a < 1 or a > 20) :
 \setcounter{enumi}{3}
 \tightlist
 \item
+  Réponse 4
 \end{enumerate}
 
 \begin{lstlisting}[language=Python]
@@ -1243,39 +1250,6 @@ Réponses :
 
 \begin{exercice}{}
 
-\emph{Auteur : Sylvie Genre, question n°197 Genumsi}
-
-La fonction suivante doit calculer la moyenne d'un tableau de nombres,
-passé en paramètre. Avec quelles expressions faut-il compléter
-l'écriture pour que la fonction soit correcte ? :
-
-\begin{lstlisting}[language=Python]
-def moyenne(tableau) :
-     total = ...
-     for valeur in tableau :
-          total = total + valeur
-     return total / .....
-\end{lstlisting}
-
-Réponses :
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  0 et \passthrough{\lstinline!len(tableau)!}
-\item
-  0 et \passthrough{\lstinline!len(tableau) + 1!}
-\item
-  1 et \passthrough{\lstinline!len(tableau)!}
-\item
-  1 et \passthrough{\lstinline!len(tableau) + 1!}
-\end{enumerate}
-
-\end{exercice}
-
-\begin{exercice}{}
-
 \emph{Auteur : Nicolas Réveret, question n°379 Genumsi}
 
 On a saisi le code suivant :
@@ -1313,6 +1287,299 @@ M[1] = 732
   {[}731, 732, 734{]}
 \item
   {[}732, 732, 734{]}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On considère l'extrait de code suivant :
+
+\begin{lstlisting}[language=Python]
+while (a < 20) or (b > 50):
+    .......
+    .......
+\end{lstlisting}
+
+Quelles conditions permettent de mettre fin à cette boucle ?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :} la boucle prend fin lorsque
+  \passthrough{\lstinline!a < 20 ou b > 50!}
+\item
+  \textbf{Réponse 2 :} la boucle prend fin lorsque
+  \passthrough{\lstinline!a < 20 et b > 50!}
+\item
+  \textbf{Réponse 3 :} la boucle prend fin lorsque
+  \passthrough{\lstinline!a >= 20 ou b <= 50!}
+\item
+  \textbf{Réponse 4 :} la boucle prend fin lorsque
+  \passthrough{\lstinline!a >= 20 et b <= 50!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On exécute le script suivant :
+
+\begin{lstlisting}[language=Python]
+L = [12,0,8,7,3,1,5,3,8]
+
+a = [elt for elt in L if elt < 4]
+\end{lstlisting}
+
+Quelle est la valeur de a à la fin de son exécution ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :} \passthrough{\lstinline![12,0,8]!}
+\item
+  \textbf{Réponse 2 :} \passthrough{\lstinline![12,0,8,7]!}
+\item
+  \textbf{Réponse 3 :} \passthrough{\lstinline![0,3,1,3]!}
+\item
+  \textbf{Réponse 4 :} \passthrough{\lstinline![0,3,1]!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On définit : \passthrough{\lstinline!L = [10,9,8,7,6,5,4,3,2,1]!}.
+
+Quelle est la valeur de \passthrough{\lstinline!L[L[3]]!} ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :} 3
+\item
+  \textbf{Réponse 2 :} 4
+\item
+  \textbf{Réponse 3 :} 7
+\item
+  \textbf{Réponse 4 :} 8
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On définit une grille G remplie de 0, sous la forme d'une liste de
+listes, où toutes les sous-listes ont le même nombre d'éléments.
+
+\begin{lstlisting}[language=Python]
+G = [ [0, 0, 0, ..., 0],
+[0, 0, 0, ..., 0],
+[0, 0, 0, ..., 0],
+
+......
+[0, 0, 0, ..., 0]]
+\end{lstlisting}
+
+On appelle \emph{hauteur} de la grille le nombre de sous-listes
+contenues dans G et \emph{largeur} de la grille le nombre d'éléments
+dans chacune de ces sous-listes. Comment peut-on les obtenir ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Réponse 1:}
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+hauteur = len(G[0])
+largeur = len(G)
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Réponse 2 :}
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+hauteur = len(G)
+largeur = len(G[0])
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Réponse 3 :}
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+hauteur = len(G[0])
+largeur = len(G[1])
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{Réponse 4 :}
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+hauteur = len(G[1])
+largeur = len(G[0])
+\end{lstlisting}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Quelle est la valeur de l'expression
+\passthrough{\lstinline![[0] * 3 for i in range(2)]!} ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Réponse 1 :} \passthrough{\lstinline![[0,0], [0,0], [0,0]]!}
+\item
+  \textbf{Réponse 2 :} \passthrough{\lstinline![[0,0,0], [0,0,0]]!}
+\item
+  \textbf{Réponse 3 :} \passthrough{\lstinline![[0.000], [0.000]]!}
+\item
+  \textbf{Réponse 4 :}
+  \passthrough{\lstinline![[0.00], [0.00], [0.00]]!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On exécute le script suivant :
+
+\begin{lstlisting}[language=Python]
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = a + b
+\end{lstlisting}
+
+Que contient la variable \passthrough{\lstinline!c!} à la fin de cette
+exécution ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :} \passthrough{\lstinline![5,7,9]!}
+\item
+  \textbf{Réponse 2 :} \passthrough{\lstinline![1,4,2,5,3,6]!}
+\item
+  \textbf{Réponse 3 :} \passthrough{\lstinline![1,2,3,4,5,6]!}
+\item
+  \textbf{Réponse 4 :} \passthrough{\lstinline![1,2,3,5,7,9]!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On exécute le script suivant~:
+
+\begin{lstlisting}[language=Python]
+asso = []
+L=[['marc','marie'],['marie','jean'],
+    ['paul','marie'], ['marie','marie'],
+    ['marc','anne']]
+for c in L :
+    if c[1]=='marie':
+        asso.append(c[0])
+\end{lstlisting}
+
+Que vaut asso à la fin de l'exécution ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponses 1:}
+  \passthrough{\lstinline!['marc', 'jean', 'paul']!}
+\item
+  \textbf{Réponses 2 :}
+  \passthrough{\lstinline![['marc','marie'], ['paul','marie'], ['marie','marie']]!}
+\item
+  \textbf{Réponses 3 :}
+  \passthrough{\lstinline!['marc', 'paul', 'marie']!}
+\item
+  \textbf{Réponses 4 :} \passthrough{\lstinline!['marie', 'anne']!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Quelle est la valeur de la variable n à la fin de l'exécution du script
+ci-dessous ?
+
+\begin{lstlisting}[language=Python]
+n = 1
+while n != 20:
+    n = n + 2
+\end{lstlisting}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1:} 1
+\item
+  \textbf{Réponse 2:} 20
+\item
+  \textbf{Réponse 3:} 22
+\item
+  \textbf{Réponse 42:} le programme ne termine pas, la boucle tourne
+  indéfiniment
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On définit en Python la fonction suivante :
+\textasciitilde{}\sout{python def f(L): S = {[}{]} for i in
+range(len(L)-1): S.append(L{[}i{]} + L{[}i+1{]}) return
+S}\textasciitilde{}
+
+Quelle est la liste renvoyée par
+\passthrough{\lstinline!f([1, 2, 3, 4, 5, 6])!}~?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \passthrough{\lstinline![3, 5, 7, 9, 11, 13]!}
+\item
+  \passthrough{\lstinline![1, 3, 5, 7, 9, 11]!}
+\item
+  \passthrough{\lstinline![3, 5, 7, 9, 11]!}
+\item
+  cet appel de fonction déclenche un message d'erreur
 \end{enumerate}
 
 \end{exercice}
@@ -1376,6 +1643,139 @@ pour écriture décimale :
   255
 \item
   256
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Quelle est l'écriture décimale de l'entier qui s'écrit 1010 en binaire ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  5
+\item
+  10
+\item
+  20
+\item
+  22
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Combien d'entiers positifs ou nuls (entiers non signés) peut-on
+représenter en machine sur 32~bits~?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(2^{32} - 1\)
+\item
+  \(2^{32}\)
+\item
+  \(2 \times 32\)
+\item
+  \(32^{2}\)
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Combien de bits faut-il au minimum pour coder le nombre décimal 4085 ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  4
+\item
+  12
+\item
+  2042
+\item
+  2043
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Parmi les propositions suivantes, laquelle est la représentation binaire
+de 761 ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  11 1100 1101
+\item
+  11 1110 0101
+\item
+  10 0111 1001
+\item
+  10 1111 0001
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Le codage d'une couleur se fait à l'aide de trois nombres compris
+chacun, en écriture décimale, entre 0 et 255 (code RVB).
+
+La couleur «~vert impérial~»~est codée, en écriture décimale, par (0,86,
+27).
+
+Le codage hexadécimal (base 16) correspondant est~:
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  (0, 134, 39)
+\item
+  (0, 134, 1B)
+\item
+  (0, 56, 1B)
+\item
+  (0, 56, 39)
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Quelle est l'écriture binaire du nombre entier 183 ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  0100 1000
+\item
+  1110 1101
+\item
+  1011 0111
+\item
+  1001 0101
 \end{enumerate}
 
 \end{exercice}
@@ -1524,6 +1924,27 @@ Réponses :
   \passthrough{\lstinline!False!}
 \item
   0.3
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Combien de bits sont nécessaires pour représenter 15 en binaire ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  2
+\item
+  3
+\item
+  4
+\item
+  5
 \end{enumerate}
 
 \end{exercice}
@@ -1713,14 +2134,62 @@ def nbchiffres_base2(n):
 
 \end{exercice}
 
-\hypertarget{architecture}{%
-\section{Architecture}\label{architecture}}
+\hypertarget{logique-booluxe9enne-et-architecture}{%
+\section{Logique booléenne et
+architecture}\label{logique-booluxe9enne-et-architecture}}
 
 \begin{exercice}{}
 
 En 1945, John Von Neumann a décrit un modèle d'architecture qui est
 encore valable pour les ordinateurs actuels. Quelles sont les entités de
 ce modèle et comment communiquent-elles ?
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Parmi les quatre expressions suivantes, laquelle s'évalue en True ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :}
+  \passthrough{\lstinline!False and (True and False)!}
+\item
+  \textbf{Réponse 2 :}
+  \passthrough{\lstinline!False or (True and False)!}
+\item
+  \textbf{Réponse 3 :}
+  \passthrough{\lstinline!True and (True and False)!}
+\item
+  \textbf{Réponse 4 :}
+  \passthrough{\lstinline!True or (True and False)!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Sachant que l'expression \passthrough{\lstinline!not(a or b)!} a la
+valeur True, quelles peuvent être les valeurs des variables booléennes a
+et b~?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  True et True
+\item
+  False et True
+\item
+  True et False
+\item
+  False et False
+\end{enumerate}
 
 \end{exercice}
 
@@ -1796,8 +2265,155 @@ A & B & f(A, B)\tabularnewline
 
 \end{exercice}
 
+\begin{exercice}{}
+
+Choisir une expression booléenne pour la variable S qui satisfait la
+table de vérité suivante.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+A & B & S\tabularnewline
+\midrule
+\endhead
+0 & 0 & 1\tabularnewline
+0 & 1 & 0\tabularnewline
+1 & 0 & 1\tabularnewline
+1 & 1 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+Réponse :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A ou (non B)
+\item
+  (non A) ou B
+\item
+  (non A) ou (non B)
+\item
+  non (A ou B)
+\end{enumerate}
+
+\end{exercice}
+
 \hypertarget{algorithmique}{%
 \section{Algorithmique}\label{algorithmique}}
+
+\begin{exercice}{}
+
+T est un tableau de nombres entiers non vide. Que représente la valeur
+de s~renvoyée par cette fonction ?
+
+\begin{lstlisting}[language=Python]
+def mystere(T):
+    s = 0
+    for k in T:
+        if k % 2 == 0:
+            s = s+k
+    return s
+\end{lstlisting}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :} la somme des valeurs du tableau T
+\item
+  \textbf{Réponse 2 :} la somme des valeurs positives du tableau T
+\item
+  \textbf{Réponse 3 :} la somme des valeurs impaires du tableau T
+\item
+  \textbf{Réponse 4 :} la somme des valeurs paires du tableau T
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Soit \(n\) un entier naturel. Sa factorielle est le produit des nombres
+entiers strictement positifs qui sont plus petits ou égaux à \(n\). Par
+exemple la factorielle de 4 vaut \(1 \times 2 \times 3 \times 4 = 24\).
+
+Quelle est la fonction correcte parmi les suivantes ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Réponse 1 :}
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+def factorielle(n):
+    i = 0
+    fact = 1
+    while i <= n:
+        fact = fact * i
+        i = i + 1
+    return fact
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Réponse 2 :}
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+def factorielle(n):
+    i = 1
+    fact = 1
+    while i < n:
+        fact = fact * i
+        i = i + 1
+    return fact
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Réponse 3 :}\\
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+def factorielle(n):
+    i = 0
+    fact = 1
+    while i < n:
+        i = i + 1
+        fact = fact * i
+    return fact
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{Réponse 4 :}
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+def factorielle(n):
+    i = 0
+    fact = 1
+    while i <= n:
+        i = i + 1
+        fact = fact * i
+    return fact
+\end{lstlisting}
+
+\end{exercice}
 
 \begin{exercice}{}
 
@@ -1809,8 +2425,70 @@ min du module builtins.
 
 \begin{exercice}{}
 
+En voulant programmer une fonction qui calcule la valeur minimale d'une
+liste d'entiers, on a écrit :
+
+\begin{lstlisting}[language=Python]
+def minimum(L):
+    mini = 0
+    for e in L:
+        if e < mini:
+            mini = e
+    return mini
+\end{lstlisting}
+
+Cette fonction a été mal programmée. Pour quelle liste ne donnera-t-elle
+pas le résultat attendu, c'est-à-dire son minimum ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Réponse 1 :} \passthrough{\lstinline![-1,-8,12,2,23]!}
+\item
+  \textbf{Réponse 2:} \passthrough{\lstinline![0,18,12,2,3]!}
+\item
+  \textbf{Réponse 3:} \passthrough{\lstinline![-1,-1,12,12,23]!}
+\item
+  \textbf{Réponse 4:} \passthrough{\lstinline![1,8,12,2,23]!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
 Écrire une fonction \passthrough{\lstinline!min\_liste(L)!} qui retourne
 le minimum d'une liste de nombres passée en paramètre.
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Quelle est la valeur de element à la fin de l'exécution du code suivant
+:
+
+\begin{lstlisting}[language=Python]
+L = [1,2,3,4,1,2,3,4,0,2]
+element = L[0]
+for k in L:
+    if k > element:
+        element = k
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Réponse 1 :} 0
+\item
+  \textbf{Réponse 2:} 1
+\item
+  \textbf{Réponse 3:} 4
+\item
+  \textbf{Réponse 4:} 10
+\end{enumerate}
 
 \end{exercice}
 
@@ -1873,6 +2551,71 @@ def recherche_dicho_dec(x, L):
             .................
     .........................
 \end{lstlisting}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+\emph{Auteur Sylvie Genre}
+
+La fonction suivante doit calculer la moyenne d'un tableau de nombres,
+passé en paramètre. Avec quelles expressions faut-il remplacer les
+points de suspension pour que la fonction soit correcte ?
+
+\begin{lstlisting}[language=Python]
+def moyenne(tableau):
+    total = ...
+    for valeur in tableau:
+        total = total + valeur
+    return total / ...
+\end{lstlisting}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Réponse 1 :} 1 et \passthrough{\lstinline!(len(tableau) + 1)!}
+\item
+  \textbf{Réponse 2:} 0 et \passthrough{\lstinline!(len(tableau) + 1)!}
+\item
+  \textbf{Réponse 3:} 0 et \passthrough{\lstinline!len(tableau)!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+On considère le code incomplet suivant qui recherche le maximum dans une
+liste.
+
+\begin{lstlisting}[language=Python]
+liste = [5,12,15,3,15,17,29,1]
+iMax = 0
+for i in range(1,len(liste)):
+    .........
+iMax = i
+print (liste[iMax])
+\end{lstlisting}
+
+Par quoi faut-il remplacer la ligne pointillée ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Réponse 1 :} \passthrough{\lstinline!if i > iMax:!}
+\item
+  \textbf{Réponse 2:}
+  \passthrough{\lstinline!if liste[i] > liste[iMax]:!}
+\item
+  \textbf{Réponse 3:} \passthrough{\lstinline!if liste[i] > iMax:!}
+\item
+  \textbf{Réponse 4:} \passthrough{\lstinline!if i > liste[iMax]:!}
+\end{enumerate}
 
 \end{exercice}
 
@@ -1961,6 +2704,31 @@ Réponses :
   \passthrough{\lstinline!<a href="lien hypertexte">https://www.w3schools.com/</a>!}
 \item
   \passthrough{\lstinline!<href a="https://www.w3schools.com/">lien hypertexte</href>!}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+Pour créer un lien vers la page d'accueil de Wikipédia, que devra-t-on
+écrire dans une page Web ?
+
+\textbf{Réponses :}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :}
+  \passthrough{\lstinline!<a target="http://fr.wikipedia.org">Wikipédia</a>!}
+\item
+  \textbf{Réponse 2 :}
+  \passthrough{\lstinline!<a href="http://fr.wikipedia.org">!}
+\item
+  \textbf{Réponse 3 :}
+  \passthrough{\lstinline!<a href="http://fr.wikipedia.org">Wikipédia</a>!}
+\item
+  \textbf{Réponse 4 :}
+  \passthrough{\lstinline!<link src="http://fr.wikipedia.org">Wikipédia</link>!}
 \end{enumerate}
 
 \end{exercice}

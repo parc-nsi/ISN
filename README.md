@@ -175,4 +175,14 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
 
 
+
+* Classe virtuelle du mardi  13/04/2020:
+  - Préparation de l'oral du bac sur [https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html](https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html)
+    * exercices 13 à 15 : listes en compréhension
+    * exercices 28 et 19 : représentation en base deux d'entiers en écriture décimale
+    * exercice 50  : expressions booléennes
+    * exercice 57 : parcours d'un tableau
+  - Travail par groupes de projet
+  - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
+
   

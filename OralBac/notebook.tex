@@ -1,0 +1,864 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Corrige-Oral-Bac}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{corriguxe9s-des-exercices-de-pruxe9paration-uxe0-loral-du-bac}{%
+\section{Corrigés des exercices de préparation à l'oral du
+Bac}\label{corriguxe9s-des-exercices-de-pruxe9paration-uxe0-loral-du-bac}}
+
+Les énoncés des exercices se trouvent sur :
+
+-\href{OralBac/Preparation-oral-bac-.pdf}{version pdf}
+
+-\href{OralBac/Preparation-oral-bac-git.md}{version Github markdown}
+
+-\href{OralBac/Preparation-oral-bac-slidy.html}{version diaporama HTML}
+
+-\href{OralBac/Preparation-oral-bac-.html}{version simple HTML}
+
+-\href{https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=OralBac/Corrige-Oral-Bac.ipynb}{corrigé
+mis à jour régulièrement}
+
+    \hypertarget{exercice-6}{%
+\subsection{Exercice 6}\label{exercice-6}}
+
+Pour le diplôme du baccalauréat, si on note \(m\) la moyenne du
+candidat, quatre mentions sont possibles : \emph{Passable} si
+\(10 \leqslant m < 12\), \emph{Assez bien} si \(12 \leqslant m < 14\),
+\emph{Bien} si \(14 \leqslant m < 16\) et \emph{Très bien} sinon.
+Recopier et compléter le script Python ci-dessous pour qu'il affiche la
+mention d'un candidat admis (on suppose sa moyenne supérieure ou égale à
+10).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m }\OperatorTok{=} \BuiltInTok{float}\NormalTok{(}\BuiltInTok{input}\NormalTok{(}\StringTok{\textquotesingle{}Moyenne du candidat ? \textquotesingle{}}\NormalTok{))}
+\ControlFlowTok{if} \DecValTok{10} \OperatorTok{<=}\NormalTok{ m }\OperatorTok{<} \DecValTok{12}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Passable"}\NormalTok{)}
+\CommentTok{\#to be completed}
+\end{Highlighting}
+\end{Shaded}
+
+    \textbf{Réponse ci-dessous :}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{m} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n+nb}{input}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Moyenne du candidat ? }\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+        \PY{k}{if} \PY{l+m+mi}{10} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{m} \PY{o}{\PYZlt{}} \PY{l+m+mi}{12}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Passable}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{k}{elif} \PY{l+m+mi}{12} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{m} \PY{o}{\PYZlt{}} \PY{l+m+mi}{14}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Assez Bien}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{k}{elif} \PY{l+m+mi}{14} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{m} \PY{o}{\PYZlt{}} \PY{l+m+mi}{16}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Bien}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Très Bien}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Moyenne du candidat ? 15
+Bien
+
+    \end{Verbatim}
+
+    \hypertarget{exercice-8}{%
+\subsection{Exercice 8}\label{exercice-8}}
+
+\emph{Auteur : Christophe Beasse}
+
+Que contient la variable \texttt{a} si on exécute ce script ?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ carre(val):}
+  \ControlFlowTok{return}\NormalTok{ val}\OperatorTok{*}\NormalTok{val}
+
+\KeywordTok{def}\NormalTok{ inc(val):}
+  \ControlFlowTok{return}\NormalTok{ val }\OperatorTok{+} \DecValTok{1}
+
+\NormalTok{a }\OperatorTok{=}\NormalTok{ carre(inc(}\FloatTok{3.0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  9.0
+\item
+  12.0
+\item
+  10.0
+\item
+  16.0
+\end{enumerate}
+
+    \textbf{Réponse :} 4. 16
+
+    \hypertarget{exercice-7}{%
+\subsection{Exercice 7}\label{exercice-7}}
+
+\emph{Auteur : Nicolas Revéret}
+
+On considère le code suivant :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ f(tab):}
+  \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\BuiltInTok{len}\NormalTok{(tab)}\OperatorTok{//}\DecValTok{2}\NormalTok{):}
+\NormalTok{    tab[i],tab[}\OperatorTok{{-}}\NormalTok{i}\DecValTok{{-}1}\NormalTok{] }\OperatorTok{=}\NormalTok{ tab[}\OperatorTok{{-}}\NormalTok{i}\DecValTok{{-}1}\NormalTok{],tab[i]}
+\end{Highlighting}
+\end{Shaded}
+
+Après les lignes suivantes :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab }\OperatorTok{=}\NormalTok{ [}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{]}
+\NormalTok{f(tab)}
+\end{Highlighting}
+\end{Shaded}
+
+Quelle est la valeur de la variable \texttt{tab} ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{{[}2,3,4,5,7,8{]}}
+\item
+  \texttt{{[}5,7,8,2,3,4{]}}
+\item
+  \texttt{{[}8,7,5,4,3,2{]}}
+\item
+  \texttt{{[}4,3,2,8,7,5{]}}
+\end{enumerate}
+
+    \textbf{Réponse} : cette fonction retourne la liste inversée
+\texttt{{[}8,7,5,4,3,2{]}} et donc la réponse est la 3.
+
+    \hypertarget{exercice-9}{%
+\subsection{Exercice 9}\label{exercice-9}}
+
+\emph{Auteur : Christophe Beasse}
+
+Soit la liste suivante :
+\texttt{liste\_pays\ ={[}"France","Allemagne","Italie","Belgique"{]}}
+
+Que renvoie : \texttt{liste\_pays{[}2{]}} ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{"France"}
+\item
+  \texttt{"Allemagne"}
+\item
+  \texttt{"Italie"}
+\item
+  \texttt{"Belgique"}
+\end{enumerate}
+
+    \textbf{Réponse} : 3. ``Italie''
+
+    \hypertarget{exercice-12}{%
+\subsection{Exercice 12}\label{exercice-12}}
+
+\emph{Auteur : Nicolas Revéret}
+
+On dispose d'un tableau d'entiers, ordonné en ordre croissant.
+
+On désire connaître le nombre de valeurs distinctes contenues dans ce
+tableau.
+
+Quelle est la fonction qui ne convient pas ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Réponse 1
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ compte(t):}
+\NormalTok{    cpt }\OperatorTok{=} \DecValTok{1}
+    \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{,}\BuiltInTok{len}\NormalTok{(t)):}
+        \ControlFlowTok{if}\NormalTok{ t[i] }\OperatorTok{!=}\NormalTok{ t[i}\DecValTok{{-}1}\NormalTok{]:}
+\NormalTok{            cpt }\OperatorTok{=}\NormalTok{ cpt }\OperatorTok{+} \DecValTok{1}
+    \ControlFlowTok{return}\NormalTok{ cpt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Réponse 2
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \KeywordTok{def}\NormalTok{ compte(t):}
+\NormalTok{      cpt }\OperatorTok{=} \DecValTok{0}
+      \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\BuiltInTok{len}\NormalTok{(t)}\OperatorTok{{-}}\DecValTok{1}\NormalTok{):}
+\NormalTok{        cpt }\OperatorTok{=}\NormalTok{ cpt }\OperatorTok{+} \BuiltInTok{int}\NormalTok{(t[i] }\OperatorTok{!=}\NormalTok{ t[i}\OperatorTok{+}\DecValTok{1}\NormalTok{])}
+      \ControlFlowTok{return}\NormalTok{ cpt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Réponse 3
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \KeywordTok{def}\NormalTok{ compte(t):}
+\NormalTok{      cpt }\OperatorTok{=} \DecValTok{0}
+      \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\BuiltInTok{len}\NormalTok{(t)}\OperatorTok{{-}}\DecValTok{1}\NormalTok{):}
+        \ControlFlowTok{if}\NormalTok{ t[i] }\OperatorTok{!=}\NormalTok{ t[i}\OperatorTok{+}\DecValTok{1}\NormalTok{]:}
+\NormalTok{          cpt }\OperatorTok{=}\NormalTok{ cpt }\OperatorTok{+} \DecValTok{1}
+      \ControlFlowTok{return}\NormalTok{ cpt}\OperatorTok{+}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+    \textbf{Corrigé: la bonne réponse est la 3, voir ci-dessous}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{k}{def} \PY{n+nf}{compte}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+             \PY{n}{cpt} \PY{o}{=} \PY{l+m+mi}{1}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{)}\PY{p}{:}       
+                 \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{!=} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{:}
+                     \PY{n}{cpt} \PY{o}{=} \PY{n}{cpt} \PY{o}{+} \PY{l+m+mi}{1}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{cpt}\PY{p}{)}
+             \PY{k}{return} \PY{n}{cpt}
+         
+         
+         \PY{k}{def} \PY{n+nf}{compte2}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+             \PY{n}{cpt} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+              \PY{c+c1}{\PYZsh{}cpt = cpt + int(t[i] != t[i+1])}
+              \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{!=} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{:}
+                 \PY{n}{cpt} \PY{o}{=} \PY{n}{cpt} \PY{o}{+} \PY{l+m+mi}{1}
+             \PY{k}{return} \PY{n}{cpt}
+         
+         \PY{k}{def} \PY{n+nf}{compte3}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+               \PY{n}{cpt} \PY{o}{=} \PY{l+m+mi}{0}
+               \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{!=} \PY{n}{t}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{:}
+                   \PY{n}{cpt} \PY{o}{=} \PY{n}{cpt} \PY{o}{+} \PY{l+m+mi}{1}
+               \PY{k}{return} \PY{n}{cpt} \PY{o}{+} \PY{l+m+mi}{1}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{compte}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1 1 1
+2 1 2
+3 2 3
+3 3 3
+4 3 4
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}5}]:} 4
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{l+m+mi}{0} \PY{o}{!=} \PY{l+m+mi}{2}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}6}]:} True
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{l+m+mi}{0} \PY{o}{==} \PY{l+m+mi}{2}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:} False
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n+nb}{int}\PY{p}{(}\PY{l+m+mi}{0} \PY{o}{!=} \PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:} 1
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n+nb}{int}\PY{p}{(} \PY{l+m+mi}{0} \PY{o}{==} \PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}9}]:} 0
+\end{Verbatim}
+            
+    \hypertarget{exercice-13}{%
+\subsection{Exercice 13}\label{exercice-13}}
+
+\emph{Auteur : Eric Rougier}
+
+Quel est le résultat de l'évaluation de l'expression Python suivante ?
+
+\texttt{{[}2\ **\ n\ for\ n\ in\ range(4){]}}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{{[}0,\ 2,\ 4,\ 6,\ 8{]}}
+\item
+  \texttt{{[}1,\ 2,\ 4,\ 8{]}}
+\item
+  \texttt{{[}0,\ 1,\ 4,\ 9{]}}
+\item
+  \texttt{{[}1,\ 2,\ 4,\ 8,\ 16{]}}
+\end{enumerate}
+
+    \textbf{Corrigé} : La réponse est la 2.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{p}{[}\PY{l+m+mi}{2} \PY{o}{*}\PY{o}{*} \PY{n}{n} \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}3}]:} [1, 2, 4, 8]
+\end{Verbatim}
+            
+    \hypertarget{exercice-14}{%
+\subsection{Exercice 14}\label{exercice-14}}
+
+\emph{Auteur : Germain Becker, question n°326 Genumsi}
+
+Quel est le tableau \texttt{t} construit par les instructions suivantes
+?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{{-}3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{{-}1}\NormalTok{, }\DecValTok{0}\NormalTok{]}
+\NormalTok{t }\OperatorTok{=}\NormalTok{ [e }\ControlFlowTok{for}\NormalTok{ e }\KeywordTok{in}\NormalTok{ tab }\ControlFlowTok{if}\NormalTok{ e }\OperatorTok{>=} \DecValTok{0}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{t\ =\ {[}1,\ 2,\ 7,\ 4,\ 10,\ 0{]}}
+\item
+  \texttt{t\ =\ {[}e,\ e,\ e,\ e,\ e,\ e{]}}
+\item
+  \texttt{t\ =\ {[}1,\ 2,\ 7,\ 4,\ 10{]}}
+\item
+  \texttt{t\ =\ {[}-3,\ -1,\ 0{]}}
+\end{enumerate}
+
+    \textbf{Corrigé} : La réponse est la 3.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{tab} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}
+        \PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{n}{e} \PY{k}{for} \PY{n}{e} \PY{o+ow}{in} \PY{n}{tab} \PY{k}{if} \PY{n}{e} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{0}\PY{p}{]}
+        \PY{n}{t}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}5}]:} [1, 2, 7, 4, 10, 0]
+\end{Verbatim}
+            
+    \hypertarget{exercice-15}{%
+\subsection{Exercice 15}\label{exercice-15}}
+
+\emph{Auteur : Germain Becker, question n°339 Genumsi}
+
+On considère le tableau t suivant.
+
+\texttt{t\ =\ {[}{[}1,\ 2,\ 3{]},\ {[}2,\ 3,\ 4{]},\ {[}3,\ 4,\ 5{]},\ {[}4,\ 5,\ 6{]}{]}}
+
+Quelle est la valeur de t{[}1{]}{[}2{]} ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  1
+\item
+  3
+\item
+  4
+\item
+  2
+\end{enumerate}
+
+    \textbf{Corrigé} : La réponse est la 3.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{t} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{]}\PY{p}{]}
+        \PY{n}{t}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} 
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:} 4
+\end{Verbatim}
+            
+    \hypertarget{exercice-28}{%
+\subsection{Exercice 28}\label{exercice-28}}
+
+Le codage en base deux de l'entier 26 en base dix est :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  11010
+\item
+  10010
+\item
+  11001
+\item
+  110010
+\end{enumerate}
+
+    \textbf{Corrigé} : La réponse est la 1.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n+nb}{bin}\PY{p}{(}\PY{l+m+mi}{26}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}10}]:} '0b11010'
+\end{Verbatim}
+            
+    \hypertarget{exercice-29}{%
+\subsection{Exercice 29}\label{exercice-29}}
+
+Le résultat de la somme
+\(\overline{101101}^{2} + \overline{101111}^{2}\) est :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\overline{1100100}^{2}\)
+\item
+  \(\overline{1110101}^{2}\)
+\item
+  \(\overline{1011100}^{2}\)
+\item
+  \(\overline{1111100}^{2}\)
+\end{enumerate}
+
+    \textbf{Corrigé} : La réponse est la 3.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{l+m+mb}{0b101101} \PY{o}{+} \PY{l+m+mb}{0b101111}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}12}]:} 92
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n+nb}{bin}\PY{p}{(}\PY{l+m+mi}{92}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}13}]:} '0b1011100'
+\end{Verbatim}
+            
+    \hypertarget{exercice-50}{%
+\subsection{Exercice 50}\label{exercice-50}}
+
+Parmi les quatre expressions suivantes, laquelle s'évalue en True ?
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :} \texttt{False\ and\ (True\ and\ False)}
+\item
+  \textbf{Réponse 2 :} \texttt{False\ or\ (True\ and\ False)}
+\item
+  \textbf{Réponse 3 :} \texttt{True\ and\ (True\ and\ False)}
+\item
+  \textbf{Réponse 4 :} \texttt{True\ or\ (True\ and\ False)}
+\end{enumerate}
+
+    \textbf{Corrigé} : La réponse est la 4.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{k}{for} \PY{n}{exp} \PY{o+ow}{in} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{False and (True and False)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{False or (True and False)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{True and (True and False)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{True or (True and False)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Valeur booléenne de }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{exp}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ = }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{eval}\PY{p}{(}\PY{n}{exp}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Valeur booléenne de  False and (True and False)  =  False
+Valeur booléenne de  False or (True and False)  =  False
+Valeur booléenne de  True and (True and False)  =  False
+Valeur booléenne de  True or (True and False)  =  True
+
+    \end{Verbatim}
+
+    T est un tableau de nombres entiers non vide. Que représente la valeur
+de s~renvoyée par cette fonction ?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ mystere(T):}
+\NormalTok{    s }\OperatorTok{=} \DecValTok{0}
+    \ControlFlowTok{for}\NormalTok{ k }\KeywordTok{in}\NormalTok{ T:}
+        \ControlFlowTok{if}\NormalTok{ k }\OperatorTok{\%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
+\NormalTok{            s }\OperatorTok{=}\NormalTok{ s}\OperatorTok{+}\NormalTok{k}
+    \ControlFlowTok{return}\NormalTok{ s}
+\end{Highlighting}
+\end{Shaded}
+
+Réponses :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Réponse 1 :} la somme des valeurs du tableau T
+\item
+  \textbf{Réponse 2 :} la somme des valeurs positives du tableau T
+\item
+  \textbf{Réponse 3 :} la somme des valeurs impaires du tableau T
+\item
+  \textbf{Réponse 4 :} la somme des valeurs paires du tableau T
+\end{enumerate}
+
+    \textbf{Corrigé} : La réponse est la 4.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{k}{def} \PY{n+nf}{mystere}\PY{p}{(}\PY{n}{T}\PY{p}{)}\PY{p}{:}
+             \PY{n}{s} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n}{T}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{k} \PY{o}{\PYZpc{}} \PY{l+m+mi}{2} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+                     \PY{n}{s} \PY{o}{=} \PY{n}{s}\PY{o}{+}\PY{n}{k}
+             \PY{k}{return} \PY{n}{s}
+         
+         \PY{k}{assert} \PY{n}{mystere}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mystere([1, 2,5, 4]) doit être égal à 6}\PY{l+s+s2}{\PYZdq{}}
+\end{Verbatim}
+
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

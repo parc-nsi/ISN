@@ -680,9 +680,8 @@ représenter en machine sur 32 bits ?
 
 Réponses :
 
-1.  ![2^{32}
-    - 1](https://latex.codecogs.com/png.latex?2%5E%7B32%7D%20-%201
-    "2^{32} - 1")
+1.  ![2^{32}-1](https://latex.codecogs.com/png.latex?2%5E%7B32%7D-1
+    "2^{32}-1")
 2.  ![2^{32}](https://latex.codecogs.com/png.latex?2%5E%7B32%7D
     "2^{32}")
 3.  ![2

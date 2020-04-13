@@ -685,7 +685,7 @@ Combien d'entiers positifs ou nuls (entiers non signés) peut-on représenter en
 
 Réponses :
 
-1. $2^{32} - 1$
+1. $2^{32}-1$
 2. $2^{32}$
 3. $2 \times 32$
 4. $32^{2}$

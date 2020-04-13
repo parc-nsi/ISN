@@ -182,6 +182,8 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
     * exercices 28 et 19 : représentation en base deux d'entiers en écriture décimale
     * exercice 50  : expressions booléennes
     * exercice 57 : parcours d'un tableau
+  - [corrigé version notebook jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=/OralBac/Corrige-Oral-Bac.ipynb)
+  
   - Travail par groupes de projet
   - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
 

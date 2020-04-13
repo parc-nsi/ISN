@@ -172,7 +172,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
 * Classe virtuelle du lundi 06/04/2020:
    - [Consignes pour la présentation de projet](https://frederic-junier.github.io/ISN/OralBac/2020-04-07-ProjetISN2020-Modalite-Evaluation.pdf)
   - Préparation de l'oral du bac : exercices 12 à 16 et 20 à 21  sur [https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html](https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html)
-   - Corrigés des exercices de préparation :
+  - Corrigés des exercices de préparation :
     * [Corrigés des exercices de préparation version notebook jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=/OralBac/Corrige-Oral-Bac.ipynb)  
     * [Corrigés des exercices de préparation version pdf](/OralBac/Corrige-Oral-Bac.pdf)  
     * [Corrigés des exercices de préparation version html](/OralBac/Corrige-Oral-Bac.html)  

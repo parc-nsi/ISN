@@ -188,6 +188,6 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
     * exercice 57 : parcours d'un tableau
   - [Corrigés des exercices de préparation version notebook jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=/OralBac/Corrige-Oral-Bac.ipynb)  
   - Travail par groupes de projet 
-  - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
+  - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a) 
 
   

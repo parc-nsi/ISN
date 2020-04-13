@@ -183,7 +183,7 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [Consignes pour la présentation de projet](https://frederic-junier.github.io/ISN/OralBac/2020-04-07-ProjetISN2020-Modalite-Evaluation.pdf)
   - Préparation de l'oral du bac sur [https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html](https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html)
     * exercices 13 à 15 : listes en compréhension
-    * exercices 28 et 19 : représentation en base deux d'entiers en écriture décimale
+    * exercices 28 et 29 : représentation en base deux d'entiers en écriture décimale
     * exercice 50  : expressions booléennes
     * exercice 57 : parcours d'un tableau
   - [Corrigés des exercices de préparation version notebook jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=/OralBac/Corrige-Oral-Bac.ipynb)  

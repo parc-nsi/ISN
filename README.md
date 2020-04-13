@@ -158,17 +158,21 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
   - [corrigé mis à jour régulièrement](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=OralBac/Corrige-Oral-Bac.ipynb)
   
   
-* Classe virtuelle du lundi 23/03/2019:
+* Classe virtuelle du lundi 23/03/2020:
   - [QCM Genumsi](https://genumsi.inria.fr/qcm.php?h=0263895bd98848eb41b69c58b66c66c3)
   - [Corrigé QCM Genumsi](https://genumsi.inria.fr/qcm-corrige.php?cle=ODc7NzM7NzI7NzA7NjU7MTg7MjE7MjI7MjQ7MjY7NDA7NDE7NDI7NDQ7NDU7NDY7NDg7Njg7NzE7MTM2OzE3NzsxNzg7MzAwOzM3MTszOTg=)
   - Travail par groupes de projet
 
-* Classe virtuelle du lundi 30/03/2019:
+* Classe virtuelle du lundi 30/03/2020:
   - Préparation de l'oral du bac : exercices 6 à 11 sur [https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html](https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html)
   - Point étape n°1 du projet : récupération des fiches de synthèse
   - Travail par groupes de projet
   - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
 
+* Classe virtuelle du lundi 06/04/2020:
+  - Préparation de l'oral du bac : exercices 12 à 16 et 20 à 21  sur [https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html](https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html)
+  - Travail par groupes de projet
+  - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a)
 
 
   

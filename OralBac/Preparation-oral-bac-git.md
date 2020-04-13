@@ -601,13 +601,20 @@ Réponses :
 
 3.  **Réponse 3:** 22
 
-4.  **Réponse 42:** le programme ne termine pas, la boucle tourne
+4.  **Réponse 4:** le programme ne termine pas, la boucle tourne
     indéfiniment
 
 **Exercice 27**
 
-On définit en Python la fonction suivante : \~~~python def f(L): S =
-\[\] for i in range(len(L)-1): S.append(L\[i\] + L\[i+1\]) return S~~\~
+On définit en Python la fonction suivante :
+
+``` python
+def f(L):
+    S = []
+    for i in range(len(L)-1):
+        S.append(L[i] + L[i+1])
+    return S
+```
 
 Quelle est la liste renvoyée par `f([1, 2, 3, 4, 5, 6])` ?
 

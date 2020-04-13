@@ -481,11 +481,16 @@
 <li><p><strong>Réponse 1:</strong> 1</p></li>
 <li><p><strong>Réponse 2:</strong> 20</p></li>
 <li><p><strong>Réponse 3:</strong> 22</p></li>
-<li><p><strong>Réponse 42:</strong> le programme ne termine pas, la boucle tourne indéfiniment</p></li>
+<li><p><strong>Réponse 4:</strong> le programme ne termine pas, la boucle tourne indéfiniment</p></li>
 </ol>
 </div>
 <div class="exercice">
-<p>On définit en Python la fonction suivante : ~<del>python def f(L): S = [] for i in range(len(L)-1): S.append(L[i] + L[i+1]) return S</del>~</p>
+<p>On définit en Python la fonction suivante :</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> f(L):</span>
+<span id="cb31-2"><a href="#cb31-2"></a>    S <span class="op">=</span> []</span>
+<span id="cb31-3"><a href="#cb31-3"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(L)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb31-4"><a href="#cb31-4"></a>        S.append(L[i] <span class="op">+</span> L[i<span class="op">+</span><span class="dv">1</span>])</span>
+<span id="cb31-5"><a href="#cb31-5"></a>    <span class="cf">return</span> S</span></code></pre></div>
 <p>Quelle est la liste renvoyée par <code>f([1, 2, 3, 4, 5, 6])</code> ?</p>
 <ol type="1">
 <li><code>[3, 5, 7, 9, 11, 13]</code></li>
@@ -605,14 +610,14 @@
 </div>
 <div class="exercice">
 <p>La fonction ci-dessous doit retourner la liste des chiffres en base deux d’un entier n par ordre décroissant des poids de gauche à droite.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> nombre2chiffres(n):</span>
-<span id="cb31-2"><a href="#cb31-2"></a>    t <span class="op">=</span> []</span>
-<span id="cb31-3"><a href="#cb31-3"></a>    <span class="cf">while</span> n <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
-<span id="cb31-4"><a href="#cb31-4"></a>        ..........</span>
-<span id="cb31-5"><a href="#cb31-5"></a>        n <span class="op">=</span> n <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb31-6"><a href="#cb31-6"></a>    ..............</span>
-<span id="cb31-7"><a href="#cb31-7"></a>    t.reverse()</span>
-<span id="cb31-8"><a href="#cb31-8"></a>    <span class="cf">return</span> t</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">def</span> nombre2chiffres(n):</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    t <span class="op">=</span> []</span>
+<span id="cb32-3"><a href="#cb32-3"></a>    <span class="cf">while</span> n <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb32-4"><a href="#cb32-4"></a>        ..........</span>
+<span id="cb32-5"><a href="#cb32-5"></a>        n <span class="op">=</span> n <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>    ..............</span>
+<span id="cb32-7"><a href="#cb32-7"></a>    t.reverse()</span>
+<span id="cb32-8"><a href="#cb32-8"></a>    <span class="cf">return</span> t</span></code></pre></div>
 <p>Quelle instruction peut-on écrire en lignes 4 et 6 ?</p>
 <ol type="1">
 <li><code>t.append(n)</code></li>
@@ -646,9 +651,9 @@
 </div>
 <div class="exercice">
 <p>Quelle est la valeur affichée par l’exécution du test suivant ?</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>In [<span class="dv">1</span>]: <span class="fl">0.1</span> <span class="op">+</span> <span class="fl">0.2</span> <span class="op">==</span> <span class="fl">0.3</span>              </span>
-<span id="cb32-2"><a href="#cb32-2"></a>                                                                                                                                                                         </span>
-<span id="cb32-3"><a href="#cb32-3"></a>Out[<span class="dv">1</span>]: <span class="va">False</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>In [<span class="dv">1</span>]: <span class="fl">0.1</span> <span class="op">+</span> <span class="fl">0.2</span> <span class="op">==</span> <span class="fl">0.3</span>              </span>
+<span id="cb33-2"><a href="#cb33-2"></a>                                                                                                                                                                         </span>
+<span id="cb33-3"><a href="#cb33-3"></a>Out[<span class="dv">1</span>]: <span class="va">False</span></span></code></pre></div>
 <p>Réponses :</p>
 <ol type="1">
 <li><code>True</code></li>
@@ -668,10 +673,10 @@
 </div>
 <div class="exercice">
 <p>Quelle est la valeur affichée a l’exécution du programme Python suivant ?</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>x <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>): </span>
-<span id="cb33-3"><a href="#cb33-3"></a>    x <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span> </span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>x <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>): </span>
+<span id="cb34-3"><a href="#cb34-3"></a>    x <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span> </span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="bu">print</span>(x)</span></code></pre></div>
 <p>Réponses :</p>
 <ol type="1">
 <li>1024</li>
@@ -682,10 +687,10 @@
 </div>
 <div class="exercice">
 <p>Quelle est la valeur affichée a l’exécution du programme Python suivant ?</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>x <span class="op">=</span> <span class="dv">2</span> </span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>): </span>
-<span id="cb34-3"><a href="#cb34-3"></a>    x <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span> </span>
-<span id="cb34-4"><a href="#cb34-4"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>x <span class="op">=</span> <span class="dv">2</span> </span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>): </span>
+<span id="cb35-3"><a href="#cb35-3"></a>    x <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span> </span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="bu">print</span>(x)</span></code></pre></div>
 <p>Réponses :</p>
 <ol type="1">
 <li>1024</li>
@@ -706,30 +711,30 @@
 <ol type="1">
 <li>Pour déterminer la liste des chiffres en base dix d’un entier naturel, un élève a écrit la fonction ci-dessous :</li>
 </ol>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">def</span> liste_chiffres(n):</span>
-<span id="cb35-2"><a href="#cb35-2"></a>    L <span class="op">=</span> [n <span class="op">%</span> <span class="dv">10</span>]</span>
-<span id="cb35-3"><a href="#cb35-3"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb35-4"><a href="#cb35-4"></a>        n <span class="op">=</span> n <span class="op">//</span> <span class="dv">10</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a>        L.insert(<span class="dv">0</span>, n <span class="op">%</span> <span class="dv">10</span>)</span>
-<span id="cb35-6"><a href="#cb35-6"></a>    <span class="cf">return</span> L</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">def</span> liste_chiffres(n):</span>
+<span id="cb36-2"><a href="#cb36-2"></a>    L <span class="op">=</span> [n <span class="op">%</span> <span class="dv">10</span>]</span>
+<span id="cb36-3"><a href="#cb36-3"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb36-4"><a href="#cb36-4"></a>        n <span class="op">=</span> n <span class="op">//</span> <span class="dv">10</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a>        L.insert(<span class="dv">0</span>, n <span class="op">%</span> <span class="dv">10</span>)</span>
+<span id="cb36-6"><a href="#cb36-6"></a>    <span class="cf">return</span> L</span></code></pre></div>
 <p>Malheureusement sa fonction ne retourne pas le résultat attendu pour l’entier <span class="math inline">\(730\)</span> :</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">&gt;&gt;&gt;</span> liste_chiffres(<span class="dv">730</span>)</span>
-<span id="cb36-2"><a href="#cb36-2"></a>[<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">&gt;&gt;&gt;</span> liste_chiffres(<span class="dv">730</span>)</span>
+<span id="cb37-2"><a href="#cb37-2"></a>[<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">0</span>]</span></code></pre></div>
 <p>Proposer une version corrigée de la fonction <code>liste\_chiffres</code>.</p>
 <ol start="2" type="1">
 <li>Compléter la fonction <code>somme_chiffres_base2(n)</code> pour qu’elle retourne la somme des chiffres en base deux de l’entier <code>n</code> passé en paramètre.</li>
 </ol>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">def</span> somme_chiffres_base2(n):</span>
-<span id="cb37-2"><a href="#cb37-2"></a>    s <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb37-3"><a href="#cb37-3"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb37-4"><a href="#cb37-4"></a>        s <span class="op">=</span> s <span class="op">+</span> n <span class="op">%</span> <span class="dv">2</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a>        ..............</span>
-<span id="cb37-6"><a href="#cb37-6"></a>    <span class="cf">return</span> s</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">def</span> somme_chiffres_base2(n):</span>
+<span id="cb38-2"><a href="#cb38-2"></a>    s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb38-4"><a href="#cb38-4"></a>        s <span class="op">=</span> s <span class="op">+</span> n <span class="op">%</span> <span class="dv">2</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>        ..............</span>
+<span id="cb38-6"><a href="#cb38-6"></a>    <span class="cf">return</span> s</span></code></pre></div>
 <ol start="3" type="1">
 <li>Déterminer une valeur possible de la variable  telle que :</li>
 </ol>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="op">&gt;&gt;&gt;</span> somme_chiffres(secret)</span>
-<span id="cb38-2"><a href="#cb38-2"></a><span class="dv">734</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="op">&gt;&gt;&gt;</span> somme_chiffres(secret)</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="dv">734</span></span></code></pre></div>
 <ol start="4" type="1">
 <li>Écrire une fonction <code>maximum_chiffre(n)</code> qui retourne le plus grand chiffre de l’écriture en base dix de l’entier naturel <code>n</code> passé en paramètre.</li>
 </ol>
@@ -741,15 +746,15 @@
 <li>l’unique entier <span class="math inline">\(p\)</span> tel que <span class="math inline">\(2^{p-1} \leqslant n &lt; 2^{p}\)</span> si <span class="math inline">\(n\)</span> supérieur à <span class="math inline">\(0\)</span>.</li>
 </ul>
 <p>Compléter la fonction ci-dessous pour qu’elle retourne le nombre de chiffres en base <span class="math inline">\(2\)</span> de l’entier  passé en paramètres.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">def</span> nbchiffres_base2(n):</span>
-<span id="cb39-2"><a href="#cb39-2"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb39-3"><a href="#cb39-3"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb39-4"><a href="#cb39-4"></a>    nbchiffre <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb39-5"><a href="#cb39-5"></a>    puissance <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb39-6"><a href="#cb39-6"></a>    <span class="cf">while</span> ..............:</span>
-<span id="cb39-7"><a href="#cb39-7"></a>        .........................</span>
-<span id="cb39-8"><a href="#cb39-8"></a>        .........................</span>
-<span id="cb39-9"><a href="#cb39-9"></a>    <span class="cf">return</span> ......................</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">def</span> nbchiffres_base2(n):</span>
+<span id="cb40-2"><a href="#cb40-2"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb40-3"><a href="#cb40-3"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb40-4"><a href="#cb40-4"></a>    nbchiffre <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb40-5"><a href="#cb40-5"></a>    puissance <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb40-6"><a href="#cb40-6"></a>    <span class="cf">while</span> ..............:</span>
+<span id="cb40-7"><a href="#cb40-7"></a>        .........................</span>
+<span id="cb40-8"><a href="#cb40-8"></a>        .........................</span>
+<span id="cb40-9"><a href="#cb40-9"></a>    <span class="cf">return</span> ......................</span></code></pre></div>
 </div>
 <h1 id="logique-booléenne-et-architecture">Logique booléenne et architecture</h1>
 <div class="exercice">
@@ -955,12 +960,12 @@
 <h1 id="algorithmique">Algorithmique</h1>
 <div class="exercice">
 <p>T est un tableau de nombres entiers non vide. Que représente la valeur de s renvoyée par cette fonction ?</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">def</span> mystere(T):</span>
-<span id="cb40-2"><a href="#cb40-2"></a>    s <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>    <span class="cf">for</span> k <span class="kw">in</span> T:</span>
-<span id="cb40-4"><a href="#cb40-4"></a>        <span class="cf">if</span> k <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb40-5"><a href="#cb40-5"></a>            s <span class="op">=</span> s<span class="op">+</span>k</span>
-<span id="cb40-6"><a href="#cb40-6"></a>    <span class="cf">return</span> s</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">def</span> mystere(T):</span>
+<span id="cb41-2"><a href="#cb41-2"></a>    s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>    <span class="cf">for</span> k <span class="kw">in</span> T:</span>
+<span id="cb41-4"><a href="#cb41-4"></a>        <span class="cf">if</span> k <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb41-5"><a href="#cb41-5"></a>            s <span class="op">=</span> s<span class="op">+</span>k</span>
+<span id="cb41-6"><a href="#cb41-6"></a>    <span class="cf">return</span> s</span></code></pre></div>
 <p>Réponses :</p>
 <ol type="1">
 <li><p><strong>Réponse 1 :</strong> la somme des valeurs du tableau T</p></li>
@@ -976,56 +981,56 @@
 <ol type="1">
 <li><strong>Réponse 1 :</strong></li>
 </ol>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">def</span> factorielle(n):</span>
-<span id="cb41-2"><a href="#cb41-2"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb41-3"><a href="#cb41-3"></a>    fact <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb41-4"><a href="#cb41-4"></a>    <span class="cf">while</span> i <span class="op">&lt;=</span> n:</span>
-<span id="cb41-5"><a href="#cb41-5"></a>        fact <span class="op">=</span> fact <span class="op">*</span> i</span>
-<span id="cb41-6"><a href="#cb41-6"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb41-7"><a href="#cb41-7"></a>    <span class="cf">return</span> fact</span></code></pre></div>
-<ol start="2" type="1">
-<li><strong>Réponse 2 :</strong></li>
-</ol>
 <div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="kw">def</span> factorielle(n):</span>
-<span id="cb42-2"><a href="#cb42-2"></a>    i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a>    fact <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb42-4"><a href="#cb42-4"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n:</span>
+<span id="cb42-4"><a href="#cb42-4"></a>    <span class="cf">while</span> i <span class="op">&lt;=</span> n:</span>
 <span id="cb42-5"><a href="#cb42-5"></a>        fact <span class="op">=</span> fact <span class="op">*</span> i</span>
 <span id="cb42-6"><a href="#cb42-6"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb42-7"><a href="#cb42-7"></a>    <span class="cf">return</span> fact</span></code></pre></div>
+<ol start="2" type="1">
+<li><strong>Réponse 2 :</strong></li>
+</ol>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">def</span> factorielle(n):</span>
+<span id="cb43-2"><a href="#cb43-2"></a>    i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>    fact <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n:</span>
+<span id="cb43-5"><a href="#cb43-5"></a>        fact <span class="op">=</span> fact <span class="op">*</span> i</span>
+<span id="cb43-6"><a href="#cb43-6"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>    <span class="cf">return</span> fact</span></code></pre></div>
 <ol start="3" type="1">
 <li><strong>Réponse 3 :</strong><br />
 </li>
 </ol>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">def</span> factorielle(n):</span>
-<span id="cb43-2"><a href="#cb43-2"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb43-3"><a href="#cb43-3"></a>    fact <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb43-4"><a href="#cb43-4"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n:</span>
-<span id="cb43-5"><a href="#cb43-5"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb43-6"><a href="#cb43-6"></a>        fact <span class="op">=</span> fact <span class="op">*</span> i</span>
-<span id="cb43-7"><a href="#cb43-7"></a>    <span class="cf">return</span> fact</span></code></pre></div>
-<ol start="4" type="1">
-<li><strong>Réponse 4 :</strong></li>
-</ol>
 <div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">def</span> factorielle(n):</span>
 <span id="cb44-2"><a href="#cb44-2"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb44-3"><a href="#cb44-3"></a>    fact <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a>    <span class="cf">while</span> i <span class="op">&lt;=</span> n:</span>
+<span id="cb44-4"><a href="#cb44-4"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n:</span>
 <span id="cb44-5"><a href="#cb44-5"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb44-6"><a href="#cb44-6"></a>        fact <span class="op">=</span> fact <span class="op">*</span> i</span>
 <span id="cb44-7"><a href="#cb44-7"></a>    <span class="cf">return</span> fact</span></code></pre></div>
+<ol start="4" type="1">
+<li><strong>Réponse 4 :</strong></li>
+</ol>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">def</span> factorielle(n):</span>
+<span id="cb45-2"><a href="#cb45-2"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a>    fact <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a>    <span class="cf">while</span> i <span class="op">&lt;=</span> n:</span>
+<span id="cb45-5"><a href="#cb45-5"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a>        fact <span class="op">=</span> fact <span class="op">*</span> i</span>
+<span id="cb45-7"><a href="#cb45-7"></a>    <span class="cf">return</span> fact</span></code></pre></div>
 </div>
 <div class="exercice">
 <p>Écrire une fonction <code>min2(a, b)</code> qui retourne le minimum de deux nombres passés en paramètre, sans utiliser la fonction min du module builtins.</p>
 </div>
 <div class="exercice">
 <p>En voulant programmer une fonction qui calcule la valeur minimale d’une liste d’entiers, on a écrit :</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">def</span> minimum(L):</span>
-<span id="cb45-2"><a href="#cb45-2"></a>    mini <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb45-3"><a href="#cb45-3"></a>    <span class="cf">for</span> e <span class="kw">in</span> L:</span>
-<span id="cb45-4"><a href="#cb45-4"></a>        <span class="cf">if</span> e <span class="op">&lt;</span> mini:</span>
-<span id="cb45-5"><a href="#cb45-5"></a>            mini <span class="op">=</span> e</span>
-<span id="cb45-6"><a href="#cb45-6"></a>    <span class="cf">return</span> mini</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="kw">def</span> minimum(L):</span>
+<span id="cb46-2"><a href="#cb46-2"></a>    mini <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>    <span class="cf">for</span> e <span class="kw">in</span> L:</span>
+<span id="cb46-4"><a href="#cb46-4"></a>        <span class="cf">if</span> e <span class="op">&lt;</span> mini:</span>
+<span id="cb46-5"><a href="#cb46-5"></a>            mini <span class="op">=</span> e</span>
+<span id="cb46-6"><a href="#cb46-6"></a>    <span class="cf">return</span> mini</span></code></pre></div>
 <p>Cette fonction a été mal programmée. Pour quelle liste ne donnera-t-elle pas le résultat attendu, c’est-à-dire son minimum ?</p>
 <p>Réponses :</p>
 <ol type="1">
@@ -1040,11 +1045,11 @@
 </div>
 <div class="exercice">
 <p>Quelle est la valeur de element à la fin de l’exécution du code suivant :</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>L <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">2</span>]</span>
-<span id="cb46-2"><a href="#cb46-2"></a>element <span class="op">=</span> L[<span class="dv">0</span>]</span>
-<span id="cb46-3"><a href="#cb46-3"></a><span class="cf">for</span> k <span class="kw">in</span> L:</span>
-<span id="cb46-4"><a href="#cb46-4"></a>    <span class="cf">if</span> k <span class="op">&gt;</span> element:</span>
-<span id="cb46-5"><a href="#cb46-5"></a>        element <span class="op">=</span> k</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>L <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">2</span>]</span>
+<span id="cb47-2"><a href="#cb47-2"></a>element <span class="op">=</span> L[<span class="dv">0</span>]</span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="cf">for</span> k <span class="kw">in</span> L:</span>
+<span id="cb47-4"><a href="#cb47-4"></a>    <span class="cf">if</span> k <span class="op">&gt;</span> element:</span>
+<span id="cb47-5"><a href="#cb47-5"></a>        element <span class="op">=</span> k</span></code></pre></div>
 <ol type="1">
 <li><strong>Réponse 1 :</strong> 0</li>
 <li><strong>Réponse 2:</strong> 1</li>
@@ -1054,12 +1059,12 @@
 </div>
 <div class="exercice">
 <p>Un élève a écrit la fonction ci-dessus pour déterminer si le premier paramètre n est dans la liste L passée en second paramètre. Le professeur lui indique que son code comporte des erreurs. Proposer une version corrigée de cette fonction.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">def</span> element_dans_liste(n, L):</span>
-<span id="cb47-2"><a href="#cb47-2"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(L)):</span>
-<span id="cb47-3"><a href="#cb47-3"></a>        <span class="cf">if</span> e <span class="op">==</span> n:</span>
-<span id="cb47-4"><a href="#cb47-4"></a>            <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb47-5"><a href="#cb47-5"></a>        <span class="cf">else</span>:</span>
-<span id="cb47-6"><a href="#cb47-6"></a>            <span class="cf">return</span> <span class="va">False</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">def</span> element_dans_liste(n, L):</span>
+<span id="cb48-2"><a href="#cb48-2"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(L)):</span>
+<span id="cb48-3"><a href="#cb48-3"></a>        <span class="cf">if</span> e <span class="op">==</span> n:</span>
+<span id="cb48-4"><a href="#cb48-4"></a>            <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>        <span class="cf">else</span>:</span>
+<span id="cb48-6"><a href="#cb48-6"></a>            <span class="cf">return</span> <span class="va">False</span></span></code></pre></div>
 </div>
 <div class="exercice">
 <p>Pour chacune des listes ci-dessous, déterminer si l’algorithme le plus adapté pour qu’une machine y recherche une valeur est l’algorithme de recherche séquentielle ou l’algorithme de recherche dichotomique.</p>
@@ -1070,26 +1075,26 @@
 </div>
 <div class="exercice">
 <p>Compléter le code de la fonction <code>recherche_dicho_dec(x, L)</code> qui prend en paramètres un nombre <code>x</code> et une liste de nombres <code>L</code> triée dans l’ordre décroissant. Elle doit retourner <code>True</code> si <code>x</code> appartient à L et False sinon.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">def</span> recherche_dicho_dec(x, L):</span>
-<span id="cb48-2"><a href="#cb48-2"></a>    a, b <span class="op">=</span> <span class="dv">0</span>, <span class="bu">len</span>(L) <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a>    <span class="cf">while</span> a <span class="op">&lt;=</span> b:</span>
-<span id="cb48-4"><a href="#cb48-4"></a>        m <span class="op">=</span> (a <span class="op">+</span> b) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb48-5"><a href="#cb48-5"></a>        <span class="cf">if</span> L[m] <span class="op">&gt;</span> x:</span>
-<span id="cb48-6"><a href="#cb48-6"></a>            ..................</span>
-<span id="cb48-7"><a href="#cb48-7"></a>        <span class="cf">elif</span> L[m] <span class="op">&lt;</span> x:</span>
-<span id="cb48-8"><a href="#cb48-8"></a>            ................</span>
-<span id="cb48-9"><a href="#cb48-9"></a>        <span class="cf">else</span>:</span>
-<span id="cb48-10"><a href="#cb48-10"></a>            .................</span>
-<span id="cb48-11"><a href="#cb48-11"></a>    .........................</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="kw">def</span> recherche_dicho_dec(x, L):</span>
+<span id="cb49-2"><a href="#cb49-2"></a>    a, b <span class="op">=</span> <span class="dv">0</span>, <span class="bu">len</span>(L) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>    <span class="cf">while</span> a <span class="op">&lt;=</span> b:</span>
+<span id="cb49-4"><a href="#cb49-4"></a>        m <span class="op">=</span> (a <span class="op">+</span> b) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a>        <span class="cf">if</span> L[m] <span class="op">&gt;</span> x:</span>
+<span id="cb49-6"><a href="#cb49-6"></a>            ..................</span>
+<span id="cb49-7"><a href="#cb49-7"></a>        <span class="cf">elif</span> L[m] <span class="op">&lt;</span> x:</span>
+<span id="cb49-8"><a href="#cb49-8"></a>            ................</span>
+<span id="cb49-9"><a href="#cb49-9"></a>        <span class="cf">else</span>:</span>
+<span id="cb49-10"><a href="#cb49-10"></a>            .................</span>
+<span id="cb49-11"><a href="#cb49-11"></a>    .........................</span></code></pre></div>
 </div>
 <div class="exercice">
 <p><em>Auteur Sylvie Genre</em></p>
 <p>La fonction suivante doit calculer la moyenne d’un tableau de nombres, passé en paramètre. Avec quelles expressions faut-il remplacer les points de suspension pour que la fonction soit correcte ?</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="kw">def</span> moyenne(tableau):</span>
-<span id="cb49-2"><a href="#cb49-2"></a>    total <span class="op">=</span> ...</span>
-<span id="cb49-3"><a href="#cb49-3"></a>    <span class="cf">for</span> valeur <span class="kw">in</span> tableau:</span>
-<span id="cb49-4"><a href="#cb49-4"></a>        total <span class="op">=</span> total <span class="op">+</span> valeur</span>
-<span id="cb49-5"><a href="#cb49-5"></a>    <span class="cf">return</span> total <span class="op">/</span> ...</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="kw">def</span> moyenne(tableau):</span>
+<span id="cb50-2"><a href="#cb50-2"></a>    total <span class="op">=</span> ...</span>
+<span id="cb50-3"><a href="#cb50-3"></a>    <span class="cf">for</span> valeur <span class="kw">in</span> tableau:</span>
+<span id="cb50-4"><a href="#cb50-4"></a>        total <span class="op">=</span> total <span class="op">+</span> valeur</span>
+<span id="cb50-5"><a href="#cb50-5"></a>    <span class="cf">return</span> total <span class="op">/</span> ...</span></code></pre></div>
 <p>Réponses :</p>
 <ol type="1">
 <li><strong>Réponse 1 :</strong> 1 et <code>(len(tableau) + 1)</code></li>
@@ -1099,12 +1104,12 @@
 </div>
 <div class="exercice">
 <p>On considère le code incomplet suivant qui recherche le maximum dans une liste.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>liste <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">12</span>,<span class="dv">15</span>,<span class="dv">3</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">29</span>,<span class="dv">1</span>]</span>
-<span id="cb50-2"><a href="#cb50-2"></a>iMax <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb50-3"><a href="#cb50-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="bu">len</span>(liste)):</span>
-<span id="cb50-4"><a href="#cb50-4"></a>    .........</span>
-<span id="cb50-5"><a href="#cb50-5"></a>iMax <span class="op">=</span> i</span>
-<span id="cb50-6"><a href="#cb50-6"></a><span class="bu">print</span> (liste[iMax])</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>liste <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">12</span>,<span class="dv">15</span>,<span class="dv">3</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">29</span>,<span class="dv">1</span>]</span>
+<span id="cb51-2"><a href="#cb51-2"></a>iMax <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="bu">len</span>(liste)):</span>
+<span id="cb51-4"><a href="#cb51-4"></a>    .........</span>
+<span id="cb51-5"><a href="#cb51-5"></a>iMax <span class="op">=</span> i</span>
+<span id="cb51-6"><a href="#cb51-6"></a><span class="bu">print</span> (liste[iMax])</span></code></pre></div>
 <p>Par quoi faut-il remplacer la ligne pointillée ?</p>
 <p>Réponses :</p>
 <ol type="1">

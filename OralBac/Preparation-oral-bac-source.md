@@ -604,13 +604,14 @@ Réponses :
 
 3. __Réponse 3:__ 22
 
-4. __Réponse 42:__ le programme ne termine pas, la boucle tourne indéfiniment
+4. __Réponse 4:__ le programme ne termine pas, la boucle tourne indéfiniment
 :::
 
 
 :::exercice
 
 On définit en Python la fonction suivante :
+
 ~~~python
 def f(L):
     S = []

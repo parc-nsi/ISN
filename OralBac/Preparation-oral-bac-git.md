@@ -711,7 +711,7 @@ Réponses :
 1.  11 1100 1101
 2.  11 1110 0101
 3.  10 0111 1001
-4.  10 1111 0001
+4.  10 1111 1001
 
 **Exercice 35**
 
@@ -744,7 +744,7 @@ Réponses :
 **Exercice 37**
 
 Le codage en base seize de l’entier
-![256](https://latex.codecogs.com/png.latex?256 "256") est :
+![255](https://latex.codecogs.com/png.latex?255 "255") est :
 
 1.  ![\\overline{F1}^{16}](https://latex.codecogs.com/png.latex?%5Coverline%7BF1%7D%5E%7B16%7D
     "\\overline{F1}^{16}")
@@ -890,8 +890,8 @@ Réponses :
 2.  Convertir en base dix l’entier naturel dont l’écriture en base six
     est 4321.
 3.  Écrire en Python une fonction `base6(L)` qui renvoie la valeur
-    entière correspondant à la liste des chiffres de l’écriture en base
-    6.
+    décimale correspondant à la liste des chiffres de l’écriture en
+    base 6, classés par poids croissant.
 
 Exemple : `base6([1, 3, 2])` doit renvoyer 56 car ![1 \\times 6^{2} + 3
 \\times 6 + 2
@@ -901,52 +901,39 @@ Exemple : `base6([1, 3, 2])` doit renvoyer 56 car ![1 \\times 6^{2} + 3
 **Exercice 47**
 
 1.  Pour déterminer la liste des chiffres en base dix d’un entier
-    naturel, un élève a écrit la fonction ci-dessous :
-
-<!-- end list -->
-
-``` python
-def liste_chiffres(n):
-    L = [n % 10]
-    while n > 0:
-        n = n // 10
-        L.insert(0, n % 10)
-    return L
-```
-
-Malheureusement sa fonction ne retourne pas le résultat attendu pour
-l’entier ![730](https://latex.codecogs.com/png.latex?730 "730") :
-
-``` python
->>> liste_chiffres(730)
-[0, 7, 3, 0]
-```
-
-Proposer une version corrigée de la fonction `liste\_chiffres`.
+    naturel, un élève a écrit la fonction ci-dessous : \~~~python def
+    liste\_chiffres(n): L = \[n % 10\] while n \> 0: n = n // 10
+    L.insert(0, n % 10) return L~~\~
+    
+    Malheureusement sa fonction ne retourne pas le résultat attendu pour
+    l’entier ![730](https://latex.codecogs.com/png.latex?730 "730") :
+    
+    ``` python
+    >>> liste_chiffres(730)
+    [0, 7, 3, 0]
+    ```
+    
+    Proposer une version corrigée de la fonction `liste_chiffres`.
 
 2.  Compléter la fonction `somme_chiffres_base2(n)` pour qu’elle
     retourne la somme des chiffres en base deux de l’entier `n` passé en
     paramètre.
+    
+    ``` python
+    def somme_chiffres_base2(n):
+        s = 0
+        while n > 0:
+            s = s + n % 2
+            ..............
+        return s
+    ```
 
-<!-- end list -->
-
-``` python
-def somme_chiffres_base2(n):
-    s = 0
-    while n > 0:
-        s = s + n % 2
-        ..............
-    return s
-```
-
-3.  Déterminer une valeur possible de la variable  telle que :
-
-<!-- end list -->
-
-``` python
->>> somme_chiffres(secret)
-734
-```
+3.  Déterminer une valeur possible de la variable `secret` telle que :
+    
+    ``` python
+    >>> somme_chiffres_base2((secret)
+    734
+    ```
 
 4.  Écrire une fonction `maximum_chiffre(n)` qui retourne le plus grand
     chiffre de l’écriture en base dix de l’entier naturel `n` passé en
@@ -970,7 +957,7 @@ Le nombre de chiffres en base
 
 Compléter la fonction ci-dessous pour qu’elle retourne le nombre de
 chiffres en base ![2](https://latex.codecogs.com/png.latex?2 "2") de
-l’entier  passé en paramètres.
+l’entier `n` passé en paramètres.
 
 ``` python
 def nbchiffres_base2(n):
@@ -1008,15 +995,15 @@ Réponses :
 
 **Exercice 51**
 
-Sachant que l’expression `not(a or b)` a la valeur True, quelles peuvent
-être les valeurs des variables booléennes a et b ?
+Sachant que l’expression `not(a or b)` a la valeur `True`, quelles
+peuvent être les valeurs des variables booléennes a et b ?
 
 Réponses :
 
-1.  True et True
-2.  False et True
-3.  True et False
-4.  False et False
+1.  `True` et `True`
+2.  `False` et `True`
+3.  `True` et `False`
+4.  `False` et `False`
 
 **Exercice 52**
 
@@ -1121,66 +1108,24 @@ Quelle est la fonction correcte parmi les suivantes ?
 
 Réponses :
 
-1.  **Réponse 1 :**
+1.  **Réponse 1 :** \~~~python def factorielle(n): i = 0 fact = 1 while
+    i \<= n: fact = fact \* i i = i + 1 return fact~~\~
 
-<!-- end list -->
-
-``` python
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i <= n:
-        fact = fact * i
-        i = i + 1
-    return fact
-```
-
-2.  **Réponse 2 :**
-
-<!-- end list -->
-
-``` python
-def factorielle(n):
-    i = 1
-    fact = 1
-    while i < n:
-        fact = fact * i
-        i = i + 1
-    return fact
-```
+2.  **Réponse 2 :** \~~~python def factorielle(n): i = 1 fact = 1 while
+    i \< n: fact = fact \* i i = i + 1 return fact~~\~
 
 3.  **Réponse 3 :**  
+    \~~~python def factorielle(n): i = 0 fact = 1 while i \< n: i = i +
+    1 fact = fact \* i return fact~~\~
 
-<!-- end list -->
-
-``` python
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i < n:
-        i = i + 1
-        fact = fact * i
-    return fact
-```
-
-4.  **Réponse 4 :**
-
-<!-- end list -->
-
-``` python
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i <= n:
-        i = i + 1
-        fact = fact * i
-    return fact
-```
+4.  **Réponse 4 :** \~~~python def factorielle(n): i = 0 fact = 1 while
+    i \<= n: i = i + 1 fact = fact \* i return fact~~\~
 
 **Exercice 59**
 
 Écrire une fonction `min2(a, b)` qui retourne le minimum de deux nombres
-passés en paramètre, sans utiliser la fonction min du module builtins.
+passés en paramètre, sans utiliser la fonction `min` du module
+`builtins`.
 
 **Exercice 60**
 
@@ -1231,7 +1176,7 @@ for k in L:
 
 **Exercice 63**
 
-Un élève a écrit la fonction ci-dessus pour déterminer si le premier
+Un élève a écrit la fonction ci-dessous pour déterminer si le premier
 paramètre n est dans la liste L passée en second paramètre. Le
 professeur lui indique que son code comporte des erreurs. Proposer une
 version corrigée de cette fonction.
@@ -1309,7 +1254,7 @@ liste = [5,12,15,3,15,17,29,1]
 iMax = 0
 for i in range(1,len(liste)):
     .........
-iMax = i
+        iMax = i
 print (liste[iMax])
 ```
 
@@ -1334,7 +1279,7 @@ Réponses :
 1.  Internet Protocol
 2.  HTML
 3.  HTTP
-4.  TCP
+4.  SMTP
 5.  WWW
 
 **Exercice 69**
@@ -1373,12 +1318,12 @@ lien hypertexte vers la page <https://www.w3schools.com/> est :
 
 Réponses :
 
-1.  `<a href="https://www.w3schools.com/">lien hypertexte</a>`
-
-2.  `<a
+1.  `<a
     href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
 
-3.  `<a href="lien hypertexte">https://www.w3schools.com/</a>`
+2.  `<a href="lien hypertexte">https://www.w3schools.com/</a>`
+
+3.  `<a href="https://www.w3schools.com/">lien hypertexte</a>`
 
 4.  `<href a="https://www.w3schools.com/">lien hypertexte</href>`
 

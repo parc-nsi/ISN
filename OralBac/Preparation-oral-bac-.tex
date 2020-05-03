@@ -63,6 +63,9 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
+\usepackage[normalem]{ulem}
+% Avoid problems with \sout in headers with hyperref
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -1729,7 +1732,7 @@ Réponses :
 \item
   10 0111 1001
 \item
-  10 1111 0001
+  10 1111 1001
 \end{enumerate}
 
 \end{exercice}
@@ -1784,7 +1787,7 @@ Réponses :
 
 \begin{exercice}{}
 
-Le codage en base seize de l'entier \(256\) est :
+Le codage en base seize de l'entier \(255\) est :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2021,8 +2024,8 @@ Réponses :
   4321.
 \item
   Écrire en Python une fonction \passthrough{\lstinline!base6(L)!} qui
-  renvoie la valeur entière correspondant à la liste des chiffres de
-  l'écriture en base 6.
+  renvoie la valeur décimale correspondant à la liste des chiffres de
+  l'écriture en base 6, classés par poids croissant.
 \end{enumerate}
 
 Exemple : \passthrough{\lstinline!base6([1, 3, 2])!} doit renvoyer 56
@@ -2034,42 +2037,28 @@ car \(1 \times 6^{2} + 3 \times 6 + 2 = 56\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Pour déterminer la liste des chiffres en base dix d'un entier naturel,
   un élève a écrit la fonction ci-dessous :
-\end{enumerate}
+  \textasciitilde{}\sout{python def liste\_chiffres(n): L = {[}n \%
+  10{]} while n \textgreater{} 0: n = n // 10 L.insert(0, n \% 10)
+  return L}\textasciitilde{}
 
-\begin{lstlisting}[language=Python]
-def liste_chiffres(n):
-    L = [n % 10]
-    while n > 0:
-        n = n // 10
-        L.insert(0, n % 10)
-    return L
-\end{lstlisting}
-
-Malheureusement sa fonction ne retourne pas le résultat attendu pour
-l'entier \(730\) :
+  Malheureusement sa fonction ne retourne pas le résultat attendu pour
+  l'entier \(730\) :
 
 \begin{lstlisting}[language=Python]
 >>> liste_chiffres(730)
 [0, 7, 3, 0]
 \end{lstlisting}
 
-Proposer une version corrigée de la fonction
-\passthrough{\lstinline!liste\\\_chiffres!}.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
+  Proposer une version corrigée de la fonction
+  \passthrough{\lstinline!liste\_chiffres!}.
 \item
   Compléter la fonction
   \passthrough{\lstinline!somme\_chiffres\_base2(n)!} pour qu'elle
   retourne la somme des chiffres en base deux de l'entier
   \passthrough{\lstinline!n!} passé en paramètre.
-\end{enumerate}
 
 \begin{lstlisting}[language=Python]
 def somme_chiffres_base2(n):
@@ -2079,25 +2068,14 @@ def somme_chiffres_base2(n):
         ..............
     return s
 \end{lstlisting}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
 \item
-  Déterminer une valeur possible de la variable \texttt{secret} telle
-  que :
-\end{enumerate}
+  Déterminer une valeur possible de la variable
+  \passthrough{\lstinline!secret!} telle que :
 
 \begin{lstlisting}[language=Python]
->>> somme_chiffres(secret)
+>>> somme_chiffres_base2((secret)
 734
 \end{lstlisting}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
-\tightlist
 \item
   Écrire une fonction \passthrough{\lstinline!maximum\_chiffre(n)!} qui
   retourne le plus grand chiffre de l'écriture en base dix de l'entier
@@ -2120,7 +2098,8 @@ Le nombre de chiffres en base \(2\) d'un entier naturel \(n\) est :
 \end{itemize}
 
 Compléter la fonction ci-dessous pour qu'elle retourne le nombre de
-chiffres en base \(2\) de l'entier \texttt{n} passé en paramètres.
+chiffres en base \(2\) de l'entier \passthrough{\lstinline!n!} passé en
+paramètres.
 
 \begin{lstlisting}[language=Python]
 def nbchiffres_base2(n):
@@ -2175,8 +2154,8 @@ Réponses :
 \begin{exercice}{}
 
 Sachant que l'expression \passthrough{\lstinline!not(a or b)!} a la
-valeur True, quelles peuvent être les valeurs des variables booléennes a
-et b~?
+valeur \passthrough{\lstinline!True!}, quelles peuvent être les valeurs
+des variables booléennes a et b~?
 
 Réponses :
 
@@ -2184,13 +2163,13 @@ Réponses :
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  True et True
+  \passthrough{\lstinline!True!} et \passthrough{\lstinline!True!}
 \item
-  False et True
+  \passthrough{\lstinline!False!} et \passthrough{\lstinline!True!}
 \item
-  True et False
+  \passthrough{\lstinline!True!} et \passthrough{\lstinline!False!}
 \item
-  False et False
+  \passthrough{\lstinline!False!} et \passthrough{\lstinline!False!}
 \end{enumerate}
 
 \end{exercice}
@@ -2346,74 +2325,24 @@ Réponses :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
-  \textbf{Réponse 1 :}
-\end{enumerate}
-
-\begin{lstlisting}[language=Python]
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i <= n:
-        fact = fact * i
-        i = i + 1
-    return fact
-\end{lstlisting}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
+  \textbf{Réponse 1 :} \textasciitilde{}\sout{python def factorielle(n):
+  i = 0 fact = 1 while i \textless= n: fact = fact * i i = i + 1 return
+  fact}\textasciitilde{}
 \item
-  \textbf{Réponse 2 :}
-\end{enumerate}
-
-\begin{lstlisting}[language=Python]
-def factorielle(n):
-    i = 1
-    fact = 1
-    while i < n:
-        fact = fact * i
-        i = i + 1
-    return fact
-\end{lstlisting}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
+  \textbf{Réponse 2 :} \textasciitilde{}\sout{python def factorielle(n):
+  i = 1 fact = 1 while i \textless{} n: fact = fact * i i = i + 1 return
+  fact}\textasciitilde{}
 \item
   \textbf{Réponse 3 :}\\
-\end{enumerate}
-
-\begin{lstlisting}[language=Python]
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i < n:
-        i = i + 1
-        fact = fact * i
-    return fact
-\end{lstlisting}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
-\tightlist
+  \textasciitilde{}\sout{python def factorielle(n): i = 0 fact = 1 while
+  i \textless{} n: i = i + 1 fact = fact * i return
+  fact}\textasciitilde{}
 \item
-  \textbf{Réponse 4 :}
+  \textbf{Réponse 4 :} \textasciitilde{}\sout{python def factorielle(n):
+  i = 0 fact = 1 while i \textless= n: i = i + 1 fact = fact * i return
+  fact}\textasciitilde{}
 \end{enumerate}
-
-\begin{lstlisting}[language=Python]
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i <= n:
-        i = i + 1
-        fact = fact * i
-    return fact
-\end{lstlisting}
 
 \end{exercice}
 
@@ -2421,7 +2350,8 @@ def factorielle(n):
 
 Écrire une fonction \passthrough{\lstinline!min2(a, b)!} qui retourne le
 minimum de deux nombres passés en paramètre, sans utiliser la fonction
-min du module builtins.
+\passthrough{\lstinline!min!} du module
+\passthrough{\lstinline!builtins!}.
 
 \end{exercice}
 
@@ -2496,7 +2426,7 @@ for k in L:
 
 \begin{exercice}{}
 
-Un élève a écrit la fonction ci-dessus pour déterminer si le premier
+Un élève a écrit la fonction ci-dessous pour déterminer si le premier
 paramètre n est dans la liste L passée en second paramètre. Le
 professeur lui indique que son code comporte des erreurs. Proposer une
 version corrigée de cette fonction.
@@ -2597,7 +2527,7 @@ liste = [5,12,15,3,15,17,29,1]
 iMax = 0
 for i in range(1,len(liste)):
     .........
-iMax = i
+        iMax = i
 print (liste[iMax])
 \end{lstlisting}
 
@@ -2641,7 +2571,7 @@ Réponses :
 \item
   HTTP
 \item
-  TCP
+  SMTP
 \item
   WWW
 \end{enumerate}
@@ -2699,11 +2629,11 @@ Réponses :
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \passthrough{\lstinline!<a href="https://www.w3schools.com/">lien hypertexte</a>!}
-\item
   \passthrough{\lstinline!<a href="https://www.w3schools.com/">https://www.w3schools.com/</a>!}
 \item
   \passthrough{\lstinline!<a href="lien hypertexte">https://www.w3schools.com/</a>!}
+\item
+  \passthrough{\lstinline!<a href="https://www.w3schools.com/">lien hypertexte</a>!}
 \item
   \passthrough{\lstinline!<href a="https://www.w3schools.com/">lien hypertexte</href>!}
 \end{enumerate}

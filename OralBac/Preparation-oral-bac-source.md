@@ -713,7 +713,7 @@ Réponses :
 1. 11 1100 1101
 2. 11 1110 0101
 3. 10 0111 1001
-4. 10 1111 0001
+4. 10 1111 1001
 :::
 
 
@@ -746,7 +746,7 @@ Réponses :
 :::
 
 :::exercice
-Le codage en base seize de l'entier $256$ est :
+Le codage en base seize de l'entier $255$ est :
 
 1. $\overline{F1}^{16}$
 2. $\overline{A1}^{16}$
@@ -884,7 +884,7 @@ Réponses :
 
 1. Convertir 3970 en base 6.
 2. Convertir en base dix l’entier naturel dont l'écriture en base six est 4321.
-3. Écrire en Python une fonction `base6(L)` qui renvoie la valeur entière correspondant à la liste des chiffres de l'écriture en base 6.
+3. Écrire en Python une fonction `base6(L)` qui renvoie la valeur décimale correspondant à la liste des chiffres de l'écriture en  base 6, classés par poids croissant.
 
 Exemple : `base6([1, 3, 2])` doit renvoyer 56 car $1 \times 6^{2} + 3 \times 6 + 2 = 56$.
 :::
@@ -892,42 +892,41 @@ Exemple : `base6([1, 3, 2])` doit renvoyer 56 car $1 \times 6^{2} + 3 \times 6 +
 
 :::exercice
 1. Pour déterminer la liste des chiffres en base dix d'un entier naturel, un élève a écrit la fonction ci-dessous :
-   
-~~~python
-def liste_chiffres(n):
-    L = [n % 10]
-    while n > 0:
-        n = n // 10
-        L.insert(0, n % 10)
-    return L
-~~~
+    ~~~python
+    def liste_chiffres(n):
+        L = [n % 10]
+        while n > 0:
+            n = n // 10
+            L.insert(0, n % 10)
+        return L
+    ~~~
 
-Malheureusement sa fonction ne retourne pas le résultat attendu pour l'entier $730$ :
+    Malheureusement sa fonction ne retourne pas le résultat attendu pour l'entier $730$ :
 
-~~~python
->>> liste_chiffres(730)
-[0, 7, 3, 0]
-~~~
+    ~~~python
+    >>> liste_chiffres(730)
+    [0, 7, 3, 0]
+    ~~~
 
-Proposer une version corrigée de la fonction `liste\_chiffres`.
+    Proposer une version corrigée de la fonction `liste_chiffres`.
 
 2. Compléter la fonction `somme_chiffres_base2(n)` pour qu'elle  retourne la somme des chiffres en base deux de l'entier `n` passé en paramètre. 
 
-~~~python
-def somme_chiffres_base2(n):
-    s = 0
-    while n > 0:
-        s = s + n % 2
-        ..............
-    return s
-~~~
+    ~~~python
+    def somme_chiffres_base2(n):
+        s = 0
+        while n > 0:
+            s = s + n % 2
+            ..............
+        return s
+    ~~~
 
-3. Déterminer une valeur possible de la variable \texttt{secret} telle que :
+3. Déterminer une valeur possible de la variable `secret` telle que :
 
-~~~python
->>> somme_chiffres(secret)
-734
-~~~
+    ~~~python
+    >>> somme_chiffres_base2((secret)
+    734
+    ~~~
 
 4. Écrire une fonction `maximum_chiffre(n)` qui retourne le plus grand chiffre de l'écriture en base dix de l'entier naturel  `n`  passé en paramètre. 
 :::
@@ -939,7 +938,7 @@ Le nombre de chiffres en base $2$ d'un entier naturel $n$ est :
 * $1$ si $n$ est égal à $0$ ;
 * l'unique entier $p$ tel que $2^{p-1} \leqslant n < 2^{p}$ si $n$ supérieur à $0$.
 
-Compléter la fonction ci-dessous pour qu'elle retourne le nombre de chiffres en base $2$ de l'entier \texttt{n} passé en paramètres. 
+Compléter la fonction ci-dessous pour qu'elle retourne le nombre de chiffres en base $2$ de l'entier `n` passé en paramètres. 
 
 ~~~python
 def nbchiffres_base2(n):
@@ -980,15 +979,15 @@ Réponses :
 :::
 
 :::exercice
-Sachant que l'expression `not(a or b)` a la valeur True, quelles peuvent
+Sachant que l'expression `not(a or b)` a la valeur `True`, quelles peuvent
 être les valeurs des variables booléennes a et b ?
 
 Réponses :
 
-1. True et True
-2. False et True
-3. True et False
-4. False et False
+1. `True` et `True`
+2. `False` et `True`
+3. `True` et `False`
+4. `False` et `False`
 :::
 
 :::exercice
@@ -1098,54 +1097,54 @@ Quelle est la fonction correcte parmi les suivantes ?
 Réponses :
 
 1. __Réponse 1 :__ 
-~~~python
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i <= n:
-        fact = fact * i
-        i = i + 1
-    return fact
-~~~
+    ~~~python
+    def factorielle(n):
+        i = 0
+        fact = 1
+        while i <= n:
+            fact = fact * i
+            i = i + 1
+        return fact
+    ~~~
 
 2. __Réponse 2 :__ 
-~~~python
-def factorielle(n):
-    i = 1
-    fact = 1
-    while i < n:
-        fact = fact * i
-        i = i + 1
-    return fact
-~~~
+    ~~~python
+    def factorielle(n):
+        i = 1
+        fact = 1
+        while i < n:
+            fact = fact * i
+            i = i + 1
+        return fact
+    ~~~
 
 3. __Réponse 3 :__  
-~~~python
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i < n:
-        i = i + 1
-        fact = fact * i
-    return fact
-~~~
+    ~~~python
+    def factorielle(n):
+        i = 0
+        fact = 1
+        while i < n:
+            i = i + 1
+            fact = fact * i
+        return fact
+    ~~~
 
 4. __Réponse 4 :__
-~~~python
-def factorielle(n):
-    i = 0
-    fact = 1
-    while i <= n:
-        i = i + 1
-        fact = fact * i
-    return fact
-~~~
+    ~~~python
+    def factorielle(n):
+        i = 0
+        fact = 1
+        while i <= n:
+            i = i + 1
+            fact = fact * i
+        return fact
+    ~~~
 :::
 
 
 :::exercice
 Écrire une fonction `min2(a, b)` qui retourne le minimum de deux nombres passés en
-paramètre, sans utiliser la fonction min du module builtins.
+paramètre, sans utiliser la fonction `min` du module `builtins`.
 :::
 
 
@@ -1198,7 +1197,7 @@ for k in L:
 
 
 :::exercice
-Un élève a écrit la fonction ci-dessus pour déterminer si le premier paramètre n est dans la
+Un élève a écrit la fonction ci-dessous pour déterminer si le premier paramètre n est dans la
 liste L passée en second paramètre. Le professeur lui indique que son code comporte des erreurs.
 Proposer une version corrigée de cette fonction.
 
@@ -1277,7 +1276,7 @@ liste = [5,12,15,3,15,17,29,1]
 iMax = 0
 for i in range(1,len(liste)):
     .........
-iMax = i
+        iMax = i
 print (liste[iMax])
 ~~~
 
@@ -1301,7 +1300,7 @@ Réponses :
 1. Internet Protocol
 2. HTML
 3. HTTP
-4. TCP
+4. SMTP
 5. WWW
 :::
 
@@ -1341,13 +1340,13 @@ Dans le fichier source d'une page Web, le code qui permet de créer un lien hype
 
 Réponses :
 
-1. `<a href="https://www.w3schools.com/">lien hypertexte</a>`
+1. `<a href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
 
-2. `<a href="https://www.w3schools.com/">https://www.w3schools.com/</a>`
+2. `<a href="lien hypertexte">https://www.w3schools.com/</a>`
 
-3. `<a href="lien hypertexte">https://www.w3schools.com/</a>`
-
-4. `<href a="https://www.w3schools.com/">lien hypertexte</href>`
+3. `<a href="https://www.w3schools.com/">lien hypertexte</a>`
+   
+2. `<href a="https://www.w3schools.com/">lien hypertexte</href>`
 :::
 
 

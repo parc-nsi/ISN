@@ -191,9 +191,25 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
     * exercice 57 : parcours d'un tableau
   - Corrigés des exercices de préparation :
     * [Corrigés des exercices de préparation version notebook jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=/OralBac/Corrige-Oral-Bac.ipynb)  Soyeez patient lors du lancement, c'est long !
-    * [Corrigés des exercices de préparation version pdf](/OralBac/Corrige-Oral-Bac.pdf)  Il manque les 15 derniers pour une raison que j'ignore je n'arrive pas à les inclure dans mon pdf !
+    * [Corrigés des exercices de préparation version pdf](/OralBac/Corrige-Oral-Bac.pdf)  
   - Travail par groupes de projet 
   - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a) 
   - Réaliser pour le lundi 15 juin le parcours Pix sur la compétence Programmation en se connectant à Pix dans le mediacentre et en saisissant le code de parcours EGUWVV824.   Voici un tutoriel video pour réaliser son premier parcours Pix [https://tube.ac-lyon.fr/videos/watch/bf3f0e4c-21a4-4f3a-88b5-678aa7f2cc44](https://tube.ac-lyon.fr/videos/watch/bf3f0e4c-21a4-4f3a-88b5-678aa7f2cc44).
+
+* Classe virtuelle du lundi 04/05/2020:
+  - [Consignes pour la présentation de projet](https://frederic-junier.github.io/ISN/OralBac/2020-04-07-ProjetISN2020-Modalite-Evaluation.pdf)
+  - Préparation de l'oral du bac sur [https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html](https://frederic-junier.github.io/ISN/OralBac/Preparation-oral-bac-git.html)
+    * exercices 22 à 25 : listes et boucles
+    * exercices 31,32 et 33 : représentation en base deux d'entiers en écriture décimale
+    * exercice 51 et 52   : expressions booléennes
+  - Corrigés des exercices de préparation :
+    * [Corrigés des exercices de préparation version notebook jupyter](https://mybinder.org/v2/gh/frederic-junier/ISN/master?filepath=/OralBac/Corrige-Oral-Bac.ipynb)  Soyeez patient lors du lancement, c'est long !
+    * [Corrigés des exercices de préparation version pdf](/OralBac/Corrige-Oral-Bac.pdf)  
+  - Travail par groupes de projet 
+  - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a) 
+  - Réaliser pour le lundi 15 juin le parcours Pix sur la compétence Programmation en se connectant à Pix dans le mediacentre et en saisissant le code de parcours EGUWVV824.   Voici un tutoriel video pour réaliser son premier parcours Pix [https://tube.ac-lyon.fr/videos/watch/bf3f0e4c-21a4-4f3a-88b5-678aa7f2cc44](https://tube.ac-lyon.fr/videos/watch/bf3f0e4c-21a4-4f3a-88b5-678aa7f2cc44).
+
+
+
 
  

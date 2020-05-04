@@ -207,7 +207,8 @@ Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers
     * [Corrigés des exercices de préparation version pdf](/OralBac/Corrige-Oral-Bac.pdf)  
   - Travail par groupes de projet 
   - [Partage de code en ligne avec repl.it, tutoriel video](https://tube.ac-lyon.fr/videos/watch/d282e345-db21-4572-8d1d-69a12b4e7f9a) 
-  - [Tutoriel Pygame](https://repl.it/@fredericjunier/tutoriel-pygame)
+  - [Exemple Pygame sur repl.it](https://repl.it/@fredericjunier/tutoriel-pygame)
+  - [Exemple Tkinter sur repl.it](https://repl.it/@fredericjunier/tutorielTkinter)
   - Retour du dossier projet le lundi 25 mai dernier délai
   - Réaliser pour le lundi 15 juin le parcours Pix sur la compétence Programmation en se connectant à Pix dans le mediacentre et en saisissant le code de parcours EGUWVV824.   Voici un tutoriel video pour réaliser son premier parcours Pix [https://tube.ac-lyon.fr/videos/watch/bf3f0e4c-21a4-4f3a-88b5-678aa7f2cc44](https://tube.ac-lyon.fr/videos/watch/bf3f0e4c-21a4-4f3a-88b5-678aa7f2cc44).
 
